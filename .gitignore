@@ -1,0 +1,12 @@
+# File: .gitignore
+node_modules/
+.next/
+out/
+build/
+
+# Secrets — never commit real API keys. .env.local.example is the template.
+.env*.local
+
+npm-debug.log*
+.DS_Store
+*.tsbuildinfo

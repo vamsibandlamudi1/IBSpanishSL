@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad_social-organization-education" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e3a8a" />
+      <stop offset="100%" stop-color="#1d4ed8" />
+    </linearGradient>
+  </defs>
+  
+          <!-- Classroom Background -->
+          <rect width="1200" height="675" fill="#f8fafc" />
+          <!-- Whiteboard -->
+          <rect x="250" y="80" width="700" height="320" rx="12" fill="#0f766e" stroke="#334155" stroke-width="12" />
+          <!-- Whiteboard Content -->
+          <text x="600" y="160" font-size="28" font-weight="bold" fill="#ffffff" text-anchor="middle">Día Internacional de la Educación 📚</text>
+          <path d="M 350 250 Q 600 200 850 250" fill="none" stroke="#2dd4bf" stroke-width="6" stroke-dasharray="10 10" />
+          <circle cx="600" cy="225" r="45" fill="#ffffff" opacity="0.2" />
+          <text x="600" y="235" font-size="36" text-anchor="middle">🧠 💡 📊</text>
+          <!-- Teacher -->
+          <circle cx="180" cy="260" r="35" fill="#0284c7" />
+          <rect x="150" y="300" width="60" height="150" fill="#0369a1" rx="10" />
+          <line x1="210" y1="330" x2="300" y2="240" stroke="#f59e0b" stroke-width="8" stroke-linecap="round" />
+          <text x="180" y="250" font-size="30" text-anchor="middle">👨‍🏫</text>
+          <!-- Desks & Students Raising Hands -->
+          <!-- Desk 1 -->
+          <rect x="320" y="480" width="180" height="80" fill="#94a3b8" rx="8" />
+          <circle cx="410" cy="440" r="30" fill="#ea580c" />
+          <line x1="430" y1="420" x2="460" y2="350" stroke="#ea580c" stroke-width="14" stroke-linecap="round" />
+          <text x="410" y="430" font-size="26" text-anchor="middle">🙋‍♀️</text>
+          <!-- Desk 2 -->
+          <rect x="580" y="480" width="180" height="80" fill="#94a3b8" rx="8" />
+          <circle cx="670" cy="440" r="30" fill="#16a34a" />
+          <line x1="690" y1="420" x2="720" y2="340" stroke="#16a34a" stroke-width="14" stroke-linecap="round" />
+          <text x="670" y="430" font-size="26" text-anchor="middle">🙋‍♂️</text>
+          <!-- Desk 3 -->
+          <rect x="840" y="480" width="180" height="80" fill="#94a3b8" rx="8" />
+          <circle cx="930" cy="440" r="30" fill="#9333ea" />
+          <line x1="950" y1="420" x2="980" y2="350" stroke="#9333ea" stroke-width="14" stroke-linecap="round" />
+          <text x="930" y="430" font-size="26" text-anchor="middle">🙋‍♀️</text>
+        
+  <!-- Header Overlay -->
+  <rect x="30" y="30" width="340" height="38" rx="19" fill="#0f172a" opacity="0.85" />
+  <text x="50" y="55" font-family="sans-serif" font-size="14" font-weight="bold" fill="#e2e8f0" letter-spacing="1">
+    SOCIAL ORGANIZATION
+  </text>
+  <!-- Footer Scene Banner Overlay -->
+  <rect x="30" y="575" width="1140" height="70" rx="14" fill="#0f172a" opacity="0.9" />
+  <text x="55" y="602" font-family="sans-serif" font-size="13" font-weight="bold" fill="#c084fc" letter-spacing="1">
+    ESCENA DEL ESTIMULO:
+  </text>
+  <text x="55" y="628" font-family="sans-serif" font-size="17" font-weight="600" fill="#ffffff">
+    Un aula de estudiantes levantando la mano con entusiasmo mientras un profesor señala un diagrama en la pizarra.
+  </text>
+</svg>

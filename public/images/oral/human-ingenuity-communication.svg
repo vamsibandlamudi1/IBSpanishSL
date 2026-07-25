@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad_human-ingenuity-communication" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#312e81" />
+      <stop offset="100%" stop-color="#4338ca" />
+    </linearGradient>
+  </defs>
+  
+          <!-- Dark Bedroom at Night -->
+          <rect width="1200" height="675" fill="#090d16" />
+          <!-- Window with Moon & Stars -->
+          <rect x="800" y="60" width="300" height="260" rx="16" fill="#1e1b4b" stroke="#3730a3" stroke-width="6" />
+          <text x="950" y="160" font-size="60" text-anchor="middle">🌙 ⭐️ ✨</text>
+          <!-- Bed & Teenager Scrolling Smartphone -->
+          <rect x="150" y="380" width="700" height="160" rx="16" fill="#1e293b" />
+          <circle cx="300" cy="370" r="40" fill="#f43f5e" />
+          <text x="300" y="365" font-size="32" text-anchor="middle">🛌</text>
+          <!-- Glowing Smartphone Screen -->
+          <rect x="420" y="240" width="160" height="280" rx="20" fill="#0284c7" stroke="#38bdf8" stroke-width="6" />
+          <!-- Glowing Aura Filter -->
+          <circle cx="500" cy="380" r="140" fill="#38bdf8" opacity="0.15" />
+          <!-- Social Media App Elements on Phone -->
+          <rect x="440" y="270" width="120" height="35" rx="8" fill="#ffffff" />
+          <text x="500" y="293" font-weight="bold" font-size="14" fill="#0284c7" text-anchor="middle">💬 Chat Feed</text>
+          <circle cx="460" cy="330" r="15" fill="#ef4444" />
+          <circle cx="500" cy="370" r="15" fill="#22c55e" />
+          <circle cx="540" cy="410" r="15" fill="#eab308" />
+          <text x="500" y="475" font-size="28" text-anchor="middle">📱 👍 ❤️</text>
+        
+  <!-- Header Overlay -->
+  <rect x="30" y="30" width="340" height="38" rx="19" fill="#0f172a" opacity="0.85" />
+  <text x="50" y="55" font-family="sans-serif" font-size="14" font-weight="bold" fill="#e2e8f0" letter-spacing="1">
+    HUMAN INGENUITY
+  </text>
+  <!-- Footer Scene Banner Overlay -->
+  <rect x="30" y="575" width="1140" height="70" rx="14" fill="#0f172a" opacity="0.9" />
+  <text x="55" y="602" font-family="sans-serif" font-size="13" font-weight="bold" fill="#c084fc" letter-spacing="1">
+    ESCENA DEL ESTIMULO:
+  </text>
+  <text x="55" y="628" font-family="sans-serif" font-size="17" font-weight="600" fill="#ffffff">
+    Un adolescente revisando las redes sociales en un teléfono inteligente por la noche en la cama, con la habitación oscura excepto por la luz de la pantalla.
+  </text>
+</svg>

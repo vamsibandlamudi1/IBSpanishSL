@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad_sharing-planet-consumption" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#15803d" />
+      <stop offset="100%" stop-color="#047857" />
+    </linearGradient>
+  </defs>
+  
+          <!-- Supermarket Aisle Background -->
+          <rect width="1200" height="675" fill="#f0fdf4" />
+          <!-- Shelves Left & Right -->
+          <rect x="50" y="80" width="300" height="450" fill="#bbf7d0" rx="10" stroke="#16a34a" stroke-width="4" />
+          <text x="200" y="160" font-size="40" text-anchor="middle">📦 🧃 🥫</text>
+          <text x="200" y="300" font-size="40" text-anchor="middle">🥣 🍿 🍫</text>
+          <rect x="850" y="80" width="300" height="450" fill="#bbf7d0" rx="10" stroke="#16a34a" stroke-width="4" />
+          <text x="1000" y="160" font-size="40" text-anchor="middle">🍌 🍎 🍊</text>
+          <text x="1000" y="300" font-size="40" text-anchor="middle">🥦 🍞 🥛</text>
+          <!-- Customer in Center Comparing Two Products -->
+          <circle cx="600" cy="240" r="45" fill="#0d9488" />
+          <text x="600" y="235" font-size="38" text-anchor="middle">🧑‍🛒</text>
+          <!-- Product Left: Fair-Trade Label -->
+          <g transform="translate(420, 310)">
+            <rect width="140" height="180" rx="12" fill="#15803d" stroke="#22c55e" stroke-width="6" />
+            <text x="70" y="60" font-size="36" text-anchor="middle">🌿</text>
+            <rect x="15" y="85" width="110" height="30" rx="6" fill="#ffffff" />
+            <text x="70" y="105" font-weight="bold" font-size="13" fill="#15803d" text-anchor="middle">FAIR TRADE</text>
+            <text x="70" y="150" font-size="18" fill="#ffffff" text-anchor="middle">Comercio Justo</text>
+          </g>
+          <!-- Product Right: Standard Label -->
+          <g transform="translate(640, 310)">
+            <rect width="140" height="180" rx="12" fill="#64748b" stroke="#94a3b8" stroke-width="4" />
+            <text x="70" y="60" font-size="36" text-anchor="middle">📦</text>
+            <rect x="15" y="85" width="110" height="30" rx="6" fill="#cbd5e1" />
+            <text x="70" y="105" font-weight="bold" font-size="13" fill="#334155" text-anchor="middle">ESTÁNDAR</text>
+            <text x="70" y="150" font-size="18" fill="#ffffff" text-anchor="middle">Sin Etiqueta</text>
+          </g>
+          <!-- Scale / Decision Graphic -->
+          <text x="600" y="530" font-size="50" text-anchor="middle">⚖️</text>
+        
+  <!-- Header Overlay -->
+  <rect x="30" y="30" width="340" height="38" rx="19" fill="#0f172a" opacity="0.85" />
+  <text x="50" y="55" font-family="sans-serif" font-size="14" font-weight="bold" fill="#e2e8f0" letter-spacing="1">
+    SHARING THE PLANET
+  </text>
+  <!-- Footer Scene Banner Overlay -->
+  <rect x="30" y="575" width="1140" height="70" rx="14" fill="#0f172a" opacity="0.9" />
+  <text x="55" y="602" font-family="sans-serif" font-size="13" font-weight="bold" fill="#c084fc" letter-spacing="1">
+    ESCENA DEL ESTIMULO:
+  </text>
+  <text x="55" y="628" font-family="sans-serif" font-size="17" font-weight="600" fill="#ffffff">
+    Una persona comparando dos productos en un supermercado, uno con etiqueta de comercio justo y otro sin ella.
+  </text>
+</svg>

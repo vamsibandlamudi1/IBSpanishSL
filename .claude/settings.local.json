@@ -1,0 +1,43 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install *)",
+      "Bash(npm view *)",
+      "Bash(npm audit *)",
+      "Bash(node -e \"let d='';process.stdin.on\\('data',c=>d+=c\\);process.stdin.on\\('end',\\(\\)=>{try{const j=JSON.parse\\(d\\);for\\(const [k,v] of Object.entries\\(j.vulnerabilities||{}\\)\\){if\\(v.severity==='critical'||v.severity==='high'\\)console.log\\(k,v.severity,v.range\\);}}catch\\(e\\){console.log\\('parse-fail',d.slice\\(0,500\\)\\)}}\\)\")",
+      "Bash(npm run *)",
+      "Bash(tee /tmp/nextdev.log)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:3000/)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:3000/theme-practice)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:3000/quiz)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:3000/rewards)",
+      "Bash(netstat -ano)",
+      "Bash(taskkill *)",
+      "Bash(rm -f src/components/TeacherAdmin.tsx)",
+      "Bash(rm -rf src/app/admin)",
+      "Bash(node -e ' *)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:3001/)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:3001/theme-practice)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:3001/quiz)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" \"http://localhost:3001/quiz?mode=weak\")",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" \"http://localhost:3001/quiz?theme=sharing-planet\")",
+      "Skill(claude-api)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:3001/audio)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:3001/rewards)",
+      "Bash(curl -s -X POST -H \"Content-Type: application/json\" -d '{\"transcript\":\"\"}' http://localhost:3001/api/feedback)",
+      "Bash(curl -s -X POST -H \"Content-Type: application/json\" -d '{\"transcript\":\"hola me llamo test\"}' http://localhost:3001/api/feedback)",
+      "Bash(curl -s http://localhost:3001/audio -o /tmp/audio_page.html)",
+      "Bash(curl -s \"http://localhost:3001/_next/static/css/app/layout.css?v=1\" -o /tmp/live.css)",
+      "Bash(npx tsc *)",
+      "WebFetch(domain:www.aniko.ai)",
+      "Bash(curl *)",
+      "WebFetch(domain:web.archive.org)",
+      "Bash(awk '/vocabulary: \\\\[/{f=1; print \"---VOCAB START line \" NR \" ---\"} f && /^\\\\s*\\\\/\\\\//{print NR\": \"$0} f && /^\\\\s*\\\\],?$/{print \"---VOCAB END line \" NR \" ---\"; f=0}' src/lib/data.ts)",
+      "Bash(node \"C:\\\\Users\\\\b_vam\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\C--Users-b-vam-OneDrive-Desktop-IBSpanishApp\\\\204caa65-d83a-4560-a8e2-92bce3de224c\\\\scratchpad\\\\tag-subtopics.js\")",
+      "Bash(awk 'NR==495,NR==1265' src/lib/data.ts)",
+      "Bash(awk '/^const CORE_QUESTIONS/,/^\\\\];/' src/lib/data.ts)",
+      "Bash(grep '.png$')",
+      "Bash(awk '/^export const AUDIO_TASKS/,/^\\\\];/' src/lib/data.ts)"
+    ]
+  }
+}

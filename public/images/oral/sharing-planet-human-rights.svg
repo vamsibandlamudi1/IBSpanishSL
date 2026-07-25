@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad_sharing-planet-human-rights" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#b91c1c" />
+      <stop offset="100%" stop-color="#be185d" />
+    </linearGradient>
+  </defs>
+  
+          <!-- Assembly Stage Background -->
+          <rect width="1200" height="675" fill="#fdf2f8" />
+          <rect x="100" y="400" width="1000" height="180" rx="16" fill="#9d174d" />
+          <!-- Student Assembly Banner -->
+          <rect x="250" y="60" width="700" height="90" rx="16" fill="#be185d" />
+          <text x="600" y="115" font-weight="bold" font-size="32" fill="#ffffff" text-anchor="middle">IGUALDAD Y DERECHOS HUMANOS ✊</text>
+          <!-- Diverse Students Holding Protest Signs -->
+          <g transform="translate(250, 220)">
+            <rect x="0" y="0" width="180" height="120" rx="10" fill="#ffffff" stroke="#be185d" stroke-width="4" />
+            <text x="90" y="65" font-weight="bold" font-size="20" fill="#be185d" text-anchor="middle">EQUAL RIGHTS</text>
+            <line x1="90" y1="120" x2="90" y2="200" stroke="#78350f" stroke-width="10" />
+          </g>
+          <g transform="translate(510, 200)">
+            <rect x="0" y="0" width="180" height="120" rx="10" fill="#ffffff" stroke="#be185d" stroke-width="4" />
+            <text x="90" y="65" font-weight="bold" font-size="20" fill="#be185d" text-anchor="middle">JUSTICIA 🌈</text>
+            <line x1="90" y1="120" x2="90" y2="220" stroke="#78350f" stroke-width="10" />
+          </g>
+          <g transform="translate(770, 220)">
+            <rect x="0" y="0" width="180" height="120" rx="10" fill="#ffffff" stroke="#be185d" stroke-width="4" />
+            <text x="90" y="65" font-weight="bold" font-size="20" fill="#be185d" text-anchor="middle">PAZ Y DIGNIDAD</text>
+            <line x1="90" y1="120" x2="90" y2="200" stroke="#78350f" stroke-width="10" />
+          </g>
+        
+  <!-- Header Overlay -->
+  <rect x="30" y="30" width="340" height="38" rx="19" fill="#0f172a" opacity="0.85" />
+  <text x="50" y="55" font-family="sans-serif" font-size="14" font-weight="bold" fill="#e2e8f0" letter-spacing="1">
+    SHARING THE PLANET
+  </text>
+  <!-- Footer Scene Banner Overlay -->
+  <rect x="30" y="575" width="1140" height="70" rx="14" fill="#0f172a" opacity="0.9" />
+  <text x="55" y="602" font-family="sans-serif" font-size="13" font-weight="bold" fill="#c084fc" letter-spacing="1">
+    ESCENA DEL ESTIMULO:
+  </text>
+  <text x="55" y="628" font-family="sans-serif" font-size="17" font-weight="600" fill="#ffffff">
+    Un grupo de estudiantes diversos sosteniendo carteles sobre la igualdad en una asamblea escolar pacífica.
+  </text>
+</svg>

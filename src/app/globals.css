@@ -1,0 +1,33 @@
+/* File: src/app/globals.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-white text-slate-900;
+}
+
+/* Shared button/label styles echoing aniko.ai's rounded-pill, high-contrast
+   look: a solid dark primary pill, a soft accent pill, and an outline pill —
+   used for the main call-to-action on every module instead of one-off
+   rounded-md buttons scattered per file. */
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-1.5 rounded-full bg-slate-900 px-4 py-2 text-sm font-semibold text-white transition hover:bg-slate-700 disabled:cursor-not-allowed disabled:opacity-40;
+  }
+  .btn-accent {
+    @apply inline-flex items-center justify-center gap-1.5 rounded-full bg-brand-300 px-4 py-2 text-sm font-bold text-slate-900 transition hover:bg-brand-400 disabled:cursor-not-allowed disabled:opacity-40;
+  }
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-1.5 rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-700 transition hover:bg-slate-50 disabled:cursor-not-allowed disabled:opacity-40;
+  }
+  .pill-badge {
+    @apply inline-flex items-center gap-1.5 rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-slate-600;
+  }
+  .eyebrow {
+    @apply text-xs font-semibold uppercase tracking-wide text-slate-400;
+  }
+  .highlight-mark {
+    @apply rounded-md bg-mint-300 px-2 py-0.5;
+  }
+}
