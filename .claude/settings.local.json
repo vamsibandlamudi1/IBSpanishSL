@@ -37,7 +37,12 @@
       "Bash(awk 'NR==495,NR==1265' src/lib/data.ts)",
       "Bash(awk '/^const CORE_QUESTIONS/,/^\\\\];/' src/lib/data.ts)",
       "Bash(grep '.png$')",
-      "Bash(awk '/^export const AUDIO_TASKS/,/^\\\\];/' src/lib/data.ts)"
+      "Bash(awk '/^export const AUDIO_TASKS/,/^\\\\];/' src/lib/data.ts)",
+      "Bash(node -e \"require\\('dotenv'\\).config\\({path:'.env.local'}\\); const k=process.env.ANTHROPIC_API_KEY; console.log\\('key set:', !!k, '| length:', k ? k.length : 0, '| starts with sk-ant:', k ? k.startsWith\\('sk-ant'\\) : false\\);\")",
+      "Bash(node -e \"let d='';process.stdin.on\\('data',c=>d+=c\\);process.stdin.on\\('end',\\(\\)=>{const j=JSON.parse\\(d\\); console.log\\(JSON.stringify\\(j,null,2\\)\\);}\\)\")",
+      "Bash(node -e \"let d='';process.stdin.on\\('data',c=>d+=c\\);process.stdin.on\\('end',\\(\\)=>{const j=JSON.parse\\(d\\); console.log\\('available:', j.available\\); console.log\\('has improvedVersion:', !!j.feedback.improvedVersion\\); console.log\\('improvedVersion word count:', j.feedback.improvedVersion.trim\\(\\).split\\(/\\\\\\\\s+/\\).length\\); console.log\\('---preview---'\\); console.log\\(j.feedback.improvedVersion.slice\\(0,300\\)\\);}\\)\")",
+      "Bash(node \"C:\\\\Users\\\\b_vam\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\C--Users-b-vam-OneDrive-Desktop-IBSpanishApp\\\\204caa65-d83a-4560-a8e2-92bce3de224c\\\\scratchpad\\\\splice.js\")",
+      "Bash(node \"C:\\\\Users\\\\b_vam\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\C--Users-b-vam-OneDrive-Desktop-IBSpanishApp\\\\204caa65-d83a-4560-a8e2-92bce3de224c\\\\scratchpad\\\\validate.js\")"
     ]
   }
 }

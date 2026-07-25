@@ -50,7 +50,6 @@ export async function POST(request: NextRequest) {
       model: MODEL,
       max_tokens: 400,
       system: SYSTEM_PROMPT,
-      output_config: { effort: "low" },
       messages: [
         {
           role: "user",
