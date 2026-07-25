@@ -7,7 +7,7 @@ services:
       dockerfile: Dockerfile
     container_name: ib-spanish-app
     ports:
-      - "3000:3000"
+      - "3030:3000"
     environment:
       - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
       - ANTHROPIC_MODEL=${ANTHROPIC_MODEL:-claude-opus-5}
