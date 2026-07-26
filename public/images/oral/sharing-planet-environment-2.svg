@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#1e1b4b" />
+    </linearGradient>
+  </defs>
+
+  
+      <!-- Sky & River Landscape -->
+      <rect width="1200" height="675" fill="#0f172a"/>
+      <path d="M0 250 Q 300 200, 600 280 T 1200 220 L 1200 675 L 0 675 Z" fill="#065f46"/>
+      <!-- Water Riverbank -->
+      <path d="M0 380 Q 400 320, 800 420 T 1200 360 L 1200 675 L 0 675 Z" fill="#0284c7"/>
+      <!-- Riverbank Grass -->
+      <path d="M0 450 Q 500 400, 1200 480 L 1200 675 L 0 675 Z" fill="#15803d"/>
+      
+      <!-- Volunteers with Trash Bags & Bottles -->
+      <g transform="translate(180, 360)">
+        <!-- Volunteer 1 -->
+        <circle cx="60" cy="50" r="30" fill="#fde047"/>
+        <rect x="35" y="80" width="50" height="80" rx="10" fill="#2563eb"/>
+        <path d="M75 100 L 140 130" stroke="#fde047" stroke-width="14" stroke-linecap="round"/>
+        <!-- Trash Bag -->
+        <circle cx="150" cy="145" r="35" fill="#334155"/>
+        <text x="150" y="152" font-size="28" text-anchor="middle">♻️</text>
+      </g>
+
+      <g transform="translate(600, 380)">
+        <!-- Volunteer 2 -->
+        <circle cx="60" cy="50" r="30" fill="#f97316"/>
+        <rect x="35" y="80" width="50" height="80" rx="10" fill="#2563eb"/>
+        <path d="M75 100 L 130 110" stroke="#f97316" stroke-width="14" stroke-linecap="round"/>
+        <!-- Plastic bottle picked up -->
+        <text x="145" y="115" font-size="40">🍾</text>
+      </g>
+
+      <!-- Recycled Plastic Bottle Pile -->
+      <g transform="translate(900, 470)">
+        <text x="0" y="0" font-size="50">🍾</text>
+        <text x="40" y="-10" font-size="50">♻️</text>
+        <text x="80" y="0" font-size="50">🍾</text>
+      </g>
+    
+
+  <!-- Header Overlay Tag -->
+  <rect x="210" y="25" width="440" height="42" rx="21" fill="#0f172a" opacity="0.9" stroke="#a855f7" stroke-width="1.5"/>
+  <text x="230" y="52" font-family="sans-serif" font-size="15" font-weight="700" fill="#c084fc" letter-spacing="1.5">SHARING THE PLANET</text>
+
+  <!-- Card Title Header -->
+  <rect x="40" y="90" width="550" height="50" rx="12" fill="#0f172a" opacity="0.85"/>
+  <text x="60" y="125" font-family="sans-serif" font-size="26" font-weight="800" fill="#ffffff">Environmental Cleanup / Limpieza Ambiental</text>
+
+  <!-- Footer Scene Description Overlay -->
+  <rect x="40" y="575" width="1120" height="70" rx="16" fill="#020617" fill-opacity="0.95" stroke="#334155" stroke-width="1.5" />
+  <text x="70" y="602" font-family="sans-serif" font-size="13" font-weight="800" fill="#c084fc" letter-spacing="1.5">EXACT STIMULUS SCENE:</text>
+  <text x="70" y="628" font-family="sans-serif" font-size="17" font-weight="600" fill="#f8fafc">Volunteers collecting plastic bottles along a riverbank.</text>
+</svg>

@@ -17,19 +17,19 @@
   <circle cx="100" cy="600" r="250" fill="#ffffff" fill-opacity="0.05" />
 
   <!-- Top Badge Header -->
-  <rect x="40" y="35" width="400" height="42" rx="21" fill="#ffffff" fill-opacity="0.2" />
-  <text x="60" y="62" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="16" font-weight="700" fill="#ffffff" letter-spacing="1">
+  <rect x="210" y="35" width="400" height="42" rx="21" fill="#ffffff" fill-opacity="0.2" />
+  <text x="230" y="62" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="16" font-weight="700" fill="#ffffff" letter-spacing="1">
     IDENTITIES / IDENTIDADES
   </text>
 
   <!-- Title & Sub-badge -->
-  <text x="40" y="130" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="38" font-weight="800" fill="#ffffff">
+  <text x="40" y="142" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="38" font-weight="800" fill="#ffffff">
     Lifestyles & Hobbies
   </text>
 
   <!-- Central Graphic Display Card -->
   <g filter="url(#shadow)">
-    <rect x="40" y="160" width="1120" height="380" rx="24" fill="#ffffff" fill-opacity="0.95" />
+    <rect x="40" y="170" width="1120" height="380" rx="24" fill="#ffffff" fill-opacity="0.95" />
     
     <!-- Main Big Display Emoji/Symbol Array -->
     <g transform="translate(80, 200)">

@@ -259,19 +259,37 @@ export default function GrammarModule() {
                 )}
 
                 {checked && (
-                  <div className="mt-4 flex items-center justify-between">
-                    <p
-                      className={`text-sm font-medium ${
-                        normalizeAnswer(response) === normalizeAnswer(exercise.correctAnswer) ? "text-green-700" : "text-red-700"
-                      }`}
-                    >
-                      {normalizeAnswer(response) === normalizeAnswer(exercise.correctAnswer)
-                        ? "¡Correcto!"
-                        : `Incorrect — correct answer: "${exercise.correctAnswer}"`}
-                    </p>
-                    <button type="button" onClick={next} className="btn-primary">
-                      {current + 1 < topic.exercises.length ? "Next" : "Finish"}
-                    </button>
+                  <div className="mt-4 flex flex-col gap-3">
+                    <div className="flex items-center justify-between">
+                      <p
+                        className={`text-sm font-semibold ${
+                          normalizeAnswer(response) === normalizeAnswer(exercise.correctAnswer) ? "text-green-700" : "text-red-700"
+                        }`}
+                      >
+                        {normalizeAnswer(response) === normalizeAnswer(exercise.correctAnswer)
+                          ? "¡Excelente! Correct answer."
+                          : `Incorrect — correct answer: "${exercise.correctAnswer}"`}
+                      </p>
+                      <button type="button" onClick={next} className="btn-primary">
+                        {current + 1 < topic.exercises.length ? "Next question →" : "Finish topic"}
+                      </button>
+                    </div>
+
+                    {normalizeAnswer(response) !== normalizeAnswer(exercise.correctAnswer) && (exercise.tip || exercise.explanation || topic.rule) && (
+                      <div className="rounded-xl border border-amber-200 bg-amber-50 p-4 text-slate-800 shadow-sm animate-pop-in">
+                        <div className="flex items-center gap-2 mb-1 text-amber-800 font-bold text-xs uppercase tracking-wider">
+                          <span>💡 Tip to Improve & Master the Rule:</span>
+                        </div>
+                        <p className="text-sm text-slate-700 leading-relaxed font-medium mb-1">
+                          {exercise.tip ?? exercise.explanation ?? topic.rule}
+                        </p>
+                        {exercise.explanation && exercise.tip && (
+                          <p className="text-xs text-slate-600 leading-relaxed border-t border-amber-200/60 pt-1.5 mt-1.5 italic">
+                            {exercise.explanation}
+                          </p>
+                        )}
+                      </div>
+                    )}
                   </div>
                 )}
               </div>

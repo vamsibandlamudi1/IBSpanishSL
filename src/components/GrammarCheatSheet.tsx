@@ -209,6 +209,35 @@ const SECTIONS: CheatSheetSection[] = [
             <strong>&ldquo;Estoy descansado&rdquo;</strong> (I am rested) instead!
           </p>
         </SimpleExplainer>
+        <div className="mb-4 grid grid-cols-1 gap-3 sm:grid-cols-2">
+          <div className="rounded-xl border border-blue-200 bg-blue-50/60 p-3.5">
+            <p className="mb-1.5 font-extrabold text-blue-900 text-sm flex items-center gap-1.5">
+              <span>🩺</span> SER = DOCTOR (Permanent & Identity)
+            </p>
+            <div className="grid grid-cols-1 gap-1 text-xs text-blue-800">
+              <div><strong className="text-blue-950">D</strong>escription: <em>Ella es alta.</em></div>
+              <div><strong className="text-blue-950">O</strong>ccupation: <em>Es profesora.</em></div>
+              <div><strong className="text-blue-950">C</strong>haracteristic: <em>Es inteligente.</em></div>
+              <div><strong className="text-blue-950">T</strong>ime & Date: <em>Son las tres.</em></div>
+              <div><strong className="text-blue-950">O</strong>rigin: <em>Soy de México.</em></div>
+              <div><strong className="text-blue-950">R</strong>elationship: <em>Es mi hermano.</em></div>
+            </div>
+          </div>
+
+          <div className="rounded-xl border border-emerald-200 bg-emerald-50/60 p-3.5">
+            <p className="mb-1.5 font-extrabold text-emerald-900 text-sm flex items-center gap-1.5">
+              <span>📍</span> ESTAR = PLACE (Temporary & Location)
+            </p>
+            <div className="grid grid-cols-1 gap-1 text-xs text-emerald-800">
+              <div><strong className="text-emerald-950">P</strong>osition: <em>El libro está en la mesa.</em></div>
+              <div><strong className="text-emerald-950">L</strong>ocation: <em>Madrid está en España.</em></div>
+              <div><strong className="text-emerald-950">A</strong>ction (-ing): <em>Estoy estudiando.</em></div>
+              <div><strong className="text-emerald-950">C</strong>ondition: <em>El café está frío.</em></div>
+              <div><strong className="text-emerald-950">E</strong>motion: <em>Ella está feliz hoy.</em></div>
+            </div>
+          </div>
+        </div>
+
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
           <div className="rounded-lg border border-slate-200 p-3">
             <p className="mb-1 text-sm font-semibold text-slate-800">SER — permanent / identity</p>
@@ -227,6 +256,340 @@ const SECTIONS: CheatSheetSection[] = [
               <li>Feelings/conditions: <span className="font-medium text-slate-800">Está cansada.</span></li>
               <li>In-progress action: <span className="font-medium text-slate-800">Está comiendo.</span></li>
               <li>Result of a change: <span className="font-medium text-slate-800">La puerta está abierta.</span></li>
+            </ul>
+          </div>
+        </div>
+      </>
+    ),
+  },
+  {
+    id: "gender-plurals",
+    label: "Gender & Plurals",
+    title: "Gender & Plurals Hacks (L-O-N-E-R-S)",
+    icon: "🚻",
+    content: (
+      <>
+        <SimpleExplainer>
+          <p>
+            Every Spanish noun has a gender (Masculine or Feminine). Adjectives <strong>MUST</strong> match the noun in both Gender and Number!
+          </p>
+          <p>
+            <strong>Memory Hack:</strong> You don&apos;t need to guess gender! Look at the ending letters of the word:
+          </p>
+        </SimpleExplainer>
+        <div className="mb-4 grid grid-cols-1 gap-3 sm:grid-cols-2">
+          <div className="rounded-xl border border-sky-200 bg-sky-50/60 p-3.5">
+            <p className="mb-1.5 font-extrabold text-sky-950 text-sm flex items-center gap-1.5">
+              <span>♂️</span> MASCULINE: Endings in L - O - N - E - R - S
+            </p>
+            <p className="text-xs text-sky-900 leading-relaxed mb-2">
+              Words ending in <strong>L-O-N-E-R-S</strong> take <strong>EL</strong>:
+            </p>
+            <div className="flex flex-wrap gap-1.5 text-xs">
+              <span className="bg-white border border-sky-200 rounded px-2 py-0.5 font-semibold text-sky-900">el papel</span>
+              <span className="bg-white border border-sky-200 rounded px-2 py-0.5 font-semibold text-sky-900">el libro</span>
+              <span className="bg-white border border-sky-200 rounded px-2 py-0.5 font-semibold text-sky-900">el pan</span>
+              <span className="bg-white border border-sky-200 rounded px-2 py-0.5 font-semibold text-sky-900">el café</span>
+              <span className="bg-white border border-sky-200 rounded px-2 py-0.5 font-semibold text-sky-900">el amor</span>
+            </div>
+          </div>
+
+          <div className="rounded-xl border border-rose-200 bg-rose-50/60 p-3.5">
+            <p className="mb-1.5 font-extrabold text-rose-950 text-sm flex items-center gap-1.5">
+              <span>♀️</span> FEMININE: Endings in D - I - A - Z - CIÓN
+            </p>
+            <p className="text-xs text-rose-900 leading-relaxed mb-2">
+              Words ending in <strong>D-I-A-Z-CIÓN</strong> take <strong>LA</strong>:
+            </p>
+            <div className="flex flex-wrap gap-1.5 text-xs">
+              <span className="bg-white border border-rose-200 rounded px-2 py-0.5 font-semibold text-rose-900">la ciudad</span>
+              <span className="bg-white border border-rose-200 rounded px-2 py-0.5 font-semibold text-rose-900">la casa</span>
+              <span className="bg-white border border-rose-200 rounded px-2 py-0.5 font-semibold text-rose-900">la luz</span>
+              <span className="bg-white border border-rose-200 rounded px-2 py-0.5 font-semibold text-rose-900">la canción</span>
+            </div>
+          </div>
+        </div>
+
+        <div className="rounded-xl border border-slate-200 bg-slate-50 p-3.5">
+          <p className="text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">⚡ Plural Rules & Adjective Agreement Formula</p>
+          <p className="text-xs text-slate-600 mb-2">
+            Formula: <strong className="text-slate-900">Article + Noun + Matching Adjective</strong>
+          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
+            <div className="bg-white border border-slate-200 rounded p-2">
+              <span className="font-semibold text-slate-800">Ending in Vowel:</span> Add <strong>-s</strong>
+              <div className="text-slate-500 italic mt-0.5">el chico alto → los chicos altos</div>
+            </div>
+            <div className="bg-white border border-slate-200 rounded p-2">
+              <span className="font-semibold text-slate-800">Ending in Consonant:</span> Add <strong>-es</strong>
+              <div className="text-slate-500 italic mt-0.5">la ciudad grande → las ciudades grandes</div>
+            </div>
+          </div>
+        </div>
+      </>
+    ),
+  },
+  {
+    id: "past-tenses",
+    label: "Preterite vs. Imperfect",
+    title: "Preterite vs. Imperfect: Snapshot vs. Movie",
+    icon: "📸",
+    content: (
+      <>
+        <SimpleExplainer>
+          <p>
+            Spanish has two main past tenses! Understanding the difference between them is key for Paper 1 reading and Paper 2 writing.
+          </p>
+        </SimpleExplainer>
+        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+          <div className="rounded-xl border border-teal-200 bg-teal-50/60 p-3.5">
+            <p className="mb-1 font-extrabold text-teal-950 text-sm flex items-center gap-1.5">
+              <span>📸</span> PRETERITE = The Photo Snapshot
+            </p>
+            <p className="text-xs text-teal-900 leading-relaxed mb-2">
+              One-time, completed actions with a clear start/end time.
+            </p>
+            <p className="text-xs text-teal-800 italic">"Ayer hablé con el profesor." (I spoke with the teacher yesterday — done!).</p>
+          </div>
+
+          <div className="rounded-xl border border-violet-200 bg-violet-50/60 p-3.5">
+            <p className="mb-1 font-extrabold text-violet-950 text-sm flex items-center gap-1.5">
+              <span>🎬</span> IMPERFECT = The Movie Background
+            </p>
+            <p className="text-xs text-violet-900 leading-relaxed mb-2">
+              Habits, background descriptions, age, time, and ongoing actions ("used to" / "was -ing").
+            </p>
+            <p className="text-xs text-violet-800 italic">"Cuando era niño, jugaba al fútbol." (When I was a kid, I used to play soccer).</p>
+          </div>
+        </div>
+      </>
+    ),
+  },
+  {
+    id: "ib-connectors",
+    label: "IB Exam Connectors",
+    title: "High-Impact Transition Words & Connectors",
+    icon: "🔗",
+    content: (
+      <>
+        <SimpleExplainer>
+          <p>
+            Boost your IB writing score (Criterion B: Language) by connecting your sentences with high-yield transitional phrases.
+          </p>
+        </SimpleExplainer>
+        <div className="grid grid-cols-1 gap-2 sm:grid-cols-3 text-xs">
+          <div className="rounded-lg border border-slate-200 bg-white p-3">
+            <p className="font-bold text-slate-900 mb-1">➕ Adding Ideas</p>
+            <ul className="text-slate-600 space-y-1">
+              <li>• <strong>Además:</strong> Furthermore</li>
+              <li>• <strong>También:</strong> Also</li>
+              <li>• <strong>Por un lado:</strong> On one hand</li>
+            </ul>
+          </div>
+
+          <div className="rounded-lg border border-slate-200 bg-white p-3">
+            <p className="font-bold text-slate-900 mb-1">⚡ Contrast</p>
+            <ul className="text-slate-600 space-y-1">
+              <li>• <strong>Sin embargo:</strong> However</li>
+              <li>• <strong>No obstante:</strong> Nevertheless</li>
+              <li>• <strong>Aunque:</strong> Although</li>
+            </ul>
+          </div>
+
+          <div className="rounded-lg border border-slate-200 bg-white p-3">
+            <p className="font-bold text-slate-900 mb-1">🎯 Conclusion / Result</p>
+            <ul className="text-slate-600 space-y-1">
+              <li>• <strong>Por lo tanto:</strong> Therefore</li>
+              <li>• <strong>En consecuencia:</strong> Consequently</li>
+              <li>• <strong>Para concluir:</strong> To conclude</li>
+            </ul>
+          </div>
+        </div>
+      </>
+    ),
+  },
+  {
+    id: "gustar-structure",
+    label: "Verbs like Gustar",
+    title: "Verbs like Gustar: The Backward Sentence Formula",
+    icon: "❤️",
+    content: (
+      <>
+        <SimpleExplainer>
+          <p>
+            In English we say <em>"I like the book"</em>. But in Spanish, <strong>GUSTAR</strong> works backwards: <em>"The book pleases ME"</em>!
+          </p>
+          <p>
+            <strong>The Formula:</strong> <strong className="text-brand-700">[ Indirect Pronoun ] + gusta / gustan + [ Thing ]</strong>
+          </p>
+        </SimpleExplainer>
+        <div className="mb-4 rounded-xl border border-rose-200 bg-rose-50/60 p-3.5 text-xs text-rose-950">
+          <p className="font-bold mb-1">💡 The 2-Choice Rule:</p>
+          <ul className="space-y-1 text-slate-700">
+            <li>• Use <strong>gusta</strong> for singular nouns or infinitives: <em>"Me gusta el café" / "Me gusta leer"</em></li>
+            <li>• Use <strong>gustan</strong> for plural nouns: <em>"Me gustan los libros"</em></li>
+          </ul>
+        </div>
+        <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 text-xs">
+          <div className="bg-white border border-slate-200 rounded p-2 text-center">
+            <span className="font-bold text-slate-900">encantar</span>
+            <p className="text-slate-500">to love / adore</p>
+            <p className="text-slate-700 italic mt-0.5">Me encanta la música</p>
+          </div>
+          <div className="bg-white border border-slate-200 rounded p-2 text-center">
+            <span className="font-bold text-slate-900">interesar</span>
+            <p className="text-slate-500">to interest</p>
+            <p className="text-slate-700 italic mt-0.5">Me interesa la historia</p>
+          </div>
+          <div className="bg-white border border-slate-200 rounded p-2 text-center">
+            <span className="font-bold text-slate-900">doler</span>
+            <p className="text-slate-500">to hurt / ache</p>
+            <p className="text-slate-700 italic mt-0.5">Me duele la cabeza</p>
+          </div>
+        </div>
+      </>
+    ),
+  },
+  {
+    id: "boot-verbs",
+    label: "Stem-Changing (Boot Verbs)",
+    title: "Stem-Changing Verbs (The Boot Shape)",
+    icon: "👢",
+    content: (
+      <>
+        <SimpleExplainer>
+          <p>
+            Some verbs change their root vowel in the present tense for all subjects <strong>EXCEPT</strong> <em>nosotros</em> and <em>vosotros</em> — forming the shape of a <strong>BOOT</strong> on the conjugation table!
+          </p>
+        </SimpleExplainer>
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
+          <div className="rounded-xl border border-amber-200 bg-amber-50/60 p-3">
+            <p className="font-bold text-amber-950 mb-1">e → ie (Querer)</p>
+            <p className="text-slate-700">Yo qu<strong>ie</strong>ro</p>
+            <p className="text-slate-700">Tú qu<strong>ie</strong>res</p>
+            <p className="text-slate-700">Él qu<strong>ie</strong>re</p>
+            <p className="text-slate-500 font-semibold">Nosotros queremos (No change!)</p>
+            <p className="text-slate-700">Ellos qu<strong>ie</strong>ren</p>
+          </div>
+
+          <div className="rounded-xl border border-sky-200 bg-sky-50/60 p-3">
+            <p className="font-bold text-sky-950 mb-1">o → ue (Dormir)</p>
+            <p className="text-slate-700">Yo d<strong>ue</strong>rmo</p>
+            <p className="text-slate-700">Tú d<strong>ue</strong>rmes</p>
+            <p className="text-slate-700">Él d<strong>ue</strong>rme</p>
+            <p className="text-slate-500 font-semibold">Nosotros dormimos (No change!)</p>
+            <p className="text-slate-700">Ellos d<strong>ue</strong>rmen</p>
+          </div>
+
+          <div className="rounded-xl border border-emerald-200 bg-emerald-50/60 p-3">
+            <p className="font-bold text-emerald-950 mb-1">e → i (Pedir)</p>
+            <p className="text-slate-700">Yo p<strong>i</strong>do</p>
+            <p className="text-slate-700">Tú p<strong>i</strong>des</p>
+            <p className="text-slate-700">Él p<strong>i</strong>de</p>
+            <p className="text-slate-500 font-semibold">Nosotros pedimos (No change!)</p>
+            <p className="text-slate-700">Ellos p<strong>i</strong>den</p>
+          </div>
+        </div>
+      </>
+    ),
+  },
+  {
+    id: "imperative-commands",
+    label: "Commands (Imperative)",
+    title: "Imperative Commands (Tú & Usted)",
+    icon: "🗣️",
+    content: (
+      <>
+        <SimpleExplainer>
+          <p>
+            Used for giving directions, advice, and instructions (essential for Paper 2 blog posts and brochures!).
+          </p>
+        </SimpleExplainer>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+          <div className="rounded-xl border border-indigo-200 bg-indigo-50/60 p-3">
+            <p className="font-bold text-indigo-950 mb-1">Informal (Tú) Command</p>
+            <p className="text-slate-700 mb-1">Use the 3rd person singular present tense!</p>
+            <ul className="text-slate-600 space-y-0.5">
+              <li>• Hablar → <strong>¡Habla!</strong> <em>(Speak!)</em></li>
+              <li>• Comer → <strong>¡Come!</strong> <em>(Eat!)</em></li>
+              <li>• Escribir → <strong>¡Escribe!</strong> <em>(Write!)</em></li>
+            </ul>
+          </div>
+
+          <div className="rounded-xl border border-purple-200 bg-purple-50/60 p-3">
+            <p className="font-bold text-purple-950 mb-1">8 Irregular "Tú" Commands</p>
+            <p className="text-slate-700 mb-1 font-semibold">Memory phrase: "Vin Diesel has ten weapons eh?"</p>
+            <p className="text-slate-600 italic">Ven, Di, Sal, Haz, Ten, Ve, Pon, Sé</p>
+          </div>
+        </div>
+      </>
+    ),
+  },
+  {
+    id: "pronoun-order-rid",
+    label: "Pronoun Order (R-I-D)",
+    title: "Object Pronoun Order Rule: R-I-D",
+    icon: "🧩",
+    content: (
+      <>
+        <SimpleExplainer>
+          <p>
+            When combining multiple pronouns before a verb, they MUST always follow the strict <strong>R-I-D Order</strong>!
+          </p>
+          <p>
+            <strong>The Formula:</strong> <strong className="text-brand-700">Reflexive (R) → Indirect (I) → Direct (D)</strong>
+          </p>
+        </SimpleExplainer>
+        <div className="mb-4 grid grid-cols-1 sm:grid-cols-3 gap-2 text-xs text-center">
+          <div className="bg-sky-50 border border-sky-200 rounded-lg p-2.5">
+            <span className="font-extrabold text-sky-900 text-sm block">1. Reflexive (R)</span>
+            <span className="text-slate-600 text-[11px]">me, te, se, nos, os</span>
+          </div>
+          <div className="bg-amber-50 border border-amber-200 rounded-lg p-2.5">
+            <span className="font-extrabold text-amber-900 text-sm block">2. Indirect (I)</span>
+            <span className="text-slate-600 text-[11px]">me, te, le (se), nos, os, les</span>
+          </div>
+          <div className="bg-emerald-50 border border-emerald-200 rounded-lg p-2.5">
+            <span className="font-extrabold text-emerald-900 text-sm block">3. Direct (D)</span>
+            <span className="text-slate-600 text-[11px]">lo, la, los, las</span>
+          </div>
+        </div>
+        <div className="rounded-xl border border-purple-200 bg-purple-50/60 p-3 text-xs text-purple-950">
+          <p className="font-bold mb-1">⚠️ The "La-La" Rule (Le + Lo $\rightarrow$ Se Lo):</p>
+          <p className="text-slate-700">In Spanish you cannot say <em>"le lo"</em> or <em>"les la"</em>. Change <strong>le/les</strong> to <strong>se</strong>!</p>
+          <p className="font-semibold text-purple-900 italic mt-1">"Se lo doy." (I give it to him/her — instead of "Le lo doy").</p>
+        </div>
+      </>
+    ),
+  },
+  {
+    id: "haber-vs-tener",
+    label: "Haber vs. Tener",
+    title: "Haber (Existence) vs. Tener (Possession)",
+    icon: "📦",
+    content: (
+      <>
+        <SimpleExplainer>
+          <p>
+            Don't confuse "to have"! Use <strong>HAY (Haber)</strong> for existence ("there is / there are") and <strong>TENER</strong> for personal possession.
+          </p>
+        </SimpleExplainer>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+          <div className="rounded-xl border border-blue-200 bg-blue-50/60 p-3.5">
+            <p className="font-extrabold text-blue-900 text-sm mb-1">🏢 HAY (Haber) = There is / There are</p>
+            <p className="text-slate-700 mb-1">Used for existence in a scene or place. Never changes for plural!</p>
+            <ul className="text-slate-600 space-y-0.5 italic">
+              <li>• <strong>Hay</strong> un libro en la mesa. <em>(There is a book)</em></li>
+              <li>• <strong>Hay</strong> tres estudiantes aquí. <em>(There are 3 students)</em></li>
+            </ul>
+          </div>
+
+          <div className="rounded-xl border border-teal-200 bg-teal-50/60 p-3.5">
+            <p className="font-extrabold text-teal-900 text-sm mb-1">🔑 TENER = To possess / own</p>
+            <p className="text-slate-700 mb-1">Conjugates based on WHO has the item!</p>
+            <ul className="text-slate-600 space-y-0.5 italic">
+              <li>• Yo <strong>tengo</strong> un perro. <em>(I have a dog)</em></li>
+              <li>• Ella <strong>tiene</strong> dos hermanos. <em>(She has 2 brothers)</em></li>
             </ul>
           </div>
         </div>
@@ -257,6 +620,10 @@ const SECTIONS: CheatSheetSection[] = [
             you?&rdquo; (literally &ldquo;how many years do you have&rdquo;).
           </p>
         </SimpleExplainer>
+        <div className="mb-3 rounded-lg border border-amber-200 bg-amber-50/70 p-3 text-xs text-amber-950">
+          <p className="font-bold flex items-center gap-1 mb-0.5">💡 Quick Tip — Accent Marks on Questions:</p>
+          <p>Every single Spanish question word gets a written accent mark (<em>qué, quién, dónde, cuál, cuándo, por qué, cómo</em>) when asking a question! If it doesn't have an accent, it's a connector (e.g. <em>donde</em> = where, <em>como</em> = like/as).</p>
+        </div>
         <div className="grid grid-cols-2 gap-2 sm:grid-cols-4">
           {[
             ["qué", "what"],
@@ -357,6 +724,46 @@ const SECTIONS: CheatSheetSection[] = [
           dog.&rdquo; To say <strong>&ldquo;she has&rdquo;</strong>, use the él/ella/Ud. column instead →{" "}
           <strong>tiene</strong>: <strong>&ldquo;Ella tiene un gato&rdquo;</strong> (She has a cat).
         </HowToReadNote>
+        <div className="mb-4 grid grid-cols-1 gap-3 sm:grid-cols-3">
+          <div className="rounded-xl border border-rose-200 bg-rose-50/60 p-3 text-xs">
+            <p className="font-extrabold text-rose-950 text-sm mb-1">⚡ 1. The "Yo-GO" Group</p>
+            <p className="text-slate-700 mb-1.5 leading-relaxed">
+              Irregular <strong>ONLY</strong> in the <em>"Yo"</em> form by ending in <strong>-go</strong>. All other subjects follow normal rules!
+            </p>
+            <ul className="text-slate-800 font-medium space-y-0.5">
+              <li>• hacer → Yo <strong>hago</strong></li>
+              <li>• poner → Yo <strong>pongo</strong></li>
+              <li>• salir → Yo <strong>salgo</strong></li>
+              <li>• tener → Yo <strong>tengo</strong></li>
+              <li>• venir → Yo <strong>vengo</strong></li>
+            </ul>
+          </div>
+
+          <div className="rounded-xl border border-indigo-200 bg-indigo-50/60 p-3 text-xs">
+            <p className="font-extrabold text-indigo-950 text-sm mb-1">👑 2. The Total Rebels</p>
+            <p className="text-slate-700 mb-1.5 leading-relaxed">
+              Completely change their roots. Must be memorized like multiplication tables!
+            </p>
+            <ul className="text-slate-800 font-medium space-y-0.5">
+              <li>• <strong>ser:</strong> soy, eres, es, somos, son</li>
+              <li>• <strong>ir:</strong> voy, vas, va, vamos, van</li>
+            </ul>
+          </div>
+
+          <div className="rounded-xl border border-amber-200 bg-amber-50/60 p-3 text-xs">
+            <p className="font-extrabold text-amber-950 text-sm mb-1">🌟 3. The "-OY" Yo Form</p>
+            <p className="text-slate-700 mb-1.5 leading-relaxed">
+              End in <strong>-oy</strong> in the <em>"Yo"</em> form:
+            </p>
+            <ul className="text-slate-800 font-medium space-y-0.5">
+              <li>• estar → Yo <strong>estoy</strong></li>
+              <li>• dar → Yo <strong>doy</strong></li>
+              <li>• ser → Yo <strong>soy</strong></li>
+              <li>• ir → Yo <strong>voy</strong></li>
+            </ul>
+          </div>
+        </div>
+
         <div className="overflow-x-auto rounded-lg border border-slate-200">
           <table className="w-full min-w-[640px] text-left text-sm">
             <thead className="bg-slate-50 text-xs font-semibold uppercase tracking-wide text-slate-500">
@@ -470,6 +877,10 @@ const SECTIONS: CheatSheetSection[] = [
           These 10 verbs use an irregular stem instead of the full infinitive — but take the <em>same</em> future/conditional
           endings as regular verbs (é/ás/á/emos/éis/án for future; ía/ías/ía/íamos/íais/ían for conditional).
         </p>
+        <div className="mb-3 rounded-lg border border-amber-200 bg-amber-50/70 p-3 text-xs text-amber-950">
+          <p className="font-bold flex items-center gap-1 mb-0.5">💡 Quick Tip — Same Stems for Future & Conditional:</p>
+          <p>Future and Conditional share the <strong>EXACT SAME irregular stems</strong>! Learn the stem once (e.g. <em>tener → tendr-</em>), then just attach Future endings (<em>-é, -ás...</em>) for "will", or Conditional endings (<em>-ía, -ías...</em>) for "would".</p>
+        </div>
         <div className="grid grid-cols-2 gap-2 sm:grid-cols-5">
           {IRREGULAR_STEMS.map((v) => (
             <div key={v.infinitive} className="rounded-lg border border-slate-200 p-2 text-center">
@@ -627,6 +1038,26 @@ const SECTIONS: CheatSheetSection[] = [
             phone) — both about moving through or using something, not a goal.
           </p>
         </SimpleExplainer>
+        <div className="mb-4 grid grid-cols-1 gap-3 sm:grid-cols-2">
+          <div className="rounded-xl border border-indigo-200 bg-indigo-50/60 p-3.5">
+            <p className="mb-1 font-extrabold text-indigo-950 text-sm flex items-center gap-1.5">
+              <span>⬅️</span> POR = Backward Arrow (Reason / Movement Through)
+            </p>
+            <p className="text-xs text-indigo-900 leading-relaxed">
+              Looks <strong>BACKWARD</strong> at the cause, trade, or means: <em>"Gracias <strong>por</strong> la ayuda"</em> (Looking back at why you are thankful).
+            </p>
+          </div>
+
+          <div className="rounded-xl border border-purple-200 bg-purple-50/60 p-3.5">
+            <p className="mb-1 font-extrabold text-purple-950 text-sm flex items-center gap-1.5">
+              <span>➡️</span> PARA = Forward Arrow (Goal / Target / Recipient)
+            </p>
+            <p className="text-xs text-purple-900 leading-relaxed">
+              Points <strong>FORWARD</strong> toward the target or goal: <em>"Este regalo es <strong>para</strong> ti"</em> (Pointing forward to the receiver).
+            </p>
+          </div>
+        </div>
+
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
           <div className="rounded-lg border border-slate-200 p-3">
             <p className="mb-1 text-sm font-semibold text-slate-800">POR</p>

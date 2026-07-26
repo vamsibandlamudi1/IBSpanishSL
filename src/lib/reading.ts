@@ -1282,4 +1282,328 @@ export const READING_PASSAGES: ReadingPassage[] = [
       { id: "sharing-planet-8-q5", type: "short", prompt: "¿Qué pide EcoLucia92 al final de su publicación?", correctAnswer: "recomendaciones de tiendas de segunda mano" },
     ],
   },
+  {
+    "id": "reading-identities-9",
+    "themeId": "identities",
+    "title": "Informe sobre el bienestar emocional de los adolescentes",
+    "textType": "Official report",
+    "level": "hard",
+    "bodyEs": "Según un estudio reciente publicado por la Consejería de Salud, el sesenta por ciento de los jóvenes de entre 14 y 18 años declara sentir ansiedad relacionada con el rendimiento académico y la presión de los exámenes finales.\n\nEl informe revela que las redes sociales juegan un papel ambivalente en la vida diaria de los estudiantes: mientras que un setenta por ciento afirma que las utiliza para mantener el contacto con sus amigos, más de la mitad admite que la comparación constante con vidas aparentemente ideales de otros usuarios genera baja autoestima e insatisfacción corporal.\n\nPor otro lado, los expertos destacan la importancia del ejercicio físico regular como factor protector. Los adolescentes que practican deporte al menos tres veces por semana presentan niveles de estrés notablemente inferiores y una mejor calidad del sueño en comparación con aquellos que llevan un estilo de vida sedentario.\n\nEn sus recomendaciones finales, la Consejería insta a los centros educativos a implementar programas de educación emocional y a promover actividades de ocio al aire libre sin dispositivos electrónicos.",
+    "questions": [
+      {
+        "id": "identities-9-q1",
+        "type": "true-false",
+        "prompt": "El sesenta por ciento de los jóvenes siente ansiedad por los exámenes.",
+        "correctAnswer": "true",
+        "justification": "\"el sesenta por ciento de los jóvenes de entre 14 y 18 años declara sentir ansiedad relacionada con el rendimiento académico\""
+      },
+      {
+        "id": "identities-9-q2",
+        "type": "true-false",
+        "prompt": "Practicar deporte aumenta los niveles de estrés según el informe.",
+        "correctAnswer": "false",
+        "justification": "\"Los adolescentes que practican deporte... presentan niveles de estrés notablemente inferiores\""
+      },
+      {
+        "id": "identities-9-q3",
+        "type": "mcq",
+        "prompt": "¿Qué impacto negativo tienen las redes sociales en más de la mitad de los jóvenes?",
+        "options": [
+          "Generan baja autoestima e insatisfacción corporal",
+          "Les impiden hacer deporte",
+          "Hacen que saquen peores notas",
+          "Les obligan a comprar cosas"
+        ],
+        "correctAnswer": "Generan baja autoestima e insatisfacción corporal"
+      },
+      {
+        "id": "identities-9-q4",
+        "type": "mcq",
+        "prompt": "¿Qué tipo de texto es este?",
+        "options": [
+          "Un informe oficial",
+          "Una entrada de diario",
+          "Un poema",
+          "Una carta informal"
+        ],
+        "correctAnswer": "Un informe oficial"
+      },
+      {
+        "id": "identities-9-q5",
+        "type": "short",
+        "prompt": "¿Cuántas veces a la semana se recomienda hacer deporte?",
+        "correctAnswer": "al menos tres veces"
+      }
+    ]
+  },
+  {
+    "id": "reading-identities-10",
+    "themeId": "identities",
+    "title": "Entrevista: 'La dieta mediterránea cambió mi vida'",
+    "textType": "Interview",
+    "level": "medium",
+    "bodyEs": "Entrevistador: Hoy hablamos con Javier Gómez, un estudiante universitario de 20 años que decidió cambiar radicalmente sus hábitos alimenticios tras experimentar fatiga constante durante el primer semestre.\n\nJavier: Solía comer comida rápida y productos ultraprocesados porque no tenía tiempo para cocinar. Estaba cansado todo el día y me costaba concentrarme en las clases.\n\nEntrevistador: ¿Cómo descubriste la dieta mediterránea?\n\nJavier: Mi abuela me enseñó a preparar platos sencillos a base de verduras de temporada, legumbres, pescado y aceite de oliva virgen extra. Al principio me parecía aburrido, pero en un par de semanas noté un cambio enorme en mi nivel de energía y en mi humor.\n\nEntrevistador: ¿Qué consejo le darías a otros jóvenes de tu edad?\n\nJavier: Que cocinar en casa no es una pérdida de tiempo, sino una inversión en salud. Preparar tus propias comidas te da control total sobre lo que ingieres.",
+    "questions": [
+      {
+        "id": "identities-10-q1",
+        "type": "true-false",
+        "prompt": "Javier siempre ha comido saludable desde niño.",
+        "correctAnswer": "false",
+        "justification": "\"Solía comer comida rápida y productos ultraprocesados\""
+      },
+      {
+        "id": "identities-10-q2",
+        "type": "true-false",
+        "prompt": "La abuela de Javier le enseñó a cocinar platos sencillos.",
+        "correctAnswer": "true",
+        "justification": "\"Mi abuela me enseñó a preparar platos sencillos\""
+      },
+      {
+        "id": "identities-10-q3",
+        "type": "mcq",
+        "prompt": "¿Por qué comía comida rápida Javier al principio?",
+        "options": [
+          "Porque no tenía tiempo para cocinar",
+          "Porque no le gustaban las verduras",
+          "Porque era más cara",
+          "Porque vivía en un hotel"
+        ],
+        "correctAnswer": "Porque no tenía tiempo para cocinar"
+      },
+      {
+        "id": "identities-10-q4",
+        "type": "mcq",
+        "prompt": "¿Qué tipo de texto es este?",
+        "options": [
+          "Una entrevista",
+          "Un folleto publicitario",
+          "Una novela",
+          "Una carta formal"
+        ],
+        "correctAnswer": "Una entrevista"
+      },
+      {
+        "id": "identities-10-q5",
+        "type": "short",
+        "prompt": "¿Cuántos años tiene Javier?",
+        "correctAnswer": "veinte años"
+      }
+    ]
+  },
+  {
+    "id": "reading-experiences-9",
+    "themeId": "experiences",
+    "title": "Reseña: Mi intercambio cultural en Salamanca",
+    "textType": "Review",
+    "level": "medium",
+    "bodyEs": "Pasar un trimestre completo en Salamanca como estudiante de intercambio ha sido, sin lugar a dudas, la mejor decisión que he tomado en mi vida escolar.\n\nSalamanca es una ciudad universitaria llena de vida, historia y cultura. Durante tres meses viví con una familia de acogida encantadora que me trató como a un hijo más. Cenar juntos cada noche hablando en español sobre nuestras costumbres me ayudó a mejorar mi fluidez mucho más rápido que en cualquier aula tradicional.\n\nLo que más me sorprendió fue la flexibilidad de los horarios españoles: comer a las tres de la tarde y cenar a las diez requiere un tiempo de adaptación, pero pronto te acostumbras a disfrutar del ritmo de vida relajado.\n\nRecomiendo sin dudarlo este programa a cualquier estudiante que desee perfeccionar su español y sumergirse en la rica herencia cultural de España.",
+    "questions": [
+      {
+        "id": "experiences-9-q1",
+        "type": "true-false",
+        "prompt": "El autor vivió en una residencia de estudiantes en Salamanca.",
+        "correctAnswer": "false",
+        "justification": "\"viví con una familia de acogida encantadora\""
+      },
+      {
+        "id": "experiences-9-q2",
+        "type": "true-false",
+        "prompt": "Al autor le sorprendieron los horarios de las comidas en España.",
+        "correctAnswer": "true",
+        "justification": "\"Lo que más me sorprendió fue la flexibilidad de los horarios españoles\""
+      },
+      {
+        "id": "experiences-9-q3",
+        "type": "mcq",
+        "prompt": "¿Qué le ayudó al autor a mejorar su fluidez rápidamente?",
+        "options": [
+          "Cenar con la familia de acogida hablando en español",
+          "Estudiar en la biblioteca diez horas",
+          "Ver la televisión solo",
+          "Leer diccionarios"
+        ],
+        "correctAnswer": "Cenar con la familia de acogida hablando en español"
+      },
+      {
+        "id": "experiences-9-q4",
+        "type": "mcq",
+        "prompt": "¿Qué tipo de texto es este?",
+        "options": [
+          "Una reseña",
+          "Un contrato",
+          "Una receta de cocina",
+          "Un discurso"
+        ],
+        "correctAnswer": "Una reseña"
+      },
+      {
+        "id": "experiences-9-q5",
+        "type": "short",
+        "prompt": "¿Cuántos meses duró el intercambio escolar?",
+        "correctAnswer": "tres meses"
+      }
+    ]
+  },
+  {
+    "id": "reading-human-ingenuity-9",
+    "themeId": "human-ingenuity",
+    "title": "Discurso en el club de robótica escolar",
+    "textType": "Speech",
+    "level": "hard",
+    "bodyEs": "Estimados compañeros, profesores y apasionados de la tecnología:\n\nEs un honor estar hoy aquí para celebrar el quinto aniversario de nuestro club de robótica. Cuando empezamos en un pequeño aula del sótano con apenas tres ordenadores viejos, nadie imaginaba que llegaríamos a diseñar un prototipo capaz de competir a nivel nacional.\n\nLa inteligencia artificial y la automatización suelen despertar incertidumbre sobre el futuro del empleo. Sin embargo, nuestro objetivo como inventores jóvenes no debe ser reemplazar a los seres humanos, sino crear tecnologías que resuelvan problemas reales, como la limpieza de los océanos o la asistencia a personas mayores.\n\nLa verdadera innovación nace de la curiosidad, el trabajo en equipo y la capacidad de aprender de los errores. Invito a cada uno de vosotros a seguir experimentando con creatividad y ética.",
+    "questions": [
+      {
+        "id": "human-ingenuity-9-q1",
+        "type": "true-false",
+        "prompt": "El club de robótica empezó hace diez años.",
+        "correctAnswer": "false",
+        "justification": "\"celebrar el quinto aniversario de nuestro club de robótica\""
+      },
+      {
+        "id": "human-ingenuity-9-q2",
+        "type": "true-false",
+        "prompt": "El orador cree que la tecnología debe resolver problemas reales.",
+        "correctAnswer": "true",
+        "justification": "\"crear tecnologías que resuelvan problemas reales\""
+      },
+      {
+        "id": "human-ingenuity-9-q3",
+        "type": "mcq",
+        "prompt": "¿Dónde empezó el club de robótica según el discurso?",
+        "options": [
+          "En un pequeño aula del sótano",
+          "En un laboratorio universitario",
+          "En la biblioteca pública",
+          "En un garaje de una casa"
+        ],
+        "correctAnswer": "En un pequeño aula del sótano"
+      },
+      {
+        "id": "human-ingenuity-9-q4",
+        "type": "mcq",
+        "prompt": "¿Qué tipo de texto es este?",
+        "options": [
+          "Un discurso",
+          "Una entrevista",
+          "Un folleto",
+          "Una entrada de diario"
+        ],
+        "correctAnswer": "Un discurso"
+      },
+      {
+        "id": "human-ingenuity-9-q5",
+        "type": "short",
+        "prompt": "¿Cuántos ordenadores viejos tenían al principio?",
+        "correctAnswer": "tres ordenadores"
+      }
+    ]
+  },
+  {
+    "id": "reading-social-organization-9",
+    "themeId": "social-organization",
+    "title": "Folleto: Voluntariado juvenil en el centro vecinal",
+    "textType": "Instructional guide",
+    "level": "easy",
+    "bodyEs": "¡Únete al programa de voluntariado 'Jóvenes Activos' de nuestro barrio!\n\n¿Tienes más de 14 años y quieres marcar la diferencia en tu comunidad? Nuestro centro vecinal busca estudiantes con entusiasmo para participar en las siguientes actividades los fines de semana:\n\n1. Apoyo escolar: ayuda a niños de primaria con sus deberes de matemáticas y lectura los sábados por la mañana.\n2. Taller digital para mayores: enseña a nuestros abuelos a usar smartphones y hacer videollamadas con sus familias.\n3. Huerto urbano: colabora en el cultivo de verduras orgánicas que luego se donan al comedor social.\n\nRequisitos: no se requiere experiencia previa, solo ganas de colaborar dos horas a la semana. Al finalizar el trimestre recibirás un certificado oficial útil para tu currículum.",
+    "questions": [
+      {
+        "id": "social-organization-9-q1",
+        "type": "true-false",
+        "prompt": "Es necesario tener experiencia previa para ser voluntario.",
+        "correctAnswer": "false",
+        "justification": "\"no se requiere experiencia previa\""
+      },
+      {
+        "id": "social-organization-9-q2",
+        "type": "true-false",
+        "prompt": "Los voluntarios reciben un certificado oficial al final del trimestre.",
+        "correctAnswer": "true",
+        "justification": "\"recibirás un certificado oficial útil para tu currículum\""
+      },
+      {
+        "id": "social-organization-9-q3",
+        "type": "mcq",
+        "prompt": "¿A quiénes ayudan los voluntarios en el taller digital?",
+        "options": [
+          "A los abuelos del barrio",
+          "A niños de primaria",
+          "A profesores de instituto",
+          "A turistas de la ciudad"
+        ],
+        "correctAnswer": "A los abuelos del barrio"
+      },
+      {
+        "id": "social-organization-9-q4",
+        "type": "mcq",
+        "prompt": "¿Qué tipo de texto es este?",
+        "options": [
+          "Un folleto informativo",
+          "Una entrada de blog",
+          "Un examen",
+          "Una novela"
+        ],
+        "correctAnswer": "Un folleto informativo"
+      },
+      {
+        "id": "social-organization-9-q5",
+        "type": "short",
+        "prompt": "¿Cuántas horas a la semana se pide colaborar?",
+        "correctAnswer": "dos horas"
+      }
+    ]
+  },
+  {
+    "id": "reading-sharing-planet-9",
+    "themeId": "sharing-planet",
+    "title": "Artículo: La crisis global del agua dulce",
+    "textType": "Newspaper article",
+    "level": "hard",
+    "bodyEs": "Aunque el setenta por ciento de la superficie terrestre está cubierta por agua, solo el dos coma cinco por ciento es agua dulce apta para el consumo humano, y la mayor parte se encuentra atrapada en glaciares y mantos de hielo inaccesibles.\n\nEl cambio climático, sumado al crecimiento demográfico y a la agricultura intensiva, está acelerando la escasez de agua potable en regiones que antes se consideraban abundantes. Según datos de la ONU, en el año 2050 más de dos mil millones de personas vivirán en países con estrés hídrico grave.\n\nExpertos reunidos esta semana en el Foro Mundial del Agua advierten que la innovación en desalinización limpia y la eficiencia en el riego agrícola son urgentes. Sin una gestión sostenible del agua dulce, el desarrollo social y económico del planeta se verá seriamente amenazado.",
+    "questions": [
+      {
+        "id": "sharing-planet-9-q1",
+        "type": "true-false",
+        "prompt": "El dos coma cinco por ciento del agua de la Tierra es agua dulce.",
+        "correctAnswer": "true",
+        "justification": "\"solo el dos coma cinco por ciento es agua dulce\""
+      },
+      {
+        "id": "sharing-planet-9-q2",
+        "type": "true-false",
+        "prompt": "Toda el agua dulce de la Tierra es fácilmente accesible.",
+        "correctAnswer": "false",
+        "justification": "\"la mayor parte se encuentra atrapada en glaciares y mantos de hielo inaccesibles\""
+      },
+      {
+        "id": "sharing-planet-9-q3",
+        "type": "mcq",
+        "prompt": "¿Cuántas personas sufrirán estrés hídrico grave en 2050 según la ONU?",
+        "options": [
+          "Más de dos mil millones",
+          "Un millón",
+          "La mitad del mundo",
+          "Nadie"
+        ],
+        "correctAnswer": "Más de dos mil millones"
+      },
+      {
+        "id": "sharing-planet-9-q4",
+        "type": "mcq",
+        "prompt": "¿Qué tipo de texto es este?",
+        "options": [
+          "Un artículo de periódico",
+          "Una carta informal",
+          "Una poesía",
+          "Un menú"
+        ],
+        "correctAnswer": "Un artículo de periódico"
+      },
+      {
+        "id": "sharing-planet-9-q5",
+        "type": "short",
+        "prompt": "¿Qué porcentaje de la Tierra está cubierto por agua?",
+        "correctAnswer": "setenta por ciento"
+      }
+    ]
+  },
 ];

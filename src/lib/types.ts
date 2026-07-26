@@ -173,6 +173,9 @@ export interface GrammarExercise {
    *  rely on the audio rather than reading it. Unused for other types. */
   audioText?: string;
   correctAnswer: string;
+  /** Helpful feedback tip or rule explanation shown to the student when an answer is incorrect. */
+  tip?: string;
+  explanation?: string;
 }
 
 export interface GrammarTopic {

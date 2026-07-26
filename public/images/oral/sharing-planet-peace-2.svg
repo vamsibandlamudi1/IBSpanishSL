@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#1e1b4b" />
+    </linearGradient>
+  </defs>
+
+  
+      <!-- Sports Field Background -->
+      <rect width="1200" height="675" fill="#15803d"/>
+      <!-- Field Line -->
+      <line x1="600" y1="0" x2="600" y2="675" stroke="#ffffff" stroke-width="8" opacity="0.6"/>
+      <circle cx="600" cy="337" r="140" stroke="#ffffff" stroke-width="8" fill="none" opacity="0.6"/>
+
+      <!-- Team A Player (Blue) & Team B Player (Red) Shaking Hands -->
+      <g transform="translate(250, 180)">
+        <!-- Team Blue -->
+        <circle cx="120" cy="80" r="45" fill="#fde047"/>
+        <rect x="70" y="130" width="100" height="140" rx="16" fill="#1d4ed8"/>
+        <!-- Arm extension -->
+        <path d="M150 170 L 300 200" stroke="#fde047" stroke-width="22" stroke-linecap="round"/>
+
+        <!-- Team Red -->
+        <circle cx="580" cy="80" r="45" fill="#f97316"/>
+        <rect x="530" y="130" width="100" height="140" rx="16" fill="#b91c1c"/>
+        <!-- Arm extension -->
+        <path d="M550 170 L 300 200" stroke="#f97316" stroke-width="22" stroke-linecap="round"/>
+
+        <!-- Handshake Center Graphic -->
+        <circle cx="350" cy="200" r="65" fill="#ffffff" stroke="#e2e8f0" stroke-width="4"/>
+        <text x="350" y="210" font-size="70" text-anchor="middle">🤝</text>
+        <text x="350" y="110" font-size="60" text-anchor="middle">⚽ 🕊️</text>
+      </g>
+    
+
+  <!-- Header Overlay Tag -->
+  <rect x="210" y="25" width="440" height="42" rx="21" fill="#0f172a" opacity="0.9" stroke="#a855f7" stroke-width="1.5"/>
+  <text x="230" y="52" font-family="sans-serif" font-size="15" font-weight="700" fill="#c084fc" letter-spacing="1.5">SHARING THE PLANET</text>
+
+  <!-- Card Title Header -->
+  <rect x="40" y="90" width="550" height="50" rx="12" fill="#0f172a" opacity="0.85"/>
+  <text x="60" y="125" font-family="sans-serif" font-size="26" font-weight="800" fill="#ffffff">Peace & Friendship / Paz y Deporte</text>
+
+  <!-- Footer Scene Description Overlay -->
+  <rect x="40" y="575" width="1120" height="70" rx="16" fill="#020617" fill-opacity="0.95" stroke="#334155" stroke-width="1.5" />
+  <text x="70" y="602" font-family="sans-serif" font-size="13" font-weight="800" fill="#c084fc" letter-spacing="1.5">EXACT STIMULUS SCENE:</text>
+  <text x="70" y="628" font-family="sans-serif" font-size="17" font-weight="600" fill="#f8fafc">Students from two rival schools shaking hands before a friendly sports match.</text>
+</svg>

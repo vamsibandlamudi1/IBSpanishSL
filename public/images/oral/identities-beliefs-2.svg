@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#1e1b4b" />
+    </linearGradient>
+  </defs>
+
+  
+      <!-- Place of Worship Interior -->
+      <rect width="1200" height="675" fill="#090d16"/>
+      
+      <!-- Stained Glass Window with Colorful Light Beam -->
+      <g transform="translate(800, 40)">
+        <rect x="0" y="0" width="200" height="320" rx="100" fill="#7e22ce" stroke="#eab308" stroke-width="6"/>
+        <path d="M 0 0 L 200 0 L 200 320 L 0 320 Z" fill="url(#glassGrad)"/>
+        <text x="100" y="160" font-size="70" text-anchor="middle">🌤️</text>
+      </g>
+
+      <!-- Sunlight Beam -->
+      <polygon points="800,200 1000,200 500,675 200,675" fill="#fde047" opacity="0.15"/>
+
+      <!-- Teenager Reading on Bench -->
+      <g transform="translate(300, 360)">
+        <rect x="0" y="120" width="360" height="30" rx="8" fill="#78350f"/>
+        <text x="150" y="90" font-size="90" text-anchor="middle">📖</text>
+        <text x="110" y="80" font-size="75" text-anchor="middle">🧑‍🦱</text>
+        <text x="320" y="110" font-size="40">🕯️</text>
+      </g>
+    
+
+  <!-- Header Overlay Tag -->
+  <rect x="210" y="25" width="440" height="42" rx="21" fill="#0f172a" opacity="0.9" stroke="#a855f7" stroke-width="1.5"/>
+  <text x="230" y="52" font-family="sans-serif" font-size="15" font-weight="700" fill="#c084fc" letter-spacing="1.5">IDENTITIES</text>
+
+  <!-- Card Title Header -->
+  <rect x="40" y="90" width="550" height="50" rx="12" fill="#0f172a" opacity="0.85"/>
+  <text x="60" y="125" font-family="sans-serif" font-size="26" font-weight="800" fill="#ffffff">Reflection & Faith / Creencias y Tradiciones</text>
+
+  <!-- Footer Scene Description Overlay -->
+  <rect x="40" y="575" width="1120" height="70" rx="16" fill="#020617" fill-opacity="0.95" stroke="#334155" stroke-width="1.5" />
+  <text x="70" y="602" font-family="sans-serif" font-size="13" font-weight="800" fill="#c084fc" letter-spacing="1.5">EXACT STIMULUS SCENE:</text>
+  <text x="70" y="628" font-family="sans-serif" font-size="17" font-weight="600" fill="#f8fafc">A teenager reading quietly in a place of worship with stained glass light.</text>
+</svg>

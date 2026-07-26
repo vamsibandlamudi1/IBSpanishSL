@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#1e1b4b" />
+    </linearGradient>
+  </defs>
+
+  
+      <!-- Wooden Table -->
+      <rect width="1200" height="675" fill="#451a03"/>
+
+      <!-- Open Old Photo Album -->
+      <g transform="translate(150, 120)">
+        <rect x="0" y="0" width="500" height="380" rx="16" fill="#78350f" stroke="#f59e0b" stroke-width="4"/>
+        <line x1="250" y1="0" x2="250" y2="380" stroke="#451a03" stroke-width="6"/>
+        <!-- Photos in Album -->
+        <rect x="30" y="40" width="180" height="130" fill="#fef3c7"/>
+        <text x="120" y="125" font-size="50" text-anchor="middle">👶</text>
+
+        <rect x="270" y="40" width="180" height="130" fill="#fef3c7"/>
+        <text x="360" y="125" font-size="50" text-anchor="middle">🧸</text>
+
+        <rect x="140" y="200" width="200" height="140" fill="#fef3c7"/>
+        <text x="240" y="285" font-size="55" text-anchor="middle">👨‍👩‍👧</text>
+      </g>
+
+      <!-- Modern Smartphone showing current photo -->
+      <g transform="translate(750, 160)">
+        <rect x="0" y="0" width="220" height="340" rx="28" fill="#0f172a" stroke="#94a3b8" stroke-width="6"/>
+        <rect x="15" y="35" width="190" height="270" rx="12" fill="#38bdf8"/>
+        <text x="110" y="180" font-size="70" text-anchor="middle">🎓</text>
+        <text x="110" y="250" font-size="50" text-anchor="middle">🧑</text>
+      </g>
+    
+
+  <!-- Header Overlay Tag -->
+  <rect x="210" y="25" width="440" height="42" rx="21" fill="#0f172a" opacity="0.9" stroke="#a855f7" stroke-width="1.5"/>
+  <text x="230" y="52" font-family="sans-serif" font-size="15" font-weight="700" fill="#c084fc" letter-spacing="1.5">IDENTITIES</text>
+
+  <!-- Card Title Header -->
+  <rect x="40" y="90" width="550" height="50" rx="12" fill="#0f172a" opacity="0.85"/>
+  <text x="60" y="125" font-family="sans-serif" font-size="26" font-weight="800" fill="#ffffff">Photo Memories / Recuerdos de Infancia</text>
+
+  <!-- Footer Scene Description Overlay -->
+  <rect x="40" y="575" width="1120" height="70" rx="16" fill="#020617" fill-opacity="0.95" stroke="#334155" stroke-width="1.5" />
+  <text x="70" y="602" font-family="sans-serif" font-size="13" font-weight="800" fill="#c084fc" letter-spacing="1.5">EXACT STIMULUS SCENE:</text>
+  <text x="70" y="628" font-family="sans-serif" font-size="17" font-weight="600" fill="#f8fafc">An old family photo album open on a table next to a modern smartphone.</text>
+</svg>
