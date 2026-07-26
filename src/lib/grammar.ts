@@ -1,18 +1,21 @@
 /// File: src/lib/grammar.ts
 //
 // Content for the Grammar module: 11 core IB Spanish B SL grammar topics,
-// each with a short plain-English rule, a few example sentences, and 10
-// practice exercises (110 exercises total). Organized by grammar topic
-// rather than by IB theme, since grammar structures cut across all five
-// themes — see components/GrammarModule.tsx for the practice UI. The final
-// topic ("listening-tenses") uses "listening" exercises: a sentence is
-// spoken aloud (Web Speech API, no text shown) and the student identifies
-// the tense, instead of the usual fill-in/mcq conjugation drill.
+// each with 200 practice exercises (2,200 exercises total).
 //
-// ---> TO ADD A TOPIC: push a new GrammarTopic below, following the same
-// shape (rule, examples, 8-10 exercises mixing "mcq" and "short").
 
 import { GrammarTopic } from "./types";
+import { SER_ESTAR_EXERCISES } from "./grammar-data/ser-estar";
+import { PRESENT_REGULAR_EXERCISES } from "./grammar-data/present-regular";
+import { PRESENT_IRREGULAR_EXERCISES } from "./grammar-data/present-irregular";
+import { PRETERITE_EXERCISES } from "./grammar-data/preterite";
+import { IMPERFECT_EXERCISES } from "./grammar-data/imperfect";
+import { FUTURE_EXERCISES } from "./grammar-data/future";
+import { CONDITIONAL_EXERCISES } from "./grammar-data/conditional";
+import { SUBJUNCTIVE_EXERCISES } from "./grammar-data/subjunctive";
+import { REFLEXIVE_EXERCISES } from "./grammar-data/reflexive";
+import { OBJECT_PRONOUNS_EXERCISES } from "./grammar-data/object-pronouns";
+import { LISTENING_TENSES_EXERCISES } from "./grammar-data/listening-tenses";
 
 export const GRAMMAR_TOPICS: GrammarTopic[] = [
   {
@@ -27,18 +30,7 @@ export const GRAMMAR_TOPICS: GrammarTopic[] = [
       { es: "Ella está cansada.", en: "She is tired." },
       { es: "Madrid está en España.", en: "Madrid is in Spain." },
     ],
-    exercises: [
-      { id: "se-1", type: "mcq", prompt: "Mi hermano ___ médico.", options: ["es", "está", "son", "están"], correctAnswer: "es" , tip: "Use 'SER' for professions and occupations (Él es médico)." },
-      { id: "se-2", type: "mcq", prompt: "Nosotros ___ muy felices hoy.", options: ["somos", "estamos", "son", "están"], correctAnswer: "estamos" , tip: "Use 'ESTAR' for temporary emotions and states (Estamos felices hoy)." },
-      { id: "se-3", type: "short", prompt: "Completa: 'La biblioteca ___ cerca del colegio.' (location)", correctAnswer: "está" , tip: "Use 'ESTAR' for physical location of places (La biblioteca está cerca)." },
-      { id: "se-4", type: "mcq", prompt: "¿Cómo ___ tú?", options: ["estás", "eres", "está", "es"], correctAnswer: "estás" , tip: "Use 'ESTAR' for personal well-being or current condition (¿Cómo estás?)." },
-      { id: "se-5", type: "short", prompt: "Completa: 'El café ___ frío.' (temporary state)", correctAnswer: "está" , tip: "Use 'ESTAR' for temporary conditions like temperature (El café está frío)." },
-      { id: "se-6", type: "mcq", prompt: "Los libros ___ en la mesa.", options: ["están", "son", "es", "está"], correctAnswer: "están" , tip: "Use 'ESTAR' for location of items (Los libros están en la mesa)." },
-      { id: "se-7", type: "mcq", prompt: "Hoy ___ lunes.", options: ["es", "está", "son", "están"], correctAnswer: "es" , tip: "Use 'SER' for days of the week and dates (Hoy es lunes)." },
-      { id: "se-8", type: "short", prompt: "Completa: 'Nosotros ___ (ser) de México.' (origin)", correctAnswer: "somos" , tip: "Use 'SER' for origin and nationality (Somos de México)." },
-      { id: "se-9", type: "mcq", prompt: "¿Dónde ___ el baño?", options: ["está", "es", "son", "están"], correctAnswer: "está" , tip: "Use 'ESTAR' when asking for locations (¿Dónde está el baño?)." },
-      { id: "se-10", type: "short", prompt: "Completa: 'Yo ___ (estar) muy contento hoy.'", correctAnswer: "estoy" , tip: "Use 'ESTAR' for temporary mood (Estoy contento hoy)." },
-    ],
+    exercises: SER_ESTAR_EXERCISES,
   },
   {
     id: "present-regular",
@@ -52,18 +44,7 @@ export const GRAMMAR_TOPICS: GrammarTopic[] = [
       { es: "Ella come fruta.", en: "She eats fruit." },
       { es: "Nosotros vivimos aquí.", en: "We live here." },
     ],
-    exercises: [
-      { id: "pr-1", type: "mcq", prompt: "Yo ___ (hablar) tres idiomas.", options: ["hablo", "hablas", "habla", "hablamos"], correctAnswer: "hablo" , tip: "For 'yo' with -ar verbs, drop -ar and add -o (hablar → hablo)." },
-      { id: "pr-2", type: "mcq", prompt: "Tú ___ (comer) mucha verdura.", options: ["comes", "come", "comen", "como"], correctAnswer: "comes" , tip: "For 'tú' with -er verbs, drop -er and add -es (comer → comes)." },
-      { id: "pr-3", type: "short", prompt: "Conjuga 'vivir' con 'ellos': Ellos ___ en Madrid.", correctAnswer: "viven" , tip: "For 'ellos' with -ir verbs, drop -ir and add -en (vivir → viven)." },
-      { id: "pr-4", type: "mcq", prompt: "Nosotros ___ (estudiar) para el examen.", options: ["estudiamos", "estudian", "estudias", "estudia"], correctAnswer: "estudiamos" , tip: "For 'nosotros' with -ar verbs, drop -ar and add -amos (estudiar → estudiamos)." },
-      { id: "pr-5", type: "short", prompt: "Conjuga 'escribir' con 'yo': Yo ___ una carta.", correctAnswer: "escribo" , tip: "For 'yo' with -ir verbs, drop -ir and add -o (escribir → escribo)." },
-      { id: "pr-6", type: "mcq", prompt: "Vosotros ___ (trabajar) mucho.", options: ["trabajáis", "trabajan", "trabajamos", "trabajas"], correctAnswer: "trabajáis" , tip: "For 'vosotros' with -ar verbs, drop -ar and add -áis (trabajar → trabajáis)." },
-      { id: "pr-7", type: "mcq", prompt: "Ella ___ (leer) una novela.", options: ["lee", "lees", "leo", "leen"], correctAnswer: "lee" , tip: "For 'ella' with -er verbs, drop -er and add -e (leer → lee)." },
-      { id: "pr-8", type: "short", prompt: "Conjuga 'abrir' con 'yo': Yo ___ la puerta.", correctAnswer: "abro" , tip: "For 'yo' with -ir verbs, drop -ir and add -o (abrir → abro)." },
-      { id: "pr-9", type: "mcq", prompt: "Ellos ___ (correr) todos los días.", options: ["corren", "corre", "corremos", "corres"], correctAnswer: "corren" , tip: "For 'ellos' with -er verbs, drop -er and add -en (correr → corren)." },
-      { id: "pr-10", type: "short", prompt: "Conjuga 'bailar' con 'tú': Tú ___ muy bien.", correctAnswer: "bailas" , tip: "For 'tú' with -ar verbs, drop -ar and add -as (bailar → bailas)." },
-    ],
+    exercises: PRESENT_REGULAR_EXERCISES,
   },
   {
     id: "present-irregular",
@@ -77,18 +58,7 @@ export const GRAMMAR_TOPICS: GrammarTopic[] = [
       { es: "Ellos van al parque.", en: "They go to the park." },
       { es: "¿Qué haces?", en: "What are you doing?" },
     ],
-    exercises: [
-      { id: "ir-1", type: "mcq", prompt: "Yo ___ (tener) hambre.", options: ["tengo", "tienes", "tiene", "tenemos"], correctAnswer: "tengo" , tip: "Tener is irregular in 'yo' form: yo tengo." },
-      { id: "ir-2", type: "mcq", prompt: "Vosotros ___ (ir) a la playa.", options: ["vais", "van", "va", "vamos"], correctAnswer: "vais" , tip: "Ir is irregular: vosotros vais." },
-      { id: "ir-3", type: "short", prompt: "Conjuga 'hacer' con 'ella': Ella ___ la tarea.", correctAnswer: "hace" , tip: "Hacer in 'ella' form: ella hace." },
-      { id: "ir-4", type: "mcq", prompt: "Yo ___ (ser) estudiante.", options: ["soy", "eres", "es", "somos"], correctAnswer: "soy" , tip: "Ser in 'yo' form: yo soy." },
-      { id: "ir-5", type: "short", prompt: "Conjuga 'tener' con 'nosotros': Nosotros ___ un perro.", correctAnswer: "tenemos" , tip: "Tener in 'nosotros' form: nosotros tenemos." },
-      { id: "ir-6", type: "mcq", prompt: "Ella ___ (ir) a la universidad.", options: ["va", "van", "vamos", "vas"], correctAnswer: "va" , tip: "Ir in 'ella' form: ella va." },
-      { id: "ir-7", type: "mcq", prompt: "Nosotros ___ (hacer) la cena.", options: ["hacemos", "hacen", "hago", "haces"], correctAnswer: "hacemos" , tip: "Hacer in 'nosotros' form: nosotros hacemos." },
-      { id: "ir-8", type: "short", prompt: "Conjuga 'ser' con 'ellos': Ellos ___ hermanos.", correctAnswer: "son" , tip: "Ser in 'ellos' form: ellos son." },
-      { id: "ir-9", type: "mcq", prompt: "Tú ___ (tener) razón.", options: ["tienes", "tiene", "tengo", "tenemos"], correctAnswer: "tienes" , tip: "Tener in 'tú' form: tú tienes." },
-      { id: "ir-10", type: "short", prompt: "Conjuga 'estar' con 'vosotros': Vosotros ___ cansados.", correctAnswer: "estáis" , tip: "Estar in 'vosotros' form: vosotros estáis." },
-    ],
+    exercises: PRESENT_IRREGULAR_EXERCISES,
   },
   {
     id: "preterite",
@@ -102,18 +72,7 @@ export const GRAMMAR_TOPICS: GrammarTopic[] = [
       { es: "Ella comió a las dos.", en: "She ate at two o'clock." },
       { es: "El año pasado viajamos a Perú.", en: "Last year we traveled to Peru." },
     ],
-    exercises: [
-      { id: "pt-1", type: "mcq", prompt: "Anoche yo ___ (comer) pizza.", options: ["comí", "comiste", "comió", "comimos"], correctAnswer: "comí" , tip: "Preterite of -er verb 'comer' for 'yo' ends in -í (comí)." },
-      { id: "pt-2", type: "mcq", prompt: "El sábado ellos ___ (viajar) a Chile.", options: ["viajaron", "viajamos", "viajó", "viajaste"], correctAnswer: "viajaron" , tip: "Preterite of -ar verb 'viajar' for 'ellos' ends in -aron (viajaron)." },
-      { id: "pt-3", type: "short", prompt: "Conjuga 'escribir' en pretérito con 'tú': Tú ___ la carta ayer.", correctAnswer: "escribiste" , tip: "Preterite of -ir verb 'escribir' for 'tú' ends in -iste (escribiste)." },
-      { id: "pt-4", type: "mcq", prompt: "El año pasado nosotros ___ (vivir) en Londres.", options: ["vivimos", "viví", "vivió", "vivieron"], correctAnswer: "vivimos" , tip: "Preterite of -ir verb 'vivir' for 'nosotros' ends in -imos (vivimos)." },
-      { id: "pt-5", type: "short", prompt: "Conjuga 'hablar' en pretérito con 'ella': Ella ___ conmigo ayer.", correctAnswer: "habló" , tip: "Preterite of -ar verb 'hablar' for 'ella' ends in -ó with accent (habló)." },
-      { id: "pt-6", type: "mcq", prompt: "Yo ___ (llegar) tarde ayer.", options: ["llegué", "llegaste", "llegó", "llegamos"], correctAnswer: "llegué" , tip: "Verbs ending in -gar change to -gué in 'yo' form (llegué)." },
-      { id: "pt-7", type: "mcq", prompt: "Ella ___ (leer) el libro la semana pasada.", options: ["leyó", "leí", "leíste", "leyeron"], correctAnswer: "leyó" , tip: "Leer changes to -yó in 3rd person singular (leyó)." },
-      { id: "pt-8", type: "short", prompt: "Conjuga 'vivir' en pretérito con 'ellos': Ellos ___ en Francia dos años.", correctAnswer: "vivieron" , tip: "Preterite of 'vivir' for 'ellos' ends in -ieron (vivieron)." },
-      { id: "pt-9", type: "mcq", prompt: "¿___ (ver) tú la película?", options: ["Viste", "Vi", "Vio", "Vieron"], correctAnswer: "Viste" , tip: "Preterite of 'ver' for 'tú' is 'viste' (no accent needed)." },
-      { id: "pt-10", type: "short", prompt: "Conjuga 'ir' en pretérito con 'nosotros': Nosotros ___ al cine.", correctAnswer: "fuimos" , tip: "Preterite of 'ir' for 'nosotros' is 'fuimos'." },
-    ],
+    exercises: PRETERITE_EXERCISES,
   },
   {
     id: "imperfect",
@@ -127,18 +86,7 @@ export const GRAMMAR_TOPICS: GrammarTopic[] = [
       { es: "Ella vivía en Madrid.", en: "She used to live in Madrid." },
       { es: "Hacía mucho calor ese día.", en: "It was very hot that day." },
     ],
-    exercises: [
-      { id: "im-1", type: "mcq", prompt: "De niña, yo ___ (jugar) todos los días.", options: ["jugaba", "jugué", "juega", "jugábamos"], correctAnswer: "jugaba" , tip: "Imperfect -ar verb for 'yo' ends in -aba (jugaba)." },
-      { id: "im-2", type: "mcq", prompt: "Ellos ___ (vivir) en Colombia antes.", options: ["vivían", "vivieron", "vive", "vivimos"], correctAnswer: "vivían" , tip: "Imperfect -er/-ir verb for 'ellos' ends in -ían (vivían)." },
-      { id: "im-3", type: "short", prompt: "Conjuga 'tener' en imperfecto con 'nosotros': Nosotros ___ un gato.", correctAnswer: "teníamos" , tip: "Imperfect -er verb for 'nosotros' ends in -íamos (teníamos)." },
-      { id: "im-4", type: "mcq", prompt: "Cuando era joven, mi abuela ___ (cantar) todas las noches.", options: ["cantaba", "cantó", "canta", "cantamos"], correctAnswer: "cantaba" , tip: "Imperfect -ar verb for 'ella' ends in -aba (cantaba)." },
-      { id: "im-5", type: "short", prompt: "Conjuga 'ser' en imperfecto con 'tú': Tú ___ muy tímido.", correctAnswer: "eras" , tip: "Ser is irregular in imperfect for 'tú': eras." },
-      { id: "im-6", type: "mcq", prompt: "Nosotros ___ (comer) juntos cada domingo.", options: ["comíamos", "comimos", "comía", "coméis"], correctAnswer: "comíamos" , tip: "Imperfect -er verb for 'nosotros' ends in -íamos (comíamos)." },
-      { id: "im-7", type: "mcq", prompt: "Ellos ___ (hablar) español en casa.", options: ["hablaban", "hablaron", "habla", "hablamos"], correctAnswer: "hablaban" , tip: "Imperfect -ar verb for 'ellos' ends in -aban (hablaban)." },
-      { id: "im-8", type: "short", prompt: "Conjuga 'ir' en imperfecto con 'yo': Yo ___ al parque todos los días.", correctAnswer: "iba" , tip: "Ir is irregular in imperfect for 'yo': iba." },
-      { id: "im-9", type: "mcq", prompt: "Cuando éramos niños, ___ (haber) menos tecnología.", options: ["había", "hubo", "hay", "habrá"], correctAnswer: "había" , tip: "Haber in imperfect for descriptions: había (there was/were)." },
-      { id: "im-10", type: "short", prompt: "Conjuga 'vivir' en imperfecto con 'ella': Ella ___ en un pueblo pequeño.", correctAnswer: "vivía" , tip: "Imperfect -ir verb for 'ella' ends in -ía (vivía)." },
-    ],
+    exercises: IMPERFECT_EXERCISES,
   },
   {
     id: "future",
@@ -152,18 +100,7 @@ export const GRAMMAR_TOPICS: GrammarTopic[] = [
       { es: "Mañana viajaremos a Barcelona.", en: "Tomorrow we will travel to Barcelona." },
       { es: "Ella hablará con el director.", en: "She will speak with the director." },
     ],
-    exercises: [
-      { id: "fu-1", type: "mcq", prompt: "Nosotros ___ (viajar) el próximo mes.", options: ["viajaremos", "viajamos", "viajábamos", "viajaron"], correctAnswer: "viajaremos" , tip: "Future tense of 'viajar' for 'nosotros': añadimos -emos al infinitivo (viajaremos)." },
-      { id: "fu-2", type: "mcq", prompt: "Yo ___ a estudiar más tarde.", options: ["voy", "vas", "va", "van"], correctAnswer: "voy" , tip: "Near future formula: ir + a + infinitivo (voy a estudiar)." },
-      { id: "fu-3", type: "short", prompt: "Conjuga 'hablar' en futuro con 'ella': Ella ___ con el profesor.", correctAnswer: "hablará" , tip: "Future of 'hablar' for 'ella': añadir -á al infinitivo (hablará)." },
-      { id: "fu-4", type: "mcq", prompt: "¿Qué ___ (hacer) tú este fin de semana?", options: ["harás", "haces", "hiciste", "hacías"], correctAnswer: "harás" , tip: "Irregular stem for hacer in future is har-: tú harás." },
-      { id: "fu-5", type: "short", prompt: "Conjuga 'vivir' en futuro con 'ellos': Ellos ___ en otra ciudad.", correctAnswer: "vivirán" , tip: "Future of 'vivir' for 'ellos': añadir -án al infinitivo (vivirán)." },
-      { id: "fu-6", type: "mcq", prompt: "Ellos ___ (llegar) mañana.", options: ["llegarán", "llegan", "llegaban", "llegaron"], correctAnswer: "llegarán" , tip: "Future of 'llegar' for 'ellos': añadir -án (llegarán)." },
-      { id: "fu-7", type: "mcq", prompt: "Nosotros ___ a visitar a mis abuelos.", options: ["vamos", "va", "van", "voy"], correctAnswer: "vamos" , tip: "Near future for 'nosotros': vamos a + infinitivo." },
-      { id: "fu-8", type: "short", prompt: "Conjuga 'tener' en futuro con 'tú': Tú ___ mucho éxito.", correctAnswer: "tendrás" , tip: "Irregular stem for tener in future is tendr-: tú tendrás." },
-      { id: "fu-9", type: "mcq", prompt: "¿Qué ___ (comer) nosotros esta noche?", options: ["comeremos", "comemos", "comíamos", "comimos"], correctAnswer: "comeremos" , tip: "Future of 'comer' for 'nosotros': añadir -emos (comeremos)." },
-      { id: "fu-10", type: "short", prompt: "Conjuga 'salir' en futuro con 'yo': Yo ___ temprano mañana.", correctAnswer: "saldré" , tip: "Irregular stem for salir in future is saldr-: yo saldré." },
-    ],
+    exercises: FUTURE_EXERCISES,
   },
   {
     id: "conditional",
@@ -177,18 +114,7 @@ export const GRAMMAR_TOPICS: GrammarTopic[] = [
       { es: "Ella dijo que vendría.", en: "She said she would come." },
       { es: "¿Podrías ayudarme?", en: "Could you help me?" },
     ],
-    exercises: [
-      { id: "co-1", type: "mcq", prompt: "Yo ___ (querer) un café, por favor.", options: ["querría", "quiero", "quería", "querré"], correctAnswer: "querría" , tip: "Irregular stem for querer in conditional is querr-: yo querría." },
-      { id: "co-2", type: "mcq", prompt: "¿___ (poder) tú ayudarme?", options: ["Podrías", "Puedes", "Podías", "Podrás"], correctAnswer: "Podrías" , tip: "Irregular stem for poder in conditional is podr-: tú podrías." },
-      { id: "co-3", type: "short", prompt: "Conjuga 'gustar' en condicional (forma impersonal): Me ___ ir contigo.", correctAnswer: "gustaría" , tip: "Conditional of gustar is 'gustaría' for singular actions." },
-      { id: "co-4", type: "mcq", prompt: "Ellos dijeron que ___ (llegar) tarde.", options: ["llegarían", "llegaron", "llegan", "llegarán"], correctAnswer: "llegarían" , tip: "Conditional of 'llegar' for 'ellos' adds -ían (llegarían)." },
-      { id: "co-5", type: "short", prompt: "Conjuga 'hablar' en condicional con 'nosotros': Nosotros ___ con ella si pudiéramos.", correctAnswer: "hablaríamos" , tip: "Conditional of 'hablar' for 'nosotros' adds -íamos (hablaríamos)." },
-      { id: "co-6", type: "mcq", prompt: "Nosotros ___ (viajar) más si tuviéramos dinero.", options: ["viajaríamos", "viajamos", "viajaremos", "viajábamos"], correctAnswer: "viajaríamos" , tip: "Conditional of 'viajar' for 'nosotros' adds -íamos (viajaríamos)." },
-      { id: "co-7", type: "mcq", prompt: "Ella ___ (venir) si pudiera.", options: ["vendría", "viene", "vino", "vendrá"], correctAnswer: "vendría" , tip: "Irregular stem for venir in conditional is vendr-: ella vendría." },
-      { id: "co-8", type: "short", prompt: "Conjuga 'hacer' en condicional con 'yo': Yo ___ cualquier cosa por ayudar.", correctAnswer: "haría" , tip: "Irregular stem for hacer in conditional is har-: yo haría." },
-      { id: "co-9", type: "mcq", prompt: "¿___ (deber) yo llamar primero?", options: ["Debería", "Debo", "Debí", "Deberé"], correctAnswer: "Debería" , tip: "Conditional of 'deber' for 'yo' adds -ía (debería)." },
-      { id: "co-10", type: "short", prompt: "Conjuga 'poder' en condicional con 'ellos': Ellos ___ venir mañana.", correctAnswer: "podrían" , tip: "Irregular stem for poder in conditional is podr-: ellos podrían." },
-    ],
+    exercises: CONDITIONAL_EXERCISES,
   },
   {
     id: "subjunctive",
@@ -202,18 +128,7 @@ export const GRAMMAR_TOPICS: GrammarTopic[] = [
       { es: "Es importante que lleguemos a tiempo.", en: "It's important that we arrive on time." },
       { es: "Ojalá que haga buen tiempo.", en: "I hope the weather is good." },
     ],
-    exercises: [
-      { id: "su-1", type: "mcq", prompt: "Espero que tú ___ (venir) a la fiesta.", options: ["vengas", "vienes", "viniste", "vendrás"], correctAnswer: "vengas" },
-      { id: "su-2", type: "mcq", prompt: "Es necesario que nosotros ___ (estudiar) para el examen.", options: ["estudiemos", "estudiamos", "estudiábamos", "estudiaremos"], correctAnswer: "estudiemos" },
-      { id: "su-3", type: "short", prompt: "Conjuga 'ser' en subjuntivo con 'ella': Ojalá que ella ___ feliz.", correctAnswer: "sea" },
-      { id: "su-4", type: "mcq", prompt: "Mis padres quieren que yo ___ (sacar) buenas notas.", options: ["saque", "saco", "sacaba", "sacaré"], correctAnswer: "saque" },
-      { id: "su-5", type: "short", prompt: "Conjuga 'tener' en subjuntivo con 'ellos': Es importante que ellos ___ paciencia.", correctAnswer: "tengan" },
-      { id: "su-6", type: "mcq", prompt: "Dudo que él ___ (decir) la verdad.", options: ["diga", "dice", "dijo", "dirá"], correctAnswer: "diga" },
-      { id: "su-7", type: "mcq", prompt: "Quiero que vosotros ___ (terminar) el proyecto.", options: ["terminéis", "termináis", "terminasteis", "terminaréis"], correctAnswer: "terminéis" },
-      { id: "su-8", type: "short", prompt: "Conjuga 'hacer' en subjuntivo con 'tú': Espero que tú ___ la tarea.", correctAnswer: "hagas" },
-      { id: "su-9", type: "mcq", prompt: "Es posible que ellos ___ (llegar) tarde.", options: ["lleguen", "llegan", "llegaron", "llegarán"], correctAnswer: "lleguen" },
-      { id: "su-10", type: "short", prompt: "Conjuga 'poder' en subjuntivo con 'nosotros': Ojalá que nosotros ___ ir.", correctAnswer: "podamos" },
-    ],
+    exercises: SUBJUNCTIVE_EXERCISES,
   },
   {
     id: "reflexive",
@@ -227,18 +142,7 @@ export const GRAMMAR_TOPICS: GrammarTopic[] = [
       { es: "Ella se ducha por la mañana.", en: "She showers in the morning." },
       { es: "Nos acostamos temprano.", en: "We go to bed early." },
     ],
-    exercises: [
-      { id: "re-1", type: "mcq", prompt: "Yo ___ (despertarse) a las seis.", options: ["me despierto", "te despiertas", "se despierta", "nos despertamos"], correctAnswer: "me despierto" },
-      { id: "re-2", type: "mcq", prompt: "¿A qué hora ___ (acostarse) tú?", options: ["te acuestas", "se acuesta", "me acuesto", "os acostáis"], correctAnswer: "te acuestas" },
-      { id: "re-3", type: "short", prompt: "Completa: 'Ella ___ (lavarse) las manos antes de comer.'", correctAnswer: "se lava" },
-      { id: "re-4", type: "mcq", prompt: "Nosotros ___ (vestirse) rápido por la mañana.", options: ["nos vestimos", "se visten", "os vestís", "me visto"], correctAnswer: "nos vestimos" },
-      { id: "re-5", type: "short", prompt: "Completa: 'Ellos ___ (llamarse) Juan y Pedro.'", correctAnswer: "se llaman" },
-      { id: "re-6", type: "mcq", prompt: "¿A qué hora ___ (levantarse) vosotros?", options: ["os levantáis", "se levantan", "te levantas", "nos levantamos"], correctAnswer: "os levantáis" },
-      { id: "re-7", type: "mcq", prompt: "Ellos ___ (sentarse) en el sofá.", options: ["se sientan", "nos sentamos", "te sientas", "me siento"], correctAnswer: "se sientan" },
-      { id: "re-8", type: "short", prompt: "Completa: 'Yo ___ (peinarse) antes de salir.'", correctAnswer: "me peino" },
-      { id: "re-9", type: "mcq", prompt: "Ella ___ (maquillarse) todas las mañanas.", options: ["se maquilla", "te maquillas", "me maquillo", "se maquillan"], correctAnswer: "se maquilla" },
-      { id: "re-10", type: "short", prompt: "Completa: 'Nosotros ___ (irse) temprano de la fiesta.'", correctAnswer: "nos vamos" },
-    ],
+    exercises: REFLEXIVE_EXERCISES,
   },
   {
     id: "object-pronouns",
@@ -252,18 +156,7 @@ export const GRAMMAR_TOPICS: GrammarTopic[] = [
       { es: "Le doy el regalo a mi madre.", en: "I give the gift to my mother." },
       { es: "Les mando un mensaje a mis amigos.", en: "I send a message to my friends." },
     ],
-    exercises: [
-      { id: "op-1", type: "mcq", prompt: "¿Ves la película? Sí, ___ veo.", options: ["la", "lo", "le", "les"], correctAnswer: "la" },
-      { id: "op-2", type: "mcq", prompt: "___ doy el libro a Juan. (to him)", options: ["Le", "Lo", "La", "Les"], correctAnswer: "Le" },
-      { id: "op-3", type: "short", prompt: "Reemplaza: '¿Tienes los boletos?' → 'Sí, ___ tengo.'", correctAnswer: "los" },
-      { id: "op-4", type: "mcq", prompt: "___ escribo una carta a mis abuelos. (to them)", options: ["Les", "Los", "Las", "Le"], correctAnswer: "Les" },
-      { id: "op-5", type: "short", prompt: "Reemplaza: '¿Compraste las manzanas?' → 'Sí, ___ compré.'", correctAnswer: "las" },
-      { id: "op-6", type: "mcq", prompt: "¿Compraste el regalo? Sí, ___ compré.", options: ["lo", "la", "le", "les"], correctAnswer: "lo" },
-      { id: "op-7", type: "mcq", prompt: "___ mandamos una carta a ellos. (to them)", options: ["Les", "Los", "Las", "Le"], correctAnswer: "Les" },
-      { id: "op-8", type: "short", prompt: "Reemplaza: '¿Conoces a María?' → 'Sí, ___ conozco.'", correctAnswer: "la" },
-      { id: "op-9", type: "mcq", prompt: "¿Puedes ayudarme? Sí, ___ ayudo.", options: ["te", "lo", "le", "los"], correctAnswer: "te" },
-      { id: "op-10", type: "short", prompt: "Reemplaza: '¿Viste a tus primos?' → 'Sí, ___ vi.'", correctAnswer: "los" },
-    ],
+    exercises: OBJECT_PRONOUNS_EXERCISES,
   },
   {
     id: "listening-tenses",
@@ -277,87 +170,6 @@ export const GRAMMAR_TOPICS: GrammarTopic[] = [
       { es: "Cuando era niño, jugaba mucho.", en: "When I was a kid, I used to play a lot. (imperfect)" },
       { es: "Mañana viajaré a Barcelona.", en: "Tomorrow I will travel to Barcelona. (future)" },
     ],
-    exercises: [
-      {
-        id: "li-1",
-        type: "listening",
-        prompt: "Listen to the sentence. Which tense is being used?",
-        audioText: "Ayer comí una manzana deliciosa.",
-        options: ["Present", "Preterite", "Imperfect", "Future", "Conditional", "Subjunctive"],
-        correctAnswer: "Preterite",
-      },
-      {
-        id: "li-2",
-        type: "listening",
-        prompt: "Listen to the sentence. Which tense is being used?",
-        audioText: "Cuando era niño, jugaba en el parque todos los días.",
-        options: ["Present", "Preterite", "Imperfect", "Future", "Conditional", "Subjunctive"],
-        correctAnswer: "Imperfect",
-      },
-      {
-        id: "li-3",
-        type: "listening",
-        prompt: "Listen to the sentence. Which tense is being used?",
-        audioText: "Mañana viajaré a Barcelona con mi familia.",
-        options: ["Present", "Preterite", "Imperfect", "Future", "Conditional", "Subjunctive"],
-        correctAnswer: "Future",
-      },
-      {
-        id: "li-4",
-        type: "listening",
-        prompt: "Listen to the sentence. Which tense is being used?",
-        audioText: "Me gustaría vivir en España algún día.",
-        options: ["Present", "Preterite", "Imperfect", "Future", "Conditional", "Subjunctive"],
-        correctAnswer: "Conditional",
-      },
-      {
-        id: "li-5",
-        type: "listening",
-        prompt: "Listen to the sentence. Which tense is being used?",
-        audioText: "Espero que tú vengas a la fiesta este sábado.",
-        options: ["Present", "Preterite", "Imperfect", "Future", "Conditional", "Subjunctive"],
-        correctAnswer: "Subjunctive",
-      },
-      {
-        id: "li-6",
-        type: "listening",
-        prompt: "Listen to the sentence. Which tense is being used?",
-        audioText: "Ella come fruta todos los días.",
-        options: ["Present", "Preterite", "Imperfect", "Future", "Conditional", "Subjunctive"],
-        correctAnswer: "Present",
-      },
-      {
-        id: "li-7",
-        type: "listening",
-        prompt: "Listen to the sentence. Which tense is being used?",
-        audioText: "El año pasado visitamos Perú durante las vacaciones.",
-        options: ["Present", "Preterite", "Imperfect", "Future", "Conditional", "Subjunctive"],
-        correctAnswer: "Preterite",
-      },
-      {
-        id: "li-8",
-        type: "listening",
-        prompt: "Listen to the sentence. Which tense is being used?",
-        audioText: "Cuando vivíamos en Madrid, íbamos al parque cada domingo.",
-        options: ["Present", "Preterite", "Imperfect", "Future", "Conditional", "Subjunctive"],
-        correctAnswer: "Imperfect",
-      },
-      {
-        id: "li-9",
-        type: "listening",
-        prompt: "Listen to the sentence. Which tense is being used?",
-        audioText: "Voy a estudiar esta noche para el examen.",
-        options: ["Present", "Preterite", "Imperfect", "Future", "Conditional", "Subjunctive"],
-        correctAnswer: "Future",
-      },
-      {
-        id: "li-10",
-        type: "listening",
-        prompt: "Listen to the sentence. Which tense is being used?",
-        audioText: "Ojalá que haga buen tiempo mañana.",
-        options: ["Present", "Preterite", "Imperfect", "Future", "Conditional", "Subjunctive"],
-        correctAnswer: "Subjunctive",
-      },
-    ],
+    exercises: LISTENING_TENSES_EXERCISES,
   },
 ];

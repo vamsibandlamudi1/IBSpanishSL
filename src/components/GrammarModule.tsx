@@ -50,7 +50,10 @@ export default function GrammarModule() {
   const [isSpeaking, setIsSpeaking] = useState(false);
 
   const topic = useMemo(() => GRAMMAR_TOPICS.find((t) => t.id === topicId) ?? GRAMMAR_TOPICS[0], [topicId]);
-  const exercise = topic.exercises[current];
+  const [practiceExercises, setPracticeExercises] = useState<GrammarExercise[]>([]);
+
+  const activePool = practiceExercises.length > 0 ? practiceExercises : topic.exercises;
+  const exercise = activePool[current];
 
   useEffect(() => stopSpeaking, []); // stop any playback if the module unmounts
 
@@ -74,6 +77,10 @@ export default function GrammarModule() {
   };
 
   const startPractice = () => {
+    // Shuffle the topic's pool of exercises (at least 200 exercises) and pick 10 random ones per practice drill session
+    const shuffled = [...topic.exercises].sort(() => Math.random() - 0.5);
+    const selected = shuffled.slice(0, 10);
+    setPracticeExercises(selected);
     setCurrent(0);
     setCorrectCount(0);
     setMissed([]);
@@ -101,11 +108,11 @@ export default function GrammarModule() {
     setIsSpeaking(false);
     setResponse("");
     setChecked(false);
-    if (current + 1 < topic.exercises.length) {
+    if (current + 1 < activePool.length) {
       setCurrent((c) => c + 1);
       return;
     }
-    completeQuiz(`grammar-${topic.id}`, LEVEL_TO_DIFFICULTY[topic.level], correctCount, topic.exercises.length);
+    completeQuiz(`grammar-${topic.id}`, LEVEL_TO_DIFFICULTY[topic.level], correctCount, activePool.length);
     setStage("results");
   };
 

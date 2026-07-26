@@ -1,6 +1,8 @@
 /// File: src/app/grammar/page.tsx
 import GrammarModule from "@/components/GrammarModule";
 
+export const dynamic = 'force-dynamic';
+
 export default function GrammarPage() {
   return (
     <div className="flex flex-col gap-6">
