@@ -175,7 +175,7 @@ export default function GrammarModule() {
                 ))}
               </ul>
               <button type="button" onClick={startPractice} className="btn-accent w-fit">
-                Start practice ({topic.exercises.length} questions)
+                Start practice (10 practice drill questions)
               </button>
             </div>
           )}
@@ -183,12 +183,12 @@ export default function GrammarModule() {
           {stage === "practice" && exercise && (
             <div>
               <p className="mb-2 text-sm text-slate-500">
-                {topic.name} · Question {current + 1} / {topic.exercises.length}
+                {topic.name} · Question {current + 1} / {activePool.length}
               </p>
               <div className="mb-3 h-1.5 w-full overflow-hidden rounded-full bg-slate-100">
                 <div
                   className="h-full rounded-full bg-brand-600 transition-all"
-                  style={{ width: `${((current + (checked ? 1 : 0)) / topic.exercises.length) * 100}%` }}
+                  style={{ width: `${((current + (checked ? 1 : 0)) / activePool.length) * 100}%` }}
                 />
               </div>
               <div key={exercise.id} className="animate-fade-slide-up rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
@@ -279,7 +279,7 @@ export default function GrammarModule() {
                           : `Incorrect — correct answer: "${exercise.correctAnswer}"`}
                       </p>
                       <button type="button" onClick={next} className="btn-primary">
-                        {current + 1 < topic.exercises.length ? "Next question →" : "Finish topic"}
+                        {current + 1 < activePool.length ? "Next question →" : "Finish topic"}
                       </button>
                     </div>
 
