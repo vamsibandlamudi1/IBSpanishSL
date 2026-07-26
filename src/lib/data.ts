@@ -30,6 +30,7 @@
 // a classroom prototype.
 
 import { AudioTask, Badge, Prize, QuizItem, Theme } from "./types";
+import { PARAGRAPH_EXERCISES } from "./paragraphData";
 
 // ---------------------------------------------------------------------------
 // Themes & vocabulary (14 words per subtopic x 5 subtopics = 70 per theme)
@@ -2385,6 +2386,16 @@ function buildVocabQuestions(theme: Theme): QuizItem[] {
 export const QUESTION_BANK: QuizItem[] = [
   ...CORE_QUESTIONS,
   ...THEMES.flatMap((theme) => buildVocabQuestions(theme)),
+  ...PARAGRAPH_EXERCISES.map((par) => ({
+    id: `quiz-${par.id}`,
+    themeId: par.themeId,
+    type: "short" as const,
+    prompt: `[Párrafo - ${par.title}] ${par.textBefore} ___ ${par.textAfter} (${par.translation})`,
+    correctAnswer: par.targetWord,
+    difficulty: "medium" as const,
+    points: 20,
+    explanation: `Target vocabulary: "${par.targetWord}" (${par.translation}). Options: ${par.hints.join(", ")}`,
+  })),
 ];
 
 // ---------------------------------------------------------------------------
