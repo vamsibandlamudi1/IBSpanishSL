@@ -38,7 +38,7 @@ const normalizeAnswer = (s: string) => stripAccents(s.trim().toLowerCase());
  *  charts, por/para, etc.) lives at /grammar/reference, linked separately
  *  at the top since it's a reference page, not a practice topic. */
 export default function GrammarModule() {
-  const { completeQuiz, lastAward, clearLastAward } = useStore();
+  const { completeQuiz, recordQuestionResult, lastAward, clearLastAward } = useStore();
 
   const [stage, setStage] = useState<Stage>("detail");
   const [topicId, setTopicId] = useState<string>(GRAMMAR_TOPICS[0].id);
@@ -91,9 +91,22 @@ export default function GrammarModule() {
     setStage("practice");
   };
 
+  /** Re-drills only the questions missed in the drill just finished, instead of a fresh random pick. */
+  const practiceMissed = () => {
+    setPracticeExercises(missed);
+    setCurrent(0);
+    setCorrectCount(0);
+    setMissed([]);
+    setResponse("");
+    setChecked(false);
+    clearLastAward();
+    setStage("practice");
+  };
+
   const checkAnswer = (given: string) => {
     if (!exercise) return;
     const isCorrect = normalizeAnswer(given) === normalizeAnswer(exercise.correctAnswer);
+    recordQuestionResult(exercise.id, topic.id, LEVEL_TO_DIFFICULTY[topic.level], isCorrect);
     if (isCorrect) {
       setCorrectCount((c) => c + 1);
       playCorrectDing();
@@ -338,6 +351,11 @@ export default function GrammarModule() {
                 <button type="button" onClick={startPractice} className="btn-accent">
                   Practice again
                 </button>
+                {missed.length > 0 && (
+                  <button type="button" onClick={practiceMissed} className="btn-primary">
+                    Practice missed questions ({missed.length})
+                  </button>
+                )}
                 <button type="button" onClick={() => setStage("detail")} className="btn-outline">
                   Back to topic overview
                 </button>

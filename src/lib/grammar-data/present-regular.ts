@@ -37,7 +37,8 @@ function createPresentRegular(): GrammarExercise[] {
   const contexts = [
     'todos los días', 'en el colegio', 'con frecuencia', 'cada mañana', 'por la tarde',
     'durante las vacaciones', 'con la familia', 'en la biblioteca', 'siempre', 'con mucho cuidado',
-    'el fin de semana', 'en la universidad', 'con sus amigos', 'después de clases', 'en el trabajo'
+    'el fin de semana', 'en la universidad', 'con sus amigos', 'después de clases', 'en el trabajo',
+    'por la noche'
   ];
 
   let loopIndex = 0;

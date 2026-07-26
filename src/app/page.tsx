@@ -19,7 +19,7 @@ export default function HomePage() {
     <div className="flex flex-col gap-10">
       <section className="flex flex-col items-center gap-4 py-6 text-center">
         <span className="pill-badge">100% Self-Graded · No Teacher Needed</span>
-        <h1 className="max-w-2xl text-4xl font-extrabold leading-tight tracking-tight text-slate-900 sm:text-5xl">
+        <h1 className="max-w-2xl text-4xl font-extrabold leading-snug tracking-tight text-slate-900 sm:text-5xl">
           ¡Hola, {profile.name}! Get a <span className="highlight-mark">perfect 7</span> in Spanish B
         </h1>
         <p className="max-w-xl text-slate-500">
