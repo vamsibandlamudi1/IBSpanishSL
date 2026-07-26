@@ -1,23 +1,23 @@
 /// File: src/components/GrammarModule.tsx
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
-import { GRAMMAR_TOPICS } from "@/lib/grammar";
+import { useCallback, useEffect, useMemo, useState } from "react";
+import { GRAMMAR_TOPICS, GrammarTopicMeta, loadExercises } from "@/lib/grammar";
 import { useStore } from "@/lib/store";
 import { playCorrectDing, playIncorrectBuzz } from "@/lib/sound";
 import { speak, stopSpeaking } from "@/lib/speech";
 import SimpleExplainer from "./SimpleExplainer";
-import { Difficulty, GrammarExercise, GrammarTopic } from "@/lib/types";
+import { Difficulty, GrammarExercise } from "@/lib/types";
 
 type Stage = "detail" | "practice" | "results";
 
-const LEVEL_STYLES: Record<GrammarTopic["level"], string> = {
+const LEVEL_STYLES: Record<GrammarTopicMeta["level"], string> = {
   beginner: "bg-green-100 text-green-700",
   intermediate: "bg-amber-100 text-amber-700",
   advanced: "bg-rose-100 text-rose-700",
 };
 
-const LEVEL_TO_DIFFICULTY: Record<GrammarTopic["level"], Difficulty> = {
+const LEVEL_TO_DIFFICULTY: Record<GrammarTopicMeta["level"], Difficulty> = {
   beginner: "easy",
   intermediate: "medium",
   advanced: "hard",
@@ -36,7 +36,10 @@ const normalizeAnswer = (s: string) => stripAccents(s.trim().toLowerCase());
  *  spoken-audio exercises instead of the usual fill-in/mcq conjugation
  *  drill — see togglePlayAudio(). The full cheat sheet (conjugation
  *  charts, por/para, etc.) lives at /grammar/reference, linked separately
- *  at the top since it's a reference page, not a practice topic. */
+ *  at the top since it's a reference page, not a practice topic.
+ *
+ *  PERFORMANCE: Exercises are lazy-loaded per topic via dynamic import()
+ *  so the 47 KB ser-estar dataset never blocks the initial Grammar page. */
 export default function GrammarModule() {
   const { completeQuiz, recordQuestionResult, lastAward, clearLastAward } = useStore();
 
@@ -48,11 +51,32 @@ export default function GrammarModule() {
   const [correctCount, setCorrectCount] = useState(0);
   const [missed, setMissed] = useState<GrammarExercise[]>([]);
   const [isSpeaking, setIsSpeaking] = useState(false);
-
-  const topic = useMemo(() => GRAMMAR_TOPICS.find((t) => t.id === topicId) ?? GRAMMAR_TOPICS[0], [topicId]);
   const [practiceExercises, setPracticeExercises] = useState<GrammarExercise[]>([]);
 
-  const activePool = useMemo(() => (practiceExercises.length > 0 ? practiceExercises : topic.exercises.slice(0, 10)), [practiceExercises, topic]);
+  // Lazy-loaded exercise pool for the currently-selected topic.
+  const [topicExercises, setTopicExercises] = useState<GrammarExercise[]>([]);
+  const [exercisesLoading, setExercisesLoading] = useState(false);
+
+  const topic = useMemo(() => GRAMMAR_TOPICS.find((t) => t.id === topicId) ?? GRAMMAR_TOPICS[0], [topicId]);
+
+  // Load exercises whenever the selected topic changes.
+  useEffect(() => {
+    let cancelled = false;
+    setTopicExercises([]);
+    setExercisesLoading(true);
+    loadExercises(topicId).then((exs) => {
+      if (!cancelled) {
+        setTopicExercises(exs);
+        setExercisesLoading(false);
+      }
+    });
+    return () => { cancelled = true; };
+  }, [topicId]);
+
+  const activePool = useMemo(
+    () => (practiceExercises.length > 0 ? practiceExercises : topicExercises.slice(0, 10)),
+    [practiceExercises, topicExercises]
+  );
   const exercise = activePool[current];
 
   useEffect(() => stopSpeaking, []); // stop any playback if the module unmounts
@@ -77,9 +101,9 @@ export default function GrammarModule() {
     setStage("detail");
   };
 
-  const startPractice = () => {
-    // Shuffle the topic's pool of exercises (at least 200 exercises) and pick 10 random ones per practice drill session
-    const shuffled = [...topic.exercises].sort(() => Math.random() - 0.5);
+  const startPractice = useCallback(() => {
+    // Shuffle the topic's pool of exercises and pick 10 random ones per drill session.
+    const shuffled = [...topicExercises].sort(() => Math.random() - 0.5);
     const selected = shuffled.slice(0, 10);
     setPracticeExercises(selected);
     setCurrent(0);
@@ -89,7 +113,7 @@ export default function GrammarModule() {
     setChecked(false);
     clearLastAward();
     setStage("practice");
-  };
+  }, [topicExercises, clearLastAward]);
 
   /** Re-drills only the questions missed in the drill just finished, instead of a fresh random pick. */
   const practiceMissed = () => {
@@ -187,9 +211,21 @@ export default function GrammarModule() {
                   </li>
                 ))}
               </ul>
-              <button type="button" onClick={startPractice} className="btn-accent w-fit">
-                Start practice (10 practice drill questions)
-              </button>
+              {exercisesLoading ? (
+                <div className="flex items-center gap-2 text-sm text-slate-500">
+                  <span className="inline-block h-4 w-4 animate-spin rounded-full border-2 border-brand-400 border-t-transparent" />
+                  Loading exercises…
+                </div>
+              ) : (
+                <button
+                  type="button"
+                  onClick={startPractice}
+                  disabled={topicExercises.length === 0}
+                  className="btn-accent w-fit disabled:opacity-50"
+                >
+                  Start practice (10 practice drill questions)
+                </button>
+              )}
             </div>
           )}
 
@@ -299,7 +335,7 @@ export default function GrammarModule() {
                     {normalizeAnswer(response) !== normalizeAnswer(exercise.correctAnswer) && (exercise.tip || exercise.explanation || topic.rule) && (
                       <div className="rounded-xl border border-amber-200 bg-amber-50 p-4 text-slate-800 shadow-sm animate-pop-in">
                         <div className="flex items-center gap-2 mb-1 text-amber-800 font-bold text-xs uppercase tracking-wider">
-                          <span>💡 Tip to Improve & Master the Rule:</span>
+                          <span>💡 Tip to Improve &amp; Master the Rule:</span>
                         </div>
                         <p className="text-sm text-slate-700 leading-relaxed font-medium mb-1">
                           {exercise.tip ?? exercise.explanation ?? topic.rule}
@@ -321,7 +357,7 @@ export default function GrammarModule() {
             <div className="animate-fade-slide-up rounded-xl border border-slate-200 bg-white p-6 text-center shadow-sm">
               <h2 className="text-xl font-bold text-slate-900">Practice complete!</h2>
               <p className="mt-2 text-3xl font-extrabold text-brand-600">
-                {correctCount} / {topic.exercises.length}
+                {correctCount} / {activePool.length}
               </p>
               <p className="mt-1 text-sm text-slate-600">{topic.name}</p>
               {lastAward && (

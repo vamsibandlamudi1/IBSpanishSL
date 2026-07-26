@@ -1,23 +1,78 @@
 /// File: src/lib/grammar.ts
 //
-// Content for the Grammar module: 11 core IB Spanish B SL grammar topics,
-// each with 200 practice exercises (2,200 exercises total).
+// Content for the Grammar module: 11 core IB Spanish B SL grammar topics.
+// EXERCISES ARE LAZY-LOADED per topic — only the selected topic's exercises
+// are fetched, preventing the 47 KB ser-estar dataset from blocking the
+// initial Grammar page render.
 //
 
-import { GrammarTopic } from "./types";
-import { SER_ESTAR_EXERCISES } from "./grammar-data/ser-estar";
-import { PRESENT_REGULAR_EXERCISES } from "./grammar-data/present-regular";
-import { PRESENT_IRREGULAR_EXERCISES } from "./grammar-data/present-irregular";
-import { PRETERITE_EXERCISES } from "./grammar-data/preterite";
-import { IMPERFECT_EXERCISES } from "./grammar-data/imperfect";
-import { FUTURE_EXERCISES } from "./grammar-data/future";
-import { CONDITIONAL_EXERCISES } from "./grammar-data/conditional";
-import { SUBJUNCTIVE_EXERCISES } from "./grammar-data/subjunctive";
-import { REFLEXIVE_EXERCISES } from "./grammar-data/reflexive";
-import { OBJECT_PRONOUNS_EXERCISES } from "./grammar-data/object-pronouns";
-import { LISTENING_TENSES_EXERCISES } from "./grammar-data/listening-tenses";
+import { GrammarExercise, GrammarTopic } from "./types";
 
-export const GRAMMAR_TOPICS: GrammarTopic[] = [
+// ---------------------------------------------------------------------------
+// Lazy exercise loader — returns a Promise that resolves once the exercises
+// for the requested topic id are available.
+// ---------------------------------------------------------------------------
+
+export async function loadExercises(topicId: string): Promise<GrammarExercise[]> {
+  switch (topicId) {
+    case "ser-estar": {
+      const m = await import("./grammar-data/ser-estar");
+      return m.SER_ESTAR_EXERCISES;
+    }
+    case "present-regular": {
+      const m = await import("./grammar-data/present-regular");
+      return m.PRESENT_REGULAR_EXERCISES;
+    }
+    case "present-irregular": {
+      const m = await import("./grammar-data/present-irregular");
+      return m.PRESENT_IRREGULAR_EXERCISES;
+    }
+    case "preterite": {
+      const m = await import("./grammar-data/preterite");
+      return m.PRETERITE_EXERCISES;
+    }
+    case "imperfect": {
+      const m = await import("./grammar-data/imperfect");
+      return m.IMPERFECT_EXERCISES;
+    }
+    case "future": {
+      const m = await import("./grammar-data/future");
+      return m.FUTURE_EXERCISES;
+    }
+    case "conditional": {
+      const m = await import("./grammar-data/conditional");
+      return m.CONDITIONAL_EXERCISES;
+    }
+    case "subjunctive": {
+      const m = await import("./grammar-data/subjunctive");
+      return m.SUBJUNCTIVE_EXERCISES;
+    }
+    case "reflexive": {
+      const m = await import("./grammar-data/reflexive");
+      return m.REFLEXIVE_EXERCISES;
+    }
+    case "object-pronouns": {
+      const m = await import("./grammar-data/object-pronouns");
+      return m.OBJECT_PRONOUNS_EXERCISES;
+    }
+    case "listening-tenses": {
+      const m = await import("./grammar-data/listening-tenses");
+      return m.LISTENING_TENSES_EXERCISES;
+    }
+    default:
+      return [];
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Static topic metadata — NO exercises array here, so this module is tiny and
+// loads instantly.  GrammarModule.tsx fetches exercises on demand via
+// loadExercises() above.
+// ---------------------------------------------------------------------------
+
+export type GrammarTopicMeta = Omit<GrammarTopic, "exercises">;
+
+export const GRAMMAR_TOPICS: GrammarTopicMeta[] = [
   {
     id: "ser-estar",
     name: "Ser vs. Estar",
@@ -30,7 +85,6 @@ export const GRAMMAR_TOPICS: GrammarTopic[] = [
       { es: "Ella está cansada.", en: "She is tired." },
       { es: "Madrid está en España.", en: "Madrid is in Spain." },
     ],
-    exercises: SER_ESTAR_EXERCISES,
   },
   {
     id: "present-regular",
@@ -44,7 +98,6 @@ export const GRAMMAR_TOPICS: GrammarTopic[] = [
       { es: "Ella come fruta.", en: "She eats fruit." },
       { es: "Nosotros vivimos aquí.", en: "We live here." },
     ],
-    exercises: PRESENT_REGULAR_EXERCISES,
   },
   {
     id: "present-irregular",
@@ -58,7 +111,6 @@ export const GRAMMAR_TOPICS: GrammarTopic[] = [
       { es: "Ellos van al parque.", en: "They go to the park." },
       { es: "¿Qué haces?", en: "What are you doing?" },
     ],
-    exercises: PRESENT_IRREGULAR_EXERCISES,
   },
   {
     id: "preterite",
@@ -72,7 +124,6 @@ export const GRAMMAR_TOPICS: GrammarTopic[] = [
       { es: "Ella comió a las dos.", en: "She ate at two o'clock." },
       { es: "El año pasado viajamos a Perú.", en: "Last year we traveled to Peru." },
     ],
-    exercises: PRETERITE_EXERCISES,
   },
   {
     id: "imperfect",
@@ -86,7 +137,6 @@ export const GRAMMAR_TOPICS: GrammarTopic[] = [
       { es: "Ella vivía en Madrid.", en: "She used to live in Madrid." },
       { es: "Hacía mucho calor ese día.", en: "It was very hot that day." },
     ],
-    exercises: IMPERFECT_EXERCISES,
   },
   {
     id: "future",
@@ -100,7 +150,6 @@ export const GRAMMAR_TOPICS: GrammarTopic[] = [
       { es: "Mañana viajaremos a Barcelona.", en: "Tomorrow we will travel to Barcelona." },
       { es: "Ella hablará con el director.", en: "She will speak with the director." },
     ],
-    exercises: FUTURE_EXERCISES,
   },
   {
     id: "conditional",
@@ -114,7 +163,6 @@ export const GRAMMAR_TOPICS: GrammarTopic[] = [
       { es: "Ella dijo que vendría.", en: "She said she would come." },
       { es: "¿Podrías ayudarme?", en: "Could you help me?" },
     ],
-    exercises: CONDITIONAL_EXERCISES,
   },
   {
     id: "subjunctive",
@@ -128,7 +176,6 @@ export const GRAMMAR_TOPICS: GrammarTopic[] = [
       { es: "Es importante que lleguemos a tiempo.", en: "It's important that we arrive on time." },
       { es: "Ojalá que haga buen tiempo.", en: "I hope the weather is good." },
     ],
-    exercises: SUBJUNCTIVE_EXERCISES,
   },
   {
     id: "reflexive",
@@ -142,7 +189,6 @@ export const GRAMMAR_TOPICS: GrammarTopic[] = [
       { es: "Ella se ducha por la mañana.", en: "She showers in the morning." },
       { es: "Nos acostamos temprano.", en: "We go to bed early." },
     ],
-    exercises: REFLEXIVE_EXERCISES,
   },
   {
     id: "object-pronouns",
@@ -156,7 +202,6 @@ export const GRAMMAR_TOPICS: GrammarTopic[] = [
       { es: "Le doy el regalo a mi madre.", en: "I give the gift to my mother." },
       { es: "Les mando un mensaje a mis amigos.", en: "I send a message to my friends." },
     ],
-    exercises: OBJECT_PRONOUNS_EXERCISES,
   },
   {
     id: "listening-tenses",
@@ -170,6 +215,5 @@ export const GRAMMAR_TOPICS: GrammarTopic[] = [
       { es: "Cuando era niño, jugaba mucho.", en: "When I was a kid, I used to play a lot. (imperfect)" },
       { es: "Mañana viajaré a Barcelona.", en: "Tomorrow I will travel to Barcelona. (future)" },
     ],
-    exercises: LISTENING_TENSES_EXERCISES,
   },
 ];

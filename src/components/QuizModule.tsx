@@ -291,19 +291,26 @@ export default function QuizModule() {
             )}
 
             {lastQuestionResult && (
-              <div className="mt-4 flex items-center justify-between">
-                <p
-                  className={`text-sm font-medium ${
-                    lastQuestionResult === "correct" ? "text-green-700" : "text-red-700"
-                  }`}
-                >
-                  {lastQuestionResult === "correct"
-                    ? "¡Correcto!"
-                    : `Incorrect — correct answer: "${currentQuestion.correctAnswer}"`}
-                </p>
-                <button type="button" onClick={handleNextClick} className="btn-primary">
-                  {current + 1 < quiz.length ? "Next" : "Finish"}
-                </button>
+              <div className="mt-4 flex flex-col gap-2">
+                <div className="flex items-center justify-between">
+                  <p
+                    className={`text-sm font-medium ${
+                      lastQuestionResult === "correct" ? "text-green-700" : "text-red-700"
+                    }`}
+                  >
+                    {lastQuestionResult === "correct"
+                      ? "¡Correcto!"
+                      : `Incorrect — correct answer: "${currentQuestion.correctAnswer}"`}
+                  </p>
+                  <button type="button" onClick={handleNextClick} className="btn-primary">
+                    {current + 1 < quiz.length ? "Next" : "Finish"}
+                  </button>
+                </div>
+                {currentQuestion.explanation && (
+                  <p className="text-xs text-slate-500 italic border-l-2 border-slate-300 pl-2">
+                    💡 {currentQuestion.explanation}
+                  </p>
+                )}
               </div>
             )}
           </div>

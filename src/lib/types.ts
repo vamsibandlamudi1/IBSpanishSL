@@ -53,6 +53,8 @@ export interface QuizItem {
    *  The bigger "completion bonus" awarded to the student's profile is computed separately —
    *  see lib/gamification.ts pointsForQuizDifficulty(). */
   points: number;
+  /** Optional explanation shown after the student answers, giving context about why the answer is correct. */
+  explanation?: string;
 }
 
 // ---------------------------------------------------------------------------
