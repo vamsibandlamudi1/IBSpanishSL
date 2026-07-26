@@ -16,6 +16,7 @@ const LINKS = [
   { href: "/grammar", label: "Grammar" },
   { href: "/grammar/reference", label: "Cheat Sheet" },
   { href: "/audio", label: "Oral Practice" },
+  { href: "/practice-exam", label: "Practice Exam" },
   { href: "/rewards", label: "Rewards" },
 ];
 

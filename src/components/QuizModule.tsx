@@ -28,8 +28,17 @@ const normalizeAnswer = (s: string) => stripAccents(s.trim().toLowerCase());
  *  resurface first) and a student can jump straight into a "weak areas"
  *  quiz built from their worst-performing questions across all themes. */
 export default function QuizModule() {
-  const { themes, questions, questionResults, completeQuiz, recordQuestionResult, awardMiniGameBonus, lastAward, clearLastAward } =
-    useStore();
+  const {
+    themes,
+    questions,
+    questionResults,
+    completeQuiz,
+    recordQuestionResult,
+    awardMiniGameBonus,
+    lastAward,
+    clearLastAward,
+    setActiveSession,
+  } = useStore();
   const searchParams = useSearchParams();
 
   const [stage, setStage] = useState<Stage>("setup");
@@ -47,6 +56,14 @@ export default function QuizModule() {
   const miniGameShownAt = useRef<number | null>(null);
 
   useEffect(() => stopSpeaking, []); // stop any playback if the module unmounts
+
+  // Lets the global milestone/engagement popups know a quiz is in progress,
+  // so they defer themselves until the student reaches the results screen
+  // instead of interrupting mid-quiz — see lib/store.tsx's activeSession.
+  useEffect(() => {
+    setActiveSession(stage === "in-progress");
+    return () => setActiveSession(false);
+  }, [stage, setActiveSession]);
 
   const currentQuestion = quiz[current];
 
@@ -136,8 +153,11 @@ export default function QuizModule() {
   };
 
   const handleNextClick = () => {
+    // Only offer the mini-game break at the very end of the quiz (never
+    // between questions) so it can't interrupt a test in progress.
+    const isLastQuestion = current + 1 >= quiz.length;
     const total = questionResults.length;
-    if (total > 0 && total % MINI_GAME_INTERVAL === 0 && miniGameShownAt.current !== total) {
+    if (isLastQuestion && total > 0 && total % MINI_GAME_INTERVAL === 0 && miniGameShownAt.current !== total) {
       miniGameShownAt.current = total;
       setShowMiniGame(true);
     } else {

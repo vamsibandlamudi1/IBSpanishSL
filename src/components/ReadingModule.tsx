@@ -1,7 +1,7 @@
 /// File: src/components/ReadingModule.tsx
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { READING_PASSAGES } from "@/lib/reading";
 import { useStore } from "@/lib/store";
 import { ReadingQuestion } from "@/lib/types";
@@ -24,13 +24,21 @@ const normalize = (s: string) => stripAccents(s.trim().toLowerCase());
  *  same as Quiz/Grammar — completing a passage awards points via the
  *  shared gamification system. */
 export default function ReadingModule() {
-  const { completeQuiz, lastAward, clearLastAward } = useStore();
+  const { completeQuiz, recordQuestionResult, lastAward, clearLastAward, setActiveSession } = useStore();
 
   const [passageId, setPassageId] = useState(READING_PASSAGES[0].id);
   const [answers, setAnswers] = useState<Record<string, string>>({});
   const [checked, setChecked] = useState(false);
 
   const passage = useMemo(() => READING_PASSAGES.find((p) => p.id === passageId) ?? READING_PASSAGES[0], [passageId]);
+
+  // Lets the global milestone/engagement popups know the student is mid-passage,
+  // so they defer themselves until answers are checked — see lib/store.tsx's
+  // activeSession.
+  useEffect(() => {
+    setActiveSession(!checked);
+    return () => setActiveSession(false);
+  }, [checked, setActiveSession]);
 
   const selectPassage = (id: string) => {
     setPassageId(id);
@@ -48,6 +56,7 @@ export default function ReadingModule() {
 
   const checkAnswers = () => {
     setChecked(true);
+    passage.questions.forEach((q) => recordQuestionResult(q.id, passage.themeId, passage.level, isCorrect(q)));
     const correctCount = passage.questions.filter(isCorrect).length;
     completeQuiz(`reading-${passage.id}`, passage.level, correctCount, passage.questions.length);
   };

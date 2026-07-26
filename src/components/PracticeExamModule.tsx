@@ -1,12 +1,12 @@
 /// File: src/components/PracticeExamModule.tsx
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { READING_PASSAGES } from "@/lib/reading";
 import { GRAMMAR_TOPICS, loadExercises } from "@/lib/grammar";
 import { useStore } from "@/lib/store";
 import { speak, stopSpeaking } from "@/lib/speech";
-import { GrammarExercise, QuizItem, ReadingPassage, ReadingQuestion } from "@/lib/types";
+import { Difficulty, GrammarExercise, QuizItem, ReadingPassage, ReadingQuestion } from "@/lib/types";
 import WritingModule from "./WritingModule";
 import AudioAssignmentModule from "./AudioAssignmentModule";
 
@@ -46,15 +46,25 @@ interface ExamQuestion {
   correctAnswer: string;
   audioText?: string;
   justification?: string;
+  /** Present only for reading/vocabulary questions, which carry a real IB
+   *  theme — lets QuestionSetSection log each answer via recordQuestionResult
+   *  so exam activity counts toward "Your progress by theme" on the Home
+   *  page, same as the standalone Reading/Quiz modules. Grammar topics
+   *  aren't IB themes, so grammar/listening questions leave this unset and
+   *  are intentionally not logged against a theme. */
+  themeId?: string;
+  difficulty?: Difficulty;
 }
 
-const readingToExam = (q: ReadingQuestion): ExamQuestion => ({
+const readingToExam = (q: ReadingQuestion, passage: ReadingPassage): ExamQuestion => ({
   id: q.id,
   prompt: q.prompt,
   type: q.type,
   options: q.options,
   correctAnswer: q.correctAnswer,
   justification: q.justification,
+  themeId: passage.themeId,
+  difficulty: passage.level,
 });
 
 const grammarToExam = (g: GrammarExercise): ExamQuestion => ({
@@ -73,6 +83,8 @@ const quizToExam = (q: QuizItem): ExamQuestion => ({
   options: q.options,
   correctAnswer: q.correctAnswer,
   audioText: q.audioText,
+  themeId: q.themeId,
+  difficulty: q.difficulty,
 });
 
 const stripAccents = (s: string) => s.normalize("NFD").replace(/[̀-ͯ]/g, "");
@@ -94,7 +106,7 @@ function shuffle<T>(arr: T[]): T[] {
  *  recording flows. Every section awards points via the same shared
  *  gamification system as the standalone modules. */
 export default function PracticeExamModule() {
-  const { questions, completeQuiz, clearLastAward } = useStore();
+  const { questions, completeQuiz, clearLastAward, setActiveSession } = useStore();
 
   const [stage, setStage] = useState<Stage>("intro");
   const [examReading, setExamReading] = useState<ReadingPassage | null>(null);
@@ -103,6 +115,17 @@ export default function PracticeExamModule() {
   const [examVocab, setExamVocab] = useState<ExamQuestion[]>([]);
   const [scores, setScores] = useState<Record<"reading" | "listening" | "grammar" | "vocabulary", SectionScore>>(EMPTY_SCORES);
   const [sectionPoints, setSectionPoints] = useState(0);
+
+  // Lets the global milestone/engagement popups know the exam is in progress
+  // — important here specifically, since the exam awards points after every
+  // section (not just once at the very end), so a 100-point milestone can be
+  // crossed mid-exam. Busy for the whole run, from the first section through
+  // the last, so nothing interrupts between sections either — see
+  // lib/store.tsx's activeSession.
+  useEffect(() => {
+    setActiveSession(stage !== "intro" && stage !== "summary");
+    return () => setActiveSession(false);
+  }, [stage, setActiveSession]);
 
   const generateExam = async () => {
     setExamReading(shuffle(READING_PASSAGES)[0]);
@@ -212,7 +235,11 @@ export default function PracticeExamModule() {
               ))}
             </div>
           </div>
-          <QuestionSetSection items={examReading.questions.map(readingToExam)} onContinue={finishReading} continueLabel="Continue to Listening →" />
+          <QuestionSetSection
+            items={examReading.questions.map((q) => readingToExam(q, examReading))}
+            onContinue={finishReading}
+            continueLabel="Continue to Listening →"
+          />
         </div>
       )}
 
@@ -320,6 +347,7 @@ function QuestionSetSection({
   onContinue: (correct: number, total: number) => void;
   continueLabel: string;
 }) {
+  const { recordQuestionResult } = useStore();
   const [answers, setAnswers] = useState<Record<string, string>>({});
   const [checked, setChecked] = useState(false);
   const [speakingId, setSpeakingId] = useState<string | null>(null);
@@ -327,6 +355,13 @@ function QuestionSetSection({
   const isCorrect = (q: ExamQuestion) => normalizeAnswer(answers[q.id] ?? "") === normalizeAnswer(q.correctAnswer);
   const correctCount = items.filter(isCorrect).length;
   const answeredCount = items.filter((q) => (answers[q.id] ?? "").trim().length > 0).length;
+
+  const handleCheck = () => {
+    setChecked(true);
+    items.forEach((q) => {
+      if (q.themeId && q.difficulty) recordQuestionResult(q.id, q.themeId, q.difficulty, isCorrect(q));
+    });
+  };
 
   const setAnswer = (id: string, value: string) => {
     if (checked) return;
@@ -434,7 +469,7 @@ function QuestionSetSection({
 
       <div className="flex flex-wrap items-center gap-3">
         {!checked ? (
-          <button type="button" onClick={() => setChecked(true)} disabled={answeredCount === 0} className="btn-primary">
+          <button type="button" onClick={handleCheck} disabled={answeredCount === 0} className="btn-primary">
             Check answers ({answeredCount} / {items.length} answered)
           </button>
         ) : (

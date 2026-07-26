@@ -1,7 +1,7 @@
 /// File: src/lib/reading.ts
 //
-// Paper 1 style reading comprehension: eight passages per IB theme (40
-// total, 200 questions), spanning nearly every official IB Spanish B text
+// Paper 1 style reading comprehension: 11-12 passages per IB theme (56
+// total, 280 questions), spanning nearly every official IB Spanish B text
 // type (blog post, diary entry, magazine article, interview, formal
 // email/letter, opinion column/essay, advertisement, forum post,
 // instructional guide, official report, speech, postcard, review, social
@@ -1605,5 +1605,211 @@ export const READING_PASSAGES: ReadingPassage[] = [
         "correctAnswer": "setenta por ciento"
       }
     ]
+  },
+  {
+    id: "reading-identities-11",
+    themeId: "identities",
+    title: "Mi primer día en el instituto nuevo",
+    textType: "Diary entry",
+    level: "easy",
+    bodyEs:
+      "Querido diario:\n\n" +
+      "Hoy fue mi primer día en el instituto nuevo. Estoy muy nerviosa porque no conozco a nadie todavía. Mi familia se mudó a esta ciudad hace dos semanas por el trabajo de mi padre.\n\n" +
+      "En la clase de español, la profesora me presentó a todos mis compañeros. Se llama la señora Ruiz y es muy simpática. Una chica que se llama Ana se sentó a mi lado y me habló durante el descanso. Creo que vamos a ser amigas.\n\n" +
+      "Después de las clases, fui a la cafetería con Ana y otros dos chicos. Hablamos sobre música y series de televisión. Por primera vez desde que llegamos, no me sentí tan sola.\n\n" +
+      "Mañana tengo clase de arte, mi asignatura favorita. Espero hacer más amigos pronto. Este cambio es difícil, pero creo que va a ser una buena experiencia para mí.",
+    questions: [
+      { id: "identities-11-q1", type: "true-false", prompt: "La familia de la autora se mudó hace dos semanas.", correctAnswer: "true", justification: "\"Mi familia se mudó a esta ciudad hace dos semanas\"" },
+      { id: "identities-11-q2", type: "true-false", prompt: "La autora se sintió sola todo el día.", correctAnswer: "false", justification: "\"no me sentí tan sola\"" },
+      { id: "identities-11-q3", type: "mcq", prompt: "¿Cómo se llama la chica que se sentó al lado de la autora?", options: ["Ana", "Ruiz", "Marta", "Sofía"], correctAnswer: "Ana" },
+      { id: "identities-11-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Una entrada de diario", "Un correo formal", "Un artículo de periódico", "Un anuncio"], correctAnswer: "Una entrada de diario" },
+      { id: "identities-11-q5", type: "short", prompt: "¿Cuál es la asignatura favorita de la autora?", correctAnswer: "arte" },
+    ],
+  },
+  {
+    id: "reading-identities-12",
+    themeId: "identities",
+    title: "Postal desde el pueblo de mis abuelos",
+    textType: "Postcard",
+    level: "medium",
+    bodyEs:
+      "¡Hola, Carla!\n\n" +
+      "Te escribo desde el pueblo donde nacieron mis abuelos, un lugar pequeño en el norte de España que apenas tiene doscientos habitantes. Llevo aquí una semana de vacaciones y, sinceramente, no esperaba sentirme tan conectada con este sitio.\n\n" +
+      "Mis abuelos emigraron a la ciudad hace más de cuarenta años, pero muchas cosas siguen igual: la plaza principal, la iglesia de piedra y hasta la panadería donde mi abuela compraba el pan de niña. Los vecinos me reconocen por mi apellido y me cuentan anécdotas de mi familia que yo nunca había escuchado.\n\n" +
+      "Ayer fui a la casa donde creció mi abuelo. Ahora está abandonada, pero pude entrar y caminar por las habitaciones vacías. Fue una experiencia extraña, como si estuviera tocando una parte de mi propia historia que hasta ahora solo conocía por fotos.\n\n" +
+      "Creo que entender de dónde viene tu familia te ayuda a entender quién eres tú. Volveré a la ciudad el domingo, pero seguro que regreso pronto a este pueblo.\n\n" +
+      "Un abrazo,\nElena",
+    questions: [
+      { id: "identities-12-q1", type: "true-false", prompt: "Los abuelos de Elena todavía viven en el pueblo.", correctAnswer: "false", justification: "\"Mis abuelos emigraron a la ciudad hace más de cuarenta años\"" },
+      { id: "identities-12-q2", type: "true-false", prompt: "El pueblo tiene una población muy grande.", correctAnswer: "false", justification: "\"apenas tiene doscientos habitantes\"" },
+      { id: "identities-12-q3", type: "mcq", prompt: "¿Qué hizo Elena ayer?", options: ["Visitó la casa donde creció su abuelo", "Conoció a sus abuelos por primera vez", "Compró pan en la panadería de su abuela", "Se mudó permanentemente al pueblo"], correctAnswer: "Visitó la casa donde creció su abuelo" },
+      { id: "identities-12-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Una postal", "Un informe oficial", "Una reseña", "Un anuncio"], correctAnswer: "Una postal" },
+      { id: "identities-12-q5", type: "short", prompt: "¿Cuánto tiempo lleva Elena en el pueblo?", correctAnswer: "una semana" },
+    ],
+  },
+  {
+    id: "reading-experiences-10",
+    themeId: "experiences",
+    title: "Lo que nadie te cuenta sobre estudiar un año en el extranjero",
+    textType: "Blog post",
+    level: "hard",
+    bodyEs:
+      "Cuando decidí pasar mi último año de instituto estudiando en Francia, todo el mundo me hablaba de las ventajas: aprendería un idioma nuevo, haría amigos internacionales y volvería siendo una persona más independiente. Lo que nadie mencionó fue lo duro que sería adaptarme emocionalmente.\n\n" +
+      "Los primeros dos meses fueron, sin exagerar, los más difíciles de mi vida. Aunque hablaba francés con cierta fluidez, no entendía los chistes, las referencias culturales ni las normas sociales no escritas que rigen las amistades entre adolescentes franceses. Muchas noches llamaba a mis padres llorando, convencida de que había cometido un error.\n\n" +
+      "Lo que finalmente cambió las cosas no fue hacer un esfuerzo sobrehumano, sino aceptar que no pasaba nada por sentirme perdida durante un tiempo. Una profesora me dijo una frase que nunca olvidaré: \"No hace falta que te sientas como en casa desde el primer día; basta con que sigas apareciendo\". Así que seguí apareciendo: al club de teatro, a las cenas familiares con mi familia de acogida, a las clases donde apenas entendía la mitad de lo que se decía.\n\n" +
+      "Hacia el tercer mes, algo cambió. Empecé a soñar en francés. Entendí un chiste sin que nadie tuviera que explicármelo. Y, sobre todo, dejé de contar los días que faltaban para volver a casa.\n\n" +
+      "Si alguien me preguntara hoy si recomiendo esta experiencia, le diría que sí, pero con una advertencia: nadie te cuenta que hay que tocar fondo antes de empezar a disfrutarlo de verdad.",
+    questions: [
+      { id: "experiences-10-q1", type: "true-false", prompt: "Los primeros meses en Francia fueron fáciles para la autora.", correctAnswer: "false", justification: "\"los primeros dos meses fueron, sin exagerar, los más difíciles de mi vida\"" },
+      { id: "experiences-10-q2", type: "true-false", prompt: "La autora dejó de contar los días que faltaban para volver a casa.", correctAnswer: "true", justification: "\"dejé de contar los días que faltaban para volver a casa\"" },
+      { id: "experiences-10-q3", type: "mcq", prompt: "Según el texto, ¿qué le costaba entender a la autora al principio?", options: ["Los chistes y las normas sociales no escritas", "La gramática básica del francés", "Los horarios del instituto", "El mapa de la ciudad"], correctAnswer: "Los chistes y las normas sociales no escritas" },
+      { id: "experiences-10-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Una entrada de blog", "Un informe oficial", "Un anuncio publicitario", "Una receta"], correctAnswer: "Una entrada de blog" },
+      { id: "experiences-10-q5", type: "short", prompt: "¿En qué mes empezó a soñar la autora en francés?", correctAnswer: "el tercer mes" },
+    ],
+  },
+  {
+    id: "reading-experiences-11",
+    themeId: "experiences",
+    title: "Publicación: Mi primer maratón",
+    textType: "Social media post",
+    level: "medium",
+    bodyEs:
+      "¡Lo logré! 🏃‍♀️ Después de seis meses de entrenamiento, hoy terminé mi primer maratón: 42 kilómetros que jamás pensé que sería capaz de correr.\n\n" +
+      "No voy a mentir, los kilómetros del veinticinco al treinta y cinco fueron una tortura. En un momento quise abandonar, pero pensé en toda la gente que me apoyó durante los entrenamientos de las seis de la mañana, incluso cuando llovía, y seguí corriendo.\n\n" +
+      "Crucé la meta en cuatro horas y doce minutos. No es un tiempo espectacular, pero para mí es una victoria enorme, porque hace un año ni siquiera podía correr diez minutos sin parar.\n\n" +
+      "Gracias a todos los que comentaron y me animaron esta mañana mientras compartía mi ubicación en directo. Esta comunidad de corredores es una de las mejores cosas que me ha pasado este año.\n\n" +
+      "¿Cuál fue vuestro primer gran reto deportivo? Contádmelo en los comentarios. 💪 #primerarmaraton #corredora",
+    questions: [
+      { id: "experiences-11-q1", type: "true-false", prompt: "La autora terminó el maratón en menos de cuatro horas.", correctAnswer: "false", justification: "\"Crucé la meta en cuatro horas y doce minutos\"" },
+      { id: "experiences-11-q2", type: "true-false", prompt: "Hace un año, la autora podía correr fácilmente diez minutos seguidos.", correctAnswer: "false", justification: "\"hace un año ni siquiera podía correr diez minutos sin parar\"" },
+      { id: "experiences-11-q3", type: "mcq", prompt: "¿Cuántos kilómetros tiene un maratón, según el texto?", options: ["42", "10", "25", "100"], correctAnswer: "42" },
+      { id: "experiences-11-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Una publicación en redes sociales", "Un informe médico", "Una carta formal", "Un artículo científico"], correctAnswer: "Una publicación en redes sociales" },
+      { id: "experiences-11-q5", type: "short", prompt: "¿Cuántos meses entrenó la autora antes del maratón?", correctAnswer: "seis meses" },
+    ],
+  },
+  {
+    id: "reading-human-ingenuity-10",
+    themeId: "human-ingenuity",
+    title: "Guía rápida: cómo reciclar tu móvil viejo",
+    textType: "Instructional guide",
+    level: "easy",
+    bodyEs:
+      "¿Tienes un teléfono móvil viejo guardado en un cajón? Sigue estos pasos sencillos para reciclarlo correctamente.\n\n" +
+      "Primero, haz una copia de seguridad de tus fotos y contactos. Puedes usar una aplicación en la nube o conectar el teléfono a un ordenador.\n\n" +
+      "Segundo, borra todos tus datos personales. Ve a la configuración del teléfono y selecciona la opción de \"restablecer datos de fábrica\". Así nadie podrá ver tu información.\n\n" +
+      "Tercero, quita la tarjeta SIM y la tarjeta de memoria si las tiene. Guárdalas o destrúyelas si ya no las necesitas.\n\n" +
+      "Cuarto, lleva el móvil a un punto de reciclaje electrónico. Muchas tiendas de tecnología y ayuntamientos tienen contenedores especiales para este tipo de residuos.\n\n" +
+      "Un móvil contiene metales valiosos como el oro y la plata, además de materiales que pueden contaminar el medioambiente si no se reciclan bien. ¡Con estos cuatro pasos, ayudas al planeta y liberas espacio en casa!",
+    questions: [
+      { id: "human-ingenuity-10-q1", type: "true-false", prompt: "Se debe hacer una copia de seguridad antes de borrar los datos.", correctAnswer: "true", justification: "\"Primero, haz una copia de seguridad... Segundo, borra todos tus datos personales\"" },
+      { id: "human-ingenuity-10-q2", type: "true-false", prompt: "Los móviles viejos se deben tirar a la basura normal.", correctAnswer: "false", justification: "\"lleva el móvil a un punto de reciclaje electrónico\"" },
+      { id: "human-ingenuity-10-q3", type: "mcq", prompt: "¿Qué se debe hacer en el segundo paso?", options: ["Restablecer los datos de fábrica", "Comprar un móvil nuevo", "Llamar al fabricante", "Vender el móvil"], correctAnswer: "Restablecer los datos de fábrica" },
+      { id: "human-ingenuity-10-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Una guía instructiva", "Un poema", "Una crítica de cine", "Una carta personal"], correctAnswer: "Una guía instructiva" },
+      { id: "human-ingenuity-10-q5", type: "short", prompt: "Menciona un metal valioso que contienen los móviles.", correctAnswer: "oro" },
+    ],
+  },
+  {
+    id: "reading-human-ingenuity-11",
+    themeId: "human-ingenuity",
+    title: "Estudiantes crean una app que traduce el lenguaje de signos en tiempo real",
+    textType: "Newspaper article",
+    level: "medium",
+    bodyEs:
+      "Un grupo de cinco estudiantes de un instituto de Valencia ha desarrollado una aplicación móvil capaz de traducir el lenguaje de signos español a texto y voz en tiempo real, utilizando solo la cámara de un teléfono inteligente.\n\n" +
+      "El proyecto, llamado SignoYa, nació después de que uno de los estudiantes, Pau Ferrer, conociera a un compañero de clase con discapacidad auditiva. \"Nos dimos cuenta de que la comunicación diaria era un obstáculo constante para él, y quisimos hacer algo al respecto\", explica Pau.\n\n" +
+      "La aplicación utiliza inteligencia artificial para reconocer los movimientos de las manos y convertirlos en palabras en cuestión de segundos. Aunque todavía está en fase de pruebas y solo reconoce un vocabulario limitado de unas trescientas señas, los creadores esperan ampliarlo significativamente el próximo año.\n\n" +
+      "El equipo presentó su proyecto en una feria de innovación juvenil y ganó el primer premio en la categoría de tecnología social. Ahora buscan financiación para convertir SignoYa en una aplicación disponible para todo el público.\n\n" +
+      "\"Lo más importante para nosotros no es el premio, sino saber que esto puede cambiar la vida de muchas personas\", concluye Pau.",
+    questions: [
+      { id: "human-ingenuity-11-q1", type: "true-false", prompt: "La aplicación fue creada por un solo estudiante.", correctAnswer: "false", justification: "\"Un grupo de cinco estudiantes\"" },
+      { id: "human-ingenuity-11-q2", type: "true-false", prompt: "SignoYa ganó el primer premio en una feria de innovación.", correctAnswer: "true", justification: "\"ganó el primer premio en la categoría de tecnología social\"" },
+      { id: "human-ingenuity-11-q3", type: "mcq", prompt: "¿Cuántas señas reconoce actualmente la aplicación?", options: ["Unas trescientas", "Mil", "Cincuenta", "Todas las existentes"], correctAnswer: "Unas trescientas" },
+      { id: "human-ingenuity-11-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Un artículo de periódico", "Una entrada de diario", "Una postal", "Un menú"], correctAnswer: "Un artículo de periódico" },
+      { id: "human-ingenuity-11-q5", type: "short", prompt: "¿Cómo se llama el estudiante entrevistado en el artículo?", correctAnswer: "Pau Ferrer" },
+    ],
+  },
+  {
+    id: "reading-social-organization-10",
+    themeId: "social-organization",
+    title: "Informe del consejo escolar sobre la convivencia en los centros educativos",
+    textType: "Official report",
+    level: "hard",
+    bodyEs:
+      "El presente informe, elaborado por el Consejo Escolar Municipal, examina los resultados de una encuesta realizada entre el alumnado de secundaria de la región con el objetivo de evaluar el clima de convivencia en los centros educativos durante el curso actual.\n\n" +
+      "Según los datos recogidos, un setenta y ocho por ciento del alumnado afirma sentirse seguro en su centro educativo, una cifra que representa un ligero descenso respecto al curso anterior. Entre las principales preocupaciones señaladas por los estudiantes destacan el acoso escolar, tanto presencial como en redes sociales, y la falta de espacios de mediación entre iguales.\n\n" +
+      "El informe subraya que los centros que cuentan con programas de mediación escolar y delegados de convivencia registran índices significativamente más bajos de conflictos graves. Asimismo, se observa que el alumnado valora positivamente la existencia de canales anónimos para denunciar situaciones de acoso.\n\n" +
+      "Entre las recomendaciones del Consejo se incluyen: implementar programas de mediación en todos los centros antes de que finalice el próximo curso escolar, aumentar la formación del profesorado en la detección temprana de conflictos, y crear una comisión de seguimiento que evaluará la convivencia trimestralmente.\n\n" +
+      "El informe completo será presentado a las familias en la próxima reunión del consejo escolar, prevista para el mes que viene.",
+    questions: [
+      { id: "social-organization-10-q1", type: "true-false", prompt: "El porcentaje de alumnado que se siente seguro ha aumentado respecto al curso anterior.", correctAnswer: "false", justification: "\"una cifra que representa un ligero descenso respecto al curso anterior\"" },
+      { id: "social-organization-10-q2", type: "true-false", prompt: "Los centros con programas de mediación tienen menos conflictos graves.", correctAnswer: "true", justification: "\"registran índices significativamente más bajos de conflictos graves\"" },
+      { id: "social-organization-10-q3", type: "mcq", prompt: "¿Qué porcentaje del alumnado afirma sentirse seguro en su centro?", options: ["78%", "50%", "22%", "100%"], correctAnswer: "78%" },
+      { id: "social-organization-10-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Un informe oficial", "Una carta personal", "Un anuncio", "Una reseña"], correctAnswer: "Un informe oficial" },
+      { id: "social-organization-10-q5", type: "short", prompt: "¿Cuándo se presentará el informe completo a las familias?", correctAnswer: "el mes que viene" },
+    ],
+  },
+  {
+    id: "reading-social-organization-11",
+    themeId: "social-organization",
+    title: "Discurso de la candidata a delegada de clase",
+    textType: "Speech",
+    level: "medium",
+    bodyEs:
+      "Buenos días a todos y a todas.\n\n" +
+      "Me llamo Irene y me presento como candidata a delegada de nuestra clase este año. Llevo tres años en este instituto y siempre he creído que los estudiantes deberíamos tener más voz en las decisiones que nos afectan directamente.\n\n" +
+      "Si me eligen, mi primera propuesta será organizar reuniones mensuales donde todos podáis compartir vuestras ideas y quejas de forma abierta, sin miedo a hablar. También quiero trabajar junto a la dirección para mejorar las instalaciones del patio, que llevan años sin renovarse.\n\n" +
+      "Sé que no puedo prometer soluciones inmediatas para todos los problemas, pero sí puedo prometer que escucharé a cada uno de vosotros y que llevaré vuestras propuestas a las reuniones del consejo escolar con seriedad y compromiso.\n\n" +
+      "Creo firmemente que una clase unida puede conseguir cambios reales. Por eso os pido vuestro voto: no para mí, sino para todos nosotros.\n\n" +
+      "Muchas gracias.",
+    questions: [
+      { id: "social-organization-11-q1", type: "true-false", prompt: "Irene lleva tres años en el instituto.", correctAnswer: "true", justification: "\"Llevo tres años en este instituto\"" },
+      { id: "social-organization-11-q2", type: "true-false", prompt: "Irene promete resolver todos los problemas de inmediato.", correctAnswer: "false", justification: "\"no puedo prometer soluciones inmediatas para todos los problemas\"" },
+      { id: "social-organization-11-q3", type: "mcq", prompt: "¿Cuál es la primera propuesta de Irene si es elegida?", options: ["Organizar reuniones mensuales", "Cambiar el horario de clases", "Eliminar los exámenes", "Crear un equipo de fútbol"], correctAnswer: "Organizar reuniones mensuales" },
+      { id: "social-organization-11-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Un discurso", "Una receta", "Un correo electrónico", "Una crítica"], correctAnswer: "Un discurso" },
+      { id: "social-organization-11-q5", type: "short", prompt: "¿Qué instalación quiere mejorar Irene?", correctAnswer: "el patio" },
+    ],
+  },
+  {
+    id: "reading-sharing-planet-10",
+    themeId: "sharing-planet",
+    title: "Anuncio: Únete a la limpieza de la playa",
+    textType: "Advertisement",
+    level: "easy",
+    bodyEs:
+      "¡Este sábado, limpiamos la playa juntos!\n\n" +
+      "¿Te preocupa el medioambiente? Únete a nuestra jornada de limpieza en la playa de El Palmar. Necesitamos voluntarios de todas las edades.\n\n" +
+      "Quedamos a las nueve de la mañana en la entrada principal de la playa. La actividad dura tres horas y ofrecemos guantes, bolsas y agua gratis para todos los participantes.\n\n" +
+      "No hace falta experiencia, solo ganas de ayudar. Al final de la jornada, habrá un pequeño almuerzo para todos los voluntarios.\n\n" +
+      "Cada año recogemos más de doscientos kilos de basura, ¡y con tu ayuda podemos recoger más todavía!\n\n" +
+      "Para apuntarte, escribe a limpiezaplaya@correo.com o simplemente preséntate el sábado. ¡Te esperamos!",
+    questions: [
+      { id: "sharing-planet-10-q1", type: "true-false", prompt: "Es necesario tener experiencia previa para participar.", correctAnswer: "false", justification: "\"No hace falta experiencia, solo ganas de ayudar\"" },
+      { id: "sharing-planet-10-q2", type: "true-false", prompt: "La actividad dura todo el día.", correctAnswer: "false", justification: "\"La actividad dura tres horas\"" },
+      { id: "sharing-planet-10-q3", type: "mcq", prompt: "¿A qué hora empieza la actividad?", options: ["A las nueve de la mañana", "A las doce del mediodía", "A las seis de la tarde", "A medianoche"], correctAnswer: "A las nueve de la mañana" },
+      { id: "sharing-planet-10-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Un anuncio", "Un informe científico", "Una entrada de diario", "Una entrevista"], correctAnswer: "Un anuncio" },
+      { id: "sharing-planet-10-q5", type: "short", prompt: "¿Cuántos kilos de basura se recogen normalmente cada año?", correctAnswer: "más de doscientos kilos" },
+    ],
+  },
+  {
+    id: "reading-sharing-planet-11",
+    themeId: "sharing-planet",
+    title: "Entrevista con una bióloga marina sobre el coral en peligro",
+    textType: "Interview",
+    level: "medium",
+    bodyEs:
+      "Hablamos con la doctora Marina Vidal, bióloga marina que lleva quince años estudiando los arrecifes de coral del Caribe, sobre la crisis que atraviesan estos ecosistemas.\n\n" +
+      "— Doctora Vidal, ¿qué está pasando con los corales?\n\n" +
+      "— La situación es preocupante. El aumento de la temperatura del mar provoca lo que llamamos \"blanqueamiento\": el coral expulsa las algas de las que depende para sobrevivir y, si el calor persiste demasiado tiempo, muere. En las últimas dos décadas hemos perdido casi la mitad de los arrecifes de coral del planeta.\n\n" +
+      "— ¿Hay alguna solución?\n\n" +
+      "— Existen varias líneas de trabajo. Algunos equipos cultivan corales resistentes al calor en laboratorios para después trasplantarlos al océano. También es fundamental reducir la contaminación costera y limitar la pesca en zonas de arrecife. Pero, sin duda, la medida más importante es frenar el cambio climático global.\n\n" +
+      "— ¿Qué puede hacer una persona normal para ayudar?\n\n" +
+      "— Cosas pequeñas suman: usar protector solar que no dañe el coral, apoyar políticas ambientales y, sobre todo, informarse y compartir lo que está pasando. Los arrecifes de coral sostienen a millones de especies marinas; si desaparecen, las consecuencias serán enormes para todo el océano.",
+    questions: [
+      { id: "sharing-planet-11-q1", type: "true-false", prompt: "Se ha perdido casi la mitad de los arrecifes de coral del planeta en las últimas dos décadas.", correctAnswer: "true", justification: "\"hemos perdido casi la mitad de los arrecifes de coral del planeta\"" },
+      { id: "sharing-planet-11-q2", type: "true-false", prompt: "Según la doctora Vidal, no existe ninguna solución posible.", correctAnswer: "false", justification: "\"Existen varias líneas de trabajo\"" },
+      { id: "sharing-planet-11-q3", type: "mcq", prompt: "¿Qué causa el 'blanqueamiento' del coral?", options: ["El aumento de la temperatura del mar", "La falta de peces", "El exceso de lluvia", "La luz de la luna"], correctAnswer: "El aumento de la temperatura del mar" },
+      { id: "sharing-planet-11-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Una entrevista", "Un anuncio", "Una postal", "Un poema"], correctAnswer: "Una entrevista" },
+      { id: "sharing-planet-11-q5", type: "short", prompt: "¿Cuántos años lleva la doctora Vidal estudiando los arrecifes?", correctAnswer: "quince años" },
+    ],
   },
 ];

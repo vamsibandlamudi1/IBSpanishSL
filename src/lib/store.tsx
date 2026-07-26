@@ -91,6 +91,14 @@ interface StoreContextValue extends PersistedState {
   lastAward: AwardResult | null;
   clearLastAward: () => void;
 
+  /** True while the student is in the middle of a quiz/drill/exam section —
+   *  set by QuizModule/GrammarModule/ReadingModule/PracticeExamModule. Lets
+   *  the milestone/engagement popups (PointsMilestoneWatcher,
+   *  EngagementGameWatcher) defer themselves until the student actually
+   *  finishes, instead of interrupting mid-test. */
+  activeSession: boolean;
+  setActiveSession: (active: boolean) => void;
+
   // --- Student actions (the app grades everything itself) ---
   recordQuestionResult: (questionId: string, themeId: string, difficulty: Difficulty, correct: boolean) => void;
   completeQuiz: (themeId: string, difficulty: Difficulty, score: number, total: number) => AwardResult;
@@ -121,6 +129,7 @@ export function StoreProvider({ children }: { children: ReactNode }) {
   const [state, setState] = useState<PersistedState>(defaultState);
   const [hydrated, setHydrated] = useState(false);
   const [lastAward, setLastAward] = useState<AwardResult | null>(null);
+  const [activeSession, setActiveSession] = useState(false);
 
   useEffect(() => {
     try {
@@ -160,6 +169,8 @@ export function StoreProvider({ children }: { children: ReactNode }) {
       allBadges: BADGES,
       lastAward,
       clearLastAward: () => setLastAward(null),
+      activeSession,
+      setActiveSession,
 
       recordQuestionResult: (questionId, themeId, difficulty, correct) => {
         const result: QuestionResult = {
@@ -315,7 +326,7 @@ export function StoreProvider({ children }: { children: ReactNode }) {
       },
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [state, lastAward]);
+  }, [state, lastAward, activeSession]);
 
   return <StoreContext.Provider value={value}>{children}</StoreContext.Provider>;
 }

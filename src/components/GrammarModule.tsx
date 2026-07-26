@@ -41,7 +41,7 @@ const normalizeAnswer = (s: string) => stripAccents(s.trim().toLowerCase());
  *  PERFORMANCE: Exercises are lazy-loaded per topic via dynamic import()
  *  so the 47 KB ser-estar dataset never blocks the initial Grammar page. */
 export default function GrammarModule() {
-  const { completeQuiz, recordQuestionResult, lastAward, clearLastAward } = useStore();
+  const { completeQuiz, recordQuestionResult, lastAward, clearLastAward, setActiveSession } = useStore();
 
   const [stage, setStage] = useState<Stage>("detail");
   const [topicId, setTopicId] = useState<string>(GRAMMAR_TOPICS[0].id);
@@ -80,6 +80,14 @@ export default function GrammarModule() {
   const exercise = activePool[current];
 
   useEffect(() => stopSpeaking, []); // stop any playback if the module unmounts
+
+  // Lets the global milestone/engagement popups know a drill is in progress,
+  // so they defer themselves until the student finishes — see lib/store.tsx's
+  // activeSession.
+  useEffect(() => {
+    setActiveSession(stage === "practice");
+    return () => setActiveSession(false);
+  }, [stage, setActiveSession]);
 
   const togglePlayAudio = () => {
     if (isSpeaking) {

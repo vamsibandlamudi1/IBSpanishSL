@@ -9,7 +9,12 @@ import ProgressInsights from "@/components/ProgressInsights";
 const QUICK_LINKS = [
   { href: "/theme-practice", title: "Practice by Theme", desc: "Review vocabulary and try matching/fill-in-the-blank exercises.", emoji: "📚" },
   { href: "/quiz", title: "Take a Quiz", desc: "Test yourself with multiple choice, short answer, and puzzles.", emoji: "📝" },
-  { href: "/audio", title: "Audio Practice (Oral Exam)", desc: "Simulate the Individual Oral: describe an image and speak.", emoji: "🎙️" },
+  { href: "/reading", title: "Reading", desc: "Paper 1 style comprehension passages, self-graded with justifications.", emoji: "📖" },
+  { href: "/writing", title: "Writing", desc: "Paper 2 style tasks with instant, examiner-style feedback.", emoji: "✍️" },
+  { href: "/grammar", title: "Grammar", desc: "11 core grammar topics with rules, examples, and drills.", emoji: "🧩" },
+  { href: "/audio", title: "Oral Practice", desc: "Simulate the Individual Oral: describe an image and speak.", emoji: "🎙️" },
+  { href: "/practice-exam", title: "Practice Exam", desc: "A full generated exam covering every skill in one sitting.", emoji: "🏁" },
+  { href: "/rewards", title: "Rewards", desc: "See your points, badges, and redeem prizes.", emoji: "🏆" },
 ];
 
 export default function HomePage() {
@@ -47,7 +52,7 @@ export default function HomePage() {
       <section>
         <p className="eyebrow mb-1">Get started</p>
         <h2 className="mb-3 text-lg font-bold text-slate-900">Quick links</h2>
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {QUICK_LINKS.map((link) => (
             <Link
               key={link.href}

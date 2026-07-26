@@ -42,7 +42,9 @@
       "Bash(node -e \"let d='';process.stdin.on\\('data',c=>d+=c\\);process.stdin.on\\('end',\\(\\)=>{const j=JSON.parse\\(d\\); console.log\\(JSON.stringify\\(j,null,2\\)\\);}\\)\")",
       "Bash(node -e \"let d='';process.stdin.on\\('data',c=>d+=c\\);process.stdin.on\\('end',\\(\\)=>{const j=JSON.parse\\(d\\); console.log\\('available:', j.available\\); console.log\\('has improvedVersion:', !!j.feedback.improvedVersion\\); console.log\\('improvedVersion word count:', j.feedback.improvedVersion.trim\\(\\).split\\(/\\\\\\\\s+/\\).length\\); console.log\\('---preview---'\\); console.log\\(j.feedback.improvedVersion.slice\\(0,300\\)\\);}\\)\")",
       "Bash(node \"C:\\\\Users\\\\b_vam\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\C--Users-b-vam-OneDrive-Desktop-IBSpanishApp\\\\204caa65-d83a-4560-a8e2-92bce3de224c\\\\scratchpad\\\\splice.js\")",
-      "Bash(node \"C:\\\\Users\\\\b_vam\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\C--Users-b-vam-OneDrive-Desktop-IBSpanishApp\\\\204caa65-d83a-4560-a8e2-92bce3de224c\\\\scratchpad\\\\validate.js\")"
+      "Bash(node \"C:\\\\Users\\\\b_vam\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\C--Users-b-vam-OneDrive-Desktop-IBSpanishApp\\\\204caa65-d83a-4560-a8e2-92bce3de224c\\\\scratchpad\\\\validate.js\")",
+      "Bash(npx next *)",
+      "Bash(awk '/export const QUESTION_BANK/,/export const AUDIO_TASKS/' src/lib/data.ts)"
     ]
   }
 }
