@@ -5,23 +5,26 @@ import { useMemo, useState } from "react";
 import { VocabItem } from "@/lib/types";
 import { speak } from "@/lib/speech";
 import { shuffle } from "@/lib/utils";
+import { PARAGRAPH_EXERCISES, ParagraphExercise } from "@/lib/paragraphData";
 
-/** The Theme Practice page's interactive exercise: a matching game (Spanish
- *  word -> English meaning) followed by a short fill-in-the-blank drill,
- *  both generated from the theme's vocabulary list in lib/data.ts. This is
- *  intentionally self-contained (no points/badges) — it's low-stakes
- *  practice, distinct from the scored Quiz Module. */
-export default function VocabExercise({ vocabulary }: { vocabulary: VocabItem[] }) {
+const stripAccents = (s: string) => s.normalize("NFD").replace(/[̀-ͯ]/g, "");
+const normalize = (s: string) => stripAccents(s.trim().toLowerCase());
+
+export default function VocabExercise({ vocabulary, themeId, subtopic }: { vocabulary: VocabItem[]; themeId?: string; subtopic?: string | null }) {
   return (
-    <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-      <MatchingGame vocabulary={vocabulary} />
-      <FillInTheBlank vocabulary={vocabulary} />
+    <div className="flex flex-col gap-6">
+      <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+        <MatchingGame vocabulary={vocabulary} />
+        <FillInTheBlank vocabulary={vocabulary} />
+      </div>
+      <ParagraphFillInTheBlank themeId={themeId} subtopic={subtopic} />
     </div>
   );
 }
 
 function MatchingGame({ vocabulary }: { vocabulary: VocabItem[] }) {
-  const words = useMemo(() => vocabulary.slice(0, 6), [vocabulary]);
+  // Randomly select 6 words from the vocabulary pool each rendered session
+  const words = useMemo(() => shuffle([...vocabulary]).slice(0, 6), [vocabulary]);
   const [englishOrder] = useState(() => shuffle(words.map((w) => w.en)));
   const [selectedEs, setSelectedEs] = useState<string | null>(null);
   const [matched, setMatched] = useState<Record<string, string>>({});
@@ -110,16 +113,17 @@ function MatchingGame({ vocabulary }: { vocabulary: VocabItem[] }) {
 }
 
 function FillInTheBlank({ vocabulary }: { vocabulary: VocabItem[] }) {
-  const items = useMemo(() => vocabulary.slice(0, 4), [vocabulary]);
+  // Randomly sample 5 words from the vocabulary pool
+  const items = useMemo(() => shuffle([...vocabulary]).slice(0, 5), [vocabulary]);
   const [answers, setAnswers] = useState<Record<string, string>>({});
   const [checked, setChecked] = useState(false);
 
-  const isCorrect = (es: string) => answers[es]?.trim().toLowerCase() === es.toLowerCase();
+  const isCorrect = (es: string) => normalize(answers[es] ?? "") === normalize(es);
   const correctCount = items.filter((w) => isCorrect(w.es)).length;
 
   return (
     <div className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
-      <h3 className="font-bold text-slate-900">Fill in the blank</h3>
+      <h3 className="font-bold text-slate-900">Vocabulary fill in the blank</h3>
       <p className="mb-3 text-sm text-slate-600">
         Type the Spanish word that matches the English meaning shown.
       </p>
@@ -138,12 +142,12 @@ function FillInTheBlank({ vocabulary }: { vocabulary: VocabItem[] }) {
               }}
               placeholder="Escribe en español..."
               className={`mt-1 w-full rounded-md border px-2 py-1.5 text-sm outline-none focus:ring-2 focus:ring-brand-500 ${
-                checked ? (isCorrect(w.es) ? "border-green-400" : "border-red-400") : "border-slate-200"
+                checked ? (isCorrect(w.es) ? "border-green-400 bg-green-50 text-green-800" : "border-red-400 bg-red-50 text-red-800") : "border-slate-200"
               }`}
             />
             {checked && !isCorrect(w.es) && (
               <p className="mt-0.5 flex items-center gap-1 text-xs text-slate-500">
-                Correct answer: {w.es}
+                Correct answer: <span className="font-semibold text-slate-700">{w.es}</span>
                 <button
                   type="button"
                   onClick={() => speak(w.es)}
@@ -157,7 +161,7 @@ function FillInTheBlank({ vocabulary }: { vocabulary: VocabItem[] }) {
           </div>
         ))}
       </div>
-      <button type="button" onClick={() => setChecked(true)} className="btn-primary mt-3 px-3 py-1.5">
+      <button type="button" onClick={() => setChecked(true)} className="btn-primary mt-3 px-3 py-1.5 text-xs">
         Check answers
       </button>
       {checked && (
@@ -165,6 +169,128 @@ function FillInTheBlank({ vocabulary }: { vocabulary: VocabItem[] }) {
           You got {correctCount} / {items.length} correct.
         </p>
       )}
+    </div>
+  );
+}
+
+function ParagraphFillInTheBlank({ themeId, subtopic }: { themeId?: string; subtopic?: string | null }) {
+  const exercises = useMemo(() => {
+    let filtered = PARAGRAPH_EXERCISES;
+    if (themeId) {
+      filtered = filtered.filter((ex) => ex.themeId === themeId);
+    }
+    if (subtopic) {
+      filtered = filtered.filter((ex) => ex.subtopic === subtopic);
+    }
+    return filtered.length > 0 ? filtered : PARAGRAPH_EXERCISES;
+  }, [themeId, subtopic]);
+
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [userAnswer, setUserAnswer] = useState("");
+  const [checked, setChecked] = useState(false);
+  const [score, setScore] = useState(0);
+
+  const currentExercise: ParagraphExercise | undefined = exercises[currentIndex % exercises.length];
+
+  if (!currentExercise) return null;
+
+  const isCorrect = normalize(userAnswer) === normalize(currentExercise.targetWord);
+
+  const handleCheck = () => {
+    setChecked(true);
+    if (isCorrect) {
+      setScore((s) => s + 1);
+    }
+  };
+
+  const handleNext = () => {
+    setChecked(false);
+    setUserAnswer("");
+    setCurrentIndex((i) => (i + 1) % exercises.length);
+  };
+
+  return (
+    <div className="rounded-xl border border-brand-200 bg-gradient-to-br from-white via-brand-50/20 to-slate-50 p-5 shadow-sm">
+      <div className="flex items-center justify-between gap-2 border-b border-slate-200 pb-3">
+        <div>
+          <span className="rounded-full bg-brand-100 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-brand-700">
+            Paragraph Practice ({currentIndex + 1} / {exercises.length})
+          </span>
+          <h3 className="mt-1 text-base font-bold text-slate-900">{currentExercise.title}</h3>
+        </div>
+        <button type="button" onClick={() => speak(`${currentExercise.textBefore} ${currentExercise.targetWord} ${currentExercise.textAfter}`)} className="flex items-center gap-1 rounded-md border border-slate-200 bg-white px-2.5 py-1 text-xs font-medium text-slate-700 shadow-sm hover:bg-slate-50">
+          🔊 Escuchar párrafo
+        </button>
+      </div>
+
+      <div className="my-4 rounded-lg border border-slate-200 bg-white p-4 text-slate-800 shadow-inner">
+        <p className="text-base leading-relaxed">
+          {currentExercise.textBefore}
+          <span className="inline-block px-1">
+            <input
+              type="text"
+              value={userAnswer}
+              onChange={(e) => setUserAnswer(e.target.value)}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" && !checked) handleCheck();
+              }}
+              placeholder={`[${currentExercise.translation}]`}
+              disabled={checked}
+              className={`min-w-[160px] rounded-md border-b-2 px-2 py-1 text-center font-bold outline-none transition ${
+                checked
+                  ? isCorrect
+                    ? "border-green-500 bg-green-100 text-green-900"
+                    : "border-red-500 bg-red-100 text-red-900"
+                  : "border-brand-500 bg-brand-50/50 text-brand-900 focus:bg-white"
+              }`}
+            />
+          </span>
+          {currentExercise.textAfter}
+        </p>
+      </div>
+
+      {/* Word Options / Hints */}
+      <div className="mb-4">
+        <p className="text-xs font-semibold text-slate-500">Word options / Opciones:</p>
+        <div className="mt-1 flex flex-wrap gap-2">
+          {currentExercise.hints.map((hint) => (
+            <button
+              key={hint}
+              type="button"
+              disabled={checked}
+              onClick={() => setUserAnswer(hint)}
+              className="rounded-md border border-slate-200 bg-white px-2.5 py-1 text-xs font-medium text-slate-700 shadow-xs hover:border-brand-400 hover:bg-brand-50 hover:text-brand-700"
+            >
+              {hint}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {checked && (
+        <div className={`mb-4 rounded-md p-3 text-sm ${isCorrect ? "bg-green-100 text-green-800" : "bg-rose-100 text-rose-900"}`}>
+          {isCorrect ? (
+            <p className="font-bold">¡Excelente! Correct answer: &ldquo;{currentExercise.targetWord}&rdquo;</p>
+          ) : (
+            <p className="font-medium">
+              Incorrect. The correct word is <strong className="underline">&ldquo;{currentExercise.targetWord}&rdquo;</strong> ({currentExercise.translation}).
+            </p>
+          )}
+        </div>
+      )}
+
+      <div className="flex items-center justify-between">
+        <p className="text-xs text-slate-500 font-medium">Completed: {score} correct in this session</p>
+        {!checked ? (
+          <button type="button" onClick={handleCheck} disabled={!userAnswer.trim()} className="btn-primary px-4 py-1.5 text-xs">
+            Check answer
+          </button>
+        ) : (
+          <button type="button" onClick={handleNext} className="btn-primary px-4 py-1.5 text-xs">
+            Next paragraph →
+          </button>
+        )}
+      </div>
     </div>
   );
 }

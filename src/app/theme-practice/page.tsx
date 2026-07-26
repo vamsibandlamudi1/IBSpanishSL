@@ -79,7 +79,7 @@ export default function ThemePracticePage() {
             <h3 className="mb-2 text-lg font-bold text-slate-900">
               Try it: quick exercises{subtopic ? ` — ${subtopic}` : ""}
             </h3>
-            <VocabExercise key={subtopic ?? "all"} vocabulary={displayVocabulary} />
+            <VocabExercise key={(themeId ?? "") + (subtopic ?? "all")} vocabulary={displayVocabulary} themeId={theme.id} subtopic={subtopic} />
           </div>
         </div>
       )}
