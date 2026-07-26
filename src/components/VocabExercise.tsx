@@ -17,6 +17,7 @@ export default function VocabExercise({ vocabulary, themeId, subtopic }: { vocab
         <MatchingGame vocabulary={vocabulary} />
         <FillInTheBlank vocabulary={vocabulary} />
       </div>
+      <ThemeListeningPractice vocabulary={vocabulary} />
       <ParagraphFillInTheBlank themeId={themeId} subtopic={subtopic} />
     </div>
   );
@@ -169,6 +170,132 @@ function FillInTheBlank({ vocabulary }: { vocabulary: VocabItem[] }) {
           You got {correctCount} / {items.length} correct.
         </p>
       )}
+    </div>
+  );
+}
+
+function ThemeListeningPractice({ vocabulary }: { vocabulary: VocabItem[] }) {
+  const pool = useMemo(() => shuffle([...vocabulary]), [vocabulary]);
+  const [index, setIndex] = useState(0);
+  const [selectedOpt, setSelectedOpt] = useState<string | null>(null);
+  const [checked, setChecked] = useState(false);
+  const [score, setScore] = useState(0);
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  const currentItem = pool[index % pool.length];
+
+  const options = useMemo(() => {
+    if (!currentItem) return [];
+    const wrong = vocabulary.filter((v) => v.en !== currentItem.en);
+    const shuffledWrong = shuffle(wrong).slice(0, 3).map((v) => v.en);
+    return shuffle([currentItem.en, ...shuffledWrong]);
+  }, [currentItem, vocabulary]);
+
+  if (!currentItem) return null;
+
+  const playAudio = () => {
+    setIsPlaying(true);
+    speak(currentItem.es);
+    setTimeout(() => setIsPlaying(false), 1500);
+  };
+
+  const handleSelect = (opt: string) => {
+    if (checked) return;
+    setSelectedOpt(opt);
+  };
+
+  const handleCheck = () => {
+    if (!selectedOpt) return;
+    setChecked(true);
+    if (selectedOpt === currentItem.en) {
+      setScore((s) => s + 1);
+    }
+  };
+
+  const handleNext = () => {
+    setChecked(false);
+    setSelectedOpt(null);
+    setIndex((i) => (i + 1) % pool.length);
+  };
+
+  const isCorrect = selectedOpt === currentItem.en;
+
+  return (
+    <div className="rounded-xl border border-amber-200 bg-gradient-to-br from-amber-50/40 via-white to-orange-50/20 p-5 shadow-sm">
+      <div className="flex items-center justify-between gap-2 border-b border-amber-100 pb-3">
+        <div>
+          <span className="rounded-full bg-amber-100 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-amber-800">
+            Audio Practice ({index + 1} / {pool.length})
+          </span>
+          <h3 className="mt-1 text-base font-bold text-slate-900">Theme Listening Comprehension</h3>
+        </div>
+        <button
+          type="button"
+          onClick={playAudio}
+          className={`flex items-center gap-1.5 rounded-lg border px-3 py-1.5 text-xs font-bold transition shadow-sm ${
+            isPlaying ? "border-amber-400 bg-amber-100 text-amber-900 animate-pulse" : "border-amber-300 bg-white text-amber-700 hover:bg-amber-50"
+          }`}
+        >
+          🔊 Listen ({currentItem.es})
+        </button>
+      </div>
+
+      <p className="my-3 text-sm text-slate-600">
+        Click the audio button to hear the Spanish term, then select its correct English meaning from the choices below:
+      </p>
+
+      <div className="grid grid-cols-1 gap-2.5 sm:grid-cols-2">
+        {options.map((opt) => {
+          const isSelected = selectedOpt === opt;
+          const isRight = checked && opt === currentItem.en;
+          const isWrong = checked && isSelected && !isRight;
+
+          return (
+            <button
+              key={opt}
+              type="button"
+              disabled={checked}
+              onClick={() => handleSelect(opt)}
+              className={`flex items-center justify-between rounded-lg border px-3.5 py-2.5 text-left text-sm font-medium transition ${
+                isRight
+                  ? "border-green-500 bg-green-50 text-green-900 font-bold"
+                  : isWrong
+                  ? "border-red-400 bg-red-50 text-red-900"
+                  : isSelected
+                  ? "border-amber-500 bg-amber-50 text-amber-900 font-semibold"
+                  : "border-slate-200 bg-white hover:border-amber-300 hover:bg-amber-50/50 text-slate-700"
+              }`}
+            >
+              <span>{opt}</span>
+              {isRight && <span className="text-green-600 font-bold">✓</span>}
+              {isWrong && <span className="text-red-500 font-bold">✗</span>}
+            </button>
+          );
+        })}
+      </div>
+
+      {checked && (
+        <div className={`mt-3 rounded-md p-2.5 text-xs font-medium ${isCorrect ? "bg-green-100 text-green-800" : "bg-rose-100 text-rose-900"}`}>
+          {isCorrect ? (
+            <p>¡Correcto! &ldquo;{currentItem.es}&rdquo; means &ldquo;{currentItem.en}&rdquo;.</p>
+          ) : (
+            <p>Incorrect. &ldquo;{currentItem.es}&rdquo; means &ldquo;{currentItem.en}&rdquo;.</p>
+          )}
+        </div>
+      )}
+
+      <div className="mt-4 flex items-center justify-between">
+        <span className="text-xs font-medium text-slate-500">Score: {score} listening questions correct</span>
+        {!checked ? (
+          <button type="button" onClick={handleCheck} disabled={!selectedOpt} className="btn-primary px-4 py-1.5 text-xs">
+            Check answer
+          </button>
+        ) : (
+          <button type="button" onClick={handleNext} className="btn-primary px-4 py-1.5 text-xs">
+            Next audio question →
+          </button>
+        )}
+      </div>
     </div>
   );
 }
