@@ -13,12 +13,43 @@ export function speak(text: string, onEnd?: () => void) {
     onEnd?.();
     return;
   }
-  window.speechSynthesis.cancel(); // stop anything already playing
+
+  // Stop any ongoing speech
+  window.speechSynthesis.cancel();
+
   const utterance = new SpeechSynthesisUtterance(text);
   utterance.lang = "es-ES";
   utterance.rate = 0.95;
-  utterance.onend = () => onEnd?.();
-  utterance.onerror = () => onEnd?.();
+  utterance.volume = 1.0;
+
+  // macOS Safari requires explicit voice assignment to Spanish, otherwise it
+  // silently fails or defaults to silent playback when no default Spanish voice is set.
+  const voices = window.speechSynthesis.getVoices();
+  const spanishVoice =
+    voices.find((v) => v.lang.startsWith("es") && v.localService) ||
+    voices.find((v) => v.lang.startsWith("es")) ||
+    null;
+
+  if (spanishVoice) {
+    utterance.voice = spanishVoice;
+  }
+
+  utterance.onend = () => {
+    onEnd?.();
+  };
+  utterance.onerror = () => {
+    onEnd?.();
+  };
+
+  // Safari bug fix: Store utterance reference on window object to prevent Safari's
+  // aggressive garbage collector from killing the speech audio mid-sentence.
+  (window as any)._activeUtterance = utterance;
+
+  // Resume synthesis engine in case Safari paused it automatically
+  if (window.speechSynthesis.paused) {
+    window.speechSynthesis.resume();
+  }
+
   window.speechSynthesis.speak(utterance);
 }
 
