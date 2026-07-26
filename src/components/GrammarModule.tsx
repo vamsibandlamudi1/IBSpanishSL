@@ -52,7 +52,7 @@ export default function GrammarModule() {
   const topic = useMemo(() => GRAMMAR_TOPICS.find((t) => t.id === topicId) ?? GRAMMAR_TOPICS[0], [topicId]);
   const [practiceExercises, setPracticeExercises] = useState<GrammarExercise[]>([]);
 
-  const activePool = practiceExercises.length > 0 ? practiceExercises : topic.exercises;
+  const activePool = useMemo(() => (practiceExercises.length > 0 ? practiceExercises : topic.exercises.slice(0, 10)), [practiceExercises, topic]);
   const exercise = activePool[current];
 
   useEffect(() => stopSpeaking, []); // stop any playback if the module unmounts
