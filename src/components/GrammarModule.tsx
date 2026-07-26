@@ -73,6 +73,7 @@ export default function GrammarModule() {
     setIsSpeaking(false);
     clearLastAward();
     setTopicId(id);
+    setPracticeExercises([]);
     setStage("detail");
   };
 
@@ -128,7 +129,7 @@ export default function GrammarModule() {
         {/* Sidebar: persistent topic list, horizontal-scroll pill row on mobile, stacked list on larger screens. */}
         <nav className="flex gap-2 overflow-x-auto pb-1 lg:w-72 lg:shrink-0 lg:flex-col lg:overflow-visible lg:pb-0">
           {GRAMMAR_TOPICS.map((t) => {
-            const isListening = t.exercises.some((ex) => ex.type === "listening");
+            const isListening = t.id === "listening-tenses";
             const active = t.id === topic.id;
             return (
               <button
