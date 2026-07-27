@@ -20,6 +20,15 @@ type Stage = "setup" | "in-progress" | "results";
 const stripAccents = (s: string) => s.normalize("NFD").replace(/[̀-ͯ]/g, "");
 const normalizeAnswer = (s: string) => stripAccents(s.trim().toLowerCase());
 
+/** Auto-generated prompts (see buildVocabQuestions in lib/data.ts) lead with
+ *  a bracketed category tag, e.g. "[Redacción IB - Health and well-being]
+ *  Si estás...". Split it out so it can render as its own small label
+ *  instead of running into the question text on one bolded line. */
+const splitPromptTag = (prompt: string): { tag: string | null; text: string } => {
+  const match = prompt.match(/^\[([^\]]+)\]\s*/);
+  return match ? { tag: match[1], text: prompt.slice(match[0].length) } : { tag: null, text: prompt };
+};
+
 /** Quiz & Puzzle module: theme + difficulty setup, then a short quiz
  *  (mcq / short-answer / sentence-ordering puzzle questions), then a score
  *  screen. Everything is graded automatically — every answered question is
@@ -66,6 +75,10 @@ export default function QuizModule() {
   }, [stage, setActiveSession]);
 
   const currentQuestion = quiz[current];
+  const promptParts = useMemo(
+    () => (currentQuestion ? splitPromptTag(currentQuestion.prompt) : { tag: null, text: "" }),
+    [currentQuestion]
+  );
 
   const togglePlayAudio = () => {
     if (isSpeaking) {
@@ -255,7 +268,10 @@ export default function QuizModule() {
             {isWeakMode && " · Weak areas review"}
           </p>
           <div className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
-            <p className="mb-4 text-base font-semibold text-slate-900">{currentQuestion.prompt}</p>
+            {promptParts.tag && (
+              <p className="mb-1 text-xs font-semibold uppercase tracking-wide text-brand-500">{promptParts.tag}</p>
+            )}
+            <p className="mb-4 text-base font-semibold text-slate-900">{promptParts.text}</p>
 
             {currentQuestion.type === "listening" && (
               <div className="mb-4">
