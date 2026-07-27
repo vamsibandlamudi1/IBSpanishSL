@@ -10,6 +10,7 @@ import ThemeToggle from "./ThemeToggle";
 
 const LINKS = [
   { href: "/", label: "Home" },
+  { href: "/vocabulary", label: "Vocabulary" },
   { href: "/theme-practice", label: "Practice by Theme" },
   { href: "/quiz", label: "Quiz" },
   { href: "/reading", label: "Reading" },
