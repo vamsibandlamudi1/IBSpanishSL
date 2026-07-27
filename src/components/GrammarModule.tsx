@@ -136,7 +136,11 @@ export default function GrammarModule() {
   };
 
   const checkAnswer = (given: string) => {
-    if (!exercise) return;
+    // Guards against double-counting a single exercise — e.g. the short-answer
+    // input's Enter-key handler and its Submit button can both fire before
+    // React re-renders the disabled state, which would otherwise record two
+    // results for one exercise.
+    if (!exercise || checked) return;
     const isCorrect = normalizeAnswer(given) === normalizeAnswer(exercise.correctAnswer);
     recordQuestionResult(exercise.id, topic.id, LEVEL_TO_DIFFICULTY[topic.level], isCorrect);
     if (isCorrect) {

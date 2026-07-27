@@ -124,7 +124,11 @@ export default function QuizModule() {
   }, []);
 
   const checkAnswer = (given: string) => {
-    if (!currentQuestion) return;
+    // Guards against double-counting a single question — e.g. the short-answer
+    // input's Enter-key handler and its Submit button can both fire in quick
+    // succession before React re-renders the disabled state, which would
+    // otherwise record two results (and count two "answered") for one question.
+    if (!currentQuestion || lastQuestionResult !== null) return;
     const isCorrect = normalizeAnswer(given) === normalizeAnswer(currentQuestion.correctAnswer);
     if (isCorrect) setCorrectCount((c) => c + 1);
     else setMissedItems((prev) => [...prev, currentQuestion]);

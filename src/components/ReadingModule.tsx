@@ -56,6 +56,10 @@ export default function ReadingModule() {
   const isCorrect = (q: ReadingQuestion) => normalize(answers[q.id] ?? "") === normalize(q.correctAnswer);
 
   const checkAnswers = () => {
+    // Guards against double-counting the whole passage — a rapid double-click
+    // on "Check answers" before React re-renders the button away would
+    // otherwise record every question in the passage twice.
+    if (checked) return;
     setChecked(true);
     passage.questions.forEach((q) => recordQuestionResult(q.id, passage.themeId, passage.level, isCorrect(q)));
     const correctCount = passage.questions.filter(isCorrect).length;

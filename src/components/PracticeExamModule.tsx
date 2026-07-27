@@ -406,6 +406,10 @@ function QuestionSetSection({
   const answeredCount = items.filter((q) => (answers[q.id] ?? "").trim().length > 0).length;
 
   const handleCheck = () => {
+    // Guards against double-counting the whole section — a rapid double-click
+    // on "Check answers" before React re-renders the button away would
+    // otherwise record every question in the section twice.
+    if (checked) return;
     setChecked(true);
     items.forEach((q) => {
       if (q.themeId && q.difficulty) recordQuestionResult(q.id, q.themeId, q.difficulty, isCorrect(q));
