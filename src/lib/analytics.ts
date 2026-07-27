@@ -68,7 +68,24 @@ function questionAccuracy(results: QuestionResult[]): Map<string, number> {
  *  insertion order, so the exact same first `count` questions would come up
  *  every single time a theme/difficulty combo is picked. Shuffling first
  *  randomizes the order *within* each tied priority group while the stable
- *  sort still keeps lower-accuracy questions ahead of higher-accuracy ones. */
+ *  sort still keeps lower-accuracy questions ahead of higher-accuracy ones.
+ *
+ *  That first shuffle only breaks ties, though — once a student has a
+ *  handful of genuinely-distinct low-accuracy questions (i.e. actual wrong
+ *  answers, not just untouched ones), those specific questions sort strictly
+ *  ahead of everything else and would otherwise fill the same slots in
+ *  *every* quiz for that theme/difficulty forever, crowding out fresh
+ *  material. So instead of taking the top `count` outright, take a wider
+ *  weak-biased candidate pool (3x the quiz size) from `preferred` alone and
+ *  shuffle *that* before slicing — struggling questions still show up more
+ *  often than mastered ones, but they no longer monopolize every single
+ *  quiz. Widening only within `preferred` (not the combined list) matters
+ *  because "hard" has just ~10-15 hand-written questions per theme (all the
+ *  auto-generated vocab drills top out at "medium") — widening across the
+ *  full list would happily pad a "hard" quiz out with easier `rest`
+ *  questions even when there were already enough hard ones to fill it.
+ *  `rest` stays a same-count-only fallback for themes that genuinely don't
+ *  have enough same-difficulty questions to fill a quiz on their own. */
 export function selectAdaptiveQuizQuestions(
   bank: QuizItem[],
   themeId: string,
@@ -82,7 +99,9 @@ export function selectAdaptiveQuizQuestions(
   const themeQuestions = shuffle(bank.filter((q) => q.themeId === themeId));
   const preferred = themeQuestions.filter((q) => q.difficulty === difficulty).sort((a, b) => priority(a) - priority(b));
   const rest = themeQuestions.filter((q) => q.difficulty !== difficulty).sort((a, b) => priority(a) - priority(b));
-  return [...preferred, ...rest].slice(0, count);
+
+  const preferredPicks = shuffle(preferred.slice(0, Math.max(count * 3, count))).slice(0, count);
+  return preferredPicks.length >= count ? preferredPicks : [...preferredPicks, ...rest].slice(0, count);
 }
 
 /** Builds a cross-theme "remedial" quiz from the student's weakest questions
