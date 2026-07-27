@@ -4937,6 +4937,7 @@ function buildVocabQuestions(theme: Theme): QuizItem[] {
       correctAnswer: v.en,
       difficulty: "easy",
       points: 10,
+      explanation: `'${v.es}' significa '${v.en}' en inglés. (Vocabulario de ${v.subtopic}.)`,
     });
 
     items.push({
@@ -4948,6 +4949,7 @@ function buildVocabQuestions(theme: Theme): QuizItem[] {
       correctAnswer: v.es,
       difficulty: "medium",
       points: 20,
+      explanation: `'${v.en}' se traduce como '${v.es}' en español. (Vocabulario de ${v.subtopic}.)`,
     });
 
     items.push({
@@ -4958,6 +4960,7 @@ function buildVocabQuestions(theme: Theme): QuizItem[] {
       correctAnswer: v.es,
       difficulty: "medium",
       points: 20,
+      explanation: `'${v.en}' se traduce como '${v.es}' en español. (Vocabulario de ${v.subtopic}.)`,
     });
 
     items.push({
@@ -4968,6 +4971,7 @@ function buildVocabQuestions(theme: Theme): QuizItem[] {
       correctAnswer: v.en,
       difficulty: "easy",
       points: 10,
+      explanation: `'${v.es}' significa '${v.en}' en inglés. (Vocabulario de ${v.subtopic}.)`,
     });
 
     // 5. Audio Listening drill (Spoken Spanish -> English MCQ)

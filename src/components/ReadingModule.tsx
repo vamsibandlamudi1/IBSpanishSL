@@ -4,6 +4,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { READING_PASSAGES } from "@/lib/reading";
 import { useStore } from "@/lib/store";
+import { deriveJustification } from "@/lib/deriveJustification";
 import { ReadingQuestion } from "@/lib/types";
 
 const LEVEL_STYLES: Record<string, string> = {
@@ -175,7 +176,10 @@ export default function ReadingModule() {
                 {checked && (
                   <p className={`mt-3 text-sm font-medium ${correct ? "text-green-700" : "text-red-700"}`}>
                     {correct ? "¡Correcto!" : `Incorrecto — respuesta correcta: "${q.correctAnswer === "true" ? "Verdadero" : q.correctAnswer === "false" ? "Falso" : q.correctAnswer}"`}
-                    {q.justification && <span className="ml-1 italic text-slate-500">({q.justification})</span>}
+                    {(() => {
+                      const justification = deriveJustification(q, passage.bodyEs);
+                      return justification && <span className="ml-1 italic text-slate-500">({justification})</span>;
+                    })()}
                   </p>
                 )}
               </div>

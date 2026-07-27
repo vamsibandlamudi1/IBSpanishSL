@@ -6,6 +6,7 @@ import { READING_PASSAGES } from "@/lib/reading";
 import { GRAMMAR_TOPICS, loadExercises } from "@/lib/grammar";
 import { useStore } from "@/lib/store";
 import { speak, stopSpeaking } from "@/lib/speech";
+import { deriveJustification } from "@/lib/deriveJustification";
 import { Difficulty, GrammarExercise, QuizItem, ReadingPassage, ReadingQuestion } from "@/lib/types";
 import WritingModule from "./WritingModule";
 import AudioAssignmentModule from "./AudioAssignmentModule";
@@ -57,6 +58,11 @@ interface ExamQuestion {
   correctAnswer: string;
   audioText?: string;
   justification?: string;
+  /** Shown on a wrong answer alongside (or instead of) justification —
+   *  carried through from GrammarExercise.tip/.explanation or
+   *  QuizItem.explanation, which previously got silently dropped by the
+   *  grammarToExam/quizToExam mappings below. */
+  tip?: string;
   /** Present only for reading/vocabulary questions, which carry a real IB
    *  theme — lets QuestionSetSection log each answer via recordQuestionResult
    *  so exam activity counts toward "Your progress by theme" on the Home
@@ -73,7 +79,7 @@ const readingToExam = (q: ReadingQuestion, passage: ReadingPassage): ExamQuestio
   type: q.type,
   options: q.options,
   correctAnswer: q.correctAnswer,
-  justification: q.justification,
+  justification: deriveJustification(q, passage.bodyEs),
   themeId: passage.themeId,
   difficulty: passage.level,
 });
@@ -85,6 +91,7 @@ const grammarToExam = (g: GrammarExercise): ExamQuestion => ({
   options: g.options,
   correctAnswer: g.correctAnswer,
   audioText: g.audioText,
+  tip: g.tip ?? g.explanation,
 });
 
 const quizToExam = (q: QuizItem): ExamQuestion => ({
@@ -96,6 +103,7 @@ const quizToExam = (q: QuizItem): ExamQuestion => ({
   audioText: q.audioText,
   themeId: q.themeId,
   difficulty: q.difficulty,
+  tip: q.explanation,
 });
 
 const stripAccents = (s: string) => s.normalize("NFD").replace(/[̀-ͯ]/g, "");
@@ -497,12 +505,17 @@ function QuestionSetSection({
             )}
 
             {checked && (
-              <p className={`mt-3 text-sm font-medium ${correct ? "text-green-700" : "text-red-700"}`}>
-                {correct
-                  ? "¡Correcto!"
-                  : `Incorrecto — respuesta correcta: "${q.correctAnswer === "true" ? "Verdadero" : q.correctAnswer === "false" ? "Falso" : q.correctAnswer}"`}
-                {q.justification && <span className="ml-1 italic text-slate-500">({q.justification})</span>}
-              </p>
+              <>
+                <p className={`mt-3 text-sm font-medium ${correct ? "text-green-700" : "text-red-700"}`}>
+                  {correct
+                    ? "¡Correcto!"
+                    : `Incorrecto — respuesta correcta: "${q.correctAnswer === "true" ? "Verdadero" : q.correctAnswer === "false" ? "Falso" : q.correctAnswer}"`}
+                  {q.justification && <span className="ml-1 italic text-slate-500">({q.justification})</span>}
+                </p>
+                {!correct && q.tip && (
+                  <p className="mt-1.5 text-xs text-slate-500">💡 {q.tip}</p>
+                )}
+              </>
             )}
           </div>
         );

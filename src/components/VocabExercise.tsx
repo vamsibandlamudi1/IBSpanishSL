@@ -30,15 +30,20 @@ function MatchingGame({ vocabulary }: { vocabulary: VocabItem[] }) {
   const [selectedEs, setSelectedEs] = useState<string | null>(null);
   const [matched, setMatched] = useState<Record<string, string>>({});
   const [wrongFlash, setWrongFlash] = useState<string | null>(null);
+  const [wrongHint, setWrongHint] = useState<string | null>(null);
 
   const handlePickEn = (en: string) => {
     if (!selectedEs) return;
-    const correctEn = words.find((w) => w.es === selectedEs)?.en;
-    if (correctEn === en) {
+    const clickedWord = words.find((w) => w.es === selectedEs);
+    if (clickedWord?.en === en) {
       setMatched((prev) => ({ ...prev, [selectedEs]: en }));
       setSelectedEs(null);
+      setWrongHint(null);
     } else {
       setWrongFlash(en);
+      setWrongHint(
+        clickedWord ? `'${selectedEs}' is not '${en}' — think about the ${clickedWord.subtopic} subtopic and try again.` : null
+      );
       setTimeout(() => setWrongFlash(null), 500);
       setSelectedEs(null);
     }
@@ -104,6 +109,9 @@ function MatchingGame({ vocabulary }: { vocabulary: VocabItem[] }) {
           })}
         </div>
       </div>
+      {!allMatched && wrongHint && (
+        <p className="mt-3 text-xs italic text-red-600">{wrongHint}</p>
+      )}
       {allMatched && (
         <p className="mt-3 text-sm font-medium text-green-700">
           Well done — you matched all {words.length} words!
@@ -147,17 +155,20 @@ function FillInTheBlank({ vocabulary }: { vocabulary: VocabItem[] }) {
               }`}
             />
             {checked && !isCorrect(w.es) && (
-              <p className="mt-0.5 flex items-center gap-1 text-xs text-slate-500">
-                Correct answer: <span className="font-semibold text-slate-700">{w.es}</span>
-                <button
-                  type="button"
-                  onClick={() => speak(w.es)}
-                  aria-label={`Play pronunciation of ${w.es}`}
-                  className="flex h-4 w-4 items-center justify-center rounded-full text-[10px] text-slate-400 hover:bg-slate-200 hover:text-slate-700"
-                >
-                  🔊
-                </button>
-              </p>
+              <>
+                <p className="mt-0.5 flex items-center gap-1 text-xs text-slate-500">
+                  Correct answer: <span className="font-semibold text-slate-700">{w.es}</span>
+                  <button
+                    type="button"
+                    onClick={() => speak(w.es)}
+                    aria-label={`Play pronunciation of ${w.es}`}
+                    className="flex h-4 w-4 items-center justify-center rounded-full text-[10px] text-slate-400 hover:bg-slate-200 hover:text-slate-700"
+                  >
+                    🔊
+                  </button>
+                </p>
+                <p className="mt-0.5 text-xs italic text-slate-400">Vocabulary group: {w.subtopic}</p>
+              </>
             )}
           </div>
         ))}
@@ -279,7 +290,14 @@ function ThemeListeningPractice({ vocabulary }: { vocabulary: VocabItem[] }) {
           {isCorrect ? (
             <p>¡Correcto! &ldquo;{currentItem.es}&rdquo; means &ldquo;{currentItem.en}&rdquo;.</p>
           ) : (
-            <p>Incorrect. &ldquo;{currentItem.es}&rdquo; means &ldquo;{currentItem.en}&rdquo;.</p>
+            <>
+              <p>Incorrect. &ldquo;{currentItem.es}&rdquo; means &ldquo;{currentItem.en}&rdquo; ({currentItem.subtopic}).</p>
+              {selectedOpt && (
+                <p className="mt-1 italic text-rose-700">
+                  &ldquo;{selectedOpt}&rdquo; is a different word&apos;s meaning. Listen again (🔊) to train your ear for &ldquo;{currentItem.es}&rdquo;.
+                </p>
+              )}
+            </>
           )}
         </div>
       )}
@@ -399,9 +417,15 @@ function ParagraphFillInTheBlank({ themeId, subtopic }: { themeId?: string; subt
           {isCorrect ? (
             <p className="font-bold">¡Excelente! Correct answer: &ldquo;{currentExercise.targetWord}&rdquo;</p>
           ) : (
-            <p className="font-medium">
-              Incorrect. The correct word is <strong className="underline">&ldquo;{currentExercise.targetWord}&rdquo;</strong> ({currentExercise.translation}).
-            </p>
+            <>
+              <p className="font-medium">
+                Incorrect. The correct word is <strong className="underline">&ldquo;{currentExercise.targetWord}&rdquo;</strong> ({currentExercise.translation}
+                ).
+              </p>
+              <p className="mt-1 text-xs italic text-rose-700">
+                Vocabulary group: {currentExercise.subtopic}. Re-read the sentence with the correct word filled in to hear how it fits the context.
+              </p>
+            </>
           )}
         </div>
       )}
