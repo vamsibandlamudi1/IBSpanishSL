@@ -1,7 +1,7 @@
 /// File: src/lib/reading.ts
 //
-// Paper 1 style reading comprehension: 11-12 passages per IB theme (56
-// total, 280 questions), spanning nearly every official IB Spanish B text
+// Paper 1 style reading comprehension: 20 passages per IB theme (100
+// total, 500 questions), spanning nearly every official IB Spanish B text
 // type (blog post, diary entry, magazine article, interview, formal
 // email/letter, opinion column/essay, advertisement, forum post,
 // instructional guide, official report, speech, postcard, review, social
@@ -1810,6 +1810,879 @@ export const READING_PASSAGES: ReadingPassage[] = [
       { id: "sharing-planet-11-q3", type: "mcq", prompt: "¿Qué causa el 'blanqueamiento' del coral?", options: ["El aumento de la temperatura del mar", "La falta de peces", "El exceso de lluvia", "La luz de la luna"], correctAnswer: "El aumento de la temperatura del mar" },
       { id: "sharing-planet-11-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Una entrevista", "Un anuncio", "Una postal", "Un poema"], correctAnswer: "Una entrevista" },
       { id: "sharing-planet-11-q5", type: "short", prompt: "¿Cuántos años lleva la doctora Vidal estudiando los arrecifes?", correctAnswer: "quince años" },
+    ],
+  },
+  {
+    id: "reading-identities-13",
+    themeId: "identities",
+    title: "Correo: Solicitud de cambio de horario con la orientadora",
+    textType: "Formal email",
+    level: "easy",
+    bodyEs:
+      "Estimada señora Torres:\n\n" +
+      "Le escribo para pedir una cita con usted esta semana. Me gustaría hablar sobre cómo organizar mejor mi horario de estudio, porque últimamente me siento muy estresado y no sé cómo manejar tantas tareas al mismo tiempo.\n\n" +
+      "Mis clases de la tarde son las que más problemas me causan, ya que llego cansado después del entrenamiento de baloncesto. He pensado que tal vez podría cambiar la hora de una de mis asignaturas optativas, pero no estoy seguro de cómo hacerlo.\n\n" +
+      "¿Podría reunirse conmigo el jueves por la mañana, antes de que empiecen las clases? Le agradecería mucho su ayuda, ya que confío en sus consejos.\n\n" +
+      "Atentamente,\nDaniel Herrera",
+    questions: [
+      { id: "identities-13-q1", type: "true-false", prompt: "Daniel se siente estresado por sus tareas.", correctAnswer: "true", justification: "\"últimamente me siento muy estresado\"" },
+      { id: "identities-13-q2", type: "true-false", prompt: "Daniel quiere reunirse con la orientadora el lunes.", correctAnswer: "false", justification: "\"¿Podría reunirse conmigo el jueves por la mañana...?\"" },
+      { id: "identities-13-q3", type: "mcq", prompt: "¿Por qué llega cansado Daniel a las clases de la tarde?", options: ["Por el entrenamiento de baloncesto", "Por trabajar por las noches", "Por dormir poco", "Por hacer los deberes tarde"], correctAnswer: "Por el entrenamiento de baloncesto" },
+      { id: "identities-13-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Un correo formal", "Una entrada de diario", "Un anuncio", "Una reseña"], correctAnswer: "Un correo formal" },
+      { id: "identities-13-q5", type: "short", prompt: "¿Qué deporte practica Daniel?", correctAnswer: "baloncesto" },
+    ],
+  },
+  {
+    id: "reading-identities-14",
+    themeId: "identities",
+    title: "Guía: Cómo llevar un diario personal para conocerte mejor",
+    textType: "Instructional guide",
+    level: "medium",
+    bodyEs:
+      "Llevar un diario personal es una de las formas más sencillas de entender mejor tus propios pensamientos y emociones. Aquí tienes algunos pasos para empezar.\n\n" +
+      "Primero, elige un momento fijo del día, como antes de dormir, para escribir durante diez minutos sin interrupciones. No hace falta que sea perfecto; lo importante es la honestidad, no la ortografía.\n\n" +
+      "Segundo, en lugar de solo describir lo que pasó, pregúntate cómo te hizo sentir cada situación y por qué reaccionaste de esa manera. Esta reflexión es la que realmente ayuda a conocerte mejor.\n\n" +
+      "Tercero, relee tus entradas antiguas de vez en cuando. Notarás patrones en tu forma de pensar que quizás no habías notado antes, y verás cuánto has cambiado con el tiempo.\n\n" +
+      "Por último, no te preocupes si algunos días no tienes nada que escribir. Lo importante es la constancia, no la perfección.",
+    questions: [
+      { id: "identities-14-q1", type: "true-false", prompt: "Según la guía, la ortografía es lo más importante al escribir.", correctAnswer: "false", justification: "\"no hace falta que sea perfecto; lo importante es la honestidad, no la ortografía\"" },
+      { id: "identities-14-q2", type: "true-false", prompt: "Se recomienda releer las entradas antiguas de vez en cuando.", correctAnswer: "true", justification: "\"relee tus entradas antiguas de vez en cuando\"" },
+      { id: "identities-14-q3", type: "mcq", prompt: "¿Qué se debe hacer en el segundo paso?", options: ["Preguntarse cómo te hizo sentir cada situación", "Escribir solo los hechos, sin emociones", "Compartir el diario con amigos", "Escribir una hora cada día"], correctAnswer: "Preguntarse cómo te hizo sentir cada situación" },
+      { id: "identities-14-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Una guía instructiva", "Un poema", "Una entrevista", "Un anuncio"], correctAnswer: "Una guía instructiva" },
+      { id: "identities-14-q5", type: "short", prompt: "¿Cuántos minutos se recomienda escribir cada día?", correctAnswer: "diez minutos" },
+    ],
+  },
+  {
+    id: "reading-identities-15",
+    themeId: "identities",
+    title: "La generación que creció con una identidad digital",
+    textType: "Magazine article",
+    level: "hard",
+    bodyEs:
+      "A diferencia de generaciones anteriores, los jóvenes de hoy han construido una parte importante de su identidad en internet desde edades cada vez más tempranas. Perfiles, publicaciones y fotos forman un archivo público de quiénes son —o de quiénes quieren aparentar ser— ante el mundo.\n\n" +
+      "Según varios estudios recientes, esta exposición constante genera una presión particular: la necesidad de mantener una imagen coherente en todas las plataformas, incluso cuando la identidad de un adolescente todavía está en pleno desarrollo. Los psicólogos advierten que esta discrepancia entre el \"yo real\" y el \"yo digital\" puede generar ansiedad significativa.\n\n" +
+      "Sin embargo, no todo son desventajas. Para muchos jóvenes, especialmente aquellos que se sienten aislados en su entorno inmediato, internet ofrece comunidades donde pueden explorar aspectos de su identidad —orientación, intereses, valores— con mayor libertad que en su vida cotidiana.\n\n" +
+      "La clave, según los expertos, no está en rechazar la vida digital, sino en enseñar a los jóvenes a distinguir entre la representación curada de una persona en línea y la persona completa y compleja que hay detrás de la pantalla.",
+    questions: [
+      { id: "identities-15-q1", type: "true-false", prompt: "Según el artículo, la identidad digital siempre es idéntica a la identidad real.", correctAnswer: "false", justification: "\"la discrepancia entre el 'yo real' y el 'yo digital' puede generar ansiedad significativa\"" },
+      { id: "identities-15-q2", type: "true-false", prompt: "Internet puede ofrecer comunidades útiles para jóvenes aislados.", correctAnswer: "true", justification: "\"internet ofrece comunidades donde pueden explorar aspectos de su identidad... con mayor libertad\"" },
+      { id: "identities-15-q3", type: "mcq", prompt: "Según los expertos, ¿cuál es la clave para manejar la identidad digital?", options: ["Distinguir entre la representación en línea y la persona completa", "Eliminar todas las redes sociales", "Publicar solo contenido perfecto", "Evitar hablar de la vida digital"], correctAnswer: "Distinguir entre la representación en línea y la persona completa" },
+      { id: "identities-15-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Un artículo de revista", "Una postal", "Un correo informal", "Un menú"], correctAnswer: "Un artículo de revista" },
+      { id: "identities-15-q5", type: "short", prompt: "¿Qué genera la discrepancia entre el 'yo real' y el 'yo digital', según los psicólogos?", correctAnswer: "ansiedad" },
+    ],
+  },
+  {
+    id: "reading-identities-16",
+    themeId: "identities",
+    title: "Reseña: 'Encontrarme a mí misma', de Valeria Núñez",
+    textType: "Review",
+    level: "medium",
+    bodyEs:
+      "'Encontrarme a mí misma' es un libro que toda persona adolescente debería leer al menos una vez. La autora, Valeria Núñez, combina su propia experiencia con la ansiedad social con consejos prácticos respaldados por la psicología.\n\n" +
+      "Lo que más destaca del libro no es la teoría, sino los ejercicios al final de cada capítulo: pequeñas actividades de reflexión que realmente invitan al lector a pensar en su propia identidad, en lugar de limitarse a leer pasivamente.\n\n" +
+      "Mi única crítica es que algunos capítulos se sienten repetitivos, especialmente los centrados en la autoestima, que podrían haberse combinado en uno solo. Aun así, esto no resta valor al mensaje central del libro: nadie tiene que encajar en un solo molde para sentirse completo.\n\n" +
+      "En resumen, recomiendo este libro a cualquier joven que esté pasando por un momento de confusión sobre quién es o quién quiere llegar a ser. Le doy cuatro estrellas de cinco.",
+    questions: [
+      { id: "identities-16-q1", type: "true-false", prompt: "El libro incluye ejercicios de reflexión al final de cada capítulo.", correctAnswer: "true", justification: "\"los ejercicios al final de cada capítulo: pequeñas actividades de reflexión\"" },
+      { id: "identities-16-q2", type: "true-false", prompt: "Según la reseña, todos los capítulos del libro son igual de originales.", correctAnswer: "false", justification: "\"algunos capítulos se sienten repetitivos\"" },
+      { id: "identities-16-q3", type: "mcq", prompt: "¿Cuántas estrellas de cinco le da el autor de la reseña al libro?", options: ["Cuatro", "Cinco", "Tres", "Dos"], correctAnswer: "Cuatro" },
+      { id: "identities-16-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Una reseña", "Un informe oficial", "Una receta", "Un anuncio"], correctAnswer: "Una reseña" },
+      { id: "identities-16-q5", type: "short", prompt: "¿Cómo se llama la autora del libro reseñado?", correctAnswer: "Valeria Núñez" },
+    ],
+  },
+  {
+    id: "reading-identities-17",
+    themeId: "identities",
+    title: "Publicación: Dejar de compararme con los demás",
+    textType: "Social media post",
+    level: "easy",
+    bodyEs:
+      "Hoy quiero compartir algo personal. Durante mucho tiempo, comparaba mi vida con la de mis amigos en las redes sociales y siempre sentía que yo no era suficiente.\n\n" +
+      "Hace unos meses decidí dejar de seguir cuentas que me hacían sentir mal conmigo misma. Al principio fue raro, pero poco a poco empecé a sentirme más tranquila y más contenta con mi propia vida.\n\n" +
+      "Ahora entiendo que las fotos perfectas de internet casi nunca muestran la realidad completa. Todos tenemos días difíciles, aunque no los publiquemos.\n\n" +
+      "Si alguien más se siente así, quiero decirle que no está solo. Aprender a quererte a ti mismo lleva tiempo, pero vale totalmente la pena. 💛 #saludmental #autoestima",
+    questions: [
+      { id: "identities-17-q1", type: "true-false", prompt: "La autora dejó de seguir cuentas que la hacían sentir mal.", correctAnswer: "true", justification: "\"decidí dejar de seguir cuentas que me hacían sentir mal conmigo misma\"" },
+      { id: "identities-17-q2", type: "true-false", prompt: "Según la autora, las fotos de internet siempre muestran la realidad completa.", correctAnswer: "false", justification: "\"las fotos perfectas de internet casi nunca muestran la realidad completa\"" },
+      { id: "identities-17-q3", type: "mcq", prompt: "¿Cómo se sintió la autora después de dejar de seguir esas cuentas?", options: ["Más tranquila y contenta", "Más triste", "Sin cambios", "Más ansiosa"], correctAnswer: "Más tranquila y contenta" },
+      { id: "identities-17-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Una publicación en redes sociales", "Un informe oficial", "Una carta formal", "Un menú"], correctAnswer: "Una publicación en redes sociales" },
+      { id: "identities-17-q5", type: "short", prompt: "¿Qué decidió hacer la autora hace unos meses?", correctAnswer: "dejar de seguir cuentas que la hacían sentir mal" },
+    ],
+  },
+  {
+    id: "reading-identities-18",
+    themeId: "identities",
+    title: "Mi lucha silenciosa con el síndrome del impostor",
+    textType: "Blog post",
+    level: "hard",
+    bodyEs:
+      "Durante años pensé que el éxito académico eliminaría la sensación constante de que, en cualquier momento, alguien descubriría que en realidad no soy tan capaz como parezco. Ahora sé que tiene nombre: síndrome del impostor.\n\n" +
+      "Cuando conseguí una beca competitiva el año pasado, en lugar de sentirme orgullosa, pasé semanas convencida de que había sido un error del comité de selección. Cada elogio de mis profesores lo atribuía a la suerte, nunca a mi propio esfuerzo.\n\n" +
+      "Lo que finalmente empezó a cambiar las cosas fue hablar abiertamente del tema con una amiga que, para mi sorpresa, admitió sentir exactamente lo mismo a pesar de ser una de las estudiantes más brillantes de mi clase. Descubrir que no estaba sola fue liberador.\n\n" +
+      "Si hay algo que he aprendido es que reconocer tus propios logros, sin atribuirlos constantemente a factores externos, no es arrogancia: es simplemente justicia contigo mismo. Sigo trabajando en ello, pero al menos ahora sé que no soy la única que lucha con esto en silencio.",
+    questions: [
+      { id: "identities-18-q1", type: "true-false", prompt: "La autora se sintió orgullosa inmediatamente después de conseguir la beca.", correctAnswer: "false", justification: "\"en lugar de sentirme orgullosa, pasé semanas convencida de que había sido un error\"" },
+      { id: "identities-18-q2", type: "true-false", prompt: "Hablar con una amiga ayudó a la autora a sentirse menos sola.", correctAnswer: "true", justification: "\"Descubrir que no estaba sola fue liberador\"" },
+      { id: "identities-18-q3", type: "mcq", prompt: "¿Qué atribuía la autora a la suerte en lugar de a su propio esfuerzo?", options: ["Los elogios de sus profesores", "Sus notas bajas", "Sus amistades", "Sus vacaciones"], correctAnswer: "Los elogios de sus profesores" },
+      { id: "identities-18-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Una entrada de blog", "Un informe oficial", "Un anuncio publicitario", "Una receta"], correctAnswer: "Una entrada de blog" },
+      { id: "identities-18-q5", type: "short", prompt: "¿Cómo se llama la condición psicológica descrita en el texto?", correctAnswer: "síndrome del impostor" },
+    ],
+  },
+  {
+    id: "reading-identities-19",
+    themeId: "identities",
+    title: "Foro: ¿Cómo aceptar tu propio cuerpo?",
+    textType: "Forum post",
+    level: "medium",
+    bodyEs:
+      "Publicado por Marcos_R\n\n" +
+      "Hola a todos. Llevo un tiempo luchando con la forma en que veo mi propio cuerpo y quería preguntar si alguien más ha pasado por algo parecido y cómo lo ha superado.\n\n" +
+      "Creo que gran parte del problema viene de compararme constantemente con los cuerpos que veo en anuncios y en redes sociales, que sé que muchas veces están editados, pero aun así me afectan.\n\n" +
+      "Hace poco empecé a hacer ejercicio no para \"verme mejor\", sino para sentirme con más energía, y curiosamente eso ha cambiado un poco mi forma de pensar. Todavía tengo días malos, pero son menos frecuentes que antes.\n\n" +
+      "¿Alguien tiene consejos que realmente le hayan funcionado? Gracias de antemano por leer esto.",
+    questions: [
+      { id: "identities-19-q1", type: "true-false", prompt: "Marcos empezó a hacer ejercicio para verse como los modelos de los anuncios.", correctAnswer: "false", justification: "\"empecé a hacer ejercicio no para 'verme mejor', sino para sentirme con más energía\"" },
+      { id: "identities-19-q2", type: "true-false", prompt: "Marcos todavía tiene días difíciles, aunque menos frecuentes.", correctAnswer: "true", justification: "\"Todavía tengo días malos, pero son menos frecuentes que antes\"" },
+      { id: "identities-19-q3", type: "mcq", prompt: "¿Qué compara Marcos con su propio cuerpo?", options: ["Los cuerpos que ve en anuncios y redes sociales", "Los cuerpos de sus amigos cercanos", "Fotos antiguas de sí mismo", "Personajes de películas"], correctAnswer: "Los cuerpos que ve en anuncios y redes sociales" },
+      { id: "identities-19-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Una publicación de un foro", "Un informe oficial", "Una entrevista", "Un menú"], correctAnswer: "Una publicación de un foro" },
+      { id: "identities-19-q5", type: "short", prompt: "¿Qué pide Marcos al final de su publicación?", correctAnswer: "consejos" },
+    ],
+  },
+  {
+    id: "reading-identities-20",
+    themeId: "identities",
+    title: "Entrevista con una psicóloga sobre la identidad en la adolescencia",
+    textType: "Interview",
+    level: "medium",
+    bodyEs:
+      "Hablamos con la psicóloga Elena Campos sobre los principales retos que enfrentan los adolescentes al construir su identidad.\n\n" +
+      "— Doctora Campos, ¿por qué es tan difícil la adolescencia en términos de identidad?\n\n" +
+      "— Es la etapa en la que el cerebro todavía se está desarrollando mientras la persona intenta responder preguntas enormes: quién es, qué valores tiene, a qué grupo pertenece. Es normal que haya confusión e incluso contradicciones.\n\n" +
+      "— ¿Qué papel juegan los amigos en este proceso?\n\n" +
+      "— Un papel fundamental. Los adolescentes empiezan a definirse tanto por similitud como por diferencia con su grupo de amigos. Sin embargo, es importante que aprendan a mantener su propia voz dentro del grupo, en lugar de simplemente imitar a los demás.\n\n" +
+      "— ¿Algún consejo para los padres?\n\n" +
+      "— Escuchar sin juzgar. Muchos adolescentes dejan de compartir sus dudas porque temen una reacción negativa. Cuanto más seguro se sienta un joven de que puede hablar abiertamente, más fácil será su proceso de encontrarse a sí mismo.",
+    questions: [
+      { id: "identities-20-q1", type: "true-false", prompt: "Según la doctora Campos, es normal que los adolescentes tengan contradicciones durante esta etapa.", correctAnswer: "true", justification: "\"Es normal que haya confusión e incluso contradicciones\"" },
+      { id: "identities-20-q2", type: "true-false", prompt: "La doctora dice que los amigos no tienen ninguna influencia en la identidad adolescente.", correctAnswer: "false", justification: "\"Un papel fundamental\"" },
+      { id: "identities-20-q3", type: "mcq", prompt: "¿Qué consejo da la doctora Campos a los padres?", options: ["Escuchar sin juzgar", "Prohibir las redes sociales", "Elegir los amigos de sus hijos", "Ignorar sus problemas"], correctAnswer: "Escuchar sin juzgar" },
+      { id: "identities-20-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Una entrevista", "Un anuncio", "Una postal", "Un poema"], correctAnswer: "Una entrevista" },
+      { id: "identities-20-q5", type: "short", prompt: "¿Cómo se llama la psicóloga entrevistada?", correctAnswer: "Elena Campos" },
+    ],
+  },
+  {
+    id: "reading-experiences-12",
+    themeId: "experiences",
+    title: "Cada vez más jóvenes eligen un año sabático antes de la universidad",
+    textType: "Newspaper article",
+    level: "medium",
+    bodyEs:
+      "Un número creciente de estudiantes recién graduados de bachillerato está optando por tomarse un año sabático antes de comenzar la universidad, según un informe publicado esta semana por el Ministerio de Educación.\n\n" +
+      "Las razones varían: algunos quieren trabajar y ahorrar dinero, otros prefieren viajar y conocer otras culturas, y muchos simplemente necesitan tiempo para decidir qué carrera estudiar con más seguridad.\n\n" +
+      "Los expertos en orientación académica señalan que, contrariamente a lo que muchos padres temen, los estudiantes que se toman un año sabático bien planificado suelen tener mejor rendimiento universitario, ya que llegan a sus estudios con más madurez y motivación.\n\n" +
+      "Sin embargo, advierten que un año sabático sin ningún tipo de estructura —sin trabajo, estudio o voluntariado— puede tener el efecto contrario. La clave, coinciden, está en la planificación.",
+    questions: [
+      { id: "experiences-12-q1", type: "true-false", prompt: "Según el artículo, todos los estudiantes se toman un año sabático para viajar.", correctAnswer: "false", justification: "\"Las razones varían: algunos quieren trabajar... otros prefieren viajar... y muchos simplemente necesitan tiempo\"" },
+      { id: "experiences-12-q2", type: "true-false", prompt: "Los expertos afirman que un año sabático sin estructura puede tener efectos negativos.", correctAnswer: "true", justification: "\"un año sabático sin ningún tipo de estructura... puede tener el efecto contrario\"" },
+      { id: "experiences-12-q3", type: "mcq", prompt: "Según los expertos, ¿qué suelen tener los estudiantes que planifican bien su año sabático?", options: ["Mejor rendimiento universitario", "Peores notas", "Menos motivación", "Más dificultades económicas"], correctAnswer: "Mejor rendimiento universitario" },
+      { id: "experiences-12-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Un artículo de periódico", "Una carta personal", "Un poema", "Un menú"], correctAnswer: "Un artículo de periódico" },
+      { id: "experiences-12-q5", type: "short", prompt: "¿Quién publicó el informe mencionado en el artículo?", correctAnswer: "el Ministerio de Educación" },
+    ],
+  },
+  {
+    id: "reading-experiences-13",
+    themeId: "experiences",
+    title: "Discurso de graduación: lo que el instituto me enseñó de verdad",
+    textType: "Speech",
+    level: "hard",
+    bodyEs:
+      "Buenas tardes a todos: profesores, familias, y sobre todo, a mis compañeros de promoción.\n\n" +
+      "Cuando empezamos este viaje hace varios años, ninguno de nosotros imaginaba todo lo que pasaríamos juntos: los exámenes que nos quitaron el sueño, las amistades que se formaron en los pasillos, y también las despedidas y los cambios que nos tocó enfrentar por el camino.\n\n" +
+      "Si me preguntan qué aprendí realmente en el instituto, no sería solo lo que aparece en los boletines de notas. Aprendí que el fracaso no es el opuesto del éxito, sino parte necesaria de él. Aprendí que pedir ayuda no es una debilidad, sino una forma de valentía que a veces cuesta más que resolver las cosas solo.\n\n" +
+      "A mis compañeros, gracias por cada momento compartido. A nuestros profesores, gracias por creer en nosotros incluso cuando nosotros mismos dudábamos. Y ahora, mientras cada uno de nosotros toma caminos distintos, les deseo que nunca dejen de hacerse preguntas grandes sobre quiénes quieren llegar a ser.\n\n" +
+      "Muchas gracias a todos.",
+    questions: [
+      { id: "experiences-13-q1", type: "true-false", prompt: "Según el orador, el fracaso es el opuesto del éxito.", correctAnswer: "false", justification: "\"el fracaso no es el opuesto del éxito, sino parte necesaria de él\"" },
+      { id: "experiences-13-q2", type: "true-false", prompt: "El orador agradece a sus profesores por creer en los estudiantes.", correctAnswer: "true", justification: "\"gracias por creer en nosotros incluso cuando nosotros mismos dudábamos\"" },
+      { id: "experiences-13-q3", type: "mcq", prompt: "Según el discurso, ¿qué aprendió el orador sobre pedir ayuda?", options: ["Que es una forma de valentía", "Que es una debilidad", "Que nunca es necesario", "Que solo los débiles lo hacen"], correctAnswer: "Que es una forma de valentía" },
+      { id: "experiences-13-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Un discurso", "Una receta", "Un correo electrónico", "Un anuncio"], correctAnswer: "Un discurso" },
+      { id: "experiences-13-q5", type: "short", prompt: "¿A quién se dirige el orador al principio del discurso, además de a sus compañeros?", correctAnswer: "profesores y familias" },
+    ],
+  },
+  {
+    id: "reading-experiences-14",
+    themeId: "experiences",
+    title: "Entrevista: Un año de intercambio en Alemania",
+    textType: "Interview",
+    level: "medium",
+    bodyEs:
+      "Hablamos con Lucía Fernández, de diecisiete años, que acaba de regresar de un año de intercambio escolar en Múnich, Alemania.\n\n" +
+      "— Lucía, ¿qué fue lo más difícil al principio?\n\n" +
+      "— Sin duda, el idioma. Aunque había estudiado alemán durante dos años, cuando llegué apenas entendía las conversaciones cotidianas. Los primeros dos meses fueron agotadores mentalmente.\n\n" +
+      "— ¿Y qué fue lo mejor de la experiencia?\n\n" +
+      "— Mi familia de acogida. Me trataron como a una hija más desde el primer día, y eso hizo que me sintiera cómoda mucho más rápido de lo que esperaba.\n\n" +
+      "— ¿Recomendarías esta experiencia a otros estudiantes?\n\n" +
+      "— Totalmente, aunque advertiría que hay momentos muy duros, sobre todo la nostalgia por la familia y los amigos. Pero superar esos momentos es parte de lo que hace que la experiencia valga tanto la pena.",
+    questions: [
+      { id: "experiences-14-q1", type: "true-false", prompt: "Lucía dice que el idioma fue lo más fácil al principio.", correctAnswer: "false", justification: "\"Sin duda, el idioma... fueron agotadores mentalmente\"" },
+      { id: "experiences-14-q2", type: "true-false", prompt: "La familia de acogida de Lucía la trató muy bien.", correctAnswer: "true", justification: "\"Me trataron como a una hija más desde el primer día\"" },
+      { id: "experiences-14-q3", type: "mcq", prompt: "¿Cuánto tiempo había estudiado alemán Lucía antes del intercambio?", options: ["Dos años", "Un mes", "Diez años", "Nunca lo había estudiado"], correctAnswer: "Dos años" },
+      { id: "experiences-14-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Una entrevista", "Una postal", "Un informe oficial", "Un menú"], correctAnswer: "Una entrevista" },
+      { id: "experiences-14-q5", type: "short", prompt: "¿En qué ciudad alemana vivió Lucía?", correctAnswer: "Múnich" },
+    ],
+  },
+  {
+    id: "reading-experiences-15",
+    themeId: "experiences",
+    title: "Guía: Cómo preparar la maleta para un intercambio escolar",
+    textType: "Instructional guide",
+    level: "easy",
+    bodyEs:
+      "¿Vas a hacer un intercambio escolar pronto? Sigue estos consejos sencillos para preparar tu maleta sin olvidar nada importante.\n\n" +
+      "Primero, no lleves demasiada ropa. La mayoría de los estudiantes llevan mucho más de lo necesario. Es mejor llevar ropa versátil que puedas combinar de varias formas.\n\n" +
+      "Segundo, incluye algún regalo pequeño y típico de tu país para tu familia de acogida. Un detalle así ayuda mucho a crear una buena primera impresión.\n\n" +
+      "Tercero, no olvides los documentos importantes: pasaporte, seguro médico y los contactos de emergencia, tanto de tu familia real como de la organización del intercambio.\n\n" +
+      "Por último, deja espacio libre en la maleta. Seguro que querrás traer recuerdos y regalos cuando vuelvas a casa.",
+    questions: [
+      { id: "experiences-15-q1", type: "true-false", prompt: "La guía recomienda llevar mucha ropa para el intercambio.", correctAnswer: "false", justification: "\"no lleves demasiada ropa... llevan mucho más de lo necesario\"" },
+      { id: "experiences-15-q2", type: "true-false", prompt: "Se recomienda llevar un regalo típico del país de origen.", correctAnswer: "true", justification: "\"incluye algún regalo pequeño y típico de tu país\"" },
+      { id: "experiences-15-q3", type: "mcq", prompt: "¿Qué documento se menciona como importante para llevar?", options: ["El pasaporte", "El carné de conducir", "El certificado de nacimiento", "La tarjeta de la biblioteca"], correctAnswer: "El pasaporte" },
+      { id: "experiences-15-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Una guía instructiva", "Un poema", "Una crítica de cine", "Una carta personal"], correctAnswer: "Una guía instructiva" },
+      { id: "experiences-15-q5", type: "short", prompt: "¿Por qué se recomienda dejar espacio libre en la maleta?", correctAnswer: "para traer recuerdos y regalos al volver" },
+    ],
+  },
+  {
+    id: "reading-experiences-16",
+    themeId: "experiences",
+    title: "¿Deberían los institutos organizar más viajes educativos?",
+    textType: "Opinion column",
+    level: "hard",
+    bodyEs:
+      "Cada vez que se propone un nuevo viaje educativo en mi instituto, surge el mismo debate: ¿vale la pena el coste, el tiempo lectivo perdido y la logística, frente a lo que realmente aprenden los estudiantes?\n\n" +
+      "En mi opinión, la respuesta es un rotundo sí, aunque con matices. Un viaje bien planificado —vinculado directamente al currículo, con objetivos claros y actividades reflexivas— enseña más en una semana que meses de clases tradicionales sobre el mismo tema. Ver un monumento histórico en persona, o practicar un idioma con hablantes nativos, deja una huella que ningún libro de texto puede igualar.\n\n" +
+      "Dicho esto, comparto la preocupación de quienes señalan que estos viajes pueden excluir a estudiantes de familias con menos recursos económicos, agravando desigualdades ya existentes dentro del aula.\n\n" +
+      "Por eso, mi propuesta no es eliminar los viajes educativos, sino garantizar becas y ayudas suficientes para que ningún estudiante se quede fuera por motivos económicos. Solo así estos viajes cumplirán verdaderamente su propósito educativo, en lugar de convertirse en un privilegio para unos pocos.",
+    questions: [
+      { id: "experiences-16-q1", type: "true-false", prompt: "El autor piensa que los viajes educativos nunca valen la pena.", correctAnswer: "false", justification: "\"la respuesta es un rotundo sí, aunque con matices\"" },
+      { id: "experiences-16-q2", type: "true-false", prompt: "El autor está preocupado por la exclusión de estudiantes con menos recursos.", correctAnswer: "true", justification: "\"estos viajes pueden excluir a estudiantes de familias con menos recursos económicos\"" },
+      { id: "experiences-16-q3", type: "mcq", prompt: "¿Cuál es la propuesta final del autor?", options: ["Garantizar becas y ayudas suficientes", "Eliminar todos los viajes educativos", "Hacer los viajes obligatorios", "Cobrar más por los viajes"], correctAnswer: "Garantizar becas y ayudas suficientes" },
+      { id: "experiences-16-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Una columna de opinión", "Un correo formal", "Una receta", "Una postal"], correctAnswer: "Una columna de opinión" },
+      { id: "experiences-16-q5", type: "short", prompt: "Según el autor, ¿qué tipo de viaje enseña más que meses de clases tradicionales?", correctAnswer: "un viaje bien planificado" },
+    ],
+  },
+  {
+    id: "reading-experiences-17",
+    themeId: "experiences",
+    title: "Informe sobre el impacto de los programas de intercambio estudiantil",
+    textType: "Official report",
+    level: "hard",
+    bodyEs:
+      "El presente informe, elaborado por la Asociación Nacional de Programas de Intercambio, analiza los efectos académicos y personales de los programas de intercambio escolar entre estudiantes de secundaria durante los últimos cinco años.\n\n" +
+      "Los datos muestran que el noventa y dos por ciento de los participantes reporta una mejora significativa en su dominio del idioma extranjero, mientras que el ochenta y cinco por ciento afirma haber desarrollado mayor independencia y capacidad de adaptación.\n\n" +
+      "En cuanto al rendimiento académico general, el informe no encontró diferencias significativas entre estudiantes que participaron en un intercambio y aquellos que no lo hicieron, lo cual contradice la creencia popular de que estos programas perjudican las notas.\n\n" +
+      "Entre las recomendaciones, la Asociación sugiere ampliar el acceso a becas para familias con recursos limitados, ya que actualmente solo el quince por ciento de los participantes proviene de este grupo socioeconómico, una cifra considerada insuficiente.\n\n" +
+      "El informe completo, con datos desglosados por país de destino, estará disponible en la página web de la Asociación a partir de la próxima semana.",
+    questions: [
+      { id: "experiences-17-q1", type: "true-false", prompt: "El noventa y dos por ciento de los participantes mejoró su dominio del idioma.", correctAnswer: "true", justification: "\"el noventa y dos por ciento de los participantes reporta una mejora significativa en su dominio del idioma\"" },
+      { id: "experiences-17-q2", type: "true-false", prompt: "El informe encontró que los intercambios perjudican claramente las notas de los estudiantes.", correctAnswer: "false", justification: "\"no encontró diferencias significativas entre estudiantes que participaron en un intercambio y aquellos que no lo hicieron\"" },
+      { id: "experiences-17-q3", type: "mcq", prompt: "¿Qué porcentaje de participantes proviene de familias con recursos limitados?", options: ["15%", "92%", "85%", "50%"], correctAnswer: "15%" },
+      { id: "experiences-17-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Un informe oficial", "Una carta personal", "Un anuncio", "Una reseña"], correctAnswer: "Un informe oficial" },
+      { id: "experiences-17-q5", type: "short", prompt: "¿Quién elaboró este informe?", correctAnswer: "la Asociación Nacional de Programas de Intercambio" },
+    ],
+  },
+  {
+    id: "reading-experiences-18",
+    themeId: "experiences",
+    title: "Diario: Mi primer día como monitor de campamento",
+    textType: "Diary entry",
+    level: "easy",
+    bodyEs:
+      "Querido diario:\n\n" +
+      "Hoy empecé mi primer día como monitor voluntario en el campamento de verano para niños de ocho a diez años. Estaba muy nervioso porque nunca había cuidado de tantos niños a la vez.\n\n" +
+      "Al principio, un grupo de niños no dejaba de hacer preguntas y correr por todos lados. Pensé que sería un desastre total. Pero después de la primera actividad, un juego de equipo en el bosque, todos empezaron a colaborar y a divertirse juntos.\n\n" +
+      "Una niña llamada Sofía se acercó al final del día y me dio las gracias por ayudarla a subir a un árbol que ella sola no podía. Ese pequeño momento me hizo sentir que, aunque estoy agotado, este trabajo vale totalmente la pena.\n\n" +
+      "Mañana tenemos actividades de manualidades. Espero tener tanta energía como hoy.",
+    questions: [
+      { id: "experiences-18-q1", type: "true-false", prompt: "El autor había cuidado de muchos niños antes de este campamento.", correctAnswer: "false", justification: "\"nunca había cuidado de tantos niños a la vez\"" },
+      { id: "experiences-18-q2", type: "true-false", prompt: "Sofía le agradeció al autor por ayudarla a subir a un árbol.", correctAnswer: "true", justification: "\"me dio las gracias por ayudarla a subir a un árbol\"" },
+      { id: "experiences-18-q3", type: "mcq", prompt: "¿Qué edad tienen los niños del campamento?", options: ["Entre ocho y diez años", "Entre doce y catorce años", "Entre cuatro y seis años", "Entre quince y diecisiete años"], correctAnswer: "Entre ocho y diez años" },
+      { id: "experiences-18-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Una entrada de diario", "Un informe oficial", "Un anuncio", "Una entrevista"], correctAnswer: "Una entrada de diario" },
+      { id: "experiences-18-q5", type: "short", prompt: "¿Qué actividad tienen planeada para mañana?", correctAnswer: "manualidades" },
+    ],
+  },
+  {
+    id: "reading-experiences-19",
+    themeId: "experiences",
+    title: "Lo que aprendí trabajando de voluntario un verano",
+    textType: "Blog post",
+    level: "medium",
+    bodyEs:
+      "El verano pasado decidí no tomarme vacaciones tradicionales y, en su lugar, trabajé como voluntario en un refugio de animales durante seis semanas. No fue fácil: los horarios eran largos y algunas tareas, como limpiar las jaulas, no eran nada glamurosas.\n\n" +
+      "Sin embargo, lo que gané superó con creces cualquier incomodidad. Aprendí responsabilidad real, del tipo que no se enseña en un aula: si yo no llegaba a tiempo, había animales que dependían directamente de mí.\n\n" +
+      "También conocí a personas de contextos completamente diferentes al mío, todas unidas por el mismo propósito. Esas conversaciones me abrieron la mente más que cualquier libro que haya leído ese año.\n\n" +
+      "Si tuviera que resumir la experiencia en una frase, diría que el voluntariado no es solo dar tiempo a los demás: es también, de una forma inesperada, recibir mucho a cambio.",
+    questions: [
+      { id: "experiences-19-q1", type: "true-false", prompt: "El autor pasó las vacaciones de forma tradicional el verano pasado.", correctAnswer: "false", justification: "\"decidí no tomarme vacaciones tradicionales\"" },
+      { id: "experiences-19-q2", type: "true-false", prompt: "El autor considera que el voluntariado también le dio algo a él mismo.", correctAnswer: "true", justification: "\"recibir mucho a cambio\"" },
+      { id: "experiences-19-q3", type: "mcq", prompt: "¿Cuántas semanas trabajó el autor como voluntario?", options: ["Seis semanas", "Dos semanas", "Un año", "Tres días"], correctAnswer: "Seis semanas" },
+      { id: "experiences-19-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Una entrada de blog", "Un informe oficial", "Una postal", "Un menú"], correctAnswer: "Una entrada de blog" },
+      { id: "experiences-19-q5", type: "short", prompt: "¿Dónde trabajó de voluntario el autor?", correctAnswer: "en un refugio de animales" },
+    ],
+  },
+  {
+    id: "reading-experiences-20",
+    themeId: "experiences",
+    title: "Foro: ¿Alguien ha hecho el Camino de Santiago con el instituto?",
+    textType: "Forum post",
+    level: "easy",
+    bodyEs:
+      "Publicado por CaminanteNovato\n\n" +
+      "¡Hola a todos! Nuestro instituto está organizando una versión corta del Camino de Santiago para el próximo trimestre, unos cinco días caminando, y quería preguntar si alguien aquí ya lo ha hecho.\n\n" +
+      "¿Es muy difícil físicamente? Yo no hago mucho deporte normalmente y me preocupa no aguantar el ritmo del grupo.\n\n" +
+      "También me gustaría saber qué tipo de mochila y calzado recomendáis, porque he leído que las ampollas en los pies son un problema muy común.\n\n" +
+      "¡Gracias de antemano por cualquier consejo! Estoy nervioso pero también con muchas ganas de vivir esta experiencia.",
+    questions: [
+      { id: "experiences-20-q1", type: "true-false", prompt: "El autor hace mucho deporte normalmente.", correctAnswer: "false", justification: "\"yo no hago mucho deporte normalmente\"" },
+      { id: "experiences-20-q2", type: "true-false", prompt: "El viaje organizado por el instituto dura cinco días.", correctAnswer: "true", justification: "\"una versión corta del Camino de Santiago... unos cinco días caminando\"" },
+      { id: "experiences-20-q3", type: "mcq", prompt: "¿Qué problema común menciona el autor sobre los pies?", options: ["Las ampollas", "Las torceduras", "El frío", "Los hongos"], correctAnswer: "Las ampollas" },
+      { id: "experiences-20-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Una publicación de un foro", "Un informe oficial", "Una entrevista", "Un menú"], correctAnswer: "Una publicación de un foro" },
+      { id: "experiences-20-q5", type: "short", prompt: "¿Qué está organizando el instituto del autor?", correctAnswer: "una versión corta del Camino de Santiago" },
+    ],
+  },
+  {
+    id: "reading-human-ingenuity-12",
+    themeId: "human-ingenuity",
+    title: "Informe sobre el uso de la inteligencia artificial en las aulas",
+    textType: "Official report",
+    level: "hard",
+    bodyEs:
+      "El presente informe, encargado por el Ministerio de Educación, evalúa el impacto del uso de herramientas de inteligencia artificial en centros de educación secundaria durante el último curso escolar.\n\n" +
+      "Según los datos recopilados en trescientos institutos, el sesenta y cinco por ciento del profesorado utiliza regularmente alguna herramienta de IA para preparar materiales didácticos o corregir ejercicios, una cifra que se ha triplicado en solo dos años.\n\n" +
+      "Entre los beneficios reportados destaca el ahorro de tiempo en tareas administrativas, lo que permite a los docentes dedicar más atención individualizada a sus estudiantes. Sin embargo, el informe también señala preocupaciones importantes: un cuarenta por ciento de los profesores expresa dudas sobre cómo garantizar que los estudiantes no dependan excesivamente de estas herramientas para completar sus propios trabajos.\n\n" +
+      "Entre las recomendaciones, el informe propone desarrollar directrices claras sobre el uso aceptable de la IA por parte del alumnado, así como ofrecer formación específica al profesorado antes de que finalice el próximo curso escolar.",
+    questions: [
+      { id: "human-ingenuity-12-q1", type: "true-false", prompt: "El uso de herramientas de IA entre el profesorado se ha triplicado en dos años.", correctAnswer: "true", justification: "\"una cifra que se ha triplicado en solo dos años\"" },
+      { id: "human-ingenuity-12-q2", type: "true-false", prompt: "Todos los profesores están completamente de acuerdo con el uso de la IA por parte de los estudiantes.", correctAnswer: "false", justification: "\"un cuarenta por ciento de los profesores expresa dudas\"" },
+      { id: "human-ingenuity-12-q3", type: "mcq", prompt: "¿Qué porcentaje del profesorado usa regularmente herramientas de IA?", options: ["65%", "40%", "300%", "15%"], correctAnswer: "65%" },
+      { id: "human-ingenuity-12-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Un informe oficial", "Una carta personal", "Un anuncio", "Una reseña"], correctAnswer: "Un informe oficial" },
+      { id: "human-ingenuity-12-q5", type: "short", prompt: "¿Quién encargó este informe?", correctAnswer: "el Ministerio de Educación" },
+    ],
+  },
+  {
+    id: "reading-human-ingenuity-13",
+    themeId: "human-ingenuity",
+    title: "Postal desde la Feria Internacional de Ciencia",
+    textType: "Postcard",
+    level: "easy",
+    bodyEs:
+      "¡Hola, Nico!\n\n" +
+      "Te escribo desde la Feria Internacional de Ciencia, donde estoy presentando mi proyecto sobre energía solar con mi equipo del instituto. ¡Hay estudiantes de más de treinta países aquí!\n\n" +
+      "Ayer vimos un robot construido por un equipo de Japón que puede clasificar basura reciclable automáticamente. Es una locura lo avanzado que está todo.\n\n" +
+      "Mañana es el día de la presentación final ante los jueces. Estoy nervioso, pero también muy emocionado. Sea cual sea el resultado, ya ha sido una experiencia increíble.\n\n" +
+      "Te cuento todo cuando vuelva.\n\n" +
+      "Un abrazo,\nDaniela",
+    questions: [
+      { id: "human-ingenuity-13-q1", type: "true-false", prompt: "Daniela presenta un proyecto sobre energía solar.", correctAnswer: "true", justification: "\"presentando mi proyecto sobre energía solar\"" },
+      { id: "human-ingenuity-13-q2", type: "true-false", prompt: "El robot que clasifica basura fue construido por un equipo de España.", correctAnswer: "false", justification: "\"un robot construido por un equipo de Japón\"" },
+      { id: "human-ingenuity-13-q3", type: "mcq", prompt: "¿Cuántos países tienen estudiantes participando en la feria?", options: ["Más de treinta", "Diez", "Cinco", "Cien"], correctAnswer: "Más de treinta" },
+      { id: "human-ingenuity-13-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Una postal", "Un informe oficial", "Una reseña", "Un anuncio"], correctAnswer: "Una postal" },
+      { id: "human-ingenuity-13-q5", type: "short", prompt: "¿Qué día es la presentación final ante los jueces?", correctAnswer: "mañana" },
+    ],
+  },
+  {
+    id: "reading-human-ingenuity-14",
+    themeId: "human-ingenuity",
+    title: "Publicación: ¡Ganamos el concurso de ciencias!",
+    textType: "Social media post",
+    level: "easy",
+    bodyEs:
+      "¡No me lo puedo creer! 🎉 Después de meses de trabajo, nuestro proyecto sobre un sistema de riego automático para huertos escolares ganó el primer premio en el concurso regional de ciencias.\n\n" +
+      "Quiero dar las gracias a mi equipo, que trabajó incansablemente cada fin de semana, y a nuestra profesora de tecnología, que creyó en la idea desde el primer día.\n\n" +
+      "Al principio, muchos pensaban que el proyecto era demasiado ambicioso para hacerlo con un presupuesto tan pequeño, pero eso nos motivó todavía más a demostrar que sí se podía.\n\n" +
+      "¡Ahora vamos a la fase nacional! Gracias a todos por el apoyo. 💪🌱 #cienciaescolar #innovacion",
+    questions: [
+      { id: "human-ingenuity-14-q1", type: "true-false", prompt: "El proyecto ganador trata sobre un sistema de riego automático.", correctAnswer: "true", justification: "\"nuestro proyecto sobre un sistema de riego automático para huertos escolares\"" },
+      { id: "human-ingenuity-14-q2", type: "true-false", prompt: "Todos pensaban que el proyecto sería fácil de realizar.", correctAnswer: "false", justification: "\"muchos pensaban que el proyecto era demasiado ambicioso\"" },
+      { id: "human-ingenuity-14-q3", type: "mcq", prompt: "¿A qué fase avanza el equipo ahora?", options: ["La fase nacional", "La fase internacional", "No avanzan más", "La fase local"], correctAnswer: "La fase nacional" },
+      { id: "human-ingenuity-14-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Una publicación en redes sociales", "Un informe oficial", "Una carta formal", "Un menú"], correctAnswer: "Una publicación en redes sociales" },
+      { id: "human-ingenuity-14-q5", type: "short", prompt: "¿Qué premio ganó el equipo en el concurso regional?", correctAnswer: "el primer premio" },
+    ],
+  },
+  {
+    id: "reading-human-ingenuity-15",
+    themeId: "human-ingenuity",
+    title: "¿Hasta dónde deberíamos llegar con la bioingeniería?",
+    textType: "Blog post",
+    level: "hard",
+    bodyEs:
+      "La noticia de que científicos han logrado editar con precisión genes humanos específicos usando tecnología CRISPR ha reavivado un debate que llevamos años posponiendo: ¿existe un límite ético para lo que la ciencia debería hacer, simplemente porque puede hacerlo?\n\n" +
+      "Por un lado, el potencial es innegable. Eliminar enfermedades genéticas hereditarias antes de que un bebé nazca podría aliviar un sufrimiento inmenso. Es difícil argumentar en contra de curar una enfermedad devastadora.\n\n" +
+      "Pero la línea entre \"curar\" y \"mejorar\" es peligrosamente delgada. Si podemos eliminar una enfermedad, ¿por qué no también seleccionar el color de ojos, la altura o el coeficiente intelectual? Y si esta tecnología solo está disponible para quienes pueden pagarla, ¿no estaríamos creando una desigualdad genética además de la económica que ya existe?\n\n" +
+      "No tengo una respuesta clara, y sospecho que nadie la tiene todavía. Pero creo firmemente que estas decisiones no deberían dejarse únicamente en manos de científicos y empresas privadas. Como sociedad, todos deberíamos tener voz en hacia dónde llevamos esta tecnología.",
+    questions: [
+      { id: "human-ingenuity-15-q1", type: "true-false", prompt: "El autor tiene una respuesta clara y definitiva sobre los límites de la bioingeniería.", correctAnswer: "false", justification: "\"No tengo una respuesta clara, y sospecho que nadie la tiene todavía\"" },
+      { id: "human-ingenuity-15-q2", type: "true-false", prompt: "El autor cree que estas decisiones deberían incluir a toda la sociedad, no solo a científicos y empresas.", correctAnswer: "true", justification: "\"todos deberíamos tener voz en hacia dónde llevamos esta tecnología\"" },
+      { id: "human-ingenuity-15-q3", type: "mcq", prompt: "¿Qué tecnología menciona el autor al principio del texto?", options: ["CRISPR", "Inteligencia artificial", "Realidad virtual", "Energía nuclear"], correctAnswer: "CRISPR" },
+      { id: "human-ingenuity-15-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Una entrada de blog", "Un informe oficial", "Un anuncio", "Una postal"], correctAnswer: "Una entrada de blog" },
+      { id: "human-ingenuity-15-q5", type: "short", prompt: "Según el autor, ¿qué línea es 'peligrosamente delgada'?", correctAnswer: "la línea entre curar y mejorar" },
+    ],
+  },
+  {
+    id: "reading-human-ingenuity-16",
+    themeId: "human-ingenuity",
+    title: "Estudiantes diseñan un coche solar para una carrera universitaria",
+    textType: "Newspaper article",
+    level: "medium",
+    bodyEs:
+      "Un equipo de doce estudiantes de un instituto técnico ha diseñado y construido un vehículo propulsado completamente por energía solar, con el que competirán el próximo mes en una carrera universitaria de coches sostenibles.\n\n" +
+      "El proyecto, que llevó más de un año de trabajo, utiliza paneles solares ligeros colocados sobre la carrocería del vehículo, capaces de alcanzar una velocidad máxima de setenta kilómetros por hora sin necesidad de combustible ni electricidad de la red.\n\n" +
+      "\"Al principio muchos dudaban de que un grupo de estudiantes de instituto pudiera competir contra equipos universitarios con mucho más presupuesto\", explica la profesora que coordinó el proyecto. \"Pero la falta de recursos nos obligó a ser más creativos en el diseño\".\n\n" +
+      "El equipo espera que su participación inspire a más jóvenes a interesarse por las carreras de ingeniería y energías renovables.",
+    questions: [
+      { id: "human-ingenuity-16-q1", type: "true-false", prompt: "El coche solar necesita electricidad de la red para funcionar.", correctAnswer: "false", justification: "\"sin necesidad de combustible ni electricidad de la red\"" },
+      { id: "human-ingenuity-16-q2", type: "true-false", prompt: "El proyecto llevó más de un año de trabajo.", correctAnswer: "true", justification: "\"que llevó más de un año de trabajo\"" },
+      { id: "human-ingenuity-16-q3", type: "mcq", prompt: "¿Cuál es la velocidad máxima del vehículo?", options: ["Setenta kilómetros por hora", "Cien kilómetros por hora", "Treinta kilómetros por hora", "Doscientos kilómetros por hora"], correctAnswer: "Setenta kilómetros por hora" },
+      { id: "human-ingenuity-16-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Un artículo de periódico", "Una entrada de diario", "Una postal", "Un menú"], correctAnswer: "Un artículo de periódico" },
+      { id: "human-ingenuity-16-q5", type: "short", prompt: "¿Cuántos estudiantes formaron el equipo?", correctAnswer: "doce" },
+    ],
+  },
+  {
+    id: "reading-human-ingenuity-17",
+    themeId: "human-ingenuity",
+    title: "Entrevista con una joven ingeniera aeroespacial",
+    textType: "Interview",
+    level: "medium",
+    bodyEs:
+      "Hablamos con Marta Delgado, de veinticuatro años, una de las ingenieras más jóvenes que trabaja actualmente en el diseño de satélites de bajo coste.\n\n" +
+      "— Marta, ¿cuándo supiste que querías dedicarte a la ingeniería aeroespacial?\n\n" +
+      "— A los doce años, después de ver un documental sobre la primera misión a Marte. Desde ese momento no pensé en otra cosa.\n\n" +
+      "— ¿Cuál fue el mayor obstáculo en tu carrera?\n\n" +
+      "— Ser una de las pocas mujeres en la mayoría de mis clases de ingeniería. Al principio dudaba de mí misma constantemente, pero con el tiempo aprendí a confiar en mi propio criterio.\n\n" +
+      "— ¿Qué consejo le darías a una joven que quiere seguir tu mismo camino?\n\n" +
+      "— Que no espere sentirse completamente segura para empezar. La confianza viene después de la acción, no antes.",
+    questions: [
+      { id: "human-ingenuity-17-q1", type: "true-false", prompt: "Marta decidió estudiar ingeniería aeroespacial después de ver un documental.", correctAnswer: "true", justification: "\"después de ver un documental sobre la primera misión a Marte\"" },
+      { id: "human-ingenuity-17-q2", type: "true-false", prompt: "Marta dice que la confianza siempre viene antes de la acción.", correctAnswer: "false", justification: "\"La confianza viene después de la acción, no antes\"" },
+      { id: "human-ingenuity-17-q3", type: "mcq", prompt: "¿A qué edad decidió Marta dedicarse a la ingeniería aeroespacial?", options: ["A los doce años", "A los veinticuatro años", "A los dieciocho años", "A los seis años"], correctAnswer: "A los doce años" },
+      { id: "human-ingenuity-17-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Una entrevista", "Un anuncio", "Una receta", "Un poema"], correctAnswer: "Una entrevista" },
+      { id: "human-ingenuity-17-q5", type: "short", prompt: "¿En qué diseña Marta actualmente?", correctAnswer: "satélites de bajo coste" },
+    ],
+  },
+  {
+    id: "reading-human-ingenuity-18",
+    themeId: "human-ingenuity",
+    title: "Anuncio: Taller de programación para jóvenes",
+    textType: "Advertisement",
+    level: "easy",
+    bodyEs:
+      "¿Te interesa la tecnología? ¡Apúntate a nuestro taller de programación para jóvenes de doce a diecisiete años!\n\n" +
+      "Durante cuatro sábados aprenderás los fundamentos de la programación creando tu propio videojuego sencillo, sin necesidad de experiencia previa.\n\n" +
+      "Las clases se imparten en grupos pequeños de máximo diez estudiantes, con ordenadores y todo el material incluido en el precio.\n\n" +
+      "El taller empieza el primer sábado del mes que viene, de diez a doce del mediodía, en el centro cultural del barrio.\n\n" +
+      "Las plazas son limitadas. Para reservar tu lugar, escribe a talleresjovenes@correo.com antes de que se agoten.",
+    questions: [
+      { id: "human-ingenuity-18-q1", type: "true-false", prompt: "Es necesario tener experiencia previa para apuntarse al taller.", correctAnswer: "false", justification: "\"sin necesidad de experiencia previa\"" },
+      { id: "human-ingenuity-18-q2", type: "true-false", prompt: "Los grupos del taller tienen un máximo de diez estudiantes.", correctAnswer: "true", justification: "\"grupos pequeños de máximo diez estudiantes\"" },
+      { id: "human-ingenuity-18-q3", type: "mcq", prompt: "¿Cuántos sábados dura el taller?", options: ["Cuatro", "Dos", "Diez", "Ocho"], correctAnswer: "Cuatro" },
+      { id: "human-ingenuity-18-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Un anuncio", "Un informe científico", "Una entrada de diario", "Una entrevista"], correctAnswer: "Un anuncio" },
+      { id: "human-ingenuity-18-q5", type: "short", prompt: "¿Qué crearán los estudiantes durante el taller?", correctAnswer: "su propio videojuego sencillo" },
+    ],
+  },
+  {
+    id: "reading-human-ingenuity-19",
+    themeId: "human-ingenuity",
+    title: "Reseña: El nuevo museo interactivo de ciencia",
+    textType: "Review",
+    level: "medium",
+    bodyEs:
+      "El fin de semana pasado visité el nuevo museo interactivo de ciencia que acaba de inaugurarse en el centro de la ciudad, y tengo que decir que superó completamente mis expectativas.\n\n" +
+      "Lo que más me impresionó fue la sala dedicada a la robótica, donde los visitantes pueden programar pequeños robots para que completen distintos desafíos. A diferencia de otros museos donde solo se puede observar, aquí realmente se aprende haciendo.\n\n" +
+      "Mi única queja es que, los fines de semana, algunas de las exhibiciones más populares tienen colas de más de cuarenta minutos, lo cual puede resultar frustrante si vas con niños pequeños.\n\n" +
+      "Aun así, recomiendo totalmente este museo tanto para familias como para grupos escolares. Es una manera excelente de despertar el interés por la ciencia de una forma práctica y divertida.",
+    questions: [
+      { id: "human-ingenuity-19-q1", type: "true-false", prompt: "En la sala de robótica, los visitantes solo pueden observar sin participar.", correctAnswer: "false", justification: "\"aquí realmente se aprende haciendo\"" },
+      { id: "human-ingenuity-19-q2", type: "true-false", prompt: "El autor recomienda el museo para familias y grupos escolares.", correctAnswer: "true", justification: "\"recomiendo totalmente este museo tanto para familias como para grupos escolares\"" },
+      { id: "human-ingenuity-19-q3", type: "mcq", prompt: "¿Cuál es la queja principal del autor sobre el museo?", options: ["Las largas colas los fines de semana", "El precio de la entrada", "La falta de personal", "El horario de apertura"], correctAnswer: "Las largas colas los fines de semana" },
+      { id: "human-ingenuity-19-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Una reseña", "Un informe oficial", "Una carta formal", "Un menú"], correctAnswer: "Una reseña" },
+      { id: "human-ingenuity-19-q5", type: "short", prompt: "¿Qué se puede programar en la sala de robótica?", correctAnswer: "pequeños robots" },
+    ],
+  },
+  {
+    id: "reading-human-ingenuity-20",
+    themeId: "human-ingenuity",
+    title: "Diario: Mi primer día en la feria de robótica",
+    textType: "Diary entry",
+    level: "easy",
+    bodyEs:
+      "Querido diario:\n\n" +
+      "Hoy fue el primer día de la feria de robótica en mi instituto y estoy agotado, pero muy contento. Llevamos tres meses preparando nuestro robot para la competición de este fin de semana.\n\n" +
+      "Al principio, el robot no funcionaba bien: se detenía cada vez que intentaba girar. Pasamos casi dos horas revisando el código antes de encontrar el error. ¡Era solo una línea mal escrita!\n\n" +
+      "Cuando por fin funcionó correctamente delante de todos, sentí un orgullo enorme. Mis compañeros de equipo y yo nos abrazamos como si hubiéramos ganado ya, aunque la competición es mañana.\n\n" +
+      "Espero dormir bien esta noche, porque mañana necesitaré toda mi concentración.",
+    questions: [
+      { id: "human-ingenuity-20-q1", type: "true-false", prompt: "El robot funcionó perfectamente desde el principio.", correctAnswer: "false", justification: "\"el robot no funcionaba bien: se detenía cada vez que intentaba girar\"" },
+      { id: "human-ingenuity-20-q2", type: "true-false", prompt: "El equipo llevaba tres meses preparando el robot.", correctAnswer: "true", justification: "\"Llevamos tres meses preparando nuestro robot\"" },
+      { id: "human-ingenuity-20-q3", type: "mcq", prompt: "¿Cuál era el problema del robot?", options: ["Una línea de código mal escrita", "Una batería descargada", "Faltaban piezas", "Estaba roto"], correctAnswer: "Una línea de código mal escrita" },
+      { id: "human-ingenuity-20-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Una entrada de diario", "Un informe oficial", "Un anuncio", "Una entrevista"], correctAnswer: "Una entrada de diario" },
+      { id: "human-ingenuity-20-q5", type: "short", prompt: "¿Cuándo es la competición?", correctAnswer: "mañana" },
+    ],
+  },
+  {
+    id: "reading-social-organization-12",
+    themeId: "social-organization",
+    title: "Diario: Mi primer día de voluntariado en el ayuntamiento",
+    textType: "Diary entry",
+    level: "easy",
+    bodyEs:
+      "Querido diario:\n\n" +
+      "Hoy empecé mi programa de voluntariado en el ayuntamiento de mi ciudad, ayudando en la oficina de atención a personas mayores. Al principio estaba nerviosa porque no sabía muy bien qué esperar.\n\n" +
+      "Mi primera tarea fue ayudar a un señor mayor a rellenar un formulario en línea, algo que para mí es sencillo pero que para él era muy confuso. Me di cuenta de que muchas personas mayores se sienten excluidas por lo digital que se ha vuelto todo.\n\n" +
+      "Después de ayudarle, el señor me dio las gracias con una sonrisa enorme y me contó historias de cuando la ciudad era muy diferente. Fue una conversación que no esperaba, pero que disfruté mucho.\n\n" +
+      "Creo que este voluntariado me va a enseñar mucho más de lo que imaginaba.",
+    questions: [
+      { id: "social-organization-12-q1", type: "true-false", prompt: "La autora ayudó a un señor mayor con un formulario en línea.", correctAnswer: "true", justification: "\"ayudar a un señor mayor a rellenar un formulario en línea\"" },
+      { id: "social-organization-12-q2", type: "true-false", prompt: "La autora no tuvo ninguna conversación con el señor mayor.", correctAnswer: "false", justification: "\"Fue una conversación que no esperaba, pero que disfruté mucho\"" },
+      { id: "social-organization-12-q3", type: "mcq", prompt: "¿Dónde hace su voluntariado la autora?", options: ["En el ayuntamiento de su ciudad", "En un hospital", "En una escuela", "En una biblioteca"], correctAnswer: "En el ayuntamiento de su ciudad" },
+      { id: "social-organization-12-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Una entrada de diario", "Un informe oficial", "Un anuncio", "Una entrevista"], correctAnswer: "Una entrada de diario" },
+      { id: "social-organization-12-q5", type: "short", prompt: "¿Con qué grupo de personas trabaja la autora en su voluntariado?", correctAnswer: "personas mayores" },
+    ],
+  },
+  {
+    id: "reading-social-organization-13",
+    themeId: "social-organization",
+    title: "El auge del trabajo remoto y sus efectos en la organización social",
+    textType: "Magazine article",
+    level: "hard",
+    bodyEs:
+      "Desde hace algunos años, el trabajo remoto ha dejado de ser una excepción para convertirse en una realidad permanente para millones de personas, transformando no solo la forma de trabajar, sino también la estructura misma de nuestras comunidades.\n\n" +
+      "Por un lado, muchos trabajadores reportan mayor flexibilidad y menos tiempo perdido en desplazamientos, lo que les permite dedicar más tiempo a su familia y a actividades comunitarias locales. Algunos pequeños pueblos, antes en declive demográfico, han visto renacer su economía gracias a la llegada de trabajadores remotos que buscan una mejor calidad de vida.\n\n" +
+      "Sin embargo, sociólogos advierten sobre efectos menos visibles: la disminución de las interacciones sociales espontáneas que ocurrían tradicionalmente en las oficinas, y una creciente sensación de aislamiento entre quienes viven solos y trabajan exclusivamente desde casa.\n\n" +
+      "El reto de las próximas décadas, según los expertos, será diseñar comunidades y espacios de trabajo híbridos que aprovechen los beneficios del trabajo remoto sin sacrificar el tejido social que sostiene a cualquier comunidad saludable.",
+    questions: [
+      { id: "social-organization-13-q1", type: "true-false", prompt: "Según el artículo, algunos pueblos pequeños se han beneficiado económicamente del trabajo remoto.", correctAnswer: "true", justification: "\"han visto renacer su economía gracias a la llegada de trabajadores remotos\"" },
+      { id: "social-organization-13-q2", type: "true-false", prompt: "Los sociólogos afirman que el trabajo remoto no tiene ningún efecto negativo en la sociedad.", correctAnswer: "false", justification: "\"sociólogos advierten sobre efectos menos visibles: la disminución de las interacciones sociales espontáneas\"" },
+      { id: "social-organization-13-q3", type: "mcq", prompt: "Según los expertos, ¿cuál será el reto de las próximas décadas?", options: ["Diseñar comunidades y espacios híbridos equilibrados", "Eliminar completamente el trabajo remoto", "Obligar a todos a volver a la oficina", "Reducir los salarios de los trabajadores remotos"], correctAnswer: "Diseñar comunidades y espacios híbridos equilibrados" },
+      { id: "social-organization-13-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Un artículo de revista", "Una postal", "Un correo informal", "Un menú"], correctAnswer: "Un artículo de revista" },
+      { id: "social-organization-13-q5", type: "short", prompt: "¿Qué disminuye, según los sociólogos, a causa del trabajo remoto?", correctAnswer: "las interacciones sociales espontáneas" },
+    ],
+  },
+  {
+    id: "reading-social-organization-14",
+    themeId: "social-organization",
+    title: "Anuncio: Se buscan voluntarios para campaña de alfabetización",
+    textType: "Advertisement",
+    level: "easy",
+    bodyEs:
+      "¿Quieres ayudar a que más personas aprendan a leer y escribir? ¡Únete a nuestra campaña de alfabetización para adultos!\n\n" +
+      "Buscamos voluntarios a partir de dieciséis años, dispuestos a dar clases básicas de lectura y escritura dos tardes por semana durante tres meses.\n\n" +
+      "No necesitas experiencia previa como profesor: te daremos toda la formación necesaria antes de empezar. Solo hace falta paciencia y ganas de ayudar.\n\n" +
+      "Las clases se imparten en el centro comunitario del barrio, los martes y jueves de seis a ocho de la tarde.\n\n" +
+      "Si te interesa, envía un mensaje a alfabetizacion@correo.org. ¡Cada persona que aprende a leer cambia su vida para siempre!",
+    questions: [
+      { id: "social-organization-14-q1", type: "true-false", prompt: "Es necesario tener experiencia previa como profesor para ser voluntario.", correctAnswer: "false", justification: "\"No necesitas experiencia previa como profesor\"" },
+      { id: "social-organization-14-q2", type: "true-false", prompt: "Las clases se imparten los martes y jueves.", correctAnswer: "true", justification: "\"los martes y jueves de seis a ocho de la tarde\"" },
+      { id: "social-organization-14-q3", type: "mcq", prompt: "¿A partir de qué edad se buscan voluntarios?", options: ["Dieciséis años", "Dieciocho años", "Veintiún años", "Catorce años"], correctAnswer: "Dieciséis años" },
+      { id: "social-organization-14-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Un anuncio", "Un informe científico", "Una entrada de diario", "Una reseña"], correctAnswer: "Un anuncio" },
+      { id: "social-organization-14-q5", type: "short", prompt: "¿Cuánto tiempo dura el compromiso de voluntariado?", correctAnswer: "tres meses" },
+    ],
+  },
+  {
+    id: "reading-social-organization-15",
+    themeId: "social-organization",
+    title: "Postal desde un proyecto de cooperación internacional",
+    textType: "Postcard",
+    level: "medium",
+    bodyEs:
+      "¡Hola, mamá!\n\n" +
+      "Te escribo desde Guatemala, donde llevo dos semanas participando en un proyecto de cooperación internacional construyendo un sistema de agua potable para una comunidad rural.\n\n" +
+      "El trabajo es más duro de lo que imaginaba, pero también mucho más gratificante. Ayer terminamos de instalar las tuberías de la primera casa, y la familia nos preparó una comida para celebrarlo. Nunca había visto tanta generosidad de personas que tienen tan poco.\n\n" +
+      "He aprendido más sobre desigualdad y organización comunitaria en estas dos semanas que en todo un año de instituto. La gente aquí se organiza de forma increíble para resolver problemas juntos, sin esperar a que nadie más lo haga por ellos.\n\n" +
+      "Vuelvo la semana que viene. Tengo tantas historias que contarte.\n\n" +
+      "Un abrazo enorme,\nPablo",
+    questions: [
+      { id: "social-organization-15-q1", type: "true-false", prompt: "Pablo lleva un mes en Guatemala.", correctAnswer: "false", justification: "\"llevo dos semanas participando en un proyecto\"" },
+      { id: "social-organization-15-q2", type: "true-false", prompt: "La familia preparó una comida para celebrar la instalación de las tuberías.", correctAnswer: "true", justification: "\"la familia nos preparó una comida para celebrarlo\"" },
+      { id: "social-organization-15-q3", type: "mcq", prompt: "¿En qué está trabajando Pablo?", options: ["Un sistema de agua potable", "Una escuela nueva", "Un hospital", "Una biblioteca"], correctAnswer: "Un sistema de agua potable" },
+      { id: "social-organization-15-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Una postal", "Un informe oficial", "Una reseña", "Un anuncio"], correctAnswer: "Una postal" },
+      { id: "social-organization-15-q5", type: "short", prompt: "¿Cuándo vuelve Pablo a casa?", correctAnswer: "la semana que viene" },
+    ],
+  },
+  {
+    id: "reading-social-organization-16",
+    themeId: "social-organization",
+    title: "Reseña: Documental 'Dos ciudades, un mismo país'",
+    textType: "Review",
+    level: "medium",
+    bodyEs:
+      "El documental 'Dos ciudades, un mismo país' explora la creciente desigualdad económica entre las zonas urbanas ricas y los barrios periféricos empobrecidos de una misma ciudad, y sinceramente, me dejó pensando durante días.\n\n" +
+      "Lo que más valoro es que el documental no se limita a mostrar estadísticas frías, sino que sigue de cerca a tres familias durante un año completo, humanizando un problema que a menudo se discute de forma demasiado abstracta.\n\n" +
+      "Mi única crítica es que, hacia el final, el documental ofrece pocas soluciones concretas, dejando al espectador con una sensación de impotencia que quizás no era la intención de los directores.\n\n" +
+      "Aun así, lo recomiendo firmemente, especialmente para quienes creen que la desigualdad social no les afecta directamente. Este documental demuestra lo contrario de forma contundente.",
+    questions: [
+      { id: "social-organization-16-q1", type: "true-false", prompt: "El documental solo muestra estadísticas, sin seguir a personas reales.", correctAnswer: "false", justification: "\"sigue de cerca a tres familias durante un año completo\"" },
+      { id: "social-organization-16-q2", type: "true-false", prompt: "Según la reseña, el documental ofrece muchas soluciones concretas al final.", correctAnswer: "false", justification: "\"ofrece pocas soluciones concretas\"" },
+      { id: "social-organization-16-q3", type: "mcq", prompt: "¿Durante cuánto tiempo sigue el documental a las familias?", options: ["Un año completo", "Un mes", "Una semana", "Cinco años"], correctAnswer: "Un año completo" },
+      { id: "social-organization-16-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Una reseña", "Un informe oficial", "Una carta formal", "Un menú"], correctAnswer: "Una reseña" },
+      { id: "social-organization-16-q5", type: "short", prompt: "¿Cuántas familias sigue el documental?", correctAnswer: "tres" },
+    ],
+  },
+  {
+    id: "reading-social-organization-17",
+    themeId: "social-organization",
+    title: "Nueva ley busca mejorar la conciliación laboral y familiar",
+    textType: "Newspaper article",
+    level: "medium",
+    bodyEs:
+      "El parlamento aprobó ayer una nueva ley que amplía los permisos parentales remunerados y establece el derecho de los trabajadores a solicitar horarios flexibles para el cuidado de hijos o familiares dependientes.\n\n" +
+      "Según la nueva normativa, ambos progenitores tendrán derecho a dieciséis semanas de permiso remunerado, frente a las doce semanas anteriores, y las empresas estarán obligadas a justificar por escrito cualquier negativa a una solicitud de horario flexible.\n\n" +
+      "Las organizaciones empresariales han expresado preocupación por el coste que esto supondrá para las pequeñas empresas, mientras que las asociaciones de trabajadores han celebrado la medida como un paso histórico hacia una mayor igualdad entre hombres y mujeres en el ámbito laboral.\n\n" +
+      "La ley entrará en vigor a partir del primero de enero del próximo año.",
+    questions: [
+      { id: "social-organization-17-q1", type: "true-false", prompt: "La nueva ley reduce el permiso parental remunerado.", correctAnswer: "false", justification: "\"dieciséis semanas de permiso remunerado, frente a las doce semanas anteriores\"" },
+      { id: "social-organization-17-q2", type: "true-false", prompt: "Las empresas deberán justificar por escrito si niegan un horario flexible.", correctAnswer: "true", justification: "\"las empresas estarán obligadas a justificar por escrito cualquier negativa\"" },
+      { id: "social-organization-17-q3", type: "mcq", prompt: "¿Cuántas semanas de permiso parental establece la nueva ley?", options: ["Dieciséis semanas", "Doce semanas", "Ocho semanas", "Veinte semanas"], correctAnswer: "Dieciséis semanas" },
+      { id: "social-organization-17-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Un artículo de periódico", "Una entrada de diario", "Una postal", "Un menú"], correctAnswer: "Un artículo de periódico" },
+      { id: "social-organization-17-q5", type: "short", prompt: "¿Cuándo entra en vigor la nueva ley?", correctAnswer: "el primero de enero del próximo año" },
+    ],
+  },
+  {
+    id: "reading-social-organization-18",
+    themeId: "social-organization",
+    title: "Entrevista con una activista por los derechos humanos",
+    textType: "Interview",
+    level: "hard",
+    bodyEs:
+      "Hablamos con Carolina Vega, activista que lleva quince años trabajando en organizaciones de defensa de los derechos humanos en distintos países.\n\n" +
+      "— Carolina, ¿qué te motivó a dedicarte a este trabajo?\n\n" +
+      "— Crecí en un barrio donde presencié de primera mano cómo la falta de acceso a la justicia afectaba desproporcionadamente a las familias más pobres. Sentí que no podía quedarme de brazos cruzados.\n\n" +
+      "— ¿Cuál dirías que es el mayor desafío actual en materia de derechos humanos?\n\n" +
+      "— La desinformación. Cada vez es más fácil manipular la opinión pública para que ignore violaciones de derechos humanos que ocurren ante nuestros ojos, simplemente porque no encajan con una narrativa cómoda.\n\n" +
+      "— ¿Qué le dirías a un joven que quiere involucrarse pero no sabe por dónde empezar?\n\n" +
+      "— Que empiece localmente. No hace falta viajar al otro lado del mundo para defender los derechos humanos; muchas veces la injusticia está mucho más cerca de lo que pensamos.",
+    questions: [
+      { id: "social-organization-18-q1", type: "true-false", prompt: "Carolina lleva quince años trabajando en este campo.", correctAnswer: "true", justification: "\"lleva quince años trabajando en organizaciones de defensa de los derechos humanos\"" },
+      { id: "social-organization-18-q2", type: "true-false", prompt: "Carolina cree que hay que viajar lejos para defender los derechos humanos.", correctAnswer: "false", justification: "\"No hace falta viajar al otro lado del mundo para defender los derechos humanos\"" },
+      { id: "social-organization-18-q3", type: "mcq", prompt: "Según Carolina, ¿cuál es el mayor desafío actual en derechos humanos?", options: ["La desinformación", "La falta de dinero", "La falta de leyes", "El clima"], correctAnswer: "La desinformación" },
+      { id: "social-organization-18-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Una entrevista", "Un anuncio", "Una receta", "Un poema"], correctAnswer: "Una entrevista" },
+      { id: "social-organization-18-q5", type: "short", prompt: "¿Dónde presenció Carolina la falta de acceso a la justicia?", correctAnswer: "en su barrio" },
+    ],
+  },
+  {
+    id: "reading-social-organization-19",
+    themeId: "social-organization",
+    title: "¿Debería existir un año de servicio social obligatorio?",
+    textType: "Blog post",
+    level: "medium",
+    bodyEs:
+      "Varios países europeos están debatiendo actualmente la posibilidad de instaurar un año de servicio social obligatorio para todos los jóvenes al terminar el instituto, ya sea en el ámbito militar, medioambiental o comunitario. La idea me genera sentimientos encontrados.\n\n" +
+      "Por un lado, entiendo el argumento: un año dedicado a servir a la comunidad podría fomentar valores como la responsabilidad colectiva y reducir la creciente división entre distintos grupos sociales que apenas interactúan entre sí.\n\n" +
+      "Por otro lado, me preocupa la palabra \"obligatorio\". Forzar a alguien a participar en algo, sin importar cuán noble sea la causa, rara vez produce el mismo compromiso genuino que surge de una decisión voluntaria.\n\n" +
+      "Quizás la solución no sea la obligación total, sino incentivos reales —académicos o económicos— que hagan que el servicio social sea una opción verdaderamente atractiva, sin necesidad de imponerlo por ley.",
+    questions: [
+      { id: "social-organization-19-q1", type: "true-false", prompt: "El autor tiene sentimientos completamente positivos sobre el servicio obligatorio.", correctAnswer: "false", justification: "\"La idea me genera sentimientos encontrados\"" },
+      { id: "social-organization-19-q2", type: "true-false", prompt: "El autor propone incentivos como alternativa a la obligación total.", correctAnswer: "true", justification: "\"incentivos reales... que hagan que el servicio social sea una opción verdaderamente atractiva\"" },
+      { id: "social-organization-19-q3", type: "mcq", prompt: "Según el autor, ¿qué palabra le preocupa del debate?", options: ["Obligatorio", "Comunitario", "Servicio", "Social"], correctAnswer: "Obligatorio" },
+      { id: "social-organization-19-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Una entrada de blog", "Un informe oficial", "Un anuncio publicitario", "Una receta"], correctAnswer: "Una entrada de blog" },
+      { id: "social-organization-19-q5", type: "short", prompt: "¿Qué tipo de compromiso, según el autor, surge de una decisión voluntaria?", correctAnswer: "un compromiso genuino" },
+    ],
+  },
+  {
+    id: "reading-social-organization-20",
+    themeId: "social-organization",
+    title: "Foro: ¿Cómo puedo empezar a hacer voluntariado?",
+    textType: "Forum post",
+    level: "easy",
+    bodyEs:
+      "Publicado por ChicaSolidaria16\n\n" +
+      "Hola a todos. Llevo tiempo queriendo hacer voluntariado, pero no sé por dónde empezar ni qué tipo de organización buscar. Tengo dieciséis años.\n\n" +
+      "¿Alguien puede recomendarme cómo encontrar oportunidades cerca de mi ciudad? También me preocupa que, al ser menor de edad, muchas organizaciones no me acepten.\n\n" +
+      "Me interesan especialmente temas relacionados con el medioambiente y con ayudar a personas mayores, pero estoy abierta a otras opciones si alguien tiene una buena experiencia que recomendar.\n\n" +
+      "¡Gracias por cualquier ayuda!",
+    questions: [
+      { id: "social-organization-20-q1", type: "true-false", prompt: "La autora ya tiene experiencia haciendo voluntariado.", correctAnswer: "false", justification: "\"Llevo tiempo queriendo hacer voluntariado\"" },
+      { id: "social-organization-20-q2", type: "true-false", prompt: "A la autora le preocupa que su edad sea un obstáculo.", correctAnswer: "true", justification: "\"me preocupa que, al ser menor de edad, muchas organizaciones no me acepten\"" },
+      { id: "social-organization-20-q3", type: "mcq", prompt: "¿Qué temas le interesan especialmente a la autora?", options: ["El medioambiente y ayudar a personas mayores", "Los deportes y la música", "La tecnología y los videojuegos", "La moda y el diseño"], correctAnswer: "El medioambiente y ayudar a personas mayores" },
+      { id: "social-organization-20-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Una publicación de un foro", "Un informe oficial", "Una entrevista", "Un menú"], correctAnswer: "Una publicación de un foro" },
+      { id: "social-organization-20-q5", type: "short", prompt: "¿Cuántos años tiene la autora de la publicación?", correctAnswer: "dieciséis" },
+    ],
+  },
+  {
+    id: "reading-sharing-planet-12",
+    themeId: "sharing-planet",
+    title: "Guía: Cómo hacer compost casero",
+    textType: "Instructional guide",
+    level: "easy",
+    bodyEs:
+      "Hacer compost en casa es una manera sencilla de reducir la basura y crear abono natural para las plantas. Sigue estos pasos para empezar.\n\n" +
+      "Primero, consigue un contenedor con buena ventilación, ya sea comprado o hecho con materiales reciclados. Colócalo en un lugar exterior, si es posible.\n\n" +
+      "Segundo, añade una mezcla de restos de comida —como cáscaras de fruta y verdura— junto con materiales secos, como hojas o cartón. El equilibrio entre lo húmedo y lo seco es clave para que el compost no huela mal.\n\n" +
+      "Tercero, remueve la mezcla cada semana para que le llegue oxígeno. Evita añadir carne, lácteos o aceites, ya que estos atraen plagas y no se descomponen bien.\n\n" +
+      "En unos dos o tres meses, tendrás un abono natural listo para usar en tu jardín o macetas.",
+    questions: [
+      { id: "sharing-planet-12-q1", type: "true-false", prompt: "Se debe añadir carne al compost.", correctAnswer: "false", justification: "\"Evita añadir carne, lácteos o aceites\"" },
+      { id: "sharing-planet-12-q2", type: "true-false", prompt: "Es importante remover la mezcla cada semana.", correctAnswer: "true", justification: "\"remueve la mezcla cada semana para que le llegue oxígeno\"" },
+      { id: "sharing-planet-12-q3", type: "mcq", prompt: "¿Cuánto tiempo tarda en estar listo el compost?", options: ["Unos dos o tres meses", "Una semana", "Un año", "Un día"], correctAnswer: "Unos dos o tres meses" },
+      { id: "sharing-planet-12-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Una guía instructiva", "Un poema", "Una crítica de cine", "Una carta personal"], correctAnswer: "Una guía instructiva" },
+      { id: "sharing-planet-12-q5", type: "short", prompt: "¿Qué atrae la carne, los lácteos y los aceites al compost?", correctAnswer: "plagas" },
+    ],
+  },
+  {
+    id: "reading-sharing-planet-13",
+    themeId: "sharing-planet",
+    title: "Informe sobre la pérdida de biodiversidad marina",
+    textType: "Official report",
+    level: "hard",
+    bodyEs:
+      "El presente informe, elaborado por un consorcio internacional de institutos oceanográficos, documenta el declive acelerado de la biodiversidad marina observado durante la última década en los principales océanos del planeta.\n\n" +
+      "Según los datos recopilados, las poblaciones de especies marinas monitoreadas han disminuido en promedio un treinta y ocho por ciento desde el año dos mil, debido principalmente a la sobrepesca, la contaminación por plásticos y la acidificación de los océanos causada por el cambio climático.\n\n" +
+      "Los arrecifes de coral, considerados uno de los ecosistemas más ricos en biodiversidad del planeta, han sido especialmente afectados: se estima que la mitad de los arrecifes documentados en los años noventa ya no existen en su forma original.\n\n" +
+      "El informe recomienda con urgencia la ampliación de las áreas marinas protegidas, actualmente limitadas a menos del ocho por ciento de la superficie oceánica mundial, así como acuerdos internacionales más estrictos sobre pesca sostenible.",
+    questions: [
+      { id: "sharing-planet-13-q1", type: "true-false", prompt: "Las poblaciones de especies marinas han aumentado desde el año dos mil.", correctAnswer: "false", justification: "\"han disminuido en promedio un treinta y ocho por ciento desde el año dos mil\"" },
+      { id: "sharing-planet-13-q2", type: "true-false", prompt: "Los arrecifes de coral han sido especialmente afectados por esta pérdida de biodiversidad.", correctAnswer: "true", justification: "\"han sido especialmente afectados\"" },
+      { id: "sharing-planet-13-q3", type: "mcq", prompt: "¿Qué porcentaje de la superficie oceánica mundial está actualmente protegido?", options: ["Menos del 8%", "Más del 50%", "El 100%", "El 38%"], correctAnswer: "Menos del 8%" },
+      { id: "sharing-planet-13-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Un informe oficial", "Una carta personal", "Un anuncio", "Una reseña"], correctAnswer: "Un informe oficial" },
+      { id: "sharing-planet-13-q5", type: "short", prompt: "¿Qué tres causas principales menciona el informe para la pérdida de biodiversidad marina?", correctAnswer: "la sobrepesca, la contaminación por plásticos y la acidificación de los océanos" },
+    ],
+  },
+  {
+    id: "reading-sharing-planet-14",
+    themeId: "sharing-planet",
+    title: "Discurso de un joven activista climático",
+    textType: "Speech",
+    level: "hard",
+    bodyEs:
+      "Buenos días. Me llamo Tomás y tengo diecisiete años. No estoy aquí porque sea un experto en climatología, sino porque, como muchos jóvenes de mi generación, heredaré las consecuencias de decisiones que no tomé yo.\n\n" +
+      "Durante años, se nos ha dicho que la solución al cambio climático está en pequeños gestos individuales: reciclar, apagar las luces, ducharnos más rápido. Y sí, estos gestos importan. Pero seamos honestos: no son suficientes frente a la escala del problema que enfrentamos.\n\n" +
+      "Lo que realmente necesitamos son decisiones políticas valientes: inversión masiva en energías renovables, regulaciones estrictas para las industrias más contaminantes, y un compromiso real, no solo palabras bonitas en conferencias como esta.\n\n" +
+      "No les pido que nos crean solo porque somos jóvenes e idealistas. Les pido que miren los datos científicos, que llevan décadas advirtiéndonos de esto, y que actúen con la urgencia que la situación exige.\n\n" +
+      "El planeta no puede esperar a que terminemos de debatir. Gracias.",
+    questions: [
+      { id: "sharing-planet-14-q1", type: "true-false", prompt: "Tomás dice que los gestos individuales son completamente inútiles.", correctAnswer: "false", justification: "\"estos gestos importan. Pero... no son suficientes\"" },
+      { id: "sharing-planet-14-q2", type: "true-false", prompt: "Tomás pide decisiones políticas valientes, no solo palabras.", correctAnswer: "true", justification: "\"Lo que realmente necesitamos son decisiones políticas valientes... un compromiso real, no solo palabras bonitas\"" },
+      { id: "sharing-planet-14-q3", type: "mcq", prompt: "¿Qué le pide Tomás a la audiencia al final del discurso?", options: ["Que miren los datos científicos y actúen con urgencia", "Que dejen de reciclar", "Que ignoren a los científicos", "Que esperen unos años más"], correctAnswer: "Que miren los datos científicos y actúen con urgencia" },
+      { id: "sharing-planet-14-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Un discurso", "Una receta", "Un correo electrónico", "Un anuncio"], correctAnswer: "Un discurso" },
+      { id: "sharing-planet-14-q5", type: "short", prompt: "¿Cuántos años tiene Tomás?", correctAnswer: "diecisiete" },
+    ],
+  },
+  {
+    id: "reading-sharing-planet-15",
+    themeId: "sharing-planet",
+    title: "Postal desde un parque nacional en peligro",
+    textType: "Postcard",
+    level: "medium",
+    bodyEs:
+      "¡Hola, Marina!\n\n" +
+      "Te escribo desde el Parque Nacional Los Cedros, donde estoy pasando unos días con mi familia. El paisaje es impresionante, pero también un poco triste de ver.\n\n" +
+      "Uno de los guardaparques nos explicó que, debido a la sequía prolongada de los últimos años, gran parte del bosque está mucho más seco de lo normal, lo que ha aumentado considerablemente el riesgo de incendios forestales.\n\n" +
+      "Ayer participamos en una actividad organizada por el parque para plantar árboles nativos en una zona que se quemó parcialmente el año pasado. Fue agotador, pero también reconfortante sentir que hacíamos algo útil.\n\n" +
+      "Espero que este parque siga existiendo tal como lo conocemos para cuando nuestros hijos puedan visitarlo algún día.\n\n" +
+      "Un abrazo,\nCarla",
+    questions: [
+      { id: "sharing-planet-15-q1", type: "true-false", prompt: "El bosque está más seco de lo normal debido a la sequía.", correctAnswer: "true", justification: "\"debido a la sequía prolongada... gran parte del bosque está mucho más seco de lo normal\"" },
+      { id: "sharing-planet-15-q2", type: "true-false", prompt: "Carla y su familia plantaron árboles en una zona que nunca se ha quemado.", correctAnswer: "false", justification: "\"plantar árboles nativos en una zona que se quemó parcialmente el año pasado\"" },
+      { id: "sharing-planet-15-q3", type: "mcq", prompt: "¿Qué ha aumentado debido a la sequía, según el guardaparques?", options: ["El riesgo de incendios forestales", "El número de turistas", "La cantidad de animales", "El precio de las entradas"], correctAnswer: "El riesgo de incendios forestales" },
+      { id: "sharing-planet-15-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Una postal", "Un informe oficial", "Una reseña", "Un anuncio"], correctAnswer: "Una postal" },
+      { id: "sharing-planet-15-q5", type: "short", prompt: "¿Qué actividad hizo la familia de Carla ayer?", correctAnswer: "plantar árboles nativos" },
+    ],
+  },
+  {
+    id: "reading-sharing-planet-16",
+    themeId: "sharing-planet",
+    title: "Reseña: 'La Tierra que heredamos'",
+    textType: "Review",
+    level: "medium",
+    bodyEs:
+      "'La Tierra que heredamos' es un libro de divulgación científica que explica el cambio climático de una forma accesible incluso para quienes no tienen conocimientos previos de ciencia, y por eso lo recomiendo especialmente a estudiantes de instituto.\n\n" +
+      "Lo que más aprecio del libro es que evita el tono catastrofista que domina gran parte de la conversación pública sobre este tema. En lugar de solo enumerar problemas, dedica la mitad final a soluciones reales que ya se están implementando en distintas partes del mundo.\n\n" +
+      "Mi crítica principal es que, en algunos capítulos centrados en política internacional, el texto se vuelve denso y repetitivo, lo cual puede desanimar a lectores más jóvenes.\n\n" +
+      "Aun con ese defecto, es una lectura que recomiendo firmemente: informativa sin ser deprimente, y honesta sin dejar de ser esperanzadora.",
+    questions: [
+      { id: "sharing-planet-16-q1", type: "true-false", prompt: "El libro solo enumera problemas, sin ofrecer soluciones.", correctAnswer: "false", justification: "\"dedica la mitad final a soluciones reales que ya se están implementando\"" },
+      { id: "sharing-planet-16-q2", type: "true-false", prompt: "Según la reseña, algunos capítulos sobre política internacional son densos y repetitivos.", correctAnswer: "true", justification: "\"el texto se vuelve denso y repetitivo\"" },
+      { id: "sharing-planet-16-q3", type: "mcq", prompt: "¿A quién recomienda especialmente el autor este libro?", options: ["A estudiantes de instituto", "A científicos profesionales", "A políticos", "A niños pequeños"], correctAnswer: "A estudiantes de instituto" },
+      { id: "sharing-planet-16-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Una reseña", "Un informe oficial", "Una carta formal", "Un menú"], correctAnswer: "Una reseña" },
+      { id: "sharing-planet-16-q5", type: "short", prompt: "¿A qué dedica el libro su mitad final?", correctAnswer: "soluciones reales" },
+    ],
+  },
+  {
+    id: "reading-sharing-planet-17",
+    themeId: "sharing-planet",
+    title: "Publicación: Pequeños cambios para ahorrar agua",
+    textType: "Social media post",
+    level: "easy",
+    bodyEs:
+      "¿Sabíais que una ducha de cinco minutos puede ahorrar hasta setenta litros de agua comparado con un baño completo? 💧 Llevo un mes intentando reducir mi consumo de agua en casa y quería compartir lo que he aprendido.\n\n" +
+      "Cerrar el grifo mientras me cepillo los dientes fue el cambio más fácil, y aun así ahorra bastante agua cada día. También empecé a reutilizar el agua de cocinar verduras para regar las plantas.\n\n" +
+      "Al principio pensaba que estos gestos eran demasiado pequeños para importar, pero sumados a lo largo de un mes, mi factura de agua bajó notablemente.\n\n" +
+      "¿Alguien tiene más trucos para compartir? ¡Cada gota cuenta! 🌍💙 #ahorraagua #sostenibilidad",
+    questions: [
+      { id: "sharing-planet-17-q1", type: "true-false", prompt: "Según la publicación, una ducha corta ahorra agua comparada con un baño completo.", correctAnswer: "true", justification: "\"una ducha de cinco minutos puede ahorrar hasta setenta litros de agua comparado con un baño completo\"" },
+      { id: "sharing-planet-17-q2", type: "true-false", prompt: "La autora pensó desde el principio que estos gestos eran muy importantes.", correctAnswer: "false", justification: "\"Al principio pensaba que estos gestos eran demasiado pequeños para importar\"" },
+      { id: "sharing-planet-17-q3", type: "mcq", prompt: "¿Qué hace la autora con el agua de cocinar verduras?", options: ["Reutilizarla para regar las plantas", "Tirarla inmediatamente", "Beberla", "Congelarla"], correctAnswer: "Reutilizarla para regar las plantas" },
+      { id: "sharing-planet-17-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Una publicación en redes sociales", "Un informe científico", "Una carta formal", "Un menú"], correctAnswer: "Una publicación en redes sociales" },
+      { id: "sharing-planet-17-q5", type: "short", prompt: "¿Cuánto tiempo lleva la autora intentando reducir su consumo de agua?", correctAnswer: "un mes" },
+    ],
+  },
+  {
+    id: "reading-sharing-planet-18",
+    themeId: "sharing-planet",
+    title: "Mi experiencia viviendo sin plástico durante un mes",
+    textType: "Blog post",
+    level: "medium",
+    bodyEs:
+      "El mes pasado decidí hacer un experimento personal: intentar vivir treinta días sin comprar ni usar plástico de un solo uso. Quería compartir lo que aprendí, porque fue mucho más difícil de lo que imaginaba.\n\n" +
+      "La primera semana fue frustrante. Descubrí que el plástico está literalmente en todas partes: el pan del supermercado, las botellas de champú, incluso las etiquetas de la ropa. Tuve que cambiar por completo mis rutinas de compra.\n\n" +
+      "Con el tiempo, encontré alternativas que ahora forman parte de mi vida normal: bolsas de tela reutilizables, jabón sólido en lugar de líquido, y comprar en tiendas a granel siempre que es posible.\n\n" +
+      "No voy a mentir: no logré eliminar el cien por cien del plástico de mi vida, pero sí reduje mi consumo drásticamente. Y lo más importante, ahora soy mucho más consciente de cada decisión de compra que hago.",
+    questions: [
+      { id: "sharing-planet-18-q1", type: "true-false", prompt: "La autora logró eliminar el cien por cien del plástico de su vida.", correctAnswer: "false", justification: "\"no logré eliminar el cien por cien del plástico de mi vida\"" },
+      { id: "sharing-planet-18-q2", type: "true-false", prompt: "La autora descubrió que el plástico está presente en muchos productos cotidianos.", correctAnswer: "true", justification: "\"el plástico está literalmente en todas partes\"" },
+      { id: "sharing-planet-18-q3", type: "mcq", prompt: "¿Qué usa la autora ahora en lugar de jabón líquido?", options: ["Jabón sólido", "Jabón en polvo", "Nada", "Jabón desechable"], correctAnswer: "Jabón sólido" },
+      { id: "sharing-planet-18-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Una entrada de blog", "Un informe oficial", "Una postal", "Un menú"], correctAnswer: "Una entrada de blog" },
+      { id: "sharing-planet-18-q5", type: "short", prompt: "¿Cuántos días duró el experimento de la autora?", correctAnswer: "treinta días" },
+    ],
+  },
+  {
+    id: "reading-sharing-planet-19",
+    themeId: "sharing-planet",
+    title: "Diario: Un día limpiando la playa",
+    textType: "Diary entry",
+    level: "easy",
+    bodyEs:
+      "Querido diario:\n\n" +
+      "Hoy participé en una jornada de limpieza de playa organizada por una asociación ambiental local. Llegamos a las nueve de la mañana y ya había mucha gente esperando con guantes y bolsas.\n\n" +
+      "Me sorprendió muchísimo la cantidad de colillas de cigarro que encontramos, más que cualquier otro tipo de basura. Nunca había pensado en ellas como un problema ambiental tan grande.\n\n" +
+      "Entre todos los voluntarios recogimos más de cien kilos de basura en solo tres horas. Al final, sentía los brazos cansados, pero también una satisfacción enorme al ver la playa mucho más limpia que por la mañana.\n\n" +
+      "Definitivamente pienso repetir esta experiencia el próximo mes.",
+    questions: [
+      { id: "sharing-planet-19-q1", type: "true-false", prompt: "La autora encontró más colillas de cigarro que cualquier otro tipo de basura.", correctAnswer: "true", justification: "\"la cantidad de colillas de cigarro que encontramos, más que cualquier otro tipo de basura\"" },
+      { id: "sharing-planet-19-q2", type: "true-false", prompt: "Los voluntarios recogieron menos de diez kilos de basura.", correctAnswer: "false", justification: "\"recogimos más de cien kilos de basura en solo tres horas\"" },
+      { id: "sharing-planet-19-q3", type: "mcq", prompt: "¿A qué hora empezó la jornada de limpieza?", options: ["A las nueve de la mañana", "Al mediodía", "A las seis de la tarde", "A medianoche"], correctAnswer: "A las nueve de la mañana" },
+      { id: "sharing-planet-19-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Una entrada de diario", "Un informe oficial", "Un anuncio", "Una entrevista"], correctAnswer: "Una entrada de diario" },
+      { id: "sharing-planet-19-q5", type: "short", prompt: "¿Cuántos kilos de basura recogieron en total?", correctAnswer: "más de cien kilos" },
+    ],
+  },
+  {
+    id: "reading-sharing-planet-20",
+    themeId: "sharing-planet",
+    title: "Entrevista con un climatólogo sobre el futuro del planeta",
+    textType: "Interview",
+    level: "hard",
+    bodyEs:
+      "Hablamos con el doctor Ramón Iglesias, climatólogo con más de veinte años de experiencia investigando patrones climáticos globales.\n\n" +
+      "— Doctor Iglesias, con tanta información contradictoria circulando, ¿qué sabemos con certeza sobre el cambio climático?\n\n" +
+      "— Sabemos, con un consenso científico abrumador, que las temperaturas globales están aumentando principalmente por la actividad humana, en particular por la quema de combustibles fósiles. Esto no es una teoría en debate dentro de la comunidad científica.\n\n" +
+      "— ¿Es demasiado tarde para revertir la situación?\n\n" +
+      "— \"Revertir\" completamente, probablemente sí, al menos a corto plazo. Pero \"limitar el daño\" es completamente posible todavía. La diferencia entre un aumento de temperatura de un grado y medio frente a tres grados es enorme para la vida en el planeta.\n\n" +
+      "— ¿Qué le da esperanza?\n\n" +
+      "— La rapidez con la que ha bajado el coste de las energías renovables en la última década. Hace veinte años, esto habría parecido ciencia ficción.",
+    questions: [
+      { id: "sharing-planet-20-q1", type: "true-false", prompt: "Según el doctor Iglesias, existe un consenso científico abrumador sobre el cambio climático.", correctAnswer: "true", justification: "\"un consenso científico abrumador, que las temperaturas globales están aumentando principalmente por la actividad humana\"" },
+      { id: "sharing-planet-20-q2", type: "true-false", prompt: "El doctor Iglesias afirma que ya no es posible limitar el daño del cambio climático.", correctAnswer: "false", justification: "\"'Limitar el daño' es completamente posible todavía\"" },
+      { id: "sharing-planet-20-q3", type: "mcq", prompt: "¿Qué le da esperanza al doctor Iglesias?", options: ["La rapidez con la que ha bajado el coste de las energías renovables", "El aumento de la temperatura", "La falta de acción política", "El precio del petróleo"], correctAnswer: "La rapidez con la que ha bajado el coste de las energías renovables" },
+      { id: "sharing-planet-20-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Una entrevista", "Un anuncio", "Una postal", "Un poema"], correctAnswer: "Una entrevista" },
+      { id: "sharing-planet-20-q5", type: "short", prompt: "¿Cuántos años de experiencia tiene el doctor Iglesias investigando el clima?", correctAnswer: "más de veinte años" },
     ],
   },
 ];
