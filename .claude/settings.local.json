@@ -44,7 +44,8 @@
       "Bash(node \"C:\\\\Users\\\\b_vam\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\C--Users-b-vam-OneDrive-Desktop-IBSpanishApp\\\\204caa65-d83a-4560-a8e2-92bce3de224c\\\\scratchpad\\\\splice.js\")",
       "Bash(node \"C:\\\\Users\\\\b_vam\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\C--Users-b-vam-OneDrive-Desktop-IBSpanishApp\\\\204caa65-d83a-4560-a8e2-92bce3de224c\\\\scratchpad\\\\validate.js\")",
       "Bash(npx next *)",
-      "Bash(awk '/export const QUESTION_BANK/,/export const AUDIO_TASKS/' src/lib/data.ts)"
+      "Bash(awk '/export const QUESTION_BANK/,/export const AUDIO_TASKS/' src/lib/data.ts)",
+      "Bash(node *)"
     ]
   }
 }

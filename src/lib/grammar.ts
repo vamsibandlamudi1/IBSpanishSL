@@ -1,6 +1,9 @@
 /// File: src/lib/grammar.ts
 //
-// Content for the Grammar module: 11 core IB Spanish B SL grammar topics.
+// Content for the Grammar module: 16 core IB Spanish B SL practice topics
+// (11 verb/grammar topics + 5 added to close exam-format gaps: affirmative
+// commands, relative clauses, false cognates, and the two IB Paper 1 reading
+// strategies — heading-matching and word-bank gap-fill).
 // EXERCISES ARE LAZY-LOADED per topic — only the selected topic's exercises
 // are fetched, preventing the 47 KB ser-estar dataset from blocking the
 // initial Grammar page render.
@@ -58,6 +61,26 @@ export async function loadExercises(topicId: string): Promise<GrammarExercise[]>
     case "listening-tenses": {
       const m = await import("./grammar-data/listening-tenses");
       return m.LISTENING_TENSES_EXERCISES;
+    }
+    case "affirmative-imperative": {
+      const m = await import("./grammar-data/affirmative-imperative");
+      return m.AFFIRMATIVE_IMPERATIVE_EXERCISES;
+    }
+    case "relative-clauses": {
+      const m = await import("./grammar-data/relative-clauses");
+      return m.RELATIVE_CLAUSES_EXERCISES;
+    }
+    case "false-cognates": {
+      const m = await import("./grammar-data/false-cognates");
+      return m.FALSE_COGNATES_EXERCISES;
+    }
+    case "heading-matching": {
+      const m = await import("./grammar-data/heading-matching");
+      return m.HEADING_MATCHING_EXERCISES;
+    }
+    case "gap-fill": {
+      const m = await import("./grammar-data/gap-fill");
+      return m.GAP_FILL_EXERCISES;
     }
     default:
       return [];
@@ -214,6 +237,71 @@ export const GRAMMAR_TOPICS: GrammarTopicMeta[] = [
       { es: "Ayer comí una manzana.", en: "Yesterday I ate an apple. (preterite)" },
       { es: "Cuando era niño, jugaba mucho.", en: "When I was a kid, I used to play a lot. (imperfect)" },
       { es: "Mañana viajaré a Barcelona.", en: "Tomorrow I will travel to Barcelona. (future)" },
+    ],
+  },
+  {
+    id: "affirmative-imperative",
+    name: "Affirmative Commands (Imperative)",
+    level: "intermediate",
+    rule: "Affirmative commands tell someone to do something. Tú/usted/ustedes use the subjunctive stem (except eight classic irregulars: di, haz, ve, pon, sal, sé, ten, ven); nosotros adds '-emos/-amos' ('let's...'); vosotros swaps the infinitive's '-r' for '-d'.",
+    simpleExplanation:
+      "This is how you give someone an order or instruction in Spanish — \"Do this!\" Example: \"¡Habla más despacio!\" (Speak more slowly!) to a friend (tú), but \"¡Hable más despacio!\" to a stranger you'd address formally (usted) — same idea, different ending depending on who you're talking to. A handful of everyday verbs break the pattern for tú and just have to be memorized: \"¡Ven aquí!\" (Come here!), \"¡Dime la verdad!\" (Tell me the truth!).",
+    examples: [
+      { es: "¡Habla más despacio, por favor!", en: "Speak more slowly, please! (tú)" },
+      { es: "Escuche con atención, señor.", en: "Listen carefully, sir. (usted)" },
+      { es: "Vayamos al cine esta noche.", en: "Let's go to the movies tonight. (nosotros)" },
+    ],
+  },
+  {
+    id: "relative-clauses",
+    name: "Relative Clauses (que, quien, donde, cuyo)",
+    level: "advanced",
+    rule: "'Que' links most clauses about people or things. 'Quien(es)' refers only to people, usually after a comma or preposition. 'Donde' refers to places. 'Cuyo/a/os/as' means 'whose' and agrees with the noun that follows it, not with the owner.",
+    simpleExplanation:
+      "Relative clauses let you combine two sentences into one by pointing back at something you already mentioned — like English \"that\", \"who\", \"where\". \"Que\" is the everyday, all-purpose choice: \"El libro que leo es interesante\" (The book that I'm reading is interesting). Use \"quien\" only for people after a comma: \"Mi hermano, quien vive en Madrid, viene mañana\". \"Donde\" is for places: \"La ciudad donde nací\" (The city where I was born). \"Cuyo\" is trickier — it means \"whose\", but agrees with the THING owned, not the owner: \"El chico cuya madre es médica\" (The boy whose mother is a doctor).",
+    examples: [
+      { es: "La chica que vive al lado es mi amiga.", en: "The girl who lives next door is my friend." },
+      { es: "Mi hermano, quien vive en Madrid, viene mañana.", en: "My brother, who lives in Madrid, is coming tomorrow." },
+      { es: "La ciudad donde nací es muy bonita.", en: "The city where I was born is very beautiful." },
+    ],
+  },
+  {
+    id: "false-cognates",
+    name: "False Cognates (Falsos Amigos)",
+    level: "advanced",
+    rule: "False cognates look like an English word but mean something different — e.g. 'embarazada' means pregnant, not embarrassed; 'realizar' means to carry out/achieve, not to realize (that's 'darse cuenta'); 'éxito' means success, not exit (that's 'salida').",
+    simpleExplanation:
+      "These are the Spanish words that trick you because they LOOK exactly like an English word, but mean something completely different — a trap examiners love to test. The classic one: \"Estoy embarazada\" does NOT mean \"I'm embarrassed\" — it means \"I'm pregnant\"! Another: \"Voy a realizar mi sueño\" doesn't mean \"realize\" like understanding something, it means to make your dream happen. Learning these prevents genuinely funny (and sometimes serious) misunderstandings.",
+    examples: [
+      { es: "Mi hermana está embarazada de seis meses.", en: "My sister is six months pregnant (NOT embarrassed)." },
+      { es: "El equipo va a realizar el proyecto este verano.", en: "The team is going to carry out the project this summer (NOT realize)." },
+      { es: "La película fue un gran éxito.", en: "The movie was a big success (NOT exit)." },
+    ],
+  },
+  {
+    id: "heading-matching",
+    name: "Reading Strategy: Match the Heading",
+    level: "intermediate",
+    rule: "A real IB Paper 1 heading-matching task gives you a text split into sections and a list of headings (with a few extra, wrong ones) — you match each section to its best heading. The skill: find the main idea of a short passage, not just recognize repeated words.",
+    simpleExplanation:
+      "This isn't a grammar rule — it's an exam SKILL. You'll read a short paragraph and pick which title best summarizes what it's actually about, from a few tempting-but-wrong options. The trap options usually mention a word that appears in the paragraph but isn't the main idea. Practicing this trains you to read for the big picture instead of getting distracted by individual words — exactly what IB Paper 1's heading-matching section rewards.",
+    examples: [
+      { es: "Un párrafo sobre reciclaje en casa", en: "→ best heading: \"Pequeños gestos, gran impacto\" (not just any sentence mentioning \"basura\")." },
+      { es: "Un párrafo sobre un intercambio escolar", en: "→ best heading captures the OVERALL experience, not one detail from the middle." },
+      { es: "Cada párrafo tiene un título correcto y varios títulos distractores.", en: "Each paragraph has one correct heading and several plausible-but-wrong distractors." },
+    ],
+  },
+  {
+    id: "gap-fill",
+    name: "Reading Strategy: Word-Bank Gap-Fill",
+    level: "intermediate",
+    rule: "A real IB Paper 1 gap-fill task gives you a short word bank (usually a couple more words than blanks) and asks you to complete each blank with the word that fits both the grammar AND the meaning of the sentence — not just any word that 'sounds right'.",
+    simpleExplanation:
+      "You'll see a sentence with a blank and a small list of candidate words. Some words in the list are red herrings — they might be the right part of speech but the wrong meaning, or the right topic but the wrong grammatical form. This trains the exact skill IB Paper 1 tests: using both context and grammar together to pick the one word that truly fits, from a bank that's deliberately a little too big.",
+    examples: [
+      { es: "Banco: reciclar / contaminación / ahorrar / basura / energía / plástico", en: "Word bank example (Sharing the Planet theme)." },
+      { es: "Debemos ___ agua para proteger el medioambiente.", en: "→ correct answer: \"ahorrar\" (to save), not \"reciclar\" — both are plausible topically, but only one fits this sentence's meaning." },
+      { es: "Cada frase solo tiene una respuesta correcta del banco de palabras.", en: "Each sentence has exactly one correct answer from the word bank." },
     ],
   },
 ];

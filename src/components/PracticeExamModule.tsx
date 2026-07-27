@@ -10,16 +10,26 @@ import { Difficulty, GrammarExercise, QuizItem, ReadingPassage, ReadingQuestion 
 import WritingModule from "./WritingModule";
 import AudioAssignmentModule from "./AudioAssignmentModule";
 
-type Stage = "intro" | "reading" | "listening" | "grammar" | "vocabulary" | "writing" | "speaking" | "summary";
+type Stage = "intro" | "reading" | "reading-strategies" | "listening" | "grammar" | "vocabulary" | "writing" | "speaking" | "summary";
 
-const SECTION_STAGES: Stage[] = ["reading", "listening", "grammar", "vocabulary", "writing", "speaking"];
+const SECTION_STAGES: Stage[] = ["reading", "reading-strategies", "listening", "grammar", "vocabulary", "writing", "speaking"];
 const SECTION_LABELS: Partial<Record<Stage, string>> = {
   reading: "Reading",
+  "reading-strategies": "Reading Strategies",
   listening: "Listening",
   grammar: "Grammar",
   vocabulary: "Vocabulary",
   writing: "Writing",
   speaking: "Speaking",
+};
+/** Display labels for the summary score grid — separate from SECTION_LABELS
+ *  because the score keys are camelCase object keys, not Stage strings. */
+const SCORE_LABELS: Record<keyof typeof EMPTY_SCORES, string> = {
+  reading: "Reading",
+  readingStrategies: "Reading Strategies",
+  listening: "Listening",
+  grammar: "Grammar",
+  vocabulary: "Vocabulary",
 };
 
 interface SectionScore {
@@ -29,6 +39,7 @@ interface SectionScore {
 
 const EMPTY_SCORES = {
   reading: { correct: 0, total: 0 },
+  readingStrategies: { correct: 0, total: 0 },
   listening: { correct: 0, total: 0 },
   grammar: { correct: 0, total: 0 },
   vocabulary: { correct: 0, total: 0 },
@@ -95,25 +106,26 @@ function shuffle<T>(arr: T[]): T[] {
 }
 
 /** Full-length practice exam: generates one randomized bundle covering every
- *  part of the IB Spanish B SL exam — reading, listening, grammar,
- *  vocabulary, writing, and speaking — and walks the student through it as a
- *  single guided session, section by section, with a combined score summary
- *  at the end. Reading/listening/grammar/vocabulary reuse the shared
- *  QuestionSetSection below (self-graded, same pattern as
- *  ReadingModule/GrammarModule); writing and speaking embed the existing
- *  WritingModule/AudioAssignmentModule components directly rather than
- *  reimplementing their (considerably more complex) AI-feedback and
- *  recording flows. Every section awards points via the same shared
- *  gamification system as the standalone modules. */
+ *  part of the IB Spanish B SL exam — reading, reading strategies (heading-
+ *  matching, word-bank gap-fill), listening, grammar, vocabulary, writing,
+ *  and speaking — and walks the student through it as a single guided
+ *  session, section by section, with a combined score summary at the end.
+ *  All question-based sections reuse the shared QuestionSetSection below
+ *  (self-graded, same pattern as ReadingModule/GrammarModule); writing and
+ *  speaking embed the existing WritingModule/AudioAssignmentModule
+ *  components directly rather than reimplementing their (considerably more
+ *  complex) AI-feedback and recording flows. Every section awards points via
+ *  the same shared gamification system as the standalone modules. */
 export default function PracticeExamModule() {
   const { questions, completeQuiz, clearLastAward, setActiveSession } = useStore();
 
   const [stage, setStage] = useState<Stage>("intro");
   const [examReading, setExamReading] = useState<ReadingPassage | null>(null);
+  const [examReadingStrategies, setExamReadingStrategies] = useState<ExamQuestion[]>([]);
   const [examListening, setExamListening] = useState<ExamQuestion[]>([]);
   const [examGrammar, setExamGrammar] = useState<ExamQuestion[]>([]);
   const [examVocab, setExamVocab] = useState<ExamQuestion[]>([]);
-  const [scores, setScores] = useState<Record<"reading" | "listening" | "grammar" | "vocabulary", SectionScore>>(EMPTY_SCORES);
+  const [scores, setScores] = useState<Record<keyof typeof EMPTY_SCORES, SectionScore>>(EMPTY_SCORES);
   const [sectionPoints, setSectionPoints] = useState(0);
 
   // Lets the global milestone/engagement popups know the exam is in progress
@@ -135,7 +147,16 @@ export default function PracticeExamModule() {
     const listeningExs = await loadExercises("listening-tenses");
     setExamListening(shuffle(listeningExs).slice(0, 8).map(grammarToExam));
 
-    const grammarTopicIds = GRAMMAR_TOPICS.filter((t) => t.id !== "listening-tenses").map((t) => t.id);
+    // Heading-matching and gap-fill are IB Paper 1 reading strategies, not
+    // grammar rules — pulled into their own section instead of the generic
+    // grammar pool so the exam labels them accurately.
+    const READING_STRATEGY_TOPICS = ["heading-matching", "gap-fill"];
+    const strategyExs = (await Promise.all(READING_STRATEGY_TOPICS.map(loadExercises))).flat();
+    setExamReadingStrategies(shuffle(strategyExs).slice(0, 8).map(grammarToExam));
+
+    const grammarTopicIds = GRAMMAR_TOPICS.filter(
+      (t) => t.id !== "listening-tenses" && !READING_STRATEGY_TOPICS.includes(t.id)
+    ).map((t) => t.id);
     const allGrammarExs = (await Promise.all(grammarTopicIds.map(loadExercises))).flat();
     setExamGrammar(shuffle(allGrammarExs).slice(0, 10).map(grammarToExam));
 
@@ -156,6 +177,13 @@ export default function PracticeExamModule() {
       const award = completeQuiz(`exam-reading-${examReading.id}`, examReading.level, correct, total);
       setSectionPoints((p) => p + award.pointsAwarded);
     }
+    setStage("reading-strategies");
+  };
+
+  const finishReadingStrategies = (correct: number, total: number) => {
+    setScores((s) => ({ ...s, readingStrategies: { correct, total } }));
+    const award = completeQuiz("exam-reading-strategies", "medium", correct, total);
+    setSectionPoints((p) => p + award.pointsAwarded);
     setStage("listening");
   };
 
@@ -193,6 +221,7 @@ export default function PracticeExamModule() {
           </p>
           <ul className="mb-5 flex flex-col gap-1.5 text-sm text-slate-700">
             <li>📖 Reading comprehension — 1 passage, 5 questions</li>
+            <li>🧩 Reading strategies — 8 heading-matching &amp; word-bank gap-fill questions</li>
             <li>🎧 Listening comprehension — 8 audio questions</li>
             <li>✍️ Grammar — 10 questions across random topics</li>
             <li>🗂️ Vocabulary — 10 questions across random themes</li>
@@ -238,8 +267,20 @@ export default function PracticeExamModule() {
           <QuestionSetSection
             items={examReading.questions.map((q) => readingToExam(q, examReading))}
             onContinue={finishReading}
-            continueLabel="Continue to Listening →"
+            continueLabel="Continue to Reading Strategies →"
           />
+        </div>
+      )}
+
+      {stage === "reading-strategies" && (
+        <div className="animate-fade-slide-up flex flex-col gap-4">
+          <div className="rounded-xl border border-brand-200 bg-brand-50 p-4">
+            <p className="text-sm text-brand-800">
+              These questions practice the reading STRATEGIES IB Paper 1 tests — matching a heading to a paragraph,
+              and filling gaps from a word bank — not grammar rules.
+            </p>
+          </div>
+          <QuestionSetSection items={examReadingStrategies} onContinue={finishReadingStrategies} continueLabel="Continue to Listening →" />
         </div>
       )}
 
@@ -296,13 +337,13 @@ export default function PracticeExamModule() {
           <h2 className="mb-1 text-xl font-bold text-slate-900">Practice exam complete! 🎉</h2>
           <p className="mb-5 text-sm text-slate-500">Here&apos;s how you did across every section.</p>
 
-          <div className="mb-5 grid grid-cols-2 gap-3 sm:grid-cols-4">
+          <div className="mb-5 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
             {(Object.keys(scores) as (keyof typeof scores)[]).map((key) => {
               const s = scores[key];
               return (
                 <div key={key} className="rounded-xl border border-slate-200 bg-slate-50 p-3 text-center">
                   <p className="text-2xl font-extrabold text-brand-700">{s.total > 0 ? `${s.correct}/${s.total}` : "—"}</p>
-                  <p className="mt-1 text-xs font-semibold uppercase tracking-wide capitalize text-slate-500">{key}</p>
+                  <p className="mt-1 text-xs font-semibold uppercase tracking-wide text-slate-500">{SCORE_LABELS[key]}</p>
                 </div>
               );
             })}
