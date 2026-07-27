@@ -46,6 +46,72 @@ const EMPTY_SCORES = {
   vocabulary: { correct: 0, total: 0 },
 };
 
+/** One missed question, tagged with a human-readable section name — fed to
+ *  /api/exam-feedback so the AI report can reference actual missed content
+ *  ("you mixed up preterite vs. imperfect") instead of generic advice. */
+interface MissedQuestion {
+  section: string;
+  prompt: string;
+  studentAnswer: string;
+  correctAnswer: string;
+}
+
+interface ExamFeedback {
+  estimatedGrade: number;
+  gradeRationale: string;
+  summary: string;
+  sectionFeedback: { section: string; comment: string; tip: string }[];
+  priorityFocus: string[];
+}
+
+/** IB-style 1-7 grade estimate from a raw percentage — the same rough
+ *  boundaries used by most unofficial IB prep tools. Used both as the local
+ *  (no-API-key) fallback and to sanity-bound whatever the AI returns. */
+function estimateGradeFromPercent(pct: number): number {
+  if (pct >= 90) return 7;
+  if (pct >= 80) return 6;
+  if (pct >= 70) return 5;
+  if (pct >= 60) return 4;
+  if (pct >= 50) return 3;
+  if (pct >= 40) return 2;
+  return 1;
+}
+
+/** No-API-key fallback: a plain percentage-based grade estimate plus
+ *  generic (not content-aware) per-section comments, so the summary screen
+ *  is still useful without ANTHROPIC_API_KEY configured. */
+function buildLocalExamFeedback(scores: Record<string, SectionScore>, labels: Record<string, string>): ExamFeedback {
+  const entries = Object.entries(scores).filter(([, s]) => s.total > 0);
+  const totalCorrect = entries.reduce((sum, [, s]) => sum + s.correct, 0);
+  const totalQuestions = entries.reduce((sum, [, s]) => sum + s.total, 0);
+  const pct = totalQuestions > 0 ? (totalCorrect / totalQuestions) * 100 : 0;
+
+  const sectionFeedback = entries.map(([key, s]) => {
+    const sectionPct = (s.correct / s.total) * 100;
+    const comment =
+      sectionPct >= 80
+        ? "Strong performance in this section."
+        : sectionPct >= 50
+        ? "Solid, with some room to grow."
+        : "This section needs focused review.";
+    const tip =
+      sectionPct >= 80
+        ? "Keep this up — try a harder difficulty next time to keep challenging yourself."
+        : "Revisit the questions you missed above and reread their tips/justifications before your next attempt.";
+    return { section: labels[key] ?? key, comment, tip };
+  });
+
+  const weakest = [...entries].sort((a, b) => a[1].correct / a[1].total - b[1].correct / b[1].total)[0];
+
+  return {
+    estimatedGrade: estimateGradeFromPercent(pct),
+    gradeRationale: `Based on ${totalCorrect}/${totalQuestions} (${Math.round(pct)}%) across the auto-graded sections only — Writing and Speaking are assessed separately above. This is a rough estimate, not an official grade.`,
+    summary: `You scored ${totalCorrect}/${totalQuestions} (${Math.round(pct)}%) on this attempt's auto-graded sections.`,
+    sectionFeedback,
+    priorityFocus: weakest ? [`Focus on ${labels[weakest[0]] ?? weakest[0]} next — that was your lowest-scoring section this attempt.`] : [],
+  };
+}
+
 /** A single self-graded question, normalized down to one shared shape so
  *  reading/listening/grammar/vocabulary questions — which come from four
  *  differently-typed content pools — can all be rendered and checked by the
@@ -135,6 +201,10 @@ export default function PracticeExamModule() {
   const [examVocab, setExamVocab] = useState<ExamQuestion[]>([]);
   const [scores, setScores] = useState<Record<keyof typeof EMPTY_SCORES, SectionScore>>(EMPTY_SCORES);
   const [sectionPoints, setSectionPoints] = useState(0);
+  const [examMissed, setExamMissed] = useState<MissedQuestion[]>([]);
+  const [examFeedback, setExamFeedback] = useState<ExamFeedback | null>(null);
+  const [feedbackLoading, setFeedbackLoading] = useState(false);
+  const [feedbackSource, setFeedbackSource] = useState<"ai" | "local" | null>(null);
 
   // Lets the global milestone/engagement popups know the exam is in progress
   // — important here specifically, since the exam awards points after every
@@ -175,12 +245,18 @@ export default function PracticeExamModule() {
 
     setScores(EMPTY_SCORES);
     setSectionPoints(0);
+    setExamMissed([]);
+    setExamFeedback(null);
+    setFeedbackSource(null);
     clearLastAward();
     setStage("reading");
   };
 
-  const finishReading = (correct: number, total: number) => {
+  const tagSection = (section: string, missed: MissedQuestion[]) => missed.map((m) => ({ ...m, section }));
+
+  const finishReading = (correct: number, total: number, missed: MissedQuestion[]) => {
     setScores((s) => ({ ...s, reading: { correct, total } }));
+    setExamMissed((prev) => [...prev, ...tagSection("Reading", missed)]);
     if (examReading) {
       const award = completeQuiz(`exam-reading-${examReading.id}`, examReading.level, correct, total);
       setSectionPoints((p) => p + award.pointsAwarded);
@@ -188,33 +264,82 @@ export default function PracticeExamModule() {
     setStage("reading-strategies");
   };
 
-  const finishReadingStrategies = (correct: number, total: number) => {
+  const finishReadingStrategies = (correct: number, total: number, missed: MissedQuestion[]) => {
     setScores((s) => ({ ...s, readingStrategies: { correct, total } }));
+    setExamMissed((prev) => [...prev, ...tagSection("Reading Strategies", missed)]);
     const award = completeQuiz("exam-reading-strategies", "medium", correct, total);
     setSectionPoints((p) => p + award.pointsAwarded);
     setStage("listening");
   };
 
-  const finishListening = (correct: number, total: number) => {
+  const finishListening = (correct: number, total: number, missed: MissedQuestion[]) => {
     setScores((s) => ({ ...s, listening: { correct, total } }));
+    setExamMissed((prev) => [...prev, ...tagSection("Listening", missed)]);
     const award = completeQuiz("exam-listening", "medium", correct, total);
     setSectionPoints((p) => p + award.pointsAwarded);
     setStage("grammar");
   };
 
-  const finishGrammar = (correct: number, total: number) => {
+  const finishGrammar = (correct: number, total: number, missed: MissedQuestion[]) => {
     setScores((s) => ({ ...s, grammar: { correct, total } }));
+    setExamMissed((prev) => [...prev, ...tagSection("Grammar", missed)]);
     const award = completeQuiz("exam-grammar", "medium", correct, total);
     setSectionPoints((p) => p + award.pointsAwarded);
     setStage("vocabulary");
   };
 
-  const finishVocabulary = (correct: number, total: number) => {
+  const finishVocabulary = (correct: number, total: number, missed: MissedQuestion[]) => {
     setScores((s) => ({ ...s, vocabulary: { correct, total } }));
+    setExamMissed((prev) => [...prev, ...tagSection("Vocabulary", missed)]);
     const award = completeQuiz("exam-vocabulary", "medium", correct, total);
     setSectionPoints((p) => p + award.pointsAwarded);
     setStage("writing");
   };
+
+  // Fetches the AI exam report once the summary screen is reached — falls
+  // back to a local percentage-based estimate if no API key is configured
+  // or the request fails, same pattern as WritingModule/AudioAssignmentModule.
+  useEffect(() => {
+    if (stage !== "summary") return;
+    let cancelled = false;
+    setFeedbackLoading(true);
+    (async () => {
+      try {
+        const res = await fetch("/api/exam-feedback", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            scores: (Object.keys(scores) as (keyof typeof scores)[])
+              .filter((k) => scores[k].total > 0)
+              .map((k) => ({ section: SCORE_LABELS[k], correct: scores[k].correct, total: scores[k].total })),
+            missed: examMissed,
+          }),
+        });
+        const data = res.ok ? await res.json() : { available: false };
+        if (cancelled) return;
+        if (data.available) {
+          setExamFeedback(data.feedback);
+          setFeedbackSource("ai");
+        } else {
+          setExamFeedback(buildLocalExamFeedback(scores, SCORE_LABELS));
+          setFeedbackSource("local");
+        }
+      } catch {
+        if (!cancelled) {
+          setExamFeedback(buildLocalExamFeedback(scores, SCORE_LABELS));
+          setFeedbackSource("local");
+        }
+      } finally {
+        if (!cancelled) setFeedbackLoading(false);
+      }
+    })();
+    return () => {
+      cancelled = true;
+    };
+    // Only fire once when the summary screen is reached — scores/examMissed
+    // are stable by then (nothing mutates them after finishVocabulary).
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [stage]);
 
   const currentSectionIndex = SECTION_STAGES.indexOf(stage);
 
@@ -373,6 +498,58 @@ export default function PracticeExamModule() {
             </p>
           )}
 
+          {feedbackLoading && (
+            <div className="mb-5 flex items-center gap-2 rounded-xl border border-slate-200 bg-slate-50 p-4 text-sm text-slate-600">
+              <span className="inline-block h-4 w-4 animate-spin rounded-full border-2 border-brand-400 border-t-transparent" />
+              Analyzing your performance…
+            </div>
+          )}
+
+          {!feedbackLoading && examFeedback && (
+            <div className="mb-5 rounded-xl border border-slate-200 bg-white p-5 text-left shadow-sm">
+              <div className="mb-3 flex flex-wrap items-center justify-between gap-3 border-b border-slate-100 pb-3">
+                <div>
+                  <p className="eyebrow mb-1">{feedbackSource === "ai" ? "AI-generated report" : "Automatic estimate"}</p>
+                  <h3 className="text-base font-bold text-slate-900">Your practice exam report</h3>
+                </div>
+                <div className="flex items-center gap-2 rounded-xl border border-brand-200 bg-brand-50 px-4 py-2 text-center">
+                  <div>
+                    <p className="text-2xl font-extrabold leading-none text-brand-700">{examFeedback.estimatedGrade}/7</p>
+                    <p className="mt-0.5 text-[10px] font-semibold uppercase tracking-wide text-brand-600">Estimated grade</p>
+                  </div>
+                </div>
+              </div>
+
+              <p className="mb-3 text-sm text-slate-700">{examFeedback.summary}</p>
+              {examFeedback.gradeRationale && <p className="mb-4 text-xs italic text-slate-500">{examFeedback.gradeRationale}</p>}
+
+              {examFeedback.sectionFeedback.length > 0 && (
+                <div className="mb-4 flex flex-col gap-2">
+                  {examFeedback.sectionFeedback.map((sf, i) => (
+                    <div key={i} className="rounded-lg border border-slate-200 p-3">
+                      <p className="text-sm font-semibold text-slate-800">{sf.section}</p>
+                      {sf.comment && <p className="mt-0.5 text-sm text-slate-600">{sf.comment}</p>}
+                      {sf.tip && <p className="mt-1 text-xs text-slate-500">💡 {sf.tip}</p>}
+                    </div>
+                  ))}
+                </div>
+              )}
+
+              {examFeedback.priorityFocus.length > 0 && (
+                <div className="rounded-lg bg-amber-50 p-3">
+                  <p className="mb-1.5 text-sm font-semibold text-amber-800">What to focus on next</p>
+                  <ul className="flex flex-col gap-1">
+                    {examFeedback.priorityFocus.map((tip, i) => (
+                      <li key={i} className="flex items-start gap-1.5 text-sm text-amber-800">
+                        <span>→</span> {tip}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </div>
+          )}
+
           <button type="button" onClick={generateExam} className="btn-primary">
             Take another practice exam
           </button>
@@ -393,7 +570,7 @@ function QuestionSetSection({
   continueLabel,
 }: {
   items: ExamQuestion[];
-  onContinue: (correct: number, total: number) => void;
+  onContinue: (correct: number, total: number, missed: MissedQuestion[]) => void;
   continueLabel: string;
 }) {
   const { recordQuestionResult } = useStore();
@@ -404,6 +581,15 @@ function QuestionSetSection({
   const isCorrect = (q: ExamQuestion) => normalizeAnswer(answers[q.id] ?? "") === normalizeAnswer(q.correctAnswer);
   const correctCount = items.filter(isCorrect).length;
   const answeredCount = items.filter((q) => (answers[q.id] ?? "").trim().length > 0).length;
+  const getMissed = (): MissedQuestion[] =>
+    items
+      .filter((q) => !isCorrect(q))
+      .map((q) => ({
+        section: "", // filled in by the parent, which knows which section this is
+        prompt: q.prompt,
+        studentAnswer: answers[q.id]?.trim() || "(no answer)",
+        correctAnswer: q.correctAnswer,
+      }));
 
   const handleCheck = () => {
     // Guards against double-counting the whole section — a rapid double-click
@@ -426,7 +612,7 @@ function QuestionSetSection({
   onContinueRef.current = onContinue;
   useEffect(() => {
     if (!checked || correctCount !== items.length) return;
-    const timer = setTimeout(() => onContinueRef.current(correctCount, items.length), 900);
+    const timer = setTimeout(() => onContinueRef.current(correctCount, items.length, []), 900);
     return () => clearTimeout(timer);
   }, [checked]);
 
@@ -549,7 +735,7 @@ function QuestionSetSection({
             <p className="text-lg font-bold text-slate-900">
               {correctCount} / {items.length} correct
             </p>
-            <button type="button" onClick={() => onContinue(correctCount, items.length)} className="btn-accent">
+            <button type="button" onClick={() => onContinue(correctCount, items.length, getMissed())} className="btn-accent">
               {continueLabel}
             </button>
           </>

@@ -184,3 +184,10 @@ body {
 .dark .text-teal-900 { color: theme('colors.teal.200'); }
 .dark .text-teal-800 { color: theme('colors.teal.300'); }
 .dark .border-teal-200 { border-color: theme('colors.teal.800'); }
+
+/* odd:/even: row-striping variants (VocabList.tsx, GrammarCheatSheet.tsx)
+   compile to their own :nth-child selector, not a plain .bg-white/.bg-slate-50
+   class — the rules above never matched them, which is why table rows stayed
+   white in dark mode while everything else around them went dark. */
+.dark .odd\:bg-white:nth-child(odd) { background-color: theme('colors.slate.900'); }
+.dark .even\:bg-slate-50\/60:nth-child(even) { background-color: theme('colors.slate.800 / 40%'); }
