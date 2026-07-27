@@ -6644,7 +6644,7 @@ function buildVocabQuestions(theme: Theme): QuizItem[] {
       id: `${theme.id}-v${i}-ib-context`,
       themeId: theme.id,
       type: "short",
-      prompt: `[Comprensión de lectura - ${v.subtopic}] Completa la oración con la palabra adecuada: "En el contexto de ${v.subtopic.toLowerCase()}, ___ (${v.en}) es fundamental para el desarrollo."`,
+      prompt: `[Comprensión de lectura - ${v.subtopic}] Completa la oración con la palabra adecuada: "___ (${v.en}) es un concepto fundamental para entender este tema."`,
       correctAnswer: v.es,
       difficulty: "medium",
       points: 25,
@@ -6661,7 +6661,7 @@ function buildVocabQuestions(theme: Theme): QuizItem[] {
       correctAnswer: v.es,
       difficulty: "easy",
       points: 15,
-      explanation: `"${v.es}" es el término técnico clave para la subtemática ${v.subtopic}.`,
+      explanation: `"${v.es}" es el término técnico clave para el tema "${v.subtopic}".`,
     });
 
     // 8. IB Synonym & Vocabulary Matching MCQ
