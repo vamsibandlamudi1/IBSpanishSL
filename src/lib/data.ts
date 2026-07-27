@@ -2498,7 +2498,7 @@ const CORE_QUESTIONS: QuizItem[] = [
     themeId: "identities",
     type: "puzzle",
     prompt: "[Ordenar] Crea una oración sobre los valores:",
-    options: ["los","familia","transmite","la","valores","sus"],
+    options: ["familia", "transmite", "la", "valores", "sus"],
     correctAnswer: "la familia transmite sus valores",
     difficulty: "medium",
     points: 20,
@@ -3138,7 +3138,7 @@ const CORE_QUESTIONS: QuizItem[] = [
     themeId: "experiences",
     type: "puzzle",
     prompt: "[Ordenar] Crea una frase sobre el viaje:",
-    options: ["viaje","primera","fue","vez","mi","inolvidable"],
+    options: ["viaje", "primer", "fue", "mi", "inolvidable"],
     correctAnswer: "mi primer viaje fue inolvidable",
     difficulty: "easy",
     points: 10,
@@ -3319,7 +3319,7 @@ const CORE_QUESTIONS: QuizItem[] = [
     themeId: "experiences",
     type: "puzzle",
     prompt: "[Ordenar] Crea una frase sobre el carnaval:",
-    options: ["el","carnaval","celebra","todo","con","mundo","alegría"],
+    options: ["el", "carnaval", "se", "celebra", "con", "alegría", "en", "todo", "el", "mundo"],
     correctAnswer: "el carnaval se celebra con alegría en todo el mundo",
     difficulty: "hard",
     points: 30,
@@ -3934,7 +3934,7 @@ const CORE_QUESTIONS: QuizItem[] = [
     themeId: "social-organization",
     type: "puzzle",
     prompt: "[Ordenar] Crea una frase sobre la igualdad:",
-    options: ["igualdad","de","derechos","todos","merecemos","los"],
+    options: ["igualdad", "de", "derechos", "todos", "merecemos", "la"],
     correctAnswer: "todos merecemos la igualdad de derechos",
     difficulty: "medium",
     points: 20,
@@ -4097,7 +4097,7 @@ const CORE_QUESTIONS: QuizItem[] = [
   },
   {
     id: "cq-stp-g1",
-    themeId: "sharing-the-planet",
+    themeId: "sharing-planet",
     type: "mcq",
     prompt: "[Subjuntivo] 'Es urgente que los países ___ (tomar) medidas contra el cambio climático.'",
     options: ["tomen","toman","tomarán","tomaron"],
@@ -4107,7 +4107,7 @@ const CORE_QUESTIONS: QuizItem[] = [
   },
   {
     id: "cq-stp-g2",
-    themeId: "sharing-the-planet",
+    themeId: "sharing-planet",
     type: "short",
     prompt: "[Futuro] Conjuga 'reducir' en futuro (nosotros): 'Mañana ___ el consumo de plástico.'",
     correctAnswer: "reduciremos",
@@ -4116,7 +4116,7 @@ const CORE_QUESTIONS: QuizItem[] = [
   },
   {
     id: "cq-stp-g3",
-    themeId: "sharing-the-planet",
+    themeId: "sharing-planet",
     type: "mcq",
     prompt: "[Condicional] 'Si todos recicláramos más, ___ (producir) menos residuos.'",
     options: ["produciríamos","producimos","produciremos","produjimos"],
@@ -4126,7 +4126,7 @@ const CORE_QUESTIONS: QuizItem[] = [
   },
   {
     id: "cq-stp-g4",
-    themeId: "sharing-the-planet",
+    themeId: "sharing-planet",
     type: "puzzle",
     prompt: "[Ordenar] Crea una frase sobre el medio ambiente:",
     options: ["debemos","planeta","el","proteger","todos"],
@@ -4136,7 +4136,7 @@ const CORE_QUESTIONS: QuizItem[] = [
   },
   {
     id: "cq-stp-g5",
-    themeId: "sharing-the-planet",
+    themeId: "sharing-planet",
     type: "mcq",
     prompt: "[Gramática] 'Si ___ (querer/nosotros) salvar el planeta, ___ que actuar ya.' ¿Qué verbos son correctos?",
     options: ["queremos / tenemos","quisiéramos / tendríamos","quisimos / tuvimos","querremos / tendremos"],
@@ -4147,7 +4147,7 @@ const CORE_QUESTIONS: QuizItem[] = [
   },
   {
     id: "cq-stp-r1",
-    themeId: "sharing-the-planet",
+    themeId: "sharing-planet",
     type: "mcq",
     prompt: "[Comprensión] 'El cambio climático afecta de forma desproporcionada a los países más pobres.' ¿A quiénes afecta más el cambio climático?",
     options: ["a los países más pobres","a todos por igual","solo a los países ricos","a los países con más tecnología"],
@@ -4157,7 +4157,7 @@ const CORE_QUESTIONS: QuizItem[] = [
   },
   {
     id: "cq-stp-r2",
-    themeId: "sharing-the-planet",
+    themeId: "sharing-planet",
     type: "mcq",
     prompt: "[Vocabulario en contexto] '...la deforestación ha destruido millones de hectáreas de bosque...' ¿Qué significa 'deforestación'?",
     options: ["deforestation","desert formation","reforestation","forestry"],
@@ -4167,7 +4167,7 @@ const CORE_QUESTIONS: QuizItem[] = [
   },
   {
     id: "cq-stp-r3",
-    themeId: "sharing-the-planet",
+    themeId: "sharing-planet",
     type: "mcq",
     prompt: "[Comprensión] 'La biodiversidad es esencial para el equilibrio de los ecosistemas.' ¿Para qué es esencial la biodiversidad?",
     options: ["para el equilibrio ecológico","para la economía global","solo para los animales","para el turismo"],
@@ -4177,7 +4177,7 @@ const CORE_QUESTIONS: QuizItem[] = [
   },
   {
     id: "cq-stp-r4",
-    themeId: "sharing-the-planet",
+    themeId: "sharing-planet",
     type: "mcq",
     prompt: "[Inferencia] 'Las energías renovables son la solución más viable para el futuro del planeta.' ¿Qué recomienda el texto?",
     options: ["usar energías renovables para el futuro","continuar con los combustibles fósiles","no hacer ningún cambio","solo ahorrar electricidad"],
@@ -4187,7 +4187,7 @@ const CORE_QUESTIONS: QuizItem[] = [
   },
   {
     id: "cq-stp-v1",
-    themeId: "sharing-the-planet",
+    themeId: "sharing-planet",
     type: "short",
     prompt: "[Vocabulario] ¿Cómo se dice 'climate change' en español?",
     correctAnswer: "el cambio climático",
@@ -4196,7 +4196,7 @@ const CORE_QUESTIONS: QuizItem[] = [
   },
   {
     id: "cq-stp-v2",
-    themeId: "sharing-the-planet",
+    themeId: "sharing-planet",
     type: "mcq",
     prompt: "¿Qué es 'la huella de carbono'?",
     options: ["carbon footprint","carbon tax","carbon fiber","carbon dioxide"],
@@ -4206,7 +4206,7 @@ const CORE_QUESTIONS: QuizItem[] = [
   },
   {
     id: "cq-stp-v3",
-    themeId: "sharing-the-planet",
+    themeId: "sharing-planet",
     type: "short",
     prompt: "[Vocabulario] ¿Cómo se dice 'biodiversity' en español?",
     correctAnswer: "la biodiversidad",
@@ -4215,7 +4215,7 @@ const CORE_QUESTIONS: QuizItem[] = [
   },
   {
     id: "cq-stp-v4",
-    themeId: "sharing-the-planet",
+    themeId: "sharing-planet",
     type: "mcq",
     prompt: "'La deforestación' en inglés es:",
     options: ["deforestation","defrost","reforestation","forestation"],
@@ -4225,7 +4225,7 @@ const CORE_QUESTIONS: QuizItem[] = [
   },
   {
     id: "cq-stp-v5",
-    themeId: "sharing-the-planet",
+    themeId: "sharing-planet",
     type: "short",
     prompt: "[Vocabulario] ¿Cómo se dice 'renewable energy' en español?",
     correctAnswer: "la energía renovable",
@@ -4234,7 +4234,7 @@ const CORE_QUESTIONS: QuizItem[] = [
   },
   {
     id: "cq-stp-v6",
-    themeId: "sharing-the-planet",
+    themeId: "sharing-planet",
     type: "mcq",
     prompt: "¿Qué significa 'el calentamiento global'?",
     options: ["global warming","global cooling","global flooding","global freezing"],
@@ -4244,7 +4244,7 @@ const CORE_QUESTIONS: QuizItem[] = [
   },
   {
     id: "cq-stp-v7",
-    themeId: "sharing-the-planet",
+    themeId: "sharing-planet",
     type: "short",
     prompt: "[Vocabulario] ¿Cómo se dice 'greenhouse effect' en español?",
     correctAnswer: "el efecto invernadero",
@@ -4253,7 +4253,7 @@ const CORE_QUESTIONS: QuizItem[] = [
   },
   {
     id: "cq-stp-v8",
-    themeId: "sharing-the-planet",
+    themeId: "sharing-planet",
     type: "mcq",
     prompt: "¿Qué es 'la escasez de agua'?",
     options: ["water scarcity","water quality","water cycle","water park"],
@@ -4263,7 +4263,7 @@ const CORE_QUESTIONS: QuizItem[] = [
   },
   {
     id: "cq-stp-v9",
-    themeId: "sharing-the-planet",
+    themeId: "sharing-planet",
     type: "short",
     prompt: "[Vocabulario] ¿Cómo se dice 'sustainable development' en español?",
     correctAnswer: "el desarrollo sostenible",
@@ -4272,7 +4272,7 @@ const CORE_QUESTIONS: QuizItem[] = [
   },
   {
     id: "cq-stp-v10",
-    themeId: "sharing-the-planet",
+    themeId: "sharing-planet",
     type: "mcq",
     prompt: "¿Qué significa 'los residuos plásticos'?",
     options: ["plastic waste","plastic plants","plastics market","recycling plant"],
@@ -4282,7 +4282,7 @@ const CORE_QUESTIONS: QuizItem[] = [
   },
   {
     id: "cq-stp-v11",
-    themeId: "sharing-the-planet",
+    themeId: "sharing-planet",
     type: "short",
     prompt: "[Vocabulario] ¿Cómo se dice 'deforestation' en español?",
     correctAnswer: "la deforestación",
@@ -4291,7 +4291,7 @@ const CORE_QUESTIONS: QuizItem[] = [
   },
   {
     id: "cq-stp-v12",
-    themeId: "sharing-the-planet",
+    themeId: "sharing-planet",
     type: "mcq",
     prompt: "¿Qué es 'la contaminación del aire'?",
     options: ["air pollution","air conditioning","air traffic","air freshener"],
@@ -4301,7 +4301,7 @@ const CORE_QUESTIONS: QuizItem[] = [
   },
   {
     id: "cq-stp-w1",
-    themeId: "sharing-the-planet",
+    themeId: "sharing-planet",
     type: "mcq",
     prompt: "[Registro] Escribes una petición formal al ayuntamiento sobre la contaminación local. ¿Cuál es la mejor apertura?",
     options: ["Me dirijo a usted para expresar mi preocupación por los niveles de contaminación en nuestra ciudad.","Hola, quería decirte algo sobre la contaminación.","La contaminación es un problema, ¿no?","Oye, tienes que hacer algo con el aire."],
@@ -4311,7 +4311,7 @@ const CORE_QUESTIONS: QuizItem[] = [
   },
   {
     id: "cq-stp-w2",
-    themeId: "sharing-the-planet",
+    themeId: "sharing-planet",
     type: "mcq",
     prompt: "[Conectores] Para introducir consecuencias del cambio climático, ¿qué conector es más apropiado?",
     options: ["Como consecuencia, / Por tanto,","Sin embargo,","Aunque,","En cambio,"],
@@ -4321,7 +4321,7 @@ const CORE_QUESTIONS: QuizItem[] = [
   },
   {
     id: "cq-stp-l1",
-    themeId: "sharing-the-planet",
+    themeId: "sharing-planet",
     type: "listening",
     prompt: "[Escuchar] Selecciona la traducción correcta:",
     audioText: "El calentamiento global es una amenaza para la supervivencia de muchas especies.",
@@ -4332,7 +4332,7 @@ const CORE_QUESTIONS: QuizItem[] = [
   },
   {
     id: "cq-stp-l2",
-    themeId: "sharing-the-planet",
+    themeId: "sharing-planet",
     type: "listening",
     prompt: "[Comprensión oral] Elige la opción correcta:",
     audioText: "Reciclar, reducir y reutilizar son las tres claves para proteger el medio ambiente.",
@@ -4343,7 +4343,7 @@ const CORE_QUESTIONS: QuizItem[] = [
   },
   {
     id: "cq-stp-l3",
-    themeId: "sharing-the-planet",
+    themeId: "sharing-planet",
     type: "listening",
     prompt: "[Escuchar] Selecciona el significado correcto:",
     audioText: "La deforestación provoca la pérdida de biodiversidad y agrava el cambio climático.",
@@ -4354,7 +4354,7 @@ const CORE_QUESTIONS: QuizItem[] = [
   },
   {
     id: "cq-stp-p1",
-    themeId: "sharing-the-planet",
+    themeId: "sharing-planet",
     type: "puzzle",
     prompt: "[Ordenar] Crea una frase sobre el reciclaje:",
     options: ["reciclar","importante","el","medio","para","es","ambiente"],
@@ -4364,27 +4364,27 @@ const CORE_QUESTIONS: QuizItem[] = [
   },
   {
     id: "cq-stp-p2",
-    themeId: "sharing-the-planet",
+    themeId: "sharing-planet",
     type: "puzzle",
     prompt: "[Ordenar] Crea una frase sobre la contaminación:",
-    options: ["humana","la","actividad","contaminación","provoca","el","la","mar","de"],
+    options: ["humana", "la", "actividad", "contaminación", "provoca", "la", "del", "mar"],
     correctAnswer: "la actividad humana provoca la contaminación del mar",
     difficulty: "hard",
     points: 30,
   },
   {
     id: "cq-stp-p3",
-    themeId: "sharing-the-planet",
+    themeId: "sharing-planet",
     type: "puzzle",
     prompt: "[Ordenar] Crea una frase sobre las energías renovables:",
-    options: ["futuro","energías","las","renovables","del","son","el"],
+    options: ["futuro", "energías", "las", "renovables", "son", "el"],
     correctAnswer: "las energías renovables son el futuro",
     difficulty: "easy",
     points: 10,
   },
   {
     id: "cq-stp-x1",
-    themeId: "sharing-the-planet",
+    themeId: "sharing-planet",
     type: "mcq",
     prompt: "[Cultura] ¿Qué país latinoamericano tiene uno de los mayores niveles de biodiversidad?",
     options: ["Brasil","España","Argentina","México"],
@@ -4394,7 +4394,7 @@ const CORE_QUESTIONS: QuizItem[] = [
   },
   {
     id: "cq-stp-x2",
-    themeId: "sharing-the-planet",
+    themeId: "sharing-planet",
     type: "mcq",
     prompt: "[IB Oral] ¿Cuál es la mejor pregunta de debate sobre el medio ambiente?",
     options: ["¿Qué medidas deberían tomar los gobiernos para combatir el cambio climático?","¿Cuándo fue el primer día del año?","¿Cuál es el color del cielo?","¿Qué es un adjetivo?"],
@@ -4404,7 +4404,7 @@ const CORE_QUESTIONS: QuizItem[] = [
   },
   {
     id: "cq-stp-x3",
-    themeId: "sharing-the-planet",
+    themeId: "sharing-planet",
     type: "short",
     prompt: "[Vocabulario] ¿Cómo se dice 'extinction' en español?",
     correctAnswer: "la extinción",
@@ -4413,7 +4413,7 @@ const CORE_QUESTIONS: QuizItem[] = [
   },
   {
     id: "cq-stp-x4",
-    themeId: "sharing-the-planet",
+    themeId: "sharing-planet",
     type: "mcq",
     prompt: "[Vocabulario] ¿Qué es 'el desarrollo sostenible'?",
     options: ["development that meets current needs without compromising future generations","economic development at all costs","industrialization","urban development"],
@@ -4423,7 +4423,7 @@ const CORE_QUESTIONS: QuizItem[] = [
   },
   {
     id: "cq-stp-x5",
-    themeId: "sharing-the-planet",
+    themeId: "sharing-planet",
     type: "mcq",
     prompt: "[Comprensión] '75% de los océanos están contaminados por residuos plásticos.' ¿Cuál es el porcentaje de océanos contaminados?",
     options: ["75%","50%","25%","100%"],
@@ -4433,7 +4433,7 @@ const CORE_QUESTIONS: QuizItem[] = [
   },
   {
     id: "cq-stp-x6",
-    themeId: "sharing-the-planet",
+    themeId: "sharing-planet",
     type: "short",
     prompt: "[Vocabulario] ¿Cómo se dice 'carbon footprint' en español?",
     correctAnswer: "la huella de carbono",
@@ -4442,7 +4442,7 @@ const CORE_QUESTIONS: QuizItem[] = [
   },
   {
     id: "cq-stp-x7",
-    themeId: "sharing-the-planet",
+    themeId: "sharing-planet",
     type: "mcq",
     prompt: "[Vocabulario] ¿Qué significa 'la sequía'?",
     options: ["drought","earthquake","flood","storm"],
@@ -4452,7 +4452,7 @@ const CORE_QUESTIONS: QuizItem[] = [
   },
   {
     id: "cq-stp-x8",
-    themeId: "sharing-the-planet",
+    themeId: "sharing-planet",
     type: "short",
     prompt: "[Vocabulario] ¿Cómo se dice 'natural disaster' en español?",
     correctAnswer: "el desastre natural",
@@ -4461,7 +4461,7 @@ const CORE_QUESTIONS: QuizItem[] = [
   },
   {
     id: "cq-stp-x9",
-    themeId: "sharing-the-planet",
+    themeId: "sharing-planet",
     type: "mcq",
     prompt: "[Subjuntivo] 'Es fundamental que nosotros ___ (proteger) los bosques tropicales.'",
     options: ["protejamos","protegemos","protegeremos","protegimos"],
@@ -4472,7 +4472,7 @@ const CORE_QUESTIONS: QuizItem[] = [
   },
   {
     id: "cq-stp-x10",
-    themeId: "sharing-the-planet",
+    themeId: "sharing-planet",
     type: "mcq",
     prompt: "[IB Theme] ¿Cuál de estas opciones es un ejemplo del tema 'Sharing the Planet'?",
     options: ["El impacto de la deforestación en América Latina","La celebración del carnaval","Los avances tecnológicos del siglo XXI","La vida de los adolescentes modernos"],
@@ -4482,7 +4482,7 @@ const CORE_QUESTIONS: QuizItem[] = [
   },
   {
     id: "cq-stp-x11",
-    themeId: "sharing-the-planet",
+    themeId: "sharing-planet",
     type: "short",
     prompt: "[Vocabulario] ¿Cómo se dice 'ecosystem' en español?",
     correctAnswer: "el ecosistema",
@@ -4491,7 +4491,7 @@ const CORE_QUESTIONS: QuizItem[] = [
   },
   {
     id: "cq-stp-x12",
-    themeId: "sharing-the-planet",
+    themeId: "sharing-planet",
     type: "mcq",
     prompt: "[Vocabulario] ¿Qué significa 'la reforestación'?",
     options: ["reforestation / replanting trees","deforestation","forest fires","natural selection"],
@@ -4501,17 +4501,17 @@ const CORE_QUESTIONS: QuizItem[] = [
   },
   {
     id: "cq-stp-x13",
-    themeId: "sharing-the-planet",
+    themeId: "sharing-planet",
     type: "puzzle",
     prompt: "[Ordenar] Crea una frase sobre la energía solar:",
-    options: ["solar","la","más","energía","es","contaminante","menos","la"],
+    options: ["solar", "la", "energía", "es", "contaminante", "menos", "la"],
     correctAnswer: "la energía solar es la menos contaminante",
     difficulty: "medium",
     points: 20,
   },
   {
     id: "cq-stp-x14",
-    themeId: "sharing-the-planet",
+    themeId: "sharing-planet",
     type: "mcq",
     prompt: "[Vocabulario] ¿Qué es 'la lluvia ácida'?",
     options: ["acid rain","acid lake","rain forest","acid sea"],
@@ -4521,7 +4521,7 @@ const CORE_QUESTIONS: QuizItem[] = [
   },
   {
     id: "cq-stp-x15",
-    themeId: "sharing-the-planet",
+    themeId: "sharing-planet",
     type: "short",
     prompt: "[Vocabulario] ¿Cómo se dice 'global warming' en español?",
     correctAnswer: "el calentamiento global",
@@ -4570,7 +4570,7 @@ const CORE_QUESTIONS: QuizItem[] = [
   },
   {
     id: "cq-ib-p1-5",
-    themeId: "sharing-the-planet",
+    themeId: "sharing-planet",
     type: "mcq",
     prompt: "[IB Paper 1 - Comprensión] 'Sin una acción urgente, muchas especies animales se extinguirán en los próximos 50 años.' ¿Qué pasará sin acción urgente?",
     options: ["Many animal species will go extinct","Animals will adapt to climate change","Species will multiply","Nature will heal itself"],
@@ -4620,7 +4620,7 @@ const CORE_QUESTIONS: QuizItem[] = [
   },
   {
     id: "cq-ib-p2-5",
-    themeId: "sharing-the-planet",
+    themeId: "sharing-planet",
     type: "mcq",
     prompt: "[IB Paper 2 - Argumentación] ¿Cuál de estas expresiones introduce un contraargumento?",
     options: ["No obstante, / Sin embargo,","En resumen,","En primer lugar,","Por lo tanto,"],
@@ -4702,7 +4702,7 @@ const CORE_QUESTIONS: QuizItem[] = [
   },
   {
     id: "cq-mix-g5",
-    themeId: "sharing-the-planet",
+    themeId: "sharing-planet",
     type: "mcq",
     prompt: "[Imperativo] 'No ___ (tirar) basura en la naturaleza!' ¿Cuál es el imperativo negativo correcto (tú)?",
     options: ["tires","tira","tiras","tira"],
@@ -4754,7 +4754,7 @@ const CORE_QUESTIONS: QuizItem[] = [
   },
   {
     id: "cq-mix-g10",
-    themeId: "sharing-the-planet",
+    themeId: "sharing-planet",
     type: "short",
     prompt: "[Gramática] ¿Cómo se dice 'We must protect' usando una expresión de obligación impersonal? 'Se ___ proteger el medio ambiente.'",
     correctAnswer: "debe",
@@ -4804,7 +4804,7 @@ const CORE_QUESTIONS: QuizItem[] = [
   },
   {
     id: "cq-mix-v5",
-    themeId: "sharing-the-planet",
+    themeId: "sharing-planet",
     type: "mcq",
     prompt: "[Vocabulario global] ¿Cuál de estas palabras pertenece al campo semántico del medio ambiente?",
     options: ["la biodiversidad","la autoestima","la migración","el bilingüismo"],
@@ -4854,7 +4854,7 @@ const CORE_QUESTIONS: QuizItem[] = [
   },
   {
     id: "cq-mix-c5",
-    themeId: "sharing-the-planet",
+    themeId: "sharing-planet",
     type: "mcq",
     prompt: "[Cultura hispana] ¿Qué río sudamericano tiene la mayor biodiversidad de peces del mundo?",
     options: ["El Amazonas","El Nilo","El Danubio","El Orinoco"],
@@ -4882,14 +4882,42 @@ function deterministicOptions<T>(correct: T, distractors: [T, T, T], seed: numbe
   return options;
 }
 
-/** Turns one theme's vocabulary list into 5 question variants per word:
+/** Deterministic (non-random) shuffle for puzzle word order — same small
+ *  seeded PRNG used elsewhere in the codebase for reproducible variety. */
+function seededShuffleWords(words: string[], seed: number): string[] {
+  const copy = [...words];
+  let s = seed;
+  for (let i = copy.length - 1; i > 0; i--) {
+    s = (s * 9301 + 49297) % 233280;
+    const j = Math.floor((s / 233280) * (i + 1));
+    [copy[i], copy[j]] = [copy[j], copy[i]];
+  }
+  return copy;
+}
+
+/** Generic, part-of-speech-safe carrier sentences for the puzzle variant
+ *  below — every theme's vocabulary is an article+noun phrase (e.g. "la
+ *  actividad física"), so slotting it into any of these frames always
+ *  produces a grammatically valid sentence, rotated by word index for
+ *  variety. */
+const PUZZLE_FRAMES: ((es: string) => string)[] = [
+  (es) => `${es} es muy importante en mi vida diaria`,
+  (es) => `todos deberíamos aprender más sobre ${es}`,
+  (es) => `en mi opinión ${es} es un tema muy interesante`,
+  (es) => `mis padres siempre hablan sobre ${es} en casa`,
+];
+
+/** Turns one theme's vocabulary list into 9 question variants per word:
  *  recognize the meaning (mcq, both directions), produce it from memory
- *  (typed, both directions), and recognize it by ear (listening — the word
- *  is spoken aloud via the Web Speech API, no text shown, see
- *  QuizModule.tsx). This is what gets every theme comfortably past 200
- *  questions while staying grammatically safe — no sentence generation,
- *  just translation/listening drills, which is exactly how vocabulary range
- *  is tested on the real exam. */
+ *  (typed, both directions), recognize it by ear (listening — the word is
+ *  spoken aloud via the Web Speech API, no text shown), reading-context/
+ *  writing-register/synonym drills, and — the one exam format previously
+ *  missing from the auto-generated pool — a sentence-ordering puzzle. This
+ *  is what gets every theme comfortably past 1,000 questions while staying
+ *  grammatically safe — no free-form sentence generation, just
+ *  translation/listening/word-order drills built from fixed, POS-safe
+ *  frames, which is exactly how vocabulary range is tested on the real
+ *  exam. */
 function buildVocabQuestions(theme: Theme): QuizItem[] {
   const vocab = theme.vocabulary;
   const n = vocab.length;
@@ -4993,6 +5021,43 @@ function buildVocabQuestions(theme: Theme): QuizItem[] {
       points: 20,
       explanation: `En español estándar de IB, "${v.en}" se traduce como "${v.es}".`,
     });
+
+    // 9. Sentence-ordering puzzle — the exam format most underrepresented in
+    // the auto-generated pool (previously 0 puzzle items came from vocab;
+    // all 42 puzzle questions in the whole bank were hand-written).
+    const sentence = PUZZLE_FRAMES[i % PUZZLE_FRAMES.length](v.es);
+    items.push({
+      id: `${theme.id}-v${i}-puzzle`,
+      themeId: theme.id,
+      type: "puzzle",
+      prompt: `[Ordenar - ${v.subtopic}] Ordena las palabras para formar una oración correcta:`,
+      options: seededShuffleWords(sentence.split(" "), i + 5),
+      correctAnswer: sentence,
+      difficulty: "medium",
+      points: 25,
+      explanation: `Oración correcta: "${sentence}".`,
+    });
+
+    // 10. True/false meaning-check — mirrors the IB Paper 1 true/false
+    // format (QuizItemType has no dedicated "true-false" type, so it's
+    // answered as typed "verdadero"/"falso", same convention used for
+    // true/false answers elsewhere in the app). Capped to the first 20
+    // words per theme (100 total) rather than every word, so this rounds
+    // the bank out to ~1,000 net-new questions instead of another 850.
+    if (i < 20) {
+      const isTrueClaim = i % 2 === 0;
+      const claimedMeaning = isTrueClaim ? v.en : vocab[(i + 4) % n].en;
+      items.push({
+        id: `${theme.id}-v${i}-truefalse`,
+        themeId: theme.id,
+        type: "short",
+        prompt: `Verdadero o falso — responde "verdadero" o "falso": '${v.es}' significa '${claimedMeaning}' en inglés.`,
+        correctAnswer: isTrueClaim ? "verdadero" : "falso",
+        difficulty: "easy",
+        points: 10,
+        explanation: `'${v.es}' significa '${v.en}' en inglés.`,
+      });
+    }
   });
 
   return items;

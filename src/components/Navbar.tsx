@@ -6,6 +6,7 @@ import { useState } from "react";
 import { usePathname } from "next/navigation";
 import { useStore } from "@/lib/store";
 import EngagementGamePopup from "./EngagementGamePopup";
+import ThemeToggle from "./ThemeToggle";
 
 const LINKS = [
   { href: "/", label: "Home" },
@@ -53,6 +54,7 @@ export default function Navbar() {
           })}
         </nav>
         <div className="flex items-center gap-2">
+          <ThemeToggle />
           <button
             type="button"
             onClick={() => setShowGame(true)}

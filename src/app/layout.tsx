@@ -24,7 +24,19 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" translate="no">
+    <html lang="en" translate="no" suppressHydrationWarning>
+      <head>
+        {/* Sets the `dark` class on <html> before React hydrates, so the
+            page never flashes the wrong theme on load. Reads an explicit
+            saved choice first, falling back to the OS color-scheme
+            preference. Kept as a plain inline script (not a component) so
+            it runs synchronously, before first paint. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var s=localStorage.getItem('theme');var d=s?s==='dark':window.matchMedia('(prefers-color-scheme: dark)').matches;if(d)document.documentElement.classList.add('dark');}catch(e){}})();`,
+          }}
+        />
+      </head>
       <body>
         {/* StoreProvider makes student profile, content, and gamification
             state available to every page via useStore() — see lib/store.tsx */}
