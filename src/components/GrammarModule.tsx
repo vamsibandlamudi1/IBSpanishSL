@@ -1,7 +1,7 @@
 /// File: src/components/GrammarModule.tsx
 "use client";
 
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { GRAMMAR_TOPICS, GrammarTopicMeta, loadExercises } from "@/lib/grammar";
 import { useStore } from "@/lib/store";
 import { playCorrectDing, playIncorrectBuzz } from "@/lib/sound";
@@ -161,6 +161,21 @@ export default function GrammarModule() {
     completeQuiz(`grammar-${topic.id}`, LEVEL_TO_DIFFICULTY[topic.level], correctCount, activePool.length);
     setStage("results");
   };
+
+  // Auto-advance shortly after a correct answer — same reasoning as
+  // QuizModule: long enough to register the "¡Excelente!" confirmation,
+  // short enough not to feel like a wait. Wrong answers still require a
+  // manual click on Next, since there's a tip/explanation worth reading
+  // first. The ref keeps the timer calling the latest `next` closure
+  // without needing to re-run (and reset) this effect on every render.
+  const nextRef = useRef(next);
+  nextRef.current = next;
+  useEffect(() => {
+    if (!checked || !exercise) return;
+    if (normalizeAnswer(response) !== normalizeAnswer(exercise.correctAnswer)) return;
+    const timer = setTimeout(() => nextRef.current(), 900);
+    return () => clearTimeout(timer);
+  }, [checked]);
 
   return (
     <div className="flex flex-col gap-5">

@@ -171,6 +171,21 @@ export default function QuizModule() {
     advance();
   };
 
+  // Auto-advance shortly after a correct answer — long enough to see the
+  // "¡Correcto!" confirmation, short enough not to feel like a wait. Wrong
+  // answers still require a manual click on Next, since the student needs
+  // time to actually read the correct answer/explanation before moving on.
+  // Keeps a ref to the latest handleNextClick so the timer always calls the
+  // current closure (with the current question/quiz state) without having
+  // to re-run this effect — and therefore reset the timer — on every render.
+  const handleNextClickRef = useRef(handleNextClick);
+  handleNextClickRef.current = handleNextClick;
+  useEffect(() => {
+    if (lastQuestionResult !== "correct") return;
+    const timer = setTimeout(() => handleNextClickRef.current(), 900);
+    return () => clearTimeout(timer);
+  }, [lastQuestionResult]);
+
   const restart = () => {
     stopSpeaking();
     setIsSpeaking(false);

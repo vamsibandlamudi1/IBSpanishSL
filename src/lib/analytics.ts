@@ -9,6 +9,7 @@
 // student's weakest material first.
 
 import { Difficulty, QuestionResult, QuizItem, Theme } from "./types";
+import { shuffle } from "./utils";
 
 export interface ThemeAccuracy {
   themeId: string;
@@ -58,7 +59,16 @@ function questionAccuracy(results: QuestionResult[]): Map<string, number> {
  *  bucket, orders questions by ascending accuracy so previously-missed
  *  questions resurface before ones the student has already mastered.
  *  Never-attempted questions are treated as medium priority (0.5) so they're
- *  mixed in rather than always pushed to the back. */
+ *  mixed in rather than always pushed to the back.
+ *
+ *  Shuffles before sorting because Array.sort is stable: with a fresh
+ *  profile (or any group of questions tied at the same accuracy — the
+ *  common case, since every never-attempted question ties at 0.5), a
+ *  priority-only sort is a no-op that always preserves the bank's fixed
+ *  insertion order, so the exact same first `count` questions would come up
+ *  every single time a theme/difficulty combo is picked. Shuffling first
+ *  randomizes the order *within* each tied priority group while the stable
+ *  sort still keeps lower-accuracy questions ahead of higher-accuracy ones. */
 export function selectAdaptiveQuizQuestions(
   bank: QuizItem[],
   themeId: string,
@@ -69,7 +79,7 @@ export function selectAdaptiveQuizQuestions(
   const accuracy = questionAccuracy(results);
   const priority = (q: QuizItem) => accuracy.get(q.id) ?? 0.5;
 
-  const themeQuestions = bank.filter((q) => q.themeId === themeId);
+  const themeQuestions = shuffle(bank.filter((q) => q.themeId === themeId));
   const preferred = themeQuestions.filter((q) => q.difficulty === difficulty).sort((a, b) => priority(a) - priority(b));
   const rest = themeQuestions.filter((q) => q.difficulty !== difficulty).sort((a, b) => priority(a) - priority(b));
   return [...preferred, ...rest].slice(0, count);
@@ -78,16 +88,19 @@ export function selectAdaptiveQuizQuestions(
 /** Builds a cross-theme "remedial" quiz from the student's weakest questions
  *  overall (lowest accuracy first), used by the "Practice my weak areas"
  *  quick-start on the Quiz page. Falls back to a general sample if the
- *  student hasn't answered enough questions yet to have any weak spots. */
+ *  student hasn't answered enough questions yet to have any weak spots.
+ *  Shuffled before sorting for the same reason as selectAdaptiveQuizQuestions
+ *  above — otherwise ties (e.g. several questions all at 0% or 100%) always
+ *  resolve in the bank's fixed order, repeating the same quiz every time. */
 export function selectWeakAreaQuestions(bank: QuizItem[], results: QuestionResult[], count = 8): QuizItem[] {
   const accuracy = questionAccuracy(results);
-  const attempted = bank.filter((q) => accuracy.has(q.id));
+  const attempted = shuffle(bank.filter((q) => accuracy.has(q.id)));
 
   if (attempted.length < count) {
     // Not enough history yet — top off with a spread across themes/difficulties
     // so the "weak areas" quiz is still useful on day one.
     const remainingSlots = count - attempted.length;
-    const unattempted = bank.filter((q) => !accuracy.has(q.id)).slice(0, remainingSlots);
+    const unattempted = shuffle(bank.filter((q) => !accuracy.has(q.id))).slice(0, remainingSlots);
     return [...attempted.sort((a, b) => (accuracy.get(a.id) ?? 0.5) - (accuracy.get(b.id) ?? 0.5)), ...unattempted];
   }
 

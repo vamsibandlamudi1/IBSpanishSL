@@ -1,7 +1,7 @@
 /// File: src/components/PracticeExamModule.tsx
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { READING_PASSAGES } from "@/lib/reading";
 import { GRAMMAR_TOPICS, loadExercises } from "@/lib/grammar";
 import { useStore } from "@/lib/store";
@@ -411,6 +411,20 @@ function QuestionSetSection({
       if (q.themeId && q.difficulty) recordQuestionResult(q.id, q.themeId, q.difficulty, isCorrect(q));
     });
   };
+
+  // Auto-continue to the next section shortly after checking — but only on
+  // a perfect score. Sections here are graded as a whole batch, not one
+  // question at a time like Quiz/Grammar, so "auto-advance on correct"
+  // means "auto-advance when there's nothing wrong left to review." Any
+  // miss still needs a manual click on Continue, since that's exactly when
+  // the tip/justification is worth reading before moving on.
+  const onContinueRef = useRef(onContinue);
+  onContinueRef.current = onContinue;
+  useEffect(() => {
+    if (!checked || correctCount !== items.length) return;
+    const timer = setTimeout(() => onContinueRef.current(correctCount, items.length), 900);
+    return () => clearTimeout(timer);
+  }, [checked]);
 
   const setAnswer = (id: string, value: string) => {
     if (checked) return;
