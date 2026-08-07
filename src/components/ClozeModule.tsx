@@ -4,12 +4,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { CLOZE_PASSAGES } from "@/lib/cloze";
 import { useStore } from "@/lib/store";
-
-const LEVEL_STYLES: Record<string, string> = {
-  easy: "bg-green-100 text-green-700",
-  medium: "bg-amber-100 text-amber-700",
-  hard: "bg-rose-100 text-rose-700",
-};
+import { LEVEL_STYLES } from "@/lib/quizUi";
 
 const stripAccents = (s: string) => s.normalize("NFD").replace(/[̀-ͯ]/g, "");
 const normalize = (s: string) => stripAccents(s.trim().toLowerCase());
@@ -115,12 +110,15 @@ export default function ClozeModule() {
       </nav>
 
       <div key={passage.id} className="animate-fade-slide-up min-w-0 flex-1">
-        <div className="mb-4 rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
-          <div className="mb-3 flex flex-wrap items-center justify-between gap-2">
-            <h2 className="text-lg font-bold text-slate-900">{passage.title}</h2>
-            <span className={`rounded-full px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide ${LEVEL_STYLES[passage.level]}`}>
-              {passage.level}
-            </span>
+        <div className="mb-4 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+          <div className="mb-3 flex items-start gap-2.5">
+            <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-brand-50 text-sm">📝</span>
+            <div className="flex min-w-0 flex-1 flex-wrap items-center justify-between gap-2 pt-1">
+              <h2 className="text-lg font-bold text-slate-900">{passage.title}</h2>
+              <span className={`rounded-full px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide ${LEVEL_STYLES[passage.level]}`}>
+                {passage.level}
+              </span>
+            </div>
           </div>
 
           <div className="mb-4 rounded-lg bg-slate-50 p-3">
@@ -147,12 +145,12 @@ export default function ClozeModule() {
                   value={picked}
                   disabled={checked}
                   onChange={(e) => setAnswer(n, e.target.value)}
-                  className={`mx-1 rounded-md border px-1.5 py-0.5 text-sm font-medium ${
+                  className={`mx-1 rounded-md border px-1.5 py-0.5 text-sm font-medium outline-none transition focus:ring-2 focus:ring-brand-100 ${
                     correct
                       ? "border-green-400 bg-green-50 text-green-800"
                       : wrong
                       ? "border-red-400 bg-red-50 text-red-800"
-                      : "border-slate-300 bg-white text-slate-700"
+                      : "border-slate-300 bg-white text-slate-700 focus:border-brand-400"
                   }`}
                 >
                   <option value="">___</option>
@@ -167,10 +165,15 @@ export default function ClozeModule() {
           </p>
 
           {checked && (
-            <div className="mt-4 flex flex-col gap-1 border-t border-slate-100 pt-3">
+            <div className="mt-4 flex flex-col gap-1.5 border-t border-slate-100 pt-3">
               {passage.blanks.map((b) => (
-                <p key={b.n} className={`text-xs ${isCorrect(b.n) ? "text-green-700" : "text-red-700"}`}>
-                  {b.n}. {isCorrect(b.n) ? "¡Correcto!" : `Incorrecto — respuesta correcta: "${b.correctAnswer}"`}
+                <p
+                  key={b.n}
+                  className={`flex items-center gap-1.5 rounded-lg px-2.5 py-1.5 text-xs font-medium ${
+                    isCorrect(b.n) ? "bg-green-50 text-green-800" : "bg-red-50 text-red-800"
+                  }`}
+                >
+                  {isCorrect(b.n) ? "✓" : "✕"} {b.n}. {isCorrect(b.n) ? "¡Correcto!" : `Incorrecto — respuesta correcta: "${b.correctAnswer}"`}
                 </p>
               ))}
             </div>

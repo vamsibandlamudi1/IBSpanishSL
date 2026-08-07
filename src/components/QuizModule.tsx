@@ -386,6 +386,12 @@ export default function QuizModule() {
             {currentQuestion.type === "puzzle" && (
               <div className="pl-[42px]">
                 <PuzzleAnswer
+                  // Forces a fresh mount (and therefore a reset `picked` state) on every
+                  // question — without this, two consecutive puzzle-type questions reuse
+                  // the same component instance and the previous question's picked-word
+                  // chips bleed into the new one, leaving Submit checking a stale/garbage
+                  // sentence instead of the words actually shown.
+                  key={currentQuestion.id}
                   options={currentQuestion.options ?? []}
                   disabled={lastQuestionResult !== null}
                   onSubmit={(sentence) => {
@@ -529,8 +535,8 @@ function PuzzleAnswer({
 
   return (
     <div>
-      <div className="mb-3 flex min-h-[2.5rem] flex-wrap gap-2 rounded-md border border-dashed border-slate-300 p-2">
-        {picked.length === 0 && <span className="text-sm text-slate-400">Click words below in order...</span>}
+      <div className="mb-3 flex min-h-[3rem] flex-wrap items-center gap-2 rounded-lg border-2 border-dashed border-slate-200 bg-slate-50 p-2.5">
+        {picked.length === 0 && <span className="px-1 text-sm text-slate-400">Click words below in order...</span>}
         {picked.map((t, i) => (
           <button
             key={t}
@@ -538,8 +544,9 @@ function PuzzleAnswer({
             disabled={disabled}
             onClick={() => removeAt(i)}
             title="Remove this word"
-            className="flex items-center gap-1.5 rounded bg-brand-100 px-2 py-1 text-sm text-brand-700 hover:bg-brand-200"
+            className="flex items-center gap-1.5 rounded-full bg-brand-100 py-1.5 pl-3 pr-2 text-sm font-medium text-brand-800 shadow-sm transition hover:bg-brand-200 disabled:cursor-default"
           >
+            <span className="text-[10px] font-bold text-brand-500">{i + 1}</span>
             {t.split("#")[0]}
             <span className="text-brand-500">✕</span>
           </button>
@@ -552,13 +559,13 @@ function PuzzleAnswer({
             type="button"
             disabled={disabled}
             onClick={() => setPicked((p) => [...p, t])}
-            className="rounded border border-slate-200 px-2 py-1 text-sm hover:bg-slate-50"
+            className="rounded-full border border-slate-200 bg-white px-3 py-1.5 text-sm font-medium text-slate-700 transition hover:-translate-y-0.5 hover:border-brand-300 hover:bg-slate-50 hover:shadow-sm disabled:cursor-default"
           >
             {t.split("#")[0]}
           </button>
         ))}
       </div>
-      <div className="mt-3 flex gap-2">
+      <div className="mt-3 flex items-center gap-2">
         <button type="button" disabled={disabled || picked.length === 0} onClick={() => setPicked([])} className="btn-outline">
           Reset
         </button>
@@ -570,6 +577,11 @@ function PuzzleAnswer({
         >
           Submit sentence
         </button>
+        {!disabled && (
+          <span className="text-xs text-slate-400">
+            {picked.length} / {tagged.length} words
+          </span>
+        )}
       </div>
     </div>
   );
