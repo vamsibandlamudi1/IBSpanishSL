@@ -58,6 +58,33 @@ export interface QuizItem {
 }
 
 // ---------------------------------------------------------------------------
+// Cloze (paragraph gap-fill) exercises
+// ---------------------------------------------------------------------------
+
+export interface ClozeBlank {
+  /** Matches a `{{n}}` placeholder in the passage's bodyEs (1-indexed). */
+  n: number;
+  correctAnswer: string;
+}
+
+/** A full IB-style "fill in each gap from the word bank" paragraph: one
+ *  continuous Spanish text with several numbered blanks, graded together as
+ *  a set — distinct from QuizItem, which is always one prompt/one answer.
+ *  See components/ClozeModule.tsx. */
+export interface ClozePassage {
+  id: string;
+  themeId: string;
+  title: string;
+  level: Difficulty;
+  /** Spanish text with blanks marked as {{1}}, {{2}}, ... matching `blanks[].n`. */
+  bodyEs: string;
+  blanks: ClozeBlank[];
+  /** Extra distractor words mixed into the on-screen word bank alongside the
+   *  correct answers, so the blanks can't be solved by elimination alone. */
+  distractors: string[];
+}
+
+// ---------------------------------------------------------------------------
 // Audio tasks (Individual Oral simulation)
 // ---------------------------------------------------------------------------
 

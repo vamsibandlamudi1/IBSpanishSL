@@ -5,10 +5,12 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import ThemeSelector from "./ThemeSelector";
 import MiniGameBreak from "./MiniGameBreak";
+import ColorSplash from "./ColorSplash";
 import { useStore } from "@/lib/store";
 import { selectAdaptiveQuizQuestions, selectWeakAreaQuestions, weakestTheme } from "@/lib/analytics";
 import { speak, stopSpeaking } from "@/lib/speech";
 import { Difficulty, QuizItem } from "@/lib/types";
+import { LEVEL_STYLES, OPTION_LETTERS, TYPE_ICON } from "@/lib/quizUi";
 
 const DIFFICULTIES: Difficulty[] = ["easy", "medium", "hard"];
 /** Show a 50-second "brain break" mini-game every time the student's
@@ -244,10 +246,8 @@ export default function QuizModule() {
                   key={d}
                   type="button"
                   onClick={() => setDifficulty(d)}
-                  className={`rounded-full border px-3 py-1.5 text-sm font-medium capitalize ${
-                    difficulty === d
-                      ? "border-brand-400 bg-brand-100 text-brand-800"
-                      : "border-slate-200 text-slate-600 hover:bg-slate-50"
+                  className={`rounded-full border px-3 py-1.5 text-sm font-medium capitalize transition ${
+                    difficulty === d ? `border-transparent ${LEVEL_STYLES[d]}` : "border-slate-200 text-slate-600 hover:bg-slate-50"
                   }`}
                 >
                   {d}
@@ -255,26 +255,58 @@ export default function QuizModule() {
               ))}
             </div>
           </div>
-          <button type="button" disabled={!themeId} onClick={() => themeId && startQuiz(themeId, difficulty)} className="btn-primary w-fit px-6 py-2.5">
-            Start quiz
+          <button
+            type="button"
+            disabled={!themeId}
+            onClick={() => themeId && startQuiz(themeId, difficulty)}
+            className="btn-primary w-fit px-6 py-2.5"
+          >
+            Start quiz →
           </button>
         </div>
       )}
 
       {stage === "in-progress" && currentQuestion && (
-        <div className="mx-auto max-w-xl">
-          <p className="mb-2 text-sm text-slate-500">
-            Question {current + 1} / {quiz.length} · {currentQuestion.difficulty} · {currentQuestion.points} pts
-            {isWeakMode && " · Weak areas review"}
-          </p>
-          <div className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
-            {promptParts.tag && (
-              <p className="mb-1 text-xs font-semibold uppercase tracking-wide text-brand-500">{promptParts.tag}</p>
-            )}
-            <p className="mb-4 text-base font-semibold text-slate-900">{promptParts.text}</p>
+        <div className="max-w-2xl">
+          {/* Progress bar + status row, replacing the old plain-text "Question 1/6" line */}
+          <div className="mb-3 flex items-center gap-3">
+            <div className="flex flex-1 gap-1">
+              {quiz.map((q, i) => (
+                <div
+                  key={q.id}
+                  className={`h-1.5 flex-1 rounded-full transition-colors ${
+                    i < current ? "bg-brand-400" : i === current ? "bg-brand-300" : "bg-slate-100"
+                  }`}
+                />
+              ))}
+            </div>
+            <span className="shrink-0 text-xs font-medium text-slate-500">
+              {current + 1} / {quiz.length}
+            </span>
+          </div>
+          <div className="mb-4 flex flex-wrap items-center gap-2">
+            <span className={`rounded-full px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide ${LEVEL_STYLES[currentQuestion.difficulty]}`}>
+              {currentQuestion.difficulty}
+            </span>
+            <span className="pill-badge">⭐ {currentQuestion.points} pts</span>
+            {isWeakMode && <span className="pill-badge">⚡ Weak areas review</span>}
+          </div>
+
+          <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+            <div className="mb-3 flex items-start gap-2.5">
+              <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-brand-50 text-sm">
+                {TYPE_ICON[currentQuestion.type]}
+              </span>
+              <div className="min-w-0 flex-1 pt-1">
+                {promptParts.tag && (
+                  <p className="mb-1 text-xs font-semibold uppercase tracking-wide text-brand-500">{promptParts.tag}</p>
+                )}
+                <p className="text-base font-semibold leading-snug text-slate-900">{promptParts.text}</p>
+              </div>
+            </div>
 
             {currentQuestion.type === "listening" && (
-              <div className="mb-4">
+              <div className="mb-4 pl-[42px]">
                 <button
                   type="button"
                   onClick={togglePlayAudio}
@@ -289,32 +321,49 @@ export default function QuizModule() {
             )}
 
             {(currentQuestion.type === "mcq" || currentQuestion.type === "listening") && (
-              <div className="flex flex-col gap-2">
-                {currentQuestion.options?.map((opt) => (
-                  <button
-                    key={opt}
-                    type="button"
-                    disabled={lastQuestionResult !== null}
-                    onClick={() => {
-                      setResponse(opt);
-                      checkAnswer(opt);
-                    }}
-                    className={`rounded-md border px-3 py-2 text-left text-sm ${
-                      lastQuestionResult && response === opt
-                        ? lastQuestionResult === "correct"
-                          ? "border-green-400 bg-green-50"
-                          : "border-red-400 bg-red-50"
-                        : "border-slate-200 hover:bg-slate-50"
-                    }`}
-                  >
-                    {opt}
-                  </button>
-                ))}
+              <div className="flex flex-col gap-2 pl-[42px]">
+                {currentQuestion.options?.map((opt, i) => {
+                  const picked = lastQuestionResult && response === opt;
+                  const isRightAnswer = lastQuestionResult && opt === currentQuestion.correctAnswer;
+                  return (
+                    <button
+                      key={opt}
+                      type="button"
+                      disabled={lastQuestionResult !== null}
+                      onClick={() => {
+                        setResponse(opt);
+                        checkAnswer(opt);
+                      }}
+                      className={`flex items-center gap-3 rounded-lg border px-3 py-2.5 text-left text-sm transition ${
+                        isRightAnswer
+                          ? "border-green-400 bg-green-50 text-green-900"
+                          : picked
+                          ? "border-red-400 bg-red-50 text-red-900"
+                          : "border-slate-200 hover:border-brand-300 hover:bg-slate-50"
+                      } disabled:cursor-default`}
+                    >
+                      <span
+                        className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-xs font-bold ${
+                          isRightAnswer
+                            ? "bg-green-500 text-white"
+                            : picked
+                            ? "bg-red-500 text-white"
+                            : "bg-slate-100 text-slate-500"
+                        }`}
+                      >
+                        {OPTION_LETTERS[i] ?? i + 1}
+                      </span>
+                      <span className="flex-1">{opt}</span>
+                      {isRightAnswer && <span className="text-green-600">✓</span>}
+                      {picked && !isRightAnswer && <span className="text-red-600">✕</span>}
+                    </button>
+                  );
+                })}
               </div>
             )}
 
             {currentQuestion.type === "short" && (
-              <div className="flex flex-col gap-2">
+              <div className="flex flex-col gap-2 pl-[42px]">
                 <input
                   type="text"
                   value={response}
@@ -324,7 +373,7 @@ export default function QuizModule() {
                     if (e.key === "Enter" && response.trim()) checkAnswer(response);
                   }}
                   placeholder="Escribe tu respuesta en español..."
-                  className="rounded-md border border-slate-200 px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-brand-500"
+                  className="rounded-lg border border-slate-200 px-3.5 py-2.5 text-sm outline-none transition focus:border-brand-400 focus:ring-2 focus:ring-brand-100"
                 />
                 {lastQuestionResult === null && (
                   <button type="button" onClick={() => checkAnswer(response)} disabled={!response.trim()} className="btn-primary w-fit">
@@ -335,30 +384,38 @@ export default function QuizModule() {
             )}
 
             {currentQuestion.type === "puzzle" && (
-              <PuzzleAnswer
-                options={currentQuestion.options ?? []}
-                disabled={lastQuestionResult !== null}
-                onSubmit={(sentence) => {
-                  setResponse(sentence);
-                  checkAnswer(sentence);
-                }}
-              />
+              <div className="pl-[42px]">
+                <PuzzleAnswer
+                  options={currentQuestion.options ?? []}
+                  disabled={lastQuestionResult !== null}
+                  onSubmit={(sentence) => {
+                    setResponse(sentence);
+                    checkAnswer(sentence);
+                  }}
+                />
+              </div>
             )}
 
             {lastQuestionResult && (
-              <div className="mt-4 flex flex-col gap-2">
-                <div className="flex items-center justify-between">
+              <div className="mt-4 ml-[42px] flex flex-col gap-2">
+                <div
+                  className={`flex flex-wrap items-center justify-between gap-2 rounded-lg px-3.5 py-2.5 ${
+                    lastQuestionResult === "correct" ? "bg-green-50" : "bg-red-50"
+                  }`}
+                >
                   <p
-                    className={`text-sm font-medium ${
+                    className={`flex items-center gap-1.5 text-sm font-medium ${
                       lastQuestionResult === "correct" ? "text-green-700" : "text-red-700"
                     }`}
                   >
-                    {lastQuestionResult === "correct"
-                      ? "¡Correcto!"
-                      : `Incorrect — correct answer: "${currentQuestion.correctAnswer}"`}
+                    {lastQuestionResult === "correct" ? (
+                      <>✓ ¡Correcto!</>
+                    ) : (
+                      <>✕ Incorrect — correct answer: &ldquo;{currentQuestion.correctAnswer}&rdquo;</>
+                    )}
                   </p>
                   <button type="button" onClick={handleNextClick} className="btn-primary">
-                    {current + 1 < quiz.length ? "Next" : "Finish"}
+                    {current + 1 < quiz.length ? "Next →" : "Finish"}
                   </button>
                 </div>
                 {currentQuestion.explanation && (
@@ -372,51 +429,78 @@ export default function QuizModule() {
         </div>
       )}
 
-      {stage === "results" && (
-        <div className="mx-auto max-w-xl rounded-xl border border-slate-200 bg-white p-6 text-center shadow-sm">
-          <h2 className="text-xl font-bold text-slate-900">Quiz complete!</h2>
-          <p className="mt-2 text-3xl font-extrabold text-brand-600">
-            {correctCount} / {quiz.length}
-          </p>
-          <p className="mt-1 text-sm text-slate-600">
-            {isWeakMode ? "Weak areas review" : `Theme: ${selectedTheme?.name} · Difficulty: ${difficulty}`}
-          </p>
-          {lastAward && (
-            <div className="mt-4 rounded-lg bg-amber-50 p-3 text-sm text-amber-800">
-              <p className="font-semibold">+{lastAward.pointsAwarded} points</p>
-              {lastAward.newBadges.length > 0 && (
-                <p className="mt-1">
-                  New badge{lastAward.newBadges.length > 1 ? "s" : ""}:{" "}
-                  {lastAward.newBadges.map((b) => b.name).join(", ")}
-                </p>
-              )}
-              <p className="mt-1 italic">{lastAward.message}</p>
+      {stage === "results" && (() => {
+        const pct = quiz.length > 0 ? Math.round((correctCount / quiz.length) * 100) : 0;
+        const ringColor = pct >= 80 ? "text-green-500" : pct >= 50 ? "text-amber-500" : "text-rose-500";
+        return (
+          <div className="max-w-2xl rounded-2xl border border-slate-200 bg-white p-8 text-center shadow-sm">
+            <h2 className="text-xl font-bold text-slate-900">Quiz complete!</h2>
+
+            <div className="relative mx-auto my-5 flex h-32 w-32 items-center justify-center">
+              <ColorSplash />
+              <svg viewBox="0 0 100 100" className="h-32 w-32 -rotate-90">
+                <circle cx="50" cy="50" r="44" fill="none" strokeWidth="8" className="stroke-slate-100" />
+                <circle
+                  cx="50"
+                  cy="50"
+                  r="44"
+                  fill="none"
+                  strokeWidth="8"
+                  strokeLinecap="round"
+                  strokeDasharray={`${2 * Math.PI * 44}`}
+                  strokeDashoffset={`${2 * Math.PI * 44 * (1 - pct / 100)}`}
+                  className={`${ringColor} transition-all duration-700`}
+                  stroke="currentColor"
+                />
+              </svg>
+              <div className="absolute flex flex-col items-center">
+                <span className="text-2xl font-extrabold text-slate-900">{pct}%</span>
+                <span className="text-xs text-slate-500">
+                  {correctCount}/{quiz.length}
+                </span>
+              </div>
             </div>
-          )}
-          {missedItems.length > 0 && (
-            <div className="mt-4 rounded-lg bg-slate-50 p-3 text-left">
-              <p className="mb-2 text-sm font-semibold text-slate-800">Questions to review</p>
-              <ul className="flex flex-col gap-1.5">
-                {missedItems.map((q) => (
-                  <li key={q.id} className="text-xs text-slate-600">
-                    <span className="font-medium">{q.prompt}</span> — {q.correctAnswer}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          )}
-          <div className="mt-5 flex flex-wrap justify-center gap-2">
-            <button type="button" onClick={restart} className="btn-primary">
-              Take another quiz
-            </button>
-            {missedItems.length > 0 && (
-              <button type="button" onClick={startWeakAreaQuiz} className="btn-accent">
-                Practice weak areas now
-              </button>
+
+            <p className="text-sm text-slate-600">
+              {isWeakMode ? "Weak areas review" : `Theme: ${selectedTheme?.name} · Difficulty: ${difficulty}`}
+            </p>
+            {lastAward && (
+              <div className="mt-4 rounded-lg bg-amber-50 p-3 text-sm text-amber-800">
+                <p className="font-semibold">+{lastAward.pointsAwarded} points</p>
+                {lastAward.newBadges.length > 0 && (
+                  <p className="mt-1">
+                    New badge{lastAward.newBadges.length > 1 ? "s" : ""}:{" "}
+                    {lastAward.newBadges.map((b) => b.name).join(", ")}
+                  </p>
+                )}
+                <p className="mt-1 italic">{lastAward.message}</p>
+              </div>
             )}
+            {missedItems.length > 0 && (
+              <div className="mt-4 rounded-lg bg-slate-50 p-3 text-left">
+                <p className="mb-2 text-sm font-semibold text-slate-800">Questions to review</p>
+                <ul className="flex flex-col gap-1.5">
+                  {missedItems.map((q) => (
+                    <li key={q.id} className="text-xs text-slate-600">
+                      <span className="font-medium">{q.prompt}</span> — {q.correctAnswer}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+            <div className="mt-5 flex flex-wrap justify-center gap-2">
+              <button type="button" onClick={restart} className="btn-primary">
+                Take another quiz
+              </button>
+              {missedItems.length > 0 && (
+                <button type="button" onClick={startWeakAreaQuiz} className="btn-accent">
+                  Practice weak areas now
+                </button>
+              )}
+            </div>
           </div>
-        </div>
-      )}
+        );
+      })()}
     </>
   );
 }

@@ -55,7 +55,18 @@
       "Bash(sed -i 's/subtopic: \"Scientific innovation\"/subtopic: \"Innovation\"/g' src/lib/data.ts)",
       "Bash(sed -i 's/subtopic: \"Artistic expression\"/subtopic: \"Entertainment\"/g' src/lib/data.ts)",
       "Bash(sed -i 's/subtopic: \"Community\"/subtopic: \"Community life\"/g' src/lib/data.ts)",
-      "Bash(sed -i 's/subtopic: \"The workplace\"/subtopic: \"Employment\"/g' src/lib/data.ts)"
+      "Bash(sed -i 's/subtopic: \"The workplace\"/subtopic: \"Employment\"/g' src/lib/data.ts)",
+      "Bash(awk '/\"id\": \"identities-9-q5\"/,/vocabulary/' src/lib/reading.ts)",
+      "Bash(awk 'NR>=1686 && NR<=2098' src/lib/reading.ts)",
+      "Bash(awk 'NR>=1686 && NR<=2021 {n=gsub\\(/\\\\[/,\"[\"\\); m=gsub\\(/\\\\]/,\"]\"\\); if\\(n!=m\\) print NR\": open=\"n\" close=\"m\" :: \"$0}' src/lib/reading.ts)",
+      "Bash(awk 'NR>=1686 && NR<=2025 && /\"id\": \"reading-/' src/lib/reading.ts)",
+      "Bash(git checkout *)",
+      "Bash(grep -v \"^api$\\\\|globals\\\\|layout\\\\|page\\\\|favicon\")",
+      "Bash(grep -nP '\\(?=.*correctAnswer:\\\\s*\"\\([^\"]{1,60}\\)\"\\)\\(?=.*prompt:\\\\s*\"[^\"]*\\\\1[^\"]*\"\\)')",
+      "Bash(echo \"exit:$?\")",
+      "Bash(awk 'NR>=2647 && NR<=6560 && /^\\\\];/{print NR; exit}' src/lib/data.ts)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)"
     ]
   }
 }

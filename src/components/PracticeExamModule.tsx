@@ -8,8 +8,21 @@ import { useStore } from "@/lib/store";
 import { speak, stopSpeaking } from "@/lib/speech";
 import { deriveJustification } from "@/lib/deriveJustification";
 import { Difficulty, GrammarExercise, QuizItem, ReadingPassage, ReadingQuestion } from "@/lib/types";
+import { LEVEL_STYLES, OPTION_LETTERS } from "@/lib/quizUi";
 import WritingModule from "./WritingModule";
 import AudioAssignmentModule from "./AudioAssignmentModule";
+import ColorSplash from "./ColorSplash";
+
+// ExamQuestion's type union (true-false/mcq/short/listening) doesn't match
+// QuizItemType (mcq/short/puzzle/listening), so it gets its own icon map
+// instead of reusing lib/quizUi.ts's TYPE_ICON — everything else here
+// (difficulty color-coding, MCQ letter labels) is shared from there.
+const EXAM_TYPE_ICON: Record<ExamQuestion["type"], string> = {
+  "true-false": "⚖️",
+  mcq: "☰",
+  short: "✏️",
+  listening: "🎧",
+};
 
 type Stage = "intro" | "reading" | "reading-strategies" | "listening" | "grammar" | "vocabulary" | "writing" | "speaking" | "summary";
 
@@ -346,21 +359,31 @@ export default function PracticeExamModule() {
   return (
     <div className="flex flex-col gap-5">
       {stage === "intro" && (
-        <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+        <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
           <h2 className="mb-2 text-lg font-bold text-slate-900">Full practice exam</h2>
           <p className="mb-4 text-sm text-slate-600">
             A freshly randomized, full-length practice session covering every part of the IB Spanish B SL exam in one
             sitting:
           </p>
-          <ul className="mb-5 flex flex-col gap-1.5 text-sm text-slate-700">
-            <li>📖 Reading comprehension — 1 passage, 5 questions</li>
-            <li>🧩 Reading strategies — 8 heading-matching &amp; word-bank gap-fill questions</li>
-            <li>🎧 Listening comprehension — 8 audio questions</li>
-            <li>✍️ Grammar — 10 questions across random topics</li>
-            <li>🗂️ Vocabulary — 10 questions across random themes</li>
-            <li>📝 Writing task — 1 Paper 2 style prompt</li>
-            <li>🎙️ Speaking task — 1 Individual Oral simulation</li>
-          </ul>
+          <div className="mb-5 grid grid-cols-1 gap-2.5 sm:grid-cols-2">
+            {[
+              { icon: "📖", label: "Reading comprehension", detail: "1 passage, 5 questions" },
+              { icon: "🧩", label: "Reading strategies", detail: "8 heading-matching & gap-fill questions" },
+              { icon: "🎧", label: "Listening comprehension", detail: "8 audio questions" },
+              { icon: "✍️", label: "Grammar", detail: "10 questions across random topics" },
+              { icon: "🗂️", label: "Vocabulary", detail: "10 questions across random themes" },
+              { icon: "📝", label: "Writing task", detail: "1 Paper 2 style prompt" },
+              { icon: "🎙️", label: "Speaking task", detail: "1 Individual Oral simulation" },
+            ].map((section) => (
+              <div key={section.label} className="flex items-center gap-3 rounded-xl border border-slate-200 bg-slate-50 p-3">
+                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white text-base shadow-sm">{section.icon}</span>
+                <div>
+                  <p className="text-sm font-semibold text-slate-800">{section.label}</p>
+                  <p className="text-xs text-slate-500">{section.detail}</p>
+                </div>
+              </div>
+            ))}
+          </div>
           <p className="mb-5 text-xs text-slate-400">
             Every section is shuffled fresh each time, so you can take it as many times as you like. Each section is
             scored and awards points automatically, same as the rest of the app.
@@ -372,13 +395,28 @@ export default function PracticeExamModule() {
       )}
 
       {stage !== "intro" && stage !== "summary" && (
-        <div className="flex items-center justify-between gap-2">
-          <p className="text-sm text-slate-500">
-            Section {currentSectionIndex + 1} / {SECTION_STAGES.length} · {SECTION_LABELS[stage]}
-          </p>
-          <button type="button" onClick={() => setStage("intro")} className="text-xs font-medium text-slate-400 hover:text-slate-600 hover:underline">
-            Exit exam
-          </button>
+        <div>
+          <div className="mb-2 flex items-center gap-3">
+            <div className="flex flex-1 gap-1">
+              {SECTION_STAGES.map((s, i) => (
+                <div
+                  key={s}
+                  className={`h-1.5 flex-1 rounded-full transition-colors ${
+                    i < currentSectionIndex ? "bg-brand-400" : i === currentSectionIndex ? "bg-brand-300" : "bg-slate-100"
+                  }`}
+                />
+              ))}
+            </div>
+            <button type="button" onClick={() => setStage("intro")} className="shrink-0 text-xs font-medium text-slate-400 hover:text-slate-600 hover:underline">
+              Exit exam
+            </button>
+          </div>
+          <div className="flex items-center gap-2">
+            <span className="pill-badge">
+              Section {currentSectionIndex + 1} / {SECTION_STAGES.length}
+            </span>
+            <span className="text-sm font-semibold text-slate-700">{SECTION_LABELS[stage]}</span>
+          </div>
         </div>
       )}
 
@@ -465,10 +503,41 @@ export default function PracticeExamModule() {
         </div>
       )}
 
-      {stage === "summary" && (
-        <div className="animate-fade-slide-up rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
-          <h2 className="mb-1 text-xl font-bold text-slate-900">Practice exam complete! 🎉</h2>
-          <p className="mb-5 text-sm text-slate-500">Here&apos;s how you did across every section.</p>
+      {stage === "summary" && (() => {
+        const gradedEntries = (Object.keys(scores) as (keyof typeof scores)[]).filter((k) => scores[k].total > 0);
+        const totalCorrect = gradedEntries.reduce((sum, k) => sum + scores[k].correct, 0);
+        const totalQuestions = gradedEntries.reduce((sum, k) => sum + scores[k].total, 0);
+        const pct = totalQuestions > 0 ? Math.round((totalCorrect / totalQuestions) * 100) : 0;
+        const ringColor = pct >= 80 ? "text-green-500" : pct >= 50 ? "text-amber-500" : "text-rose-500";
+        return (
+        <div className="animate-fade-slide-up rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
+          <h2 className="mb-1 text-center text-xl font-bold text-slate-900">Practice exam complete! 🎉</h2>
+          <p className="mb-2 text-center text-sm text-slate-500">Here&apos;s how you did across every section.</p>
+
+          <div className="relative mx-auto my-5 flex h-32 w-32 items-center justify-center">
+            <ColorSplash />
+            <svg viewBox="0 0 100 100" className="h-32 w-32 -rotate-90">
+              <circle cx="50" cy="50" r="44" fill="none" strokeWidth="8" className="stroke-slate-100" />
+              <circle
+                cx="50"
+                cy="50"
+                r="44"
+                fill="none"
+                strokeWidth="8"
+                strokeLinecap="round"
+                strokeDasharray={`${2 * Math.PI * 44}`}
+                strokeDashoffset={`${2 * Math.PI * 44 * (1 - pct / 100)}`}
+                className={`${ringColor} transition-all duration-700`}
+                stroke="currentColor"
+              />
+            </svg>
+            <div className="absolute flex flex-col items-center">
+              <span className="text-2xl font-extrabold text-slate-900">{pct}%</span>
+              <span className="text-xs text-slate-500">
+                {totalCorrect}/{totalQuestions}
+              </span>
+            </div>
+          </div>
 
           <div className="mb-5 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
             {(Object.keys(scores) as (keyof typeof scores)[]).map((key) => {
@@ -554,7 +623,8 @@ export default function PracticeExamModule() {
             Take another practice exam
           </button>
         </div>
-      )}
+        );
+      })()}
     </div>
   );
 }
@@ -641,16 +711,28 @@ function QuestionSetSection({
         return (
           <div
             key={q.id}
-            className={`rounded-xl border bg-white p-4 shadow-sm transition ${
+            className={`rounded-2xl border bg-white p-5 shadow-sm transition ${
               correct ? "border-green-300 bg-green-50" : wrong ? "border-red-300 bg-red-50" : "border-slate-200"
             }`}
           >
-            <p className="mb-3 text-sm font-semibold text-slate-900">
-              {i + 1}. {q.prompt}
-            </p>
+            <div className="mb-3 flex items-start gap-2.5">
+              <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-brand-50 text-sm">
+                {EXAM_TYPE_ICON[q.type]}
+              </span>
+              <div className="flex-1 pt-1">
+                {q.difficulty && (
+                  <span className={`mb-1 inline-block rounded-full px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide ${LEVEL_STYLES[q.difficulty]}`}>
+                    {q.difficulty}
+                  </span>
+                )}
+                <p className="text-sm font-semibold leading-snug text-slate-900">
+                  {i + 1}. {q.prompt}
+                </p>
+              </div>
+            </div>
 
             {q.type === "listening" && (
-              <div className="mb-3">
+              <div className="mb-3 pl-[42px]">
                 <button
                   type="button"
                   onClick={() => togglePlay(q)}
@@ -662,64 +744,97 @@ function QuestionSetSection({
             )}
 
             {q.type === "true-false" && (
-              <div className="flex gap-2">
-                {["true", "false"].map((val) => (
-                  <button
-                    key={val}
-                    type="button"
-                    disabled={checked}
-                    onClick={() => setAnswer(q.id, val)}
-                    className={`rounded-full border px-4 py-1.5 text-sm font-medium ${
-                      picked === val ? "border-brand-400 bg-brand-100 text-brand-800" : "border-slate-200 text-slate-600 hover:bg-slate-50"
-                    }`}
-                  >
-                    {val === "true" ? "Verdadero" : "Falso"}
-                  </button>
-                ))}
+              <div className="flex gap-2 pl-[42px]">
+                {["true", "false"].map((val) => {
+                  const isRightAnswer = checked && val === q.correctAnswer;
+                  const isPicked = checked && picked === val;
+                  return (
+                    <button
+                      key={val}
+                      type="button"
+                      disabled={checked}
+                      onClick={() => setAnswer(q.id, val)}
+                      className={`flex items-center gap-1.5 rounded-full border px-4 py-1.5 text-sm font-medium transition ${
+                        isRightAnswer
+                          ? "border-green-400 bg-green-100 text-green-800"
+                          : isPicked
+                          ? "border-red-400 bg-red-100 text-red-800"
+                          : picked === val
+                          ? "border-brand-400 bg-brand-100 text-brand-800"
+                          : "border-slate-200 text-slate-600 hover:bg-slate-50"
+                      } disabled:cursor-default`}
+                    >
+                      {val === "true" ? "Verdadero" : "Falso"}
+                      {isRightAnswer && <span>✓</span>}
+                      {isPicked && !isRightAnswer && <span>✕</span>}
+                    </button>
+                  );
+                })}
               </div>
             )}
 
             {(q.type === "mcq" || q.type === "listening") && (
-              <div className="flex flex-col gap-2">
-                {q.options?.map((opt) => (
-                  <button
-                    key={opt}
-                    type="button"
-                    disabled={checked}
-                    onClick={() => setAnswer(q.id, opt)}
-                    className={`rounded-md border px-3 py-2 text-left text-sm ${
-                      picked === opt ? "border-brand-400 bg-brand-100 text-brand-800" : "border-slate-200 hover:bg-slate-50"
-                    }`}
-                  >
-                    {opt}
-                  </button>
-                ))}
+              <div className="flex flex-col gap-2 pl-[42px]">
+                {q.options?.map((opt, oi) => {
+                  const isPicked = picked === opt;
+                  const isRightAnswer = checked && opt === q.correctAnswer;
+                  return (
+                    <button
+                      key={opt}
+                      type="button"
+                      disabled={checked}
+                      onClick={() => setAnswer(q.id, opt)}
+                      className={`flex items-center gap-3 rounded-lg border px-3 py-2.5 text-left text-sm transition ${
+                        isRightAnswer
+                          ? "border-green-400 bg-green-50 text-green-900"
+                          : checked && isPicked
+                          ? "border-red-400 bg-red-50 text-red-900"
+                          : isPicked
+                          ? "border-brand-400 bg-brand-100 text-brand-800"
+                          : "border-slate-200 hover:border-brand-300 hover:bg-slate-50"
+                      } disabled:cursor-default`}
+                    >
+                      <span
+                        className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-xs font-bold ${
+                          isRightAnswer ? "bg-green-500 text-white" : checked && isPicked ? "bg-red-500 text-white" : "bg-slate-100 text-slate-500"
+                        }`}
+                      >
+                        {OPTION_LETTERS[oi] ?? oi + 1}
+                      </span>
+                      <span className="flex-1">{opt}</span>
+                      {isRightAnswer && <span className="text-green-600">✓</span>}
+                      {checked && isPicked && !isRightAnswer && <span className="text-red-600">✕</span>}
+                    </button>
+                  );
+                })}
               </div>
             )}
 
             {q.type === "short" && (
-              <input
-                type="text"
-                value={picked ?? ""}
-                disabled={checked}
-                onChange={(e) => setAnswer(q.id, e.target.value)}
-                placeholder="Escribe tu respuesta en español..."
-                className="w-full rounded-md border border-slate-200 px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-brand-500"
-              />
+              <div className="pl-[42px]">
+                <input
+                  type="text"
+                  value={picked ?? ""}
+                  disabled={checked}
+                  onChange={(e) => setAnswer(q.id, e.target.value)}
+                  placeholder="Escribe tu respuesta en español..."
+                  className="w-full rounded-lg border border-slate-200 px-3.5 py-2.5 text-sm outline-none transition focus:border-brand-400 focus:ring-2 focus:ring-brand-100"
+                />
+              </div>
             )}
 
             {checked && (
-              <>
-                <p className={`mt-3 text-sm font-medium ${correct ? "text-green-700" : "text-red-700"}`}>
-                  {correct
-                    ? "¡Correcto!"
-                    : `Incorrecto — respuesta correcta: "${q.correctAnswer === "true" ? "Verdadero" : q.correctAnswer === "false" ? "Falso" : q.correctAnswer}"`}
-                  {q.justification && <span className="ml-1 italic text-slate-500">({q.justification})</span>}
-                </p>
-                {!correct && q.tip && (
-                  <p className="mt-1.5 text-xs text-slate-500">💡 {q.tip}</p>
-                )}
-              </>
+              <div className="mt-3 ml-[42px] flex flex-col gap-1.5">
+                <div className={`flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm font-medium ${correct ? "bg-green-100 text-green-800" : "bg-red-100 text-red-800"}`}>
+                  {correct ? (
+                    <>✓ ¡Correcto!</>
+                  ) : (
+                    <>✕ Incorrecto — respuesta correcta: &ldquo;{q.correctAnswer === "true" ? "Verdadero" : q.correctAnswer === "false" ? "Falso" : q.correctAnswer}&rdquo;</>
+                  )}
+                </div>
+                {q.justification && <p className="text-xs italic text-slate-500">{q.justification}</p>}
+                {!correct && q.tip && <p className="text-xs text-slate-500">💡 {q.tip}</p>}
+              </div>
             )}
           </div>
         );
