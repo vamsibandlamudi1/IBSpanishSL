@@ -63,6 +63,16 @@ export const READING_PASSAGES: ReadingPassage[] = [
         correctAnswer: "tres semanas",
       },
     ],
+    vocabulary: [
+      { es: "dieciséis", en: "sixteen" },
+      { es: "hablando", en: "speaking" },
+      { es: "principio", en: "beginning" },
+      { es: "identidad", en: "identity" },
+      { es: "compañeros", en: "classmates / colleagues" },
+      { es: "intercambio", en: "exchange" },
+      { es: "increíble", en: "incredible" },
+      { es: "completamente", en: "completely" },
+    ],
   },
   {
     id: "reading-experiences",
@@ -112,6 +122,16 @@ export const READING_PASSAGES: ReadingPassage[] = [
         correctAnswer: "papas y maíz",
       },
     ],
+    vocabulary: [
+      { es: "querido", en: "dear / beloved" },
+      { es: "todavía", en: "still / yet" },
+      { es: "llegamos", en: "we arrived" },
+      { es: "increíble", en: "incredible" },
+      { es: "familia", en: "family" },
+      { es: "historias", en: "stories" },
+      { es: "tradiciones", en: "traditions" },
+      { es: "momento", en: "moment" },
+    ],
   },
   {
     id: "reading-human-ingenuity",
@@ -159,6 +179,16 @@ export const READING_PASSAGES: ReadingPassage[] = [
         prompt: "Según los ingenieros, ¿cuándo será normal tener un asistente robótico en casa?",
         correctAnswer: "en una década",
       },
+    ],
+    vocabulary: [
+      { es: "robótica", en: "robotics" },
+      { es: "hablamos", en: "we speak / talk" },
+      { es: "preparar", en: "to prepare" },
+      { es: "expertos", en: "experts" },
+      { es: "tecnología", en: "technology" },
+      { es: "especialmente", en: "especially" },
+      { es: "personas", en: "people" },
+      { es: "demasiado", en: "too much" },
     ],
   },
   {
@@ -210,6 +240,16 @@ export const READING_PASSAGES: ReadingPassage[] = [
         correctAnswer: "el Bachillerato Internacional",
       },
     ],
+    vocabulary: [
+      { es: "voluntariado", en: "volunteering" },
+      { es: "organización", en: "organization" },
+      { es: "actualmente", en: "currently" },
+      { es: "internacional", en: "international" },
+      { es: "experiencia", en: "experience" },
+      { es: "estudiantes", en: "students" },
+      { es: "comunitario", en: "community (adj.)" },
+      { es: "información", en: "information" },
+    ],
   },
   {
     id: "reading-sharing-planet",
@@ -257,6 +297,16 @@ export const READING_PASSAGES: ReadingPassage[] = [
         prompt: "Según el texto, ¿quiénes producen la mayor parte de la contaminación mundial?",
         correctAnswer: "las grandes empresas",
       },
+    ],
+    vocabulary: [
+      { es: "realmente", en: "really" },
+      { es: "reciente", en: "recent" },
+      { es: "adolescentes", en: "teenagers" },
+      { es: "climático", en: "climate (adj.)" },
+      { es: "compartir", en: "to share" },
+      { es: "contaminación", en: "pollution" },
+      { es: "decisiones", en: "decisions" },
+      { es: "personales", en: "personal" },
     ],
   },
 
@@ -313,6 +363,16 @@ export const READING_PASSAGES: ReadingPassage[] = [
         correctAnswer: "dieciocho años",
       },
     ],
+    vocabulary: [
+      { es: "estudiante", en: "student" },
+      { es: "dieciocho", en: "eighteen" },
+      { es: "identidad", en: "identity" },
+      { es: "tradiciones", en: "traditions" },
+      { es: "cualquier", en: "any" },
+      { es: "adolescente", en: "teenager" },
+      { es: "diferentes", en: "different" },
+      { es: "especialmente", en: "especially" },
+    ],
   },
   {
     id: "reading-experiences-2",
@@ -361,6 +421,16 @@ export const READING_PASSAGES: ReadingPassage[] = [
         prompt: "¿Cuántos años tiene Laura, la estudiante que participó el verano pasado?",
         correctAnswer: "diecisiete años",
       },
+    ],
+    vocabulary: [
+      { es: "diferentes", en: "different" },
+      { es: "experiencia", en: "experience" },
+      { es: "jóvenes", en: "young people" },
+      { es: "programa", en: "program" },
+      { es: "necesitas", en: "you need" },
+      { es: "completamente", en: "completely" },
+      { es: "diecisiete", en: "seventeen" },
+      { es: "increíble", en: "incredible" },
     ],
   },
   {
@@ -414,6 +484,16 @@ export const READING_PASSAGES: ReadingPassage[] = [
         correctAnswer: "Miguelito_2005",
       },
     ],
+    vocabulary: [
+      { es: "publicado", en: "posted / published" },
+      { es: "inteligencia", en: "intelligence" },
+      { es: "artificial", en: "artificial" },
+      { es: "increíble", en: "incredible" },
+      { es: "problemas", en: "problems" },
+      { es: "respuesta", en: "answer / reply" },
+      { es: "importante", en: "important" },
+      { es: "totalmente", en: "totally" },
+    ],
   },
   {
     id: "reading-social-organization-2",
@@ -464,6 +544,16 @@ export const READING_PASSAGES: ReadingPassage[] = [
         correctAnswer: "agradecer a todos los que participaron",
       },
     ],
+    vocabulary: [
+      { es: "organizar", en: "to organize" },
+      { es: "voluntariado", en: "volunteering" },
+      { es: "personas", en: "people" },
+      { es: "materiales", en: "materials" },
+      { es: "compañeros", en: "classmates / colleagues" },
+      { es: "conseguir", en: "to get / achieve" },
+      { es: "participantes", en: "participants" },
+      { es: "colaborar", en: "to collaborate" },
+    ],
   },
   {
     id: "reading-sharing-planet-2",
@@ -511,6 +601,16 @@ export const READING_PASSAGES: ReadingPassage[] = [
         prompt: "¿Qué deben hacer los turistas según las nuevas medidas?",
         correctAnswer: "viajar acompañados de un guía certificado",
       },
+    ],
+    vocabulary: [
+      { es: "doscientos", en: "two hundred" },
+      { es: "importantes", en: "important (pl.)" },
+      { es: "representa", en: "represents" },
+      { es: "aumento", en: "increase" },
+      { es: "aumentado", en: "increased" },
+      { es: "consumo", en: "consumption" },
+      { es: "expertos", en: "experts" },
+      { es: "educación", en: "education" },
     ],
   },
 
@@ -564,6 +664,16 @@ export const READING_PASSAGES: ReadingPassage[] = [
         correctAnswer: "esconder estas diferencias",
       },
     ],
+    vocabulary: [
+      { es: "estudiantes", en: "students" },
+      { es: "distintos", en: "different" },
+      { es: "diferentes", en: "different" },
+      { es: "principio", en: "beginning" },
+      { es: "importante", en: "important" },
+      { es: "comunidad", en: "community" },
+      { es: "tradiciones", en: "traditions" },
+      { es: "completamente", en: "completely" },
+    ],
   },
   {
     id: "reading-experiences-3",
@@ -614,6 +724,16 @@ export const READING_PASSAGES: ReadingPassage[] = [
         correctAnswer: "no tiene buena conexión a internet",
       },
     ],
+    vocabulary: [
+      { es: "familia", en: "family" },
+      { es: "escribo", en: "I write" },
+      { es: "pequeño", en: "small" },
+      { es: "simplemente", en: "simply" },
+      { es: "totalmente", en: "totally" },
+      { es: "llegamos", en: "we arrived" },
+      { es: "momento", en: "moment" },
+      { es: "internet", en: "internet" },
+    ],
   },
   {
     id: "reading-human-ingenuity-3",
@@ -661,6 +781,16 @@ export const READING_PASSAGES: ReadingPassage[] = [
         prompt: "Según el texto, ¿qué otro problema tiene la aplicación además de las rutas inseguras?",
         correctAnswer: "consume bastante batería",
       },
+    ],
+    vocabulary: [
+      { es: "aplicación", en: "application / app" },
+      { es: "reducir", en: "to reduce" },
+      { es: "resultados", en: "results" },
+      { es: "problemas", en: "problems" },
+      { es: "realidad", en: "reality" },
+      { es: "bastante", en: "quite / enough" },
+      { es: "teléfono", en: "phone" },
+      { es: "decisiones", en: "decisions" },
     ],
   },
   {
@@ -716,6 +846,16 @@ export const READING_PASSAGES: ReadingPassage[] = [
         correctAnswer: "aula 204",
       },
     ],
+    vocabulary: [
+      { es: "necesitas", en: "you need" },
+      { es: "experiencia", en: "experience" },
+      { es: "aprender", en: "to learn" },
+      { es: "trimestre", en: "term / trimester" },
+      { es: "climático", en: "climate (adj.)" },
+      { es: "educación", en: "education" },
+      { es: "información", en: "information" },
+      { es: "totalmente", en: "totally" },
+    ],
   },
   {
     id: "reading-sharing-planet-3",
@@ -765,6 +905,16 @@ export const READING_PASSAGES: ReadingPassage[] = [
         correctAnswer: "más de mil",
       },
     ],
+    vocabulary: [
+      { es: "doscientos", en: "two hundred" },
+      { es: "estudiantes", en: "students" },
+      { es: "institutos", en: "secondary schools" },
+      { es: "distintos", en: "different" },
+      { es: "especialmente", en: "especially" },
+      { es: "problema", en: "problem" },
+      { es: "diecisiete", en: "seventeen" },
+      { es: "ayuntamiento", en: "town hall / city council" },
+    ],
   },
 
   // --- Fourth through tenth items for identities, added by parallel content-drafting pass ---
@@ -787,6 +937,16 @@ export const READING_PASSAGES: ReadingPassage[] = [
       { id: "identities-4-q4", type: "mcq", prompt: "¿Cuánto cuesta el programa de siete días?", options: ["450 euros", "150 euros", "900 euros", "45 euros"], correctAnswer: "450 euros" },
       { id: "identities-4-q5", type: "short", prompt: "¿Qué porcentaje de visitantes afirma que repetiría la experiencia?", correctAnswer: "el 90%" },
     ],
+    vocabulary: [
+      { es: "cambiar", en: "to change" },
+      { es: "programas", en: "programs" },
+      { es: "personas", en: "people" },
+      { es: "quieren", en: "they want" },
+      { es: "importante", en: "important" },
+      { es: "simplemente", en: "simply" },
+      { es: "programa", en: "program" },
+      { es: "experiencia", en: "experience" },
+    ],
   },
   {
     id: "reading-identities-5",
@@ -806,6 +966,16 @@ export const READING_PASSAGES: ReadingPassage[] = [
       { id: "identities-5-q3", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Un artículo de periódico", "Una postal", "Un correo personal", "Un folleto"], correctAnswer: "Un artículo de periódico" },
       { id: "identities-5-q4", type: "mcq", prompt: "Según el estudio, ¿cuál es el principal culpable de la falta de sueño?", options: ["El uso del móvil antes de dormir", "Los exámenes escolares", "El café", "El ruido en casa"], correctAnswer: "El uso del móvil antes de dormir" },
       { id: "identities-5-q5", type: "short", prompt: "¿Qué recomiendan los autores del informe a los centros educativos?", correctAnswer: "retrasar la hora de entrada a las clases" },
+    ],
+    vocabulary: [
+      { es: "adolescentes", en: "teenagers" },
+      { es: "doscientos", en: "two hundred" },
+      { es: "estudiantes", en: "students" },
+      { es: "dieciocho", en: "eighteen" },
+      { es: "institutos", en: "secondary schools" },
+      { es: "resultados", en: "results" },
+      { es: "adolescente", en: "teenager" },
+      { es: "educativos", en: "educational" },
     ],
   },
   {
@@ -827,6 +997,16 @@ export const READING_PASSAGES: ReadingPassage[] = [
       { id: "identities-6-q4", type: "mcq", prompt: "Según Marisol, ¿qué es el \"code-switching\"?", options: ["Cambiar entre el español y el inglés", "Estudiar un tercer idioma", "Un examen de la escuela", "Un tipo de acento tejano"], correctAnswer: "Cambiar entre el español y el inglés" },
       { id: "identities-6-q5", type: "short", prompt: "¿Cuántos años tiene Marisol ahora?", correctAnswer: "veintitrés" },
     ],
+    vocabulary: [
+      { es: "publicado", en: "posted / published" },
+      { es: "compartir", en: "to share" },
+      { es: "hablamos", en: "we speak / talk" },
+      { es: "compañeros", en: "classmates / colleagues" },
+      { es: "culturas", en: "cultures" },
+      { es: "completo", en: "complete / full" },
+      { es: "simplemente", en: "simply" },
+      { es: "hablando", en: "speaking" },
+    ],
   },
   {
     id: "reading-identities-7",
@@ -845,6 +1025,16 @@ export const READING_PASSAGES: ReadingPassage[] = [
       { id: "identities-7-q3", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Una columna de opinión", "Una receta de cocina", "Un correo formal", "Un folleto publicitario"], correctAnswer: "Una columna de opinión" },
       { id: "identities-7-q4", type: "mcq", prompt: "Según el autor, ¿qué representa la comida que elegimos?", options: ["Una declaración de principios", "Solo una necesidad biológica", "Una tradición familiar obligatoria", "Un tema sin importancia"], correctAnswer: "Una declaración de principios" },
       { id: "identities-7-q5", type: "short", prompt: "¿Qué critican algunos sobre el vegetarianismo, según el texto?", correctAnswer: "que es una moda pasajera de las grandes ciudades" },
+    ],
+    vocabulary: [
+      { es: "todavía", en: "still / yet" },
+      { es: "respuesta", en: "answer / reply" },
+      { es: "planeta", en: "planet" },
+      { es: "grandes", en: "big / large (pl.)" },
+      { es: "realidad", en: "reality" },
+      { es: "quienes", en: "who (plural)" },
+      { es: "entiendo", en: "I understand" },
+      { es: "importante", en: "important" },
     ],
   },
   {
@@ -866,6 +1056,16 @@ export const READING_PASSAGES: ReadingPassage[] = [
       { id: "identities-8-q4", type: "mcq", prompt: "¿Qué porcentaje del tiempo de pantalla se dedica a fines educativos?", options: ["18%", "50%", "22%", "68%"], correctAnswer: "18%" },
       { id: "identities-8-q5", type: "short", prompt: "¿Cuántos centros educativos participaron en las encuestas?", correctAnswer: "340" },
     ],
+    vocabulary: [
+      { es: "adolescentes", en: "teenagers" },
+      { es: "diecisiete", en: "seventeen" },
+      { es: "educativos", en: "educational" },
+      { es: "aumentado", en: "increased" },
+      { es: "tecnología", en: "technology" },
+      { es: "representa", en: "represents" },
+      { es: "recomendaciones", en: "recommendations" },
+      { es: "educación", en: "education" },
+    ],
   },
   // --- Fourth through tenth items for experiences, added by parallel content-drafting pass ---
 {
@@ -886,6 +1086,16 @@ export const READING_PASSAGES: ReadingPassage[] = [
       { id: "experiences-4-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Un artículo de revista", "Una entrada de diario", "Una postal", "Un anuncio publicitario"], correctAnswer: "Un artículo de revista" },
       { id: "experiences-4-q5", type: "short", prompt: "¿A qué altitud se encuentra el mirador final de la ruta?", correctAnswer: "más de cuatro mil metros" },
     ],
+    vocabulary: [
+      { es: "jóvenes", en: "young people" },
+      { es: "estudiante", en: "student" },
+      { es: "difícil", en: "difficult" },
+      { es: "aprender", en: "to learn" },
+      { es: "comidas", en: "meals" },
+      { es: "expertos", en: "experts" },
+      { es: "preparar", en: "to prepare" },
+      { es: "personas", en: "people" },
+    ],
   },
   {
     id: "reading-experiences-5",
@@ -905,6 +1115,16 @@ export const READING_PASSAGES: ReadingPassage[] = [
       { id: "experiences-5-q3", type: "mcq", prompt: "¿Qué hacen algunas familias con un muñeco de trapo?", options: ["Lo queman como símbolo de dejar atrás los problemas", "Lo regalan a los vecinos", "Lo guardan durante todo el año", "Lo llevan a la iglesia"], correctAnswer: "Lo queman como símbolo de dejar atrás los problemas" },
       { id: "experiences-5-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Una publicación en un foro", "Un informe oficial", "Un discurso", "Una reseña"], correctAnswer: "Una publicación en un foro" },
       { id: "experiences-5-q5", type: "short", prompt: "¿Cuántas uvas se comen por tradición a medianoche?", correctAnswer: "doce" },
+    ],
+    vocabulary: [
+      { es: "publicado", en: "posted / published" },
+      { es: "culturas", en: "cultures" },
+      { es: "representa", en: "represents" },
+      { es: "problemas", en: "problems" },
+      { es: "tradiciones", en: "traditions" },
+      { es: "completamente", en: "completely" },
+      { es: "especialmente", en: "especially" },
+      { es: "actividades", en: "activities" },
     ],
   },
   {
@@ -928,6 +1148,16 @@ export const READING_PASSAGES: ReadingPassage[] = [
       { id: "experiences-6-q3", type: "mcq", prompt: "¿Cuánto dinero ha recaudado el consejo estudiantil?", options: ["Casi mil doscientos euros", "Exactamente dos mil euros", "Quinientos euros", "No ha recaudado dinero"], correctAnswer: "Casi mil doscientos euros" },
       { id: "experiences-6-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Un correo electrónico formal", "Una entrada de diario", "Un anuncio publicitario", "Una publicación en redes sociales"], correctAnswer: "Un correo electrónico formal" },
       { id: "experiences-6-q5", type: "short", prompt: "¿Cuántos familiares podrá invitar cada estudiante, según la propuesta?", correctAnswer: "cuatro" },
+    ],
+    vocabulary: [
+      { es: "organizar", en: "to organize" },
+      { es: "representa", en: "represents" },
+      { es: "importante", en: "important" },
+      { es: "estudiantes", en: "students" },
+      { es: "estudiante", en: "student" },
+      { es: "doscientos", en: "two hundred" },
+      { es: "actividades", en: "activities" },
+      { es: "atentamente", en: "sincerely (letter closing)" },
     ],
   },
   {
@@ -953,6 +1183,16 @@ export const READING_PASSAGES: ReadingPassage[] = [
       { id: "experiences-7-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Una entrevista", "Un folleto", "Una guía de instrucciones", "Una reseña"], correctAnswer: "Una entrevista" },
       { id: "experiences-7-q5", type: "short", prompt: "¿Quién animó a Rosa a emigrar a Canadá?", correctAnswer: "una prima" },
     ],
+    vocabulary: [
+      { es: "hablamos", en: "we speak / talk" },
+      { es: "experiencia", en: "experience" },
+      { es: "estudios", en: "studies" },
+      { es: "trabajo", en: "work / job" },
+      { es: "mayores", en: "elderly / older people" },
+      { es: "entender", en: "to understand" },
+      { es: "conseguir", en: "to get / achieve" },
+      { es: "trabajar", en: "to work" },
+    ],
   },
   {
     id: "reading-experiences-8",
@@ -972,6 +1212,16 @@ export const READING_PASSAGES: ReadingPassage[] = [
       { id: "experiences-8-q3", type: "mcq", prompt: "¿Cuántas horas de testimonios se grabaron en total?", options: ["Más de cuarenta horas", "Menos de diez horas", "Exactamente cien horas", "No se grabó ningún testimonio"], correctAnswer: "Más de cuarenta horas" },
       { id: "experiences-8-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Un informe", "Una postal", "Un anuncio publicitario", "Una entrada de diario"], correctAnswer: "Un informe" },
       { id: "experiences-8-q5", type: "short", prompt: "¿Cuántos estudiantes participaron en el proyecto?", correctAnswer: "dieciocho" },
+    ],
+    vocabulary: [
+      { es: "resultados", en: "results" },
+      { es: "dieciocho", en: "eighteen" },
+      { es: "estudiantes", en: "students" },
+      { es: "personales", en: "personal" },
+      { es: "estudiante", en: "student" },
+      { es: "participantes", en: "participants" },
+      { es: "experiencia", en: "experience" },
+      { es: "recomendaciones", en: "recommendations" },
     ],
   },
   // --- Fourth through tenth items for human-ingenuity, added by parallel content-drafting pass ---
@@ -994,6 +1244,16 @@ export const READING_PASSAGES: ReadingPassage[] = [
       { id: "human-ingenuity-4-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Un correo electrónico formal", "Una entrada de diario", "Un anuncio publicitario", "Una crítica de producto"], correctAnswer: "Un correo electrónico formal" },
       { id: "human-ingenuity-4-q5", type: "short", prompt: "¿Cuánto pagó Marta por el portátil?", correctAnswer: "850 euros" },
     ],
+    vocabulary: [
+      { es: "escribo", en: "I write" },
+      { es: "semanas", en: "weeks" },
+      { es: "necesidad", en: "need" },
+      { es: "programas", en: "programs" },
+      { es: "pantalla", en: "screen" },
+      { es: "bastante", en: "quite / enough" },
+      { es: "respuesta", en: "answer / reply" },
+      { es: "atentamente", en: "sincerely (letter closing)" },
+    ],
   },
   {
     id: "reading-human-ingenuity-5",
@@ -1015,6 +1275,16 @@ export const READING_PASSAGES: ReadingPassage[] = [
       { id: "human-ingenuity-5-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Una entrada de diario", "Un correo electrónico formal", "Un folleto publicitario", "Un informe oficial"], correctAnswer: "Una entrada de diario" },
       { id: "human-ingenuity-5-q5", type: "short", prompt: "¿Cómo se titulaba el cortometraje favorito de Daniela?", correctAnswer: "El último tren" },
     ],
+    vocabulary: [
+      { es: "querido", en: "dear / beloved" },
+      { es: "increíble", en: "incredible" },
+      { es: "todavía", en: "still / yet" },
+      { es: "dieciocho", en: "eighteen" },
+      { es: "jóvenes", en: "young people" },
+      { es: "estudiantes", en: "students" },
+      { es: "teléfono", en: "phone" },
+      { es: "historias", en: "stories" },
+    ],
   },
   {
     id: "reading-human-ingenuity-6",
@@ -1033,6 +1303,16 @@ export const READING_PASSAGES: ReadingPassage[] = [
       { id: "human-ingenuity-6-q3", type: "mcq", prompt: "Según el texto, ¿qué han fomentado las redes sociales entre los jóvenes?", options: ["Una cultura de comparación constante", "Una mayor concentración en los estudios", "Un descenso en el uso del móvil", "Una reducción del tiempo en pantalla"], correctAnswer: "Una cultura de comparación constante" },
       { id: "human-ingenuity-6-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Una columna de opinión", "Una entrada de diario", "Una postal", "Un folleto publicitario"], correctAnswer: "Una columna de opinión" },
       { id: "human-ingenuity-6-q5", type: "short", prompt: "Según el texto, ¿dónde se realizó el estudio mencionado?", correctAnswer: "institutos de la capital" },
+    ],
+    vocabulary: [
+      { es: "pantalla", en: "screen" },
+      { es: "sociales", en: "social" },
+      { es: "reciente", en: "recent" },
+      { es: "institutos", en: "secondary schools" },
+      { es: "adolescentes", en: "teenagers" },
+      { es: "personas", en: "people" },
+      { es: "constante", en: "constant" },
+      { es: "tecnología", en: "technology" },
     ],
   },
   {
@@ -1053,6 +1333,16 @@ export const READING_PASSAGES: ReadingPassage[] = [
       { id: "human-ingenuity-7-q3", type: "mcq", prompt: "¿Cuánto cuesta la bicicleta durante la promoción de agosto?", options: ["Setecientos cincuenta euros", "Novecientos euros", "Dieciséis euros", "Cincuenta euros"], correctAnswer: "Setecientos cincuenta euros" },
       { id: "human-ingenuity-7-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Un anuncio publicitario", "Una entrada de diario", "Un correo electrónico formal", "Una columna de opinión"], correctAnswer: "Un anuncio publicitario" },
       { id: "human-ingenuity-7-q5", type: "short", prompt: "¿Cuántos kilos pesa la bicicleta VoltiBici?", correctAnswer: "dieciséis kilos" },
+    ],
+    vocabulary: [
+      { es: "llegar", en: "to arrive" },
+      { es: "completamente", en: "completely" },
+      { es: "dieciséis", en: "sixteen" },
+      { es: "tiendas", en: "stores" },
+      { es: "totalmente", en: "totally" },
+      { es: "trabajo", en: "work / job" },
+      { es: "aplicación", en: "application / app" },
+      { es: "información", en: "information" },
     ],
   },
   {
@@ -1078,6 +1368,16 @@ export const READING_PASSAGES: ReadingPassage[] = [
       { id: "human-ingenuity-8-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Una entrevista", "Un anuncio publicitario", "Una entrada de diario", "Un correo electrónico formal"], correctAnswer: "Una entrevista" },
       { id: "human-ingenuity-8-q5", type: "short", prompt: "¿Cuántos años tiene Sofía Marín?", correctAnswer: "diecisiete años" },
     ],
+    vocabulary: [
+      { es: "escolar", en: "school (adj.)" },
+      { es: "diecisiete", en: "seventeen" },
+      { es: "nacional", en: "national" },
+      { es: "proyecto", en: "project" },
+      { es: "instituto", en: "secondary school" },
+      { es: "principio", en: "beginning" },
+      { es: "tecnología", en: "technology" },
+      { es: "estudiantes", en: "students" },
+    ],
   },
   // --- Fourth through tenth items for social-organization, added by parallel content-drafting pass ---
 {
@@ -1098,6 +1398,16 @@ export const READING_PASSAGES: ReadingPassage[] = [
       { id: "social-organization-4-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Una entrada de blog", "Un correo electrónico formal", "Un artículo de periódico", "Una entrevista"], correctAnswer: "Una entrada de blog" },
       { id: "social-organization-4-q5", type: "short", prompt: "¿Cuántos estudiantes tiene la autora ahora?", correctAnswer: "seis estudiantes" },
     ],
+    vocabulary: [
+      { es: "comunitario", en: "community (adj.)" },
+      { es: "diferentes", en: "different" },
+      { es: "principio", en: "beginning" },
+      { es: "estudiante", en: "student" },
+      { es: "estudiantes", en: "students" },
+      { es: "importante", en: "important" },
+      { es: "voluntarios", en: "volunteers" },
+      { es: "experiencia", en: "experience" },
+    ],
   },
   {
     id: "reading-social-organization-5",
@@ -1116,6 +1426,16 @@ export const READING_PASSAGES: ReadingPassage[] = [
       { id: "social-organization-5-q3", type: "mcq", prompt: "¿Qué modelo de trabajo propone el autor como solución ideal?", options: ["Un modelo híbrido", "El teletrabajo total", "Trabajar siempre en la oficina", "Un horario nocturno"], correctAnswer: "Un modelo híbrido" },
       { id: "social-organization-5-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Una columna de opinión", "Una entrada de diario", "Un folleto", "Una postal"], correctAnswer: "Una columna de opinión" },
       { id: "social-organization-5-q5", type: "short", prompt: "¿Desde hace cuánto tiempo trabaja el autor desde casa tres días a la semana?", correctAnswer: "dos años" },
+    ],
+    vocabulary: [
+      { es: "empresas", en: "companies" },
+      { es: "trabajar", en: "to work" },
+      { es: "representa", en: "represents" },
+      { es: "organizar", en: "to organize" },
+      { es: "estudios", en: "studies" },
+      { es: "compañeros", en: "classmates / colleagues" },
+      { es: "encontrar", en: "to find" },
+      { es: "colaborar", en: "to collaborate" },
     ],
   },
   {
@@ -1141,6 +1461,16 @@ export const READING_PASSAGES: ReadingPassage[] = [
       { id: "social-organization-6-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Una entrevista", "Un anuncio", "Una reseña", "Un informe oficial"], correctAnswer: "Una entrevista" },
       { id: "social-organization-6-q5", type: "short", prompt: "¿Qué crearon los vecinos para que cualquier persona pudiera cultivar verduras?", correctAnswer: "un huerto comunitario" },
     ],
+    vocabulary: [
+      { es: "hablamos", en: "we speak / talk" },
+      { es: "asociación", en: "association" },
+      { es: "comunidad", en: "community" },
+      { es: "ayuntamiento", en: "town hall / city council" },
+      { es: "comunitario", en: "community (adj.)" },
+      { es: "cualquier", en: "any" },
+      { es: "principio", en: "beginning" },
+      { es: "importantes", en: "important (pl.)" },
+    ],
   },
   {
     id: "reading-social-organization-7",
@@ -1159,6 +1489,16 @@ export const READING_PASSAGES: ReadingPassage[] = [
       { id: "social-organization-7-q3", type: "mcq", prompt: "¿Quién se opuso a la medida?", options: ["La asociación Ciudadanos por la Privacidad", "La concejala de Seguridad", "Los comerciantes del centro", "La policía local"], correctAnswer: "La asociación Ciudadanos por la Privacidad" },
       { id: "social-organization-7-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Un artículo de periódico", "Un folleto", "Una entrada de diario", "Una postal"], correctAnswer: "Un artículo de periódico" },
       { id: "social-organization-7-q5", type: "short", prompt: "¿Cuánto costará el proyecto de las cámaras de vigilancia?", correctAnswer: "doscientos mil euros" },
+    ],
+    vocabulary: [
+      { es: "dieciocho", en: "eighteen" },
+      { es: "cuarenta", en: "forty" },
+      { es: "reducir", en: "to reduce" },
+      { es: "proyecto", en: "project" },
+      { es: "trabajo", en: "work / job" },
+      { es: "asociación", en: "association" },
+      { es: "doscientos", en: "two hundred" },
+      { es: "principal", en: "main" },
     ],
   },
   {
@@ -1180,6 +1520,16 @@ export const READING_PASSAGES: ReadingPassage[] = [
       { id: "social-organization-8-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Una publicación de un foro", "Un correo electrónico formal", "Un informe oficial", "Un discurso"], correctAnswer: "Una publicación de un foro" },
       { id: "social-organization-8-q5", type: "short", prompt: "¿Con qué frecuencia se ve Nico con su mejor amigo en persona?", correctAnswer: "una vez al año" },
     ],
+    vocabulary: [
+      { es: "publicado", en: "posted / published" },
+      { es: "hablamos", en: "we speak / talk" },
+      { es: "principio", en: "beginning" },
+      { es: "hablando", en: "speaking" },
+      { es: "pequeñas", en: "small (fem. pl.)" },
+      { es: "problema", en: "problem" },
+      { es: "completamente", en: "completely" },
+      { es: "personas", en: "people" },
+    ],
   },
   // --- Fourth through tenth items for sharing-planet, added by parallel content-drafting pass ---
 {
@@ -1200,6 +1550,16 @@ export const READING_PASSAGES: ReadingPassage[] = [
       { id: "sharing-planet-4-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Una entrada de blog", "Un informe oficial", "Un artículo de periódico", "Una carta formal"], correctAnswer: "Una entrada de blog" },
       { id: "sharing-planet-4-q5", type: "short", prompt: "¿Cuántos días dura el reto de la autora?", correctAnswer: "siete días" },
     ],
+    vocabulary: [
+      { es: "compartir", en: "to share" },
+      { es: "experiencia", en: "experience" },
+      { es: "problema", en: "problem" },
+      { es: "verduras", en: "vegetables" },
+      { es: "resolver", en: "to solve" },
+      { es: "contaminación", en: "pollution" },
+      { es: "personas", en: "people" },
+      { es: "pequeños", en: "small (pl.)" },
+    ],
   },
   {
     id: "reading-sharing-planet-5",
@@ -1219,6 +1579,16 @@ export const READING_PASSAGES: ReadingPassage[] = [
       { id: "sharing-planet-5-q3", type: "mcq", prompt: "¿Qué necesita el centro de acogida, según la coordinadora?", options: ["Más voluntarios para enseñar idiomas", "Más comida para las fiestas", "Más espacio para dormir", "Más dinero del gobierno"], correctAnswer: "Más voluntarios para enseñar idiomas" },
       { id: "sharing-planet-5-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Una entrada de diario", "Un anuncio", "Una reseña", "Un discurso"], correctAnswer: "Una entrada de diario" },
       { id: "sharing-planet-5-q5", type: "short", prompt: "¿Cuántos hijos tiene Amina?", correctAnswer: "tres" },
+    ],
+    vocabulary: [
+      { es: "familias", en: "families" },
+      { es: "encontrar", en: "to find" },
+      { es: "historia", en: "history / story" },
+      { es: "entender", en: "to understand" },
+      { es: "personas", en: "people" },
+      { es: "culturas", en: "cultures" },
+      { es: "voluntarios", en: "volunteers" },
+      { es: "conseguir", en: "to get / achieve" },
     ],
   },
   {
@@ -1241,6 +1611,16 @@ export const READING_PASSAGES: ReadingPassage[] = [
       { id: "sharing-planet-6-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Una carta formal", "Una entrada de diario", "Un anuncio publicitario", "Una reseña"], correctAnswer: "Una carta formal" },
       { id: "sharing-planet-6-q5", type: "short", prompt: "¿Cuántos años hace que terminó la guerra que afectó a la región?", correctAnswer: "veinte años" },
     ],
+    vocabulary: [
+      { es: "asociación", en: "association" },
+      { es: "actualmente", en: "currently" },
+      { es: "ayuntamiento", en: "town hall / city council" },
+      { es: "materiales", en: "materials" },
+      { es: "proyecto", en: "project" },
+      { es: "respuesta", en: "answer / reply" },
+      { es: "antemano", en: "beforehand (de antemano)" },
+      { es: "atentamente", en: "sincerely (letter closing)" },
+    ],
   },
   {
     id: "reading-sharing-planet-7",
@@ -1259,6 +1639,16 @@ export const READING_PASSAGES: ReadingPassage[] = [
       { id: "sharing-planet-7-q3", type: "mcq", prompt: "¿Qué opinan algunos críticos sobre la globalización culinaria?", options: ["Que puede diluir las tradiciones locales", "Que es completamente positiva", "Que no afecta a los restaurantes", "Que solo existe en Asia"], correctAnswer: "Que puede diluir las tradiciones locales" },
       { id: "sharing-planet-7-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Un artículo de revista", "Una carta formal", "Un correo electrónico", "Un folleto"], correctAnswer: "Un artículo de revista" },
       { id: "sharing-planet-7-q5", type: "short", prompt: "¿Cómo se llama la chef entrevistada en el artículo?", correctAnswer: "Marta Solano" },
+    ],
+    vocabulary: [
+      { es: "cualquier", en: "any" },
+      { es: "encontrar", en: "to find" },
+      { es: "reciente", en: "recent" },
+      { es: "aumentado", en: "increased" },
+      { es: "tradiciones", en: "traditions" },
+      { es: "intercambio", en: "exchange" },
+      { es: "distintos", en: "different" },
+      { es: "millones", en: "millions" },
     ],
   },
   {
@@ -1280,6 +1670,16 @@ export const READING_PASSAGES: ReadingPassage[] = [
       { id: "sharing-planet-8-q3", type: "mcq", prompt: "¿Qué dificultad menciona EcoLucia92 sobre comprar ropa de segunda mano?", options: ["No siempre se encuentra la talla o el estilo deseado", "Es mucho más cara que la ropa nueva", "Las tiendas están muy lejos de su casa", "Nadie vende ropa de buena calidad"], correctAnswer: "No siempre se encuentra la talla o el estilo deseado" },
       { id: "sharing-planet-8-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Una publicación de un foro", "Un informe oficial", "Una entrevista", "Un folleto"], correctAnswer: "Una publicación de un foro" },
       { id: "sharing-planet-8-q5", type: "short", prompt: "¿Qué pide EcoLucia92 al final de su publicación?", correctAnswer: "recomendaciones de tiendas de segunda mano" },
+    ],
+    vocabulary: [
+      { es: "publicado", en: "posted / published" },
+      { es: "tiendas", en: "stores" },
+      { es: "compartir", en: "to share" },
+      { es: "experiencia", en: "experience" },
+      { es: "alguien", en: "someone" },
+      { es: "principio", en: "beginning" },
+      { es: "reducir", en: "to reduce" },
+      { es: "impacto", en: "impact" },
     ],
   },
   {
@@ -1334,7 +1734,17 @@ export const READING_PASSAGES: ReadingPassage[] = [
         "prompt": "¿Cuántas veces a la semana se recomienda hacer deporte?",
         "correctAnswer": "al menos tres veces"
       }
-    ]
+    ],
+    vocabulary: [
+      { es: "publicado", en: "posted / published" },
+      { es: "estudiantes", en: "students" },
+      { es: "constante", en: "constant" },
+      { es: "adolescentes", en: "teenagers" },
+      { es: "recomendaciones", en: "recommendations" },
+      { es: "educativos", en: "educational" },
+      { es: "programas", en: "programs" },
+      { es: "actividades", en: "activities" },
+    ],
   },
   {
     "id": "reading-identities-10",
@@ -1388,7 +1798,17 @@ export const READING_PASSAGES: ReadingPassage[] = [
         "prompt": "¿Cuántos años tiene Javier?",
         "correctAnswer": "veinte años"
       }
-    ]
+    ],
+    vocabulary: [
+      { es: "hablamos", en: "we speak / talk" },
+      { es: "estudiante", en: "student" },
+      { es: "cambiar", en: "to change" },
+      { es: "constante", en: "constant" },
+      { es: "preparar", en: "to prepare" },
+      { es: "verduras", en: "vegetables" },
+      { es: "principio", en: "beginning" },
+      { es: "semanas", en: "weeks" },
+    ],
   },
   {
     "id": "reading-experiences-9",
@@ -1442,7 +1862,17 @@ export const READING_PASSAGES: ReadingPassage[] = [
         "prompt": "¿Cuántos meses duró el intercambio escolar?",
         "correctAnswer": "tres meses"
       }
-    ]
+    ],
+    vocabulary: [
+      { es: "trimestre", en: "term / trimester" },
+      { es: "completo", en: "complete / full" },
+      { es: "estudiante", en: "student" },
+      { es: "intercambio", en: "exchange" },
+      { es: "historia", en: "history / story" },
+      { es: "hablando", en: "speaking" },
+      { es: "cualquier", en: "any" },
+      { es: "recomiendo", en: "I recommend" },
+    ],
   },
   {
     "id": "reading-human-ingenuity-9",
@@ -1496,7 +1926,17 @@ export const READING_PASSAGES: ReadingPassage[] = [
         "prompt": "¿Cuántos ordenadores viejos tenían al principio?",
         "correctAnswer": "tres ordenadores"
       }
-    ]
+    ],
+    vocabulary: [
+      { es: "compañeros", en: "classmates / colleagues" },
+      { es: "tecnología", en: "technology" },
+      { es: "robótica", en: "robotics" },
+      { es: "imaginaba", en: "imagined" },
+      { es: "nacional", en: "national" },
+      { es: "inteligencia", en: "intelligence" },
+      { es: "artificial", en: "artificial" },
+      { es: "problemas", en: "problems" },
+    ],
   },
   {
     "id": "reading-social-organization-9",
@@ -1550,7 +1990,17 @@ export const READING_PASSAGES: ReadingPassage[] = [
         "prompt": "¿Cuántas horas a la semana se pide colaborar?",
         "correctAnswer": "dos horas"
       }
-    ]
+    ],
+    vocabulary: [
+      { es: "voluntariado", en: "volunteering" },
+      { es: "diferencia", en: "difference" },
+      { es: "comunidad", en: "community" },
+      { es: "estudiantes", en: "students" },
+      { es: "actividades", en: "activities" },
+      { es: "experiencia", en: "experience" },
+      { es: "colaborar", en: "to collaborate" },
+      { es: "trimestre", en: "term / trimester" },
+    ],
   },
   {
     "id": "reading-sharing-planet-9",
@@ -1604,7 +2054,17 @@ export const READING_PASSAGES: ReadingPassage[] = [
         "prompt": "¿Qué porcentaje de la Tierra está cubierto por agua?",
         "correctAnswer": "setenta por ciento"
       }
-    ]
+    ],
+    vocabulary: [
+      { es: "setenta", en: "seventy" },
+      { es: "ciento", en: "hundred / percent" },
+      { es: "consumo", en: "consumption" },
+      { es: "climático", en: "climate (adj.)" },
+      { es: "millones", en: "millions" },
+      { es: "personas", en: "people" },
+      { es: "expertos", en: "experts" },
+      { es: "planeta", en: "planet" },
+    ],
   },
   {
     id: "reading-identities-11",
@@ -1624,6 +2084,16 @@ export const READING_PASSAGES: ReadingPassage[] = [
       { id: "identities-11-q3", type: "mcq", prompt: "¿Cómo se llama la chica que se sentó al lado de la autora?", options: ["Ana", "Ruiz", "Marta", "Sofía"], correctAnswer: "Ana" },
       { id: "identities-11-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Una entrada de diario", "Un correo formal", "Un artículo de periódico", "Un anuncio"], correctAnswer: "Una entrada de diario" },
       { id: "identities-11-q5", type: "short", prompt: "¿Cuál es la asignatura favorita de la autora?", correctAnswer: "arte" },
+    ],
+    vocabulary: [
+      { es: "querido", en: "dear / beloved" },
+      { es: "instituto", en: "secondary school" },
+      { es: "todavía", en: "still / yet" },
+      { es: "profesora", en: "teacher (fem.)" },
+      { es: "compañeros", en: "classmates / colleagues" },
+      { es: "hablamos", en: "we speak / talk" },
+      { es: "llegamos", en: "we arrived" },
+      { es: "experiencia", en: "experience" },
     ],
   },
   {
@@ -1646,6 +2116,16 @@ export const READING_PASSAGES: ReadingPassage[] = [
       { id: "identities-12-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Una postal", "Un informe oficial", "Una reseña", "Un anuncio"], correctAnswer: "Una postal" },
       { id: "identities-12-q5", type: "short", prompt: "¿Cuánto tiempo lleva Elena en el pueblo?", correctAnswer: "una semana" },
     ],
+    vocabulary: [
+      { es: "escribo", en: "I write" },
+      { es: "doscientos", en: "two hundred" },
+      { es: "sentirme", en: "to feel (myself)" },
+      { es: "cuarenta", en: "forty" },
+      { es: "principal", en: "main" },
+      { es: "experiencia", en: "experience" },
+      { es: "historia", en: "history / story" },
+      { es: "entender", en: "to understand" },
+    ],
   },
   {
     id: "reading-experiences-10",
@@ -1666,6 +2146,16 @@ export const READING_PASSAGES: ReadingPassage[] = [
       { id: "experiences-10-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Una entrada de blog", "Un informe oficial", "Un anuncio publicitario", "Una receta"], correctAnswer: "Una entrada de blog" },
       { id: "experiences-10-q5", type: "short", prompt: "¿En qué mes empezó a soñar la autora en francés?", correctAnswer: "el tercer mes" },
     ],
+    vocabulary: [
+      { es: "instituto", en: "secondary school" },
+      { es: "persona", en: "person" },
+      { es: "sociales", en: "social" },
+      { es: "adolescentes", en: "teenagers" },
+      { es: "sentirme", en: "to feel (myself)" },
+      { es: "profesora", en: "teacher (fem.)" },
+      { es: "recomiendo", en: "I recommend" },
+      { es: "experiencia", en: "experience" },
+    ],
   },
   {
     id: "reading-experiences-11",
@@ -1685,6 +2175,16 @@ export const READING_PASSAGES: ReadingPassage[] = [
       { id: "experiences-11-q3", type: "mcq", prompt: "¿Cuántos kilómetros tiene un maratón, según el texto?", options: ["42", "10", "25", "100"], correctAnswer: "42" },
       { id: "experiences-11-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Una publicación en redes sociales", "Un informe médico", "Una carta formal", "Un artículo científico"], correctAnswer: "Una publicación en redes sociales" },
       { id: "experiences-11-q5", type: "short", prompt: "¿Cuántos meses entrenó la autora antes del maratón?", correctAnswer: "seis meses" },
+    ],
+    vocabulary: [
+      { es: "primer", en: "first" },
+      { es: "treinta", en: "thirty" },
+      { es: "momento", en: "moment" },
+      { es: "incluso", en: "even / including" },
+      { es: "cuatro", en: "four" },
+      { es: "minutos", en: "minutes" },
+      { es: "gracias", en: "thanks" },
+      { es: "comunidad", en: "community" },
     ],
   },
   {
@@ -1707,6 +2207,16 @@ export const READING_PASSAGES: ReadingPassage[] = [
       { id: "human-ingenuity-10-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Una guía instructiva", "Un poema", "Una crítica de cine", "Una carta personal"], correctAnswer: "Una guía instructiva" },
       { id: "human-ingenuity-10-q5", type: "short", prompt: "Menciona un metal valioso que contienen los móviles.", correctAnswer: "oro" },
     ],
+    vocabulary: [
+      { es: "teléfono", en: "phone" },
+      { es: "primero", en: "first" },
+      { es: "aplicación", en: "application / app" },
+      { es: "personales", en: "personal" },
+      { es: "información", en: "information" },
+      { es: "necesitas", en: "you need" },
+      { es: "tecnología", en: "technology" },
+      { es: "materiales", en: "materials" },
+    ],
   },
   {
     id: "reading-human-ingenuity-11",
@@ -1727,6 +2237,16 @@ export const READING_PASSAGES: ReadingPassage[] = [
       { id: "human-ingenuity-11-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Un artículo de periódico", "Una entrada de diario", "Una postal", "Un menú"], correctAnswer: "Un artículo de periódico" },
       { id: "human-ingenuity-11-q5", type: "short", prompt: "¿Cómo se llama el estudiante entrevistado en el artículo?", correctAnswer: "Pau Ferrer" },
     ],
+    vocabulary: [
+      { es: "estudiantes", en: "students" },
+      { es: "instituto", en: "secondary school" },
+      { es: "aplicación", en: "application / app" },
+      { es: "constante", en: "constant" },
+      { es: "inteligencia", en: "intelligence" },
+      { es: "artificial", en: "artificial" },
+      { es: "tecnología", en: "technology" },
+      { es: "importante", en: "important" },
+    ],
   },
   {
     id: "reading-social-organization-10",
@@ -1746,6 +2266,16 @@ export const READING_PASSAGES: ReadingPassage[] = [
       { id: "social-organization-10-q3", type: "mcq", prompt: "¿Qué porcentaje del alumnado afirma sentirse seguro en su centro?", options: ["78%", "50%", "22%", "100%"], correctAnswer: "78%" },
       { id: "social-organization-10-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Un informe oficial", "Una carta personal", "Un anuncio", "Una reseña"], correctAnswer: "Un informe oficial" },
       { id: "social-organization-10-q5", type: "short", prompt: "¿Cuándo se presentará el informe completo a las familias?", correctAnswer: "el mes que viene" },
+    ],
+    vocabulary: [
+      { es: "presente", en: "present" },
+      { es: "resultados", en: "results" },
+      { es: "educativos", en: "educational" },
+      { es: "sentirse", en: "to feel (oneself)" },
+      { es: "representa", en: "represents" },
+      { es: "estudiantes", en: "students" },
+      { es: "programas", en: "programs" },
+      { es: "recomendaciones", en: "recommendations" },
     ],
   },
   {
@@ -1768,6 +2298,16 @@ export const READING_PASSAGES: ReadingPassage[] = [
       { id: "social-organization-11-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Un discurso", "Una receta", "Un correo electrónico", "Una crítica"], correctAnswer: "Un discurso" },
       { id: "social-organization-11-q5", type: "short", prompt: "¿Qué instalación quiere mejorar Irene?", correctAnswer: "el patio" },
     ],
+    vocabulary: [
+      { es: "instituto", en: "secondary school" },
+      { es: "estudiantes", en: "students" },
+      { es: "decisiones", en: "decisions" },
+      { es: "organizar", en: "to organize" },
+      { es: "compartir", en: "to share" },
+      { es: "trabajar", en: "to work" },
+      { es: "problemas", en: "problems" },
+      { es: "conseguir", en: "to get / achieve" },
+    ],
   },
   {
     id: "reading-sharing-planet-10",
@@ -1788,6 +2328,16 @@ export const READING_PASSAGES: ReadingPassage[] = [
       { id: "sharing-planet-10-q3", type: "mcq", prompt: "¿A qué hora empieza la actividad?", options: ["A las nueve de la mañana", "A las doce del mediodía", "A las seis de la tarde", "A medianoche"], correctAnswer: "A las nueve de la mañana" },
       { id: "sharing-planet-10-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Un anuncio", "Un informe científico", "Una entrada de diario", "Una entrevista"], correctAnswer: "Un anuncio" },
       { id: "sharing-planet-10-q5", type: "short", prompt: "¿Cuántos kilos de basura se recogen normalmente cada año?", correctAnswer: "más de doscientos kilos" },
+    ],
+    vocabulary: [
+      { es: "preocupa", en: "worries" },
+      { es: "voluntarios", en: "volunteers" },
+      { es: "principal", en: "main" },
+      { es: "participantes", en: "participants" },
+      { es: "experiencia", en: "experience" },
+      { es: "pequeño", en: "small" },
+      { es: "doscientos", en: "two hundred" },
+      { es: "simplemente", en: "simply" },
     ],
   },
   {
@@ -1811,6 +2361,16 @@ export const READING_PASSAGES: ReadingPassage[] = [
       { id: "sharing-planet-11-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Una entrevista", "Un anuncio", "Una postal", "Un poema"], correctAnswer: "Una entrevista" },
       { id: "sharing-planet-11-q5", type: "short", prompt: "¿Cuántos años lleva la doctora Vidal estudiando los arrecifes?", correctAnswer: "quince años" },
     ],
+    vocabulary: [
+      { es: "hablamos", en: "we speak / talk" },
+      { es: "situación", en: "situation" },
+      { es: "demasiado", en: "too much" },
+      { es: "solución", en: "solution" },
+      { es: "contaminación", en: "pollution" },
+      { es: "importante", en: "important" },
+      { es: "climático", en: "climate (adj.)" },
+      { es: "compartir", en: "to share" },
+    ],
   },
   {
     id: "reading-identities-13",
@@ -1830,6 +2390,16 @@ export const READING_PASSAGES: ReadingPassage[] = [
       { id: "identities-13-q3", type: "mcq", prompt: "¿Por qué llega cansado Daniel a las clases de la tarde?", options: ["Por el entrenamiento de baloncesto", "Por trabajar por las noches", "Por dormir poco", "Por hacer los deberes tarde"], correctAnswer: "Por el entrenamiento de baloncesto" },
       { id: "identities-13-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Un correo formal", "Una entrada de diario", "Un anuncio", "Una reseña"], correctAnswer: "Un correo formal" },
       { id: "identities-13-q5", type: "short", prompt: "¿Qué deporte practica Daniel?", correctAnswer: "baloncesto" },
+    ],
+    vocabulary: [
+      { es: "escribo", en: "I write" },
+      { es: "organizar", en: "to organize" },
+      { es: "horario", en: "schedule" },
+      { es: "estudio", en: "study" },
+      { es: "problemas", en: "problems" },
+      { es: "cambiar", en: "to change" },
+      { es: "hacerlo", en: "to do it" },
+      { es: "atentamente", en: "sincerely (letter closing)" },
     ],
   },
   {
@@ -1851,6 +2421,16 @@ export const READING_PASSAGES: ReadingPassage[] = [
       { id: "identities-14-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Una guía instructiva", "Un poema", "Una entrevista", "Un anuncio"], correctAnswer: "Una guía instructiva" },
       { id: "identities-14-q5", type: "short", prompt: "¿Cuántos minutos se recomienda escribir cada día?", correctAnswer: "diez minutos" },
     ],
+    vocabulary: [
+      { es: "entender", en: "to understand" },
+      { es: "empezar", en: "to begin" },
+      { es: "primero", en: "first" },
+      { es: "momento", en: "moment" },
+      { es: "minutos", en: "minutes" },
+      { es: "importante", en: "important" },
+      { es: "situación", en: "situation" },
+      { es: "realmente", en: "really" },
+    ],
   },
   {
     id: "reading-identities-15",
@@ -1869,6 +2449,16 @@ export const READING_PASSAGES: ReadingPassage[] = [
       { id: "identities-15-q3", type: "mcq", prompt: "Según los expertos, ¿cuál es la clave para manejar la identidad digital?", options: ["Distinguir entre la representación en línea y la persona completa", "Eliminar todas las redes sociales", "Publicar solo contenido perfecto", "Evitar hablar de la vida digital"], correctAnswer: "Distinguir entre la representación en línea y la persona completa" },
       { id: "identities-15-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Un artículo de revista", "Una postal", "Un correo informal", "Un menú"], correctAnswer: "Un artículo de revista" },
       { id: "identities-15-q5", type: "short", prompt: "¿Qué genera la discrepancia entre el 'yo real' y el 'yo digital', según los psicólogos?", correctAnswer: "ansiedad" },
+    ],
+    vocabulary: [
+      { es: "diferencia", en: "difference" },
+      { es: "importante", en: "important" },
+      { es: "identidad", en: "identity" },
+      { es: "internet", en: "internet" },
+      { es: "constante", en: "constant" },
+      { es: "necesidad", en: "need" },
+      { es: "adolescente", en: "teenager" },
+      { es: "especialmente", en: "especially" },
     ],
   },
   {
@@ -1889,6 +2479,16 @@ export const READING_PASSAGES: ReadingPassage[] = [
       { id: "identities-16-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Una reseña", "Un informe oficial", "Una receta", "Un anuncio"], correctAnswer: "Una reseña" },
       { id: "identities-16-q5", type: "short", prompt: "¿Cómo se llama la autora del libro reseñado?", correctAnswer: "Valeria Núñez" },
     ],
+    vocabulary: [
+      { es: "adolescente", en: "teenager" },
+      { es: "experiencia", en: "experience" },
+      { es: "actividades", en: "activities" },
+      { es: "realmente", en: "really" },
+      { es: "identidad", en: "identity" },
+      { es: "especialmente", en: "especially" },
+      { es: "recomiendo", en: "I recommend" },
+      { es: "cualquier", en: "any" },
+    ],
   },
   {
     id: "reading-identities-17",
@@ -1907,6 +2507,16 @@ export const READING_PASSAGES: ReadingPassage[] = [
       { id: "identities-17-q3", type: "mcq", prompt: "¿Cómo se sintió la autora después de dejar de seguir esas cuentas?", options: ["Más tranquila y contenta", "Más triste", "Sin cambios", "Más ansiosa"], correctAnswer: "Más tranquila y contenta" },
       { id: "identities-17-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Una publicación en redes sociales", "Un informe oficial", "Una carta formal", "Un menú"], correctAnswer: "Una publicación en redes sociales" },
       { id: "identities-17-q5", type: "short", prompt: "¿Qué decidió hacer la autora hace unos meses?", correctAnswer: "dejar de seguir cuentas que la hacían sentir mal" },
+    ],
+    vocabulary: [
+      { es: "compartir", en: "to share" },
+      { es: "sociales", en: "social" },
+      { es: "principio", en: "beginning" },
+      { es: "sentirme", en: "to feel (myself)" },
+      { es: "entiendo", en: "I understand" },
+      { es: "internet", en: "internet" },
+      { es: "realidad", en: "reality" },
+      { es: "totalmente", en: "totally" },
     ],
   },
   {
@@ -1927,6 +2537,16 @@ export const READING_PASSAGES: ReadingPassage[] = [
       { id: "identities-18-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Una entrada de blog", "Un informe oficial", "Un anuncio publicitario", "Una receta"], correctAnswer: "Una entrada de blog" },
       { id: "identities-18-q5", type: "short", prompt: "¿Cómo se llama la condición psicológica descrita en el texto?", correctAnswer: "síndrome del impostor" },
     ],
+    vocabulary: [
+      { es: "constante", en: "constant" },
+      { es: "cualquier", en: "any" },
+      { es: "momento", en: "moment" },
+      { es: "alguien", en: "someone" },
+      { es: "realidad", en: "reality" },
+      { es: "sentirme", en: "to feel (myself)" },
+      { es: "estudiantes", en: "students" },
+      { es: "simplemente", en: "simply" },
+    ],
   },
   {
     id: "reading-identities-19",
@@ -1946,6 +2566,16 @@ export const READING_PASSAGES: ReadingPassage[] = [
       { id: "identities-19-q3", type: "mcq", prompt: "¿Qué compara Marcos con su propio cuerpo?", options: ["Los cuerpos que ve en anuncios y redes sociales", "Los cuerpos de sus amigos cercanos", "Fotos antiguas de sí mismo", "Personajes de películas"], correctAnswer: "Los cuerpos que ve en anuncios y redes sociales" },
       { id: "identities-19-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Una publicación de un foro", "Un informe oficial", "Una entrevista", "Un menú"], correctAnswer: "Una publicación de un foro" },
       { id: "identities-19-q5", type: "short", prompt: "¿Qué pide Marcos al final de su publicación?", correctAnswer: "consejos" },
+    ],
+    vocabulary: [
+      { es: "publicado", en: "posted / published" },
+      { es: "alguien", en: "someone" },
+      { es: "problema", en: "problem" },
+      { es: "sociales", en: "social" },
+      { es: "sentirme", en: "to feel (myself)" },
+      { es: "energía", en: "energy" },
+      { es: "realmente", en: "really" },
+      { es: "antemano", en: "beforehand (de antemano)" },
     ],
   },
   {
@@ -1969,6 +2599,16 @@ export const READING_PASSAGES: ReadingPassage[] = [
       { id: "identities-20-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Una entrevista", "Un anuncio", "Una postal", "Un poema"], correctAnswer: "Una entrevista" },
       { id: "identities-20-q5", type: "short", prompt: "¿Cómo se llama la psicóloga entrevistada?", correctAnswer: "Elena Campos" },
     ],
+    vocabulary: [
+      { es: "hablamos", en: "we speak / talk" },
+      { es: "adolescentes", en: "teenagers" },
+      { es: "identidad", en: "identity" },
+      { es: "difícil", en: "difficult" },
+      { es: "diferencia", en: "difference" },
+      { es: "importante", en: "important" },
+      { es: "simplemente", en: "simply" },
+      { es: "compartir", en: "to share" },
+    ],
   },
   {
     id: "reading-experiences-12",
@@ -1987,6 +2627,16 @@ export const READING_PASSAGES: ReadingPassage[] = [
       { id: "experiences-12-q3", type: "mcq", prompt: "Según los expertos, ¿qué suelen tener los estudiantes que planifican bien su año sabático?", options: ["Mejor rendimiento universitario", "Peores notas", "Menos motivación", "Más dificultades económicas"], correctAnswer: "Mejor rendimiento universitario" },
       { id: "experiences-12-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Un artículo de periódico", "Una carta personal", "Un poema", "Un menú"], correctAnswer: "Un artículo de periódico" },
       { id: "experiences-12-q5", type: "short", prompt: "¿Quién publicó el informe mencionado en el artículo?", correctAnswer: "el Ministerio de Educación" },
+    ],
+    vocabulary: [
+      { es: "estudiantes", en: "students" },
+      { es: "publicado", en: "posted / published" },
+      { es: "educación", en: "education" },
+      { es: "trabajar", en: "to work" },
+      { es: "culturas", en: "cultures" },
+      { es: "simplemente", en: "simply" },
+      { es: "expertos", en: "experts" },
+      { es: "voluntariado", en: "volunteering" },
     ],
   },
   {
@@ -2007,6 +2657,16 @@ export const READING_PASSAGES: ReadingPassage[] = [
       { id: "experiences-13-q3", type: "mcq", prompt: "Según el discurso, ¿qué aprendió el orador sobre pedir ayuda?", options: ["Que es una forma de valentía", "Que es una debilidad", "Que nunca es necesario", "Que solo los débiles lo hacen"], correctAnswer: "Que es una forma de valentía" },
       { id: "experiences-13-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Un discurso", "Una receta", "Un correo electrónico", "Un anuncio"], correctAnswer: "Un discurso" },
       { id: "experiences-13-q5", type: "short", prompt: "¿A quién se dirige el orador al principio del discurso, además de a sus compañeros?", correctAnswer: "profesores y familias" },
+    ],
+    vocabulary: [
+      { es: "familias", en: "families" },
+      { es: "compañeros", en: "classmates / colleagues" },
+      { es: "imaginaba", en: "imagined" },
+      { es: "aprendí", en: "I learned" },
+      { es: "realmente", en: "really" },
+      { es: "instituto", en: "secondary school" },
+      { es: "resolver", en: "to solve" },
+      { es: "distintos", en: "different" },
     ],
   },
   {
@@ -2030,6 +2690,16 @@ export const READING_PASSAGES: ReadingPassage[] = [
       { id: "experiences-14-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Una entrevista", "Una postal", "Un informe oficial", "Un menú"], correctAnswer: "Una entrevista" },
       { id: "experiences-14-q5", type: "short", prompt: "¿En qué ciudad alemana vivió Lucía?", correctAnswer: "Múnich" },
     ],
+    vocabulary: [
+      { es: "hablamos", en: "we speak / talk" },
+      { es: "diecisiete", en: "seventeen" },
+      { es: "intercambio", en: "exchange" },
+      { es: "escolar", en: "school (adj.)" },
+      { es: "principio", en: "beginning" },
+      { es: "experiencia", en: "experience" },
+      { es: "estudiantes", en: "students" },
+      { es: "totalmente", en: "totally" },
+    ],
   },
   {
     id: "reading-experiences-15",
@@ -2050,6 +2720,16 @@ export const READING_PASSAGES: ReadingPassage[] = [
       { id: "experiences-15-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Una guía instructiva", "Un poema", "Una crítica de cine", "Una carta personal"], correctAnswer: "Una guía instructiva" },
       { id: "experiences-15-q5", type: "short", prompt: "¿Por qué se recomienda dejar espacio libre en la maleta?", correctAnswer: "para traer recuerdos y regalos al volver" },
     ],
+    vocabulary: [
+      { es: "intercambio", en: "exchange" },
+      { es: "escolar", en: "school (adj.)" },
+      { es: "preparar", en: "to prepare" },
+      { es: "importante", en: "important" },
+      { es: "primero", en: "first" },
+      { es: "estudiantes", en: "students" },
+      { es: "importantes", en: "important (pl.)" },
+      { es: "organización", en: "organization" },
+    ],
   },
   {
     id: "reading-experiences-16",
@@ -2068,6 +2748,16 @@ export const READING_PASSAGES: ReadingPassage[] = [
       { id: "experiences-16-q3", type: "mcq", prompt: "¿Cuál es la propuesta final del autor?", options: ["Garantizar becas y ayudas suficientes", "Eliminar todos los viajes educativos", "Hacer los viajes obligatorios", "Cobrar más por los viajes"], correctAnswer: "Garantizar becas y ayudas suficientes" },
       { id: "experiences-16-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Una columna de opinión", "Un correo formal", "Una receta", "Una postal"], correctAnswer: "Una columna de opinión" },
       { id: "experiences-16-q5", type: "short", prompt: "Según el autor, ¿qué tipo de viaje enseña más que meses de clases tradicionales?", correctAnswer: "un viaje bien planificado" },
+    ],
+    vocabulary: [
+      { es: "instituto", en: "secondary school" },
+      { es: "realmente", en: "really" },
+      { es: "estudiantes", en: "students" },
+      { es: "respuesta", en: "answer / reply" },
+      { es: "actividades", en: "activities" },
+      { es: "familias", en: "families" },
+      { es: "educativos", en: "educational" },
+      { es: "estudiante", en: "student" },
     ],
   },
   {
@@ -2089,6 +2779,16 @@ export const READING_PASSAGES: ReadingPassage[] = [
       { id: "experiences-17-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Un informe oficial", "Una carta personal", "Un anuncio", "Una reseña"], correctAnswer: "Un informe oficial" },
       { id: "experiences-17-q5", type: "short", prompt: "¿Quién elaboró este informe?", correctAnswer: "la Asociación Nacional de Programas de Intercambio" },
     ],
+    vocabulary: [
+      { es: "asociación", en: "association" },
+      { es: "programas", en: "programs" },
+      { es: "intercambio", en: "exchange" },
+      { es: "personales", en: "personal" },
+      { es: "estudiantes", en: "students" },
+      { es: "participantes", en: "participants" },
+      { es: "recomendaciones", en: "recommendations" },
+      { es: "actualmente", en: "currently" },
+    ],
   },
   {
     id: "reading-experiences-18",
@@ -2109,6 +2809,16 @@ export const READING_PASSAGES: ReadingPassage[] = [
       { id: "experiences-18-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Una entrada de diario", "Un informe oficial", "Un anuncio", "Una entrevista"], correctAnswer: "Una entrada de diario" },
       { id: "experiences-18-q5", type: "short", prompt: "¿Qué actividad tienen planeada para mañana?", correctAnswer: "manualidades" },
     ],
+    vocabulary: [
+      { es: "querido", en: "dear / beloved" },
+      { es: "principio", en: "beginning" },
+      { es: "primera", en: "first" },
+      { es: "colaborar", en: "to collaborate" },
+      { es: "gracias", en: "thanks" },
+      { es: "pequeño", en: "small" },
+      { es: "totalmente", en: "totally" },
+      { es: "actividades", en: "activities" },
+    ],
   },
   {
     id: "reading-experiences-19",
@@ -2127,6 +2837,16 @@ export const READING_PASSAGES: ReadingPassage[] = [
       { id: "experiences-19-q3", type: "mcq", prompt: "¿Cuántas semanas trabajó el autor como voluntario?", options: ["Seis semanas", "Dos semanas", "Un año", "Tres días"], correctAnswer: "Seis semanas" },
       { id: "experiences-19-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Una entrada de blog", "Un informe oficial", "Una postal", "Un menú"], correctAnswer: "Una entrada de blog" },
       { id: "experiences-19-q5", type: "short", prompt: "¿Dónde trabajó de voluntario el autor?", correctAnswer: "en un refugio de animales" },
+    ],
+    vocabulary: [
+      { es: "semanas", en: "weeks" },
+      { es: "horarios", en: "schedules" },
+      { es: "cualquier", en: "any" },
+      { es: "personas", en: "people" },
+      { es: "completamente", en: "completely" },
+      { es: "diferentes", en: "different" },
+      { es: "experiencia", en: "experience" },
+      { es: "voluntariado", en: "volunteering" },
     ],
   },
   {
@@ -2148,6 +2868,16 @@ export const READING_PASSAGES: ReadingPassage[] = [
       { id: "experiences-20-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Una publicación de un foro", "Un informe oficial", "Una entrevista", "Un menú"], correctAnswer: "Una publicación de un foro" },
       { id: "experiences-20-q5", type: "short", prompt: "¿Qué está organizando el instituto del autor?", correctAnswer: "una versión corta del Camino de Santiago" },
     ],
+    vocabulary: [
+      { es: "publicado", en: "posted / published" },
+      { es: "instituto", en: "secondary school" },
+      { es: "trimestre", en: "term / trimester" },
+      { es: "preocupa", en: "worries" },
+      { es: "problema", en: "problem" },
+      { es: "antemano", en: "beforehand (de antemano)" },
+      { es: "cualquier", en: "any" },
+      { es: "experiencia", en: "experience" },
+    ],
   },
   {
     id: "reading-human-ingenuity-12",
@@ -2166,6 +2896,16 @@ export const READING_PASSAGES: ReadingPassage[] = [
       { id: "human-ingenuity-12-q3", type: "mcq", prompt: "¿Qué porcentaje del profesorado usa regularmente herramientas de IA?", options: ["65%", "40%", "300%", "15%"], correctAnswer: "65%" },
       { id: "human-ingenuity-12-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Un informe oficial", "Una carta personal", "Un anuncio", "Una reseña"], correctAnswer: "Un informe oficial" },
       { id: "human-ingenuity-12-q5", type: "short", prompt: "¿Quién encargó este informe?", correctAnswer: "el Ministerio de Educación" },
+    ],
+    vocabulary: [
+      { es: "educación", en: "education" },
+      { es: "inteligencia", en: "intelligence" },
+      { es: "artificial", en: "artificial" },
+      { es: "institutos", en: "secondary schools" },
+      { es: "materiales", en: "materials" },
+      { es: "estudiantes", en: "students" },
+      { es: "importantes", en: "important (pl.)" },
+      { es: "recomendaciones", en: "recommendations" },
     ],
   },
   {
@@ -2188,6 +2928,16 @@ export const READING_PASSAGES: ReadingPassage[] = [
       { id: "human-ingenuity-13-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Una postal", "Un informe oficial", "Una reseña", "Un anuncio"], correctAnswer: "Una postal" },
       { id: "human-ingenuity-13-q5", type: "short", prompt: "¿Qué día es la presentación final ante los jueces?", correctAnswer: "mañana" },
     ],
+    vocabulary: [
+      { es: "escribo", en: "I write" },
+      { es: "internacional", en: "international" },
+      { es: "ciencia", en: "science" },
+      { es: "proyecto", en: "project" },
+      { es: "instituto", en: "secondary school" },
+      { es: "estudiantes", en: "students" },
+      { es: "experiencia", en: "experience" },
+      { es: "increíble", en: "incredible" },
+    ],
   },
   {
     id: "reading-human-ingenuity-14",
@@ -2206,6 +2956,16 @@ export const READING_PASSAGES: ReadingPassage[] = [
       { id: "human-ingenuity-14-q3", type: "mcq", prompt: "¿A qué fase avanza el equipo ahora?", options: ["La fase nacional", "La fase internacional", "No avanzan más", "La fase local"], correctAnswer: "La fase nacional" },
       { id: "human-ingenuity-14-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Una publicación en redes sociales", "Un informe oficial", "Una carta formal", "Un menú"], correctAnswer: "Una publicación en redes sociales" },
       { id: "human-ingenuity-14-q5", type: "short", prompt: "¿Qué premio ganó el equipo en el concurso regional?", correctAnswer: "el primer premio" },
+    ],
+    vocabulary: [
+      { es: "trabajo", en: "work / job" },
+      { es: "proyecto", en: "project" },
+      { es: "gracias", en: "thanks" },
+      { es: "profesora", en: "teacher (fem.)" },
+      { es: "tecnología", en: "technology" },
+      { es: "principio", en: "beginning" },
+      { es: "demasiado", en: "too much" },
+      { es: "nacional", en: "national" },
     ],
   },
   {
@@ -2226,6 +2986,16 @@ export const READING_PASSAGES: ReadingPassage[] = [
       { id: "human-ingenuity-15-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Una entrada de blog", "Un informe oficial", "Un anuncio", "Una postal"], correctAnswer: "Una entrada de blog" },
       { id: "human-ingenuity-15-q5", type: "short", prompt: "Según el autor, ¿qué línea es 'peligrosamente delgada'?", correctAnswer: "la línea entre curar y mejorar" },
     ],
+    vocabulary: [
+      { es: "humanos", en: "humans" },
+      { es: "tecnología", en: "technology" },
+      { es: "ciencia", en: "science" },
+      { es: "simplemente", en: "simply" },
+      { es: "hacerlo", en: "to do it" },
+      { es: "respuesta", en: "answer / reply" },
+      { es: "decisiones", en: "decisions" },
+      { es: "empresas", en: "companies" },
+    ],
   },
   {
     id: "reading-human-ingenuity-16",
@@ -2244,6 +3014,16 @@ export const READING_PASSAGES: ReadingPassage[] = [
       { id: "human-ingenuity-16-q3", type: "mcq", prompt: "¿Cuál es la velocidad máxima del vehículo?", options: ["Setenta kilómetros por hora", "Cien kilómetros por hora", "Treinta kilómetros por hora", "Doscientos kilómetros por hora"], correctAnswer: "Setenta kilómetros por hora" },
       { id: "human-ingenuity-16-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Un artículo de periódico", "Una entrada de diario", "Una postal", "Un menú"], correctAnswer: "Un artículo de periódico" },
       { id: "human-ingenuity-16-q5", type: "short", prompt: "¿Cuántos estudiantes formaron el equipo?", correctAnswer: "doce" },
+    ],
+    vocabulary: [
+      { es: "estudiantes", en: "students" },
+      { es: "instituto", en: "secondary school" },
+      { es: "completamente", en: "completely" },
+      { es: "proyecto", en: "project" },
+      { es: "necesidad", en: "need" },
+      { es: "principio", en: "beginning" },
+      { es: "profesora", en: "teacher (fem.)" },
+      { es: "recursos", en: "resources" },
     ],
   },
   {
@@ -2267,6 +3047,16 @@ export const READING_PASSAGES: ReadingPassage[] = [
       { id: "human-ingenuity-17-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Una entrevista", "Un anuncio", "Una receta", "Un poema"], correctAnswer: "Una entrevista" },
       { id: "human-ingenuity-17-q5", type: "short", prompt: "¿En qué diseña Marta actualmente?", correctAnswer: "satélites de bajo coste" },
     ],
+    vocabulary: [
+      { es: "hablamos", en: "we speak / talk" },
+      { es: "jóvenes", en: "young people" },
+      { es: "actualmente", en: "currently" },
+      { es: "primera", en: "first" },
+      { es: "momento", en: "moment" },
+      { es: "principio", en: "beginning" },
+      { es: "sentirse", en: "to feel (oneself)" },
+      { es: "completamente", en: "completely" },
+    ],
   },
   {
     id: "reading-human-ingenuity-18",
@@ -2287,6 +3077,16 @@ export const READING_PASSAGES: ReadingPassage[] = [
       { id: "human-ingenuity-18-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Un anuncio", "Un informe científico", "Una entrada de diario", "Una entrevista"], correctAnswer: "Un anuncio" },
       { id: "human-ingenuity-18-q5", type: "short", prompt: "¿Qué crearán los estudiantes durante el taller?", correctAnswer: "su propio videojuego sencillo" },
     ],
+    vocabulary: [
+      { es: "interesa", en: "interests" },
+      { es: "tecnología", en: "technology" },
+      { es: "jóvenes", en: "young people" },
+      { es: "diecisiete", en: "seventeen" },
+      { es: "necesidad", en: "need" },
+      { es: "experiencia", en: "experience" },
+      { es: "pequeños", en: "small (pl.)" },
+      { es: "estudiantes", en: "students" },
+    ],
   },
   {
     id: "reading-human-ingenuity-19",
@@ -2305,6 +3105,16 @@ export const READING_PASSAGES: ReadingPassage[] = [
       { id: "human-ingenuity-19-q3", type: "mcq", prompt: "¿Cuál es la queja principal del autor sobre el museo?", options: ["Las largas colas los fines de semana", "El precio de la entrada", "La falta de personal", "El horario de apertura"], correctAnswer: "Las largas colas los fines de semana" },
       { id: "human-ingenuity-19-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Una reseña", "Un informe oficial", "Una carta formal", "Un menú"], correctAnswer: "Una reseña" },
       { id: "human-ingenuity-19-q5", type: "short", prompt: "¿Qué se puede programar en la sala de robótica?", correctAnswer: "pequeños robots" },
+    ],
+    vocabulary: [
+      { es: "completamente", en: "completely" },
+      { es: "robótica", en: "robotics" },
+      { es: "pequeños", en: "small (pl.)" },
+      { es: "distintos", en: "different" },
+      { es: "diferencia", en: "difference" },
+      { es: "realmente", en: "really" },
+      { es: "recomiendo", en: "I recommend" },
+      { es: "totalmente", en: "totally" },
     ],
   },
   {
@@ -2326,6 +3136,16 @@ export const READING_PASSAGES: ReadingPassage[] = [
       { id: "human-ingenuity-20-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Una entrada de diario", "Un informe oficial", "Un anuncio", "Una entrevista"], correctAnswer: "Una entrada de diario" },
       { id: "human-ingenuity-20-q5", type: "short", prompt: "¿Cuándo es la competición?", correctAnswer: "mañana" },
     ],
+    vocabulary: [
+      { es: "querido", en: "dear / beloved" },
+      { es: "diario", en: "diary / daily" },
+      { es: "primer", en: "first" },
+      { es: "robótica", en: "robotics" },
+      { es: "instituto", en: "secondary school" },
+      { es: "principio", en: "beginning" },
+      { es: "encontrar", en: "to find" },
+      { es: "compañeros", en: "classmates / colleagues" },
+    ],
   },
   {
     id: "reading-social-organization-12",
@@ -2346,6 +3166,16 @@ export const READING_PASSAGES: ReadingPassage[] = [
       { id: "social-organization-12-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Una entrada de diario", "Un informe oficial", "Un anuncio", "Una entrevista"], correctAnswer: "Una entrada de diario" },
       { id: "social-organization-12-q5", type: "short", prompt: "¿Con qué grupo de personas trabaja la autora en su voluntariado?", correctAnswer: "personas mayores" },
     ],
+    vocabulary: [
+      { es: "programa", en: "program" },
+      { es: "voluntariado", en: "volunteering" },
+      { es: "ayuntamiento", en: "town hall / city council" },
+      { es: "atención", en: "attention" },
+      { es: "personas", en: "people" },
+      { es: "principio", en: "beginning" },
+      { es: "historias", en: "stories" },
+      { es: "imaginaba", en: "imagined" },
+    ],
   },
   {
     id: "reading-social-organization-13",
@@ -2364,6 +3194,16 @@ export const READING_PASSAGES: ReadingPassage[] = [
       { id: "social-organization-13-q3", type: "mcq", prompt: "Según los expertos, ¿cuál será el reto de las próximas décadas?", options: ["Diseñar comunidades y espacios híbridos equilibrados", "Eliminar completamente el trabajo remoto", "Obligar a todos a volver a la oficina", "Reducir los salarios de los trabajadores remotos"], correctAnswer: "Diseñar comunidades y espacios híbridos equilibrados" },
       { id: "social-organization-13-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Un artículo de revista", "Una postal", "Un correo informal", "Un menú"], correctAnswer: "Un artículo de revista" },
       { id: "social-organization-13-q5", type: "short", prompt: "¿Qué disminuye, según los sociólogos, a causa del trabajo remoto?", correctAnswer: "las interacciones sociales espontáneas" },
+    ],
+    vocabulary: [
+      { es: "realidad", en: "reality" },
+      { es: "millones", en: "millions" },
+      { es: "personas", en: "people" },
+      { es: "trabajar", en: "to work" },
+      { es: "actividades", en: "activities" },
+      { es: "pequeños", en: "small (pl.)" },
+      { es: "cualquier", en: "any" },
+      { es: "comunidad", en: "community" },
     ],
   },
   {
@@ -2384,6 +3224,16 @@ export const READING_PASSAGES: ReadingPassage[] = [
       { id: "social-organization-14-q3", type: "mcq", prompt: "¿A partir de qué edad se buscan voluntarios?", options: ["Dieciséis años", "Dieciocho años", "Veintiún años", "Catorce años"], correctAnswer: "Dieciséis años" },
       { id: "social-organization-14-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Un anuncio", "Un informe científico", "Una entrada de diario", "Una reseña"], correctAnswer: "Un anuncio" },
       { id: "social-organization-14-q5", type: "short", prompt: "¿Cuánto tiempo dura el compromiso de voluntariado?", correctAnswer: "tres meses" },
+    ],
+    vocabulary: [
+      { es: "quieres", en: "you want" },
+      { es: "personas", en: "people" },
+      { es: "voluntarios", en: "volunteers" },
+      { es: "dieciséis", en: "sixteen" },
+      { es: "necesitas", en: "you need" },
+      { es: "experiencia", en: "experience" },
+      { es: "comunitario", en: "community (adj.)" },
+      { es: "interesa", en: "interests" },
     ],
   },
   {
@@ -2406,6 +3256,16 @@ export const READING_PASSAGES: ReadingPassage[] = [
       { id: "social-organization-15-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Una postal", "Un informe oficial", "Una reseña", "Un anuncio"], correctAnswer: "Una postal" },
       { id: "social-organization-15-q5", type: "short", prompt: "¿Cuándo vuelve Pablo a casa?", correctAnswer: "la semana que viene" },
     ],
+    vocabulary: [
+      { es: "internacional", en: "international" },
+      { es: "comunidad", en: "community" },
+      { es: "imaginaba", en: "imagined" },
+      { es: "organización", en: "organization" },
+      { es: "instituto", en: "secondary school" },
+      { es: "increíble", en: "incredible" },
+      { es: "problemas", en: "problems" },
+      { es: "historias", en: "stories" },
+    ],
   },
   {
     id: "reading-social-organization-16",
@@ -2425,6 +3285,16 @@ export const READING_PASSAGES: ReadingPassage[] = [
       { id: "social-organization-16-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Una reseña", "Un informe oficial", "Una carta formal", "Un menú"], correctAnswer: "Una reseña" },
       { id: "social-organization-16-q5", type: "short", prompt: "¿Cuántas familias sigue el documental?", correctAnswer: "tres" },
     ],
+    vocabulary: [
+      { es: "ciudad", en: "city" },
+      { es: "familias", en: "families" },
+      { es: "completo", en: "complete / full" },
+      { es: "problema", en: "problem" },
+      { es: "demasiado", en: "too much" },
+      { es: "recomiendo", en: "I recommend" },
+      { es: "especialmente", en: "especially" },
+      { es: "quienes", en: "who (plural)" },
+    ],
   },
   {
     id: "reading-social-organization-17",
@@ -2443,6 +3313,16 @@ export const READING_PASSAGES: ReadingPassage[] = [
       { id: "social-organization-17-q3", type: "mcq", prompt: "¿Cuántas semanas de permiso parental establece la nueva ley?", options: ["Dieciséis semanas", "Doce semanas", "Ocho semanas", "Veinte semanas"], correctAnswer: "Dieciséis semanas" },
       { id: "social-organization-17-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Un artículo de periódico", "Una entrada de diario", "Una postal", "Un menú"], correctAnswer: "Un artículo de periódico" },
       { id: "social-organization-17-q5", type: "short", prompt: "¿Cuándo entra en vigor la nueva ley?", correctAnswer: "el primero de enero del próximo año" },
+    ],
+    vocabulary: [
+      { es: "horarios", en: "schedules" },
+      { es: "dieciséis", en: "sixteen" },
+      { es: "semanas", en: "weeks" },
+      { es: "empresas", en: "companies" },
+      { es: "cualquier", en: "any" },
+      { es: "horario", en: "schedule" },
+      { es: "pequeñas", en: "small (fem. pl.)" },
+      { es: "primero", en: "first" },
     ],
   },
   {
@@ -2466,6 +3346,16 @@ export const READING_PASSAGES: ReadingPassage[] = [
       { id: "social-organization-18-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Una entrevista", "Un anuncio", "Una receta", "Un poema"], correctAnswer: "Una entrevista" },
       { id: "social-organization-18-q5", type: "short", prompt: "¿Dónde presenció Carolina la falta de acceso a la justicia?", correctAnswer: "en su barrio" },
     ],
+    vocabulary: [
+      { es: "hablamos", en: "we speak / talk" },
+      { es: "humanos", en: "humans" },
+      { es: "distintos", en: "different" },
+      { es: "trabajo", en: "work / job" },
+      { es: "primera", en: "first" },
+      { es: "familias", en: "families" },
+      { es: "simplemente", en: "simply" },
+      { es: "empezar", en: "to begin" },
+    ],
   },
   {
     id: "reading-social-organization-19",
@@ -2484,6 +3374,16 @@ export const READING_PASSAGES: ReadingPassage[] = [
       { id: "social-organization-19-q3", type: "mcq", prompt: "Según el autor, ¿qué palabra le preocupa del debate?", options: ["Obligatorio", "Comunitario", "Servicio", "Social"], correctAnswer: "Obligatorio" },
       { id: "social-organization-19-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Una entrada de blog", "Un informe oficial", "Un anuncio publicitario", "Una receta"], correctAnswer: "Una entrada de blog" },
       { id: "social-organization-19-q5", type: "short", prompt: "¿Qué tipo de compromiso, según el autor, surge de una decisión voluntaria?", correctAnswer: "un compromiso genuino" },
+    ],
+    vocabulary: [
+      { es: "actualmente", en: "currently" },
+      { es: "instituto", en: "secondary school" },
+      { es: "comunitario", en: "community (adj.)" },
+      { es: "entiendo", en: "I understand" },
+      { es: "comunidad", en: "community" },
+      { es: "distintos", en: "different" },
+      { es: "sociales", en: "social" },
+      { es: "necesidad", en: "need" },
     ],
   },
   {
@@ -2505,6 +3405,16 @@ export const READING_PASSAGES: ReadingPassage[] = [
       { id: "social-organization-20-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Una publicación de un foro", "Un informe oficial", "Una entrevista", "Un menú"], correctAnswer: "Una publicación de un foro" },
       { id: "social-organization-20-q5", type: "short", prompt: "¿Cuántos años tiene la autora de la publicación?", correctAnswer: "dieciséis" },
     ],
+    vocabulary: [
+      { es: "publicado", en: "posted / published" },
+      { es: "voluntariado", en: "volunteering" },
+      { es: "organización", en: "organization" },
+      { es: "dieciséis", en: "sixteen" },
+      { es: "encontrar", en: "to find" },
+      { es: "especialmente", en: "especially" },
+      { es: "experiencia", en: "experience" },
+      { es: "cualquier", en: "any" },
+    ],
   },
   {
     id: "reading-sharing-planet-12",
@@ -2525,6 +3435,16 @@ export const READING_PASSAGES: ReadingPassage[] = [
       { id: "sharing-planet-12-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Una guía instructiva", "Un poema", "Una crítica de cine", "Una carta personal"], correctAnswer: "Una guía instructiva" },
       { id: "sharing-planet-12-q5", type: "short", prompt: "¿Qué atrae la carne, los lácteos y los aceites al compost?", correctAnswer: "plagas" },
     ],
+    vocabulary: [
+      { es: "reducir", en: "to reduce" },
+      { es: "plantas", en: "plants" },
+      { es: "empezar", en: "to begin" },
+      { es: "primero", en: "first" },
+      { es: "materiales", en: "materials" },
+      { es: "posible", en: "possible" },
+      { es: "segundo", en: "second" },
+      { es: "tercero", en: "third" },
+    ],
   },
   {
     id: "reading-sharing-planet-13",
@@ -2543,6 +3463,16 @@ export const READING_PASSAGES: ReadingPassage[] = [
       { id: "sharing-planet-13-q3", type: "mcq", prompt: "¿Qué porcentaje de la superficie oceánica mundial está actualmente protegido?", options: ["Menos del 8%", "Más del 50%", "El 100%", "El 38%"], correctAnswer: "Menos del 8%" },
       { id: "sharing-planet-13-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Un informe oficial", "Una carta personal", "Un anuncio", "Una reseña"], correctAnswer: "Un informe oficial" },
       { id: "sharing-planet-13-q5", type: "short", prompt: "¿Qué tres causas principales menciona el informe para la pérdida de biodiversidad marina?", correctAnswer: "la sobrepesca, la contaminación por plásticos y la acidificación de los océanos" },
+    ],
+    vocabulary: [
+      { es: "presente", en: "present" },
+      { es: "informe", en: "report" },
+      { es: "internacional", en: "international" },
+      { es: "institutos", en: "secondary schools" },
+      { es: "contaminación", en: "pollution" },
+      { es: "climático", en: "climate (adj.)" },
+      { es: "especialmente", en: "especially" },
+      { es: "actualmente", en: "currently" },
     ],
   },
   {
@@ -2563,6 +3493,16 @@ export const READING_PASSAGES: ReadingPassage[] = [
       { id: "sharing-planet-14-q3", type: "mcq", prompt: "¿Qué le pide Tomás a la audiencia al final del discurso?", options: ["Que miren los datos científicos y actúen con urgencia", "Que dejen de reciclar", "Que ignoren a los científicos", "Que esperen unos años más"], correctAnswer: "Que miren los datos científicos y actúen con urgencia" },
       { id: "sharing-planet-14-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Un discurso", "Una receta", "Un correo electrónico", "Un anuncio"], correctAnswer: "Un discurso" },
       { id: "sharing-planet-14-q5", type: "short", prompt: "¿Cuántos años tiene Tomás?", correctAnswer: "diecisiete" },
+    ],
+    vocabulary: [
+      { es: "diecisiete", en: "seventeen" },
+      { es: "decisiones", en: "decisions" },
+      { es: "solución", en: "solution" },
+      { es: "climático", en: "climate (adj.)" },
+      { es: "pequeños", en: "small (pl.)" },
+      { es: "problema", en: "problem" },
+      { es: "realmente", en: "really" },
+      { es: "situación", en: "situation" },
     ],
   },
   {
@@ -2585,6 +3525,16 @@ export const READING_PASSAGES: ReadingPassage[] = [
       { id: "sharing-planet-15-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Una postal", "Un informe oficial", "Una reseña", "Un anuncio"], correctAnswer: "Una postal" },
       { id: "sharing-planet-15-q5", type: "short", prompt: "¿Qué actividad hizo la familia de Carla ayer?", correctAnswer: "plantar árboles nativos" },
     ],
+    vocabulary: [
+      { es: "escribo", en: "I write" },
+      { es: "nacional", en: "national" },
+      { es: "familia", en: "family" },
+      { es: "explicó", en: "explained" },
+      { es: "últimos", en: "last / recent (pl.)" },
+      { es: "normal", en: "normal" },
+      { es: "aumentado", en: "increased" },
+      { es: "pasado", en: "past / last (e.g. last year)" },
+    ],
   },
   {
     id: "reading-sharing-planet-16",
@@ -2603,6 +3553,16 @@ export const READING_PASSAGES: ReadingPassage[] = [
       { id: "sharing-planet-16-q3", type: "mcq", prompt: "¿A quién recomienda especialmente el autor este libro?", options: ["A estudiantes de instituto", "A científicos profesionales", "A políticos", "A niños pequeños"], correctAnswer: "A estudiantes de instituto" },
       { id: "sharing-planet-16-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Una reseña", "Un informe oficial", "Una carta formal", "Un menú"], correctAnswer: "Una reseña" },
       { id: "sharing-planet-16-q5", type: "short", prompt: "¿A qué dedica el libro su mitad final?", correctAnswer: "soluciones reales" },
+    ],
+    vocabulary: [
+      { es: "climático", en: "climate (adj.)" },
+      { es: "recomiendo", en: "I recommend" },
+      { es: "especialmente", en: "especially" },
+      { es: "estudiantes", en: "students" },
+      { es: "instituto", en: "secondary school" },
+      { es: "problemas", en: "problems" },
+      { es: "principal", en: "main" },
+      { es: "internacional", en: "international" },
     ],
   },
   {
@@ -2623,6 +3583,16 @@ export const READING_PASSAGES: ReadingPassage[] = [
       { id: "sharing-planet-17-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Una publicación en redes sociales", "Un informe científico", "Una carta formal", "Un menú"], correctAnswer: "Una publicación en redes sociales" },
       { id: "sharing-planet-17-q5", type: "short", prompt: "¿Cuánto tiempo lleva la autora intentando reducir su consumo de agua?", correctAnswer: "un mes" },
     ],
+    vocabulary: [
+      { es: "minutos", en: "minutes" },
+      { es: "completo", en: "complete / full" },
+      { es: "compartir", en: "to share" },
+      { es: "bastante", en: "quite / enough" },
+      { es: "verduras", en: "vegetables" },
+      { es: "principio", en: "beginning" },
+      { es: "demasiado", en: "too much" },
+      { es: "pequeños", en: "small (pl.)" },
+    ],
   },
   {
     id: "reading-sharing-planet-18",
@@ -2641,6 +3611,16 @@ export const READING_PASSAGES: ReadingPassage[] = [
       { id: "sharing-planet-18-q3", type: "mcq", prompt: "¿Qué usa la autora ahora en lugar de jabón líquido?", options: ["Jabón sólido", "Jabón en polvo", "Nada", "Jabón desechable"], correctAnswer: "Jabón sólido" },
       { id: "sharing-planet-18-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Una entrada de blog", "Un informe oficial", "Una postal", "Un menú"], correctAnswer: "Una entrada de blog" },
       { id: "sharing-planet-18-q5", type: "short", prompt: "¿Cuántos días duró el experimento de la autora?", correctAnswer: "treinta días" },
+    ],
+    vocabulary: [
+      { es: "treinta", en: "thirty" },
+      { es: "compartir", en: "to share" },
+      { es: "aprendí", en: "I learned" },
+      { es: "difícil", en: "difficult" },
+      { es: "imaginaba", en: "imagined" },
+      { es: "primera", en: "first" },
+      { es: "completo", en: "complete / full" },
+      { es: "importante", en: "important" },
     ],
   },
   {
@@ -2661,6 +3641,16 @@ export const READING_PASSAGES: ReadingPassage[] = [
       { id: "sharing-planet-19-q3", type: "mcq", prompt: "¿A qué hora empezó la jornada de limpieza?", options: ["A las nueve de la mañana", "Al mediodía", "A las seis de la tarde", "A medianoche"], correctAnswer: "A las nueve de la mañana" },
       { id: "sharing-planet-19-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Una entrada de diario", "Un informe oficial", "Un anuncio", "Una entrevista"], correctAnswer: "Una entrada de diario" },
       { id: "sharing-planet-19-q5", type: "short", prompt: "¿Cuántos kilos de basura recogieron en total?", correctAnswer: "más de cien kilos" },
+    ],
+    vocabulary: [
+      { es: "querido", en: "dear / beloved" },
+      { es: "asociación", en: "association" },
+      { es: "llegamos", en: "we arrived" },
+      { es: "cualquier", en: "any" },
+      { es: "problema", en: "problem" },
+      { es: "voluntarios", en: "volunteers" },
+      { es: "experiencia", en: "experience" },
+      { es: "próximo", en: "next" },
     ],
   },
   {
@@ -2683,6 +3673,933 @@ export const READING_PASSAGES: ReadingPassage[] = [
       { id: "sharing-planet-20-q3", type: "mcq", prompt: "¿Qué le da esperanza al doctor Iglesias?", options: ["La rapidez con la que ha bajado el coste de las energías renovables", "El aumento de la temperatura", "La falta de acción política", "El precio del petróleo"], correctAnswer: "La rapidez con la que ha bajado el coste de las energías renovables" },
       { id: "sharing-planet-20-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Una entrevista", "Un anuncio", "Una postal", "Un poema"], correctAnswer: "Una entrevista" },
       { id: "sharing-planet-20-q5", type: "short", prompt: "¿Cuántos años de experiencia tiene el doctor Iglesias investigando el clima?", correctAnswer: "más de veinte años" },
+    ],
+    vocabulary: [
+      { es: "experiencia", en: "experience" },
+      { es: "información", en: "information" },
+      { es: "climático", en: "climate (adj.)" },
+      { es: "comunidad", en: "community" },
+      { es: "demasiado", en: "too much" },
+      { es: "situación", en: "situation" },
+      { es: "completamente", en: "completely" },
+      { es: "diferencia", en: "difference" },
+    ],
+  },
+  // --- 30 additional passages (6 per theme), added for expanded practice ---
+  {
+    id: "reading-identities-21",
+    themeId: "identities",
+    title: "Mi abuela y su acento inolvidable",
+    textType: "Blog post",
+    level: "easy",
+    bodyEs:
+      "Mi abuela lleva cuarenta años viviendo en Canadá, pero todavía habla inglés con un acento gallego muy marcado. De pequeña, a veces me daba un poco de vergüenza cuando venía a buscarme al colegio y hablaba con mis profesores.\n\n" +
+      "Ahora que soy mayor, entiendo lo equivocada que estaba. Su acento no es un error, es la prueba de todo lo que ha vivido: dejó su pueblo con veinte años, aprendió un idioma nuevo sola y crió a tres hijos lejos de su familia.\n\n" +
+      "El mes pasado le pregunté si alguna vez había intentado perder el acento. Se rió y me dijo que no, que su acento es tan suyo como su nombre. Esa respuesta me hizo pensar mucho sobre mi propia forma de hablar.\n\n" +
+      "Hoy ya no me avergüenzo de nada relacionado con mi familia. Al contrario, cuando alguien nota mi apellido gallego, me siento orgullosa de contar su historia.",
+    questions: [
+      { id: "identities-21-q1", type: "true-false", prompt: "La autora siempre se sintió orgullosa del acento de su abuela.", correctAnswer: "false", justification: "\"De pequeña, a veces me daba un poco de vergüenza\"" },
+      { id: "identities-21-q2", type: "true-false", prompt: "La abuela ha intentado perder su acento gallego.", correctAnswer: "false", justification: "\"Se rió y me dijo que no\"" },
+      { id: "identities-21-q3", type: "mcq", prompt: "¿Con qué edad dejó la abuela su pueblo?", options: ["Veinte años", "Diez años", "Cuarenta años", "Sesenta años"], correctAnswer: "Veinte años" },
+      { id: "identities-21-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Una entrada de blog", "Un informe oficial", "Un anuncio", "Una receta"], correctAnswer: "Una entrada de blog" },
+      { id: "identities-21-q5", type: "short", prompt: "¿Cuántos años lleva la abuela viviendo en Canadá?", correctAnswer: "cuarenta años" },
+    ],
+    vocabulary: [
+      { es: "vergüenza", en: "shame / embarrassment" },
+      { es: "equivocada", en: "wrong / mistaken" },
+      { es: "crió", en: "raised (children)" },
+      { es: "acento", en: "accent" },
+      { es: "orgullosa", en: "proud (fem.)" },
+      { es: "apellido", en: "surname" },
+      { es: "propia", en: "own (fem.)" },
+      { es: "gallego", en: "Galician" },
+    ],
+  },
+  {
+    id: "reading-identities-22",
+    themeId: "identities",
+    title: "Entrevista: Ser una persona trans en un pueblo pequeño",
+    textType: "Interview",
+    level: "hard",
+    bodyEs:
+      "Hablamos con Iker, de diecinueve años, sobre su experiencia al hacer su transición en un pueblo de menos de dos mil habitantes.\n\n" +
+      "— Iker, ¿cómo fue el proceso de contárselo a tu comunidad?\n" +
+      "— Fue muy distinto a lo que imaginaba. Tenía mucho miedo porque en un pueblo pequeño todo el mundo se conoce y los rumores corren rápido. Sin embargo, la mayoría de la gente lo tomó mejor de lo que esperaba.\n\n" +
+      "— ¿Hubo alguien que reaccionara mal?\n" +
+      "— Sí, algunos vecinos dejaron de saludarme, y eso duele. Pero también descubrí apoyo en lugares inesperados, como el dueño del bar del pueblo, que ahora me defiende si alguien hace un comentario feo.\n\n" +
+      "— ¿Qué les dirías a otros jóvenes trans que viven en pueblos pequeños?\n" +
+      "— Que no están solos, aunque a veces lo parezca. Internet me ayudó a encontrar a otras personas con experiencias parecidas, y eso me dio fuerzas para ser yo mismo en mi propio pueblo, sin tener que mudarme a una ciudad grande.",
+    questions: [
+      { id: "identities-22-q1", type: "true-false", prompt: "Todos los vecinos de Iker reaccionaron mal ante su transición.", correctAnswer: "false", justification: "\"la mayoría de la gente lo tomó mejor de lo que esperaba\"" },
+      { id: "identities-22-q2", type: "true-false", prompt: "Iker encontró apoyo en el dueño del bar del pueblo.", correctAnswer: "true", justification: "\"el dueño del bar del pueblo, que ahora me defiende\"" },
+      { id: "identities-22-q3", type: "mcq", prompt: "¿Qué le ayudó a Iker a encontrar a otras personas con experiencias parecidas?", options: ["Internet", "Su familia", "El colegio", "Un libro"], correctAnswer: "Internet" },
+      { id: "identities-22-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Una entrevista", "Un anuncio", "Una postal", "Un informe"], correctAnswer: "Una entrevista" },
+      { id: "identities-22-q5", type: "short", prompt: "¿Cuántos habitantes tiene el pueblo de Iker?", correctAnswer: "menos de dos mil" },
+    ],
+    vocabulary: [
+      { es: "transición", en: "transition" },
+      { es: "habitantes", en: "inhabitants" },
+      { es: "rumores", en: "rumors" },
+      { es: "inesperados", en: "unexpected" },
+      { es: "defiende", en: "defends" },
+      { es: "parecidas", en: "similar" },
+      { es: "mudarme", en: "to move (residence)" },
+      { es: "fuerzas", en: "strength" },
+    ],
+  },
+  {
+    id: "reading-identities-23",
+    themeId: "identities",
+    title: "¡Campamento de verano multicultural!",
+    textType: "Advertisement",
+    level: "easy",
+    bodyEs:
+      "¿Quieres pasar un verano diferente? ¡Únete a Puentes, el campamento donde se mezclan más de quince nacionalidades!\n\n" +
+      "Durante dos semanas, jóvenes de entre catorce y diecisiete años convivirán en cabañas compartidas con compañeros de otros países. Cada mañana habrá talleres de idiomas, y cada tarde, actividades culturales donde cada grupo presentará algo típico de su país: comida, música o bailes tradicionales.\n\n" +
+      "\"No sabía casi nada sobre Corea del Sur antes de venir, y ahora tengo una amiga allí con la que hablo todas las semanas\", cuenta Nora, participante del año pasado.\n\n" +
+      "El precio incluye alojamiento, comidas y todas las actividades. Hay becas disponibles para familias que las necesiten. Las plazas son limitadas a sesenta participantes, así que no esperes hasta el último momento para inscribirte.",
+    questions: [
+      { id: "identities-23-q1", type: "true-false", prompt: "El campamento dura un mes.", correctAnswer: "false", justification: "\"Durante dos semanas\"" },
+      { id: "identities-23-q2", type: "true-false", prompt: "No hay ayuda económica disponible para las familias.", correctAnswer: "false", justification: "\"Hay becas disponibles para familias que las necesiten\"" },
+      { id: "identities-23-q3", type: "mcq", prompt: "¿Cuántas plazas hay disponibles?", options: ["Sesenta", "Quince", "Cien", "Veinte"], correctAnswer: "Sesenta" },
+      { id: "identities-23-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Un anuncio publicitario", "Una entrada de diario", "Un informe oficial", "Una entrevista"], correctAnswer: "Un anuncio publicitario" },
+      { id: "identities-23-q5", type: "short", prompt: "¿Qué edades pueden participar en el campamento?", correctAnswer: "entre catorce y diecisiete años" },
+    ],
+    vocabulary: [
+      { es: "nacionalidades", en: "nationalities" },
+      { es: "convivirán", en: "will live together" },
+      { es: "compartidas", en: "shared" },
+      { es: "talleres", en: "workshops" },
+      { es: "tradicionales", en: "traditional" },
+      { es: "alojamiento", en: "lodging" },
+      { es: "becas", en: "scholarships" },
+      { es: "inscribirte", en: "to sign up" },
+    ],
+  },
+  {
+    id: "reading-identities-24",
+    themeId: "identities",
+    title: "Carta a mi yo del futuro",
+    textType: "Personal letter",
+    level: "medium",
+    bodyEs:
+      "Querido yo del futuro:\n\n" +
+      "Te escribo esta carta el día que cumplo quince años, para que la leas dentro de diez años exactos. En este momento, todavía no sé quién soy realmente. Cambio de opinión sobre casi todo cada semana: mi estilo, mis gustos musicales, incluso lo que quiero estudiar.\n\n" +
+      "Mis padres dicen que esto es normal a mi edad, que la identidad no se construye de un día para otro. Espero que para cuando leas esto, hayas encontrado algunas respuestas que ahora mismo me faltan.\n\n" +
+      "Quiero preguntarte: ¿sigues tocando la guitarra? ¿Te mudaste a otra ciudad como siempre decías que querías? ¿Sigues siendo tan tímida con la gente nueva, o eso también cambió?\n\n" +
+      "Espero que, seas quien seas dentro de diez años, te sientas orgullosa de la persona en la que te has convertido, aunque sea completamente distinta a la que imaginas hoy.\n\n" +
+      "Con cariño,\nTu yo de quince años",
+    questions: [
+      { id: "identities-24-q1", type: "true-false", prompt: "La autora tiene claro quién es en el momento de escribir la carta.", correctAnswer: "false", justification: "\"todavía no sé quién soy realmente\"" },
+      { id: "identities-24-q2", type: "true-false", prompt: "Sus padres piensan que cambiar de opinión constantemente es anormal a su edad.", correctAnswer: "false", justification: "\"Mis padres dicen que esto es normal a mi edad\"" },
+      { id: "identities-24-q3", type: "mcq", prompt: "¿Dentro de cuántos años debe leerse la carta?", options: ["Diez años", "Cinco años", "Un año", "Quince años"], correctAnswer: "Diez años" },
+      { id: "identities-24-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Una carta personal", "Un artículo de periódico", "Un anuncio", "Una reseña"], correctAnswer: "Una carta personal" },
+      { id: "identities-24-q5", type: "short", prompt: "¿Qué instrumento pregunta la autora si sigue tocando?", correctAnswer: "la guitarra" },
+    ],
+    vocabulary: [
+      { es: "cumplo", en: "I turn (age)" },
+      { es: "gustos", en: "tastes / preferences" },
+      { es: "construye", en: "builds / is built" },
+      { es: "faltan", en: "are missing" },
+      { es: "mudaste", en: "you moved (residence)" },
+      { es: "tímida", en: "shy (fem.)" },
+      { es: "convertido", en: "become / turned into" },
+      { es: "distinta", en: "different (fem.)" },
+    ],
+  },
+  {
+    id: "reading-identities-25",
+    themeId: "identities",
+    title: "Reseña: el documental 'Raíces y alas'",
+    textType: "Review",
+    level: "medium",
+    bodyEs:
+      "\"Raíces y alas\" sigue a cinco jóvenes de segunda generación que crecieron en Europa con padres inmigrantes de distintos países latinoamericanos. El documental, dirigido por la cineasta chilena Valentina Rojas, evita los clichés habituales sobre la inmigración y se centra en algo más sutil: la sensación de no pertenecer del todo a ningún sitio.\n\n" +
+      "Lo que más destaca es la honestidad de los testimonios. Ninguno de los protagonistas presenta su identidad como un problema resuelto; todos siguen negociando, año tras año, qué partes de sus dos culturas quieren conservar.\n\n" +
+      "La única pega es la duración: con casi dos horas y media, algunas escenas se repiten y el documental pierde ritmo hacia la mitad. Un montaje más ajustado habría beneficiado enormemente la película.\n\n" +
+      "Aun así, recomiendo especialmente \"Raíces y alas\" a cualquier joven que se haya sentido alguna vez entre dos mundos. Pocas películas retratan esta experiencia con tanta ternura y tan poca condescendencia.",
+    questions: [
+      { id: "identities-25-q1", type: "true-false", prompt: "El documental presenta la identidad de los protagonistas como un problema ya resuelto.", correctAnswer: "false", justification: "\"Ninguno de los protagonistas presenta su identidad como un problema resuelto\"" },
+      { id: "identities-25-q2", type: "true-false", prompt: "Según la reseña, la duración del documental es uno de sus puntos débiles.", correctAnswer: "true", justification: "\"La única pega es la duración\"" },
+      { id: "identities-25-q3", type: "mcq", prompt: "¿Quién dirigió el documental?", options: ["Valentina Rojas", "Iker Ibarra", "Nora García", "Sofía Ruiz"], correctAnswer: "Valentina Rojas" },
+      { id: "identities-25-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Una reseña", "Un informe oficial", "Una carta formal", "Un anuncio"], correctAnswer: "Una reseña" },
+      { id: "identities-25-q5", type: "short", prompt: "¿Cuánto dura aproximadamente el documental?", correctAnswer: "casi dos horas y media" },
+    ],
+    vocabulary: [
+      { es: "cineasta", en: "filmmaker" },
+      { es: "clichés", en: "clichés" },
+      { es: "pertenecer", en: "to belong" },
+      { es: "testimonios", en: "testimonies" },
+      { es: "negociando", en: "negotiating" },
+      { es: "duración", en: "duration / length" },
+      { es: "montaje", en: "editing (film)" },
+      { es: "ternura", en: "tenderness" },
+    ],
+  },
+  {
+    id: "reading-identities-26",
+    themeId: "identities",
+    title: "Por qué dejé de teñirme el pelo de rubio",
+    textType: "Social media post",
+    level: "easy",
+    bodyEs:
+      "Llevo dos meses sin teñirme el pelo por primera vez desde los catorce años, y quería compartir por qué tomé esta decisión. 🖤\n\n" +
+      "Durante años me teñí de rubio porque, sin darme mucha cuenta, asociaba ese color con verme \"mejor\" o más aceptada. Nadie me obligó, pero crecí viendo casi solo a personas rubias en la tele, así que interioricé esa idea sin cuestionarla.\n\n" +
+      "El cambio empezó cuando una prima me preguntó por qué no dejaba ver mi color natural, que es un castaño oscuro precioso. Me hizo pensar: ¿realmente me gustaba más el rubio, o solo estaba acostumbrada?\n\n" +
+      "Ahora, cada vez que me miro al espejo, siento que me veo más como yo misma. No juzgo a nadie que decida teñirse el pelo por diversión, pero para mí, dejar de hacerlo fue una forma pequeña de aceptar mi identidad tal como es. 💛",
+    questions: [
+      { id: "identities-26-q1", type: "true-false", prompt: "La autora lleva tiñéndose el pelo desde los catorce años.", correctAnswer: "true", justification: "\"por primera vez desde los catorce años\"" },
+      { id: "identities-26-q2", type: "true-false", prompt: "La autora critica a las personas que se tiñen el pelo por diversión.", correctAnswer: "false", justification: "\"No juzgo a nadie que decida teñirse el pelo por diversión\"" },
+      { id: "identities-26-q3", type: "mcq", prompt: "¿Quién le hizo pensar sobre su color de pelo natural?", options: ["Una prima", "Su madre", "Una amiga del colegio", "Una desconocida"], correctAnswer: "Una prima" },
+      { id: "identities-26-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Una publicación en redes sociales", "Un informe oficial", "Una carta formal", "Un anuncio"], correctAnswer: "Una publicación en redes sociales" },
+      { id: "identities-26-q5", type: "short", prompt: "¿De qué color es el pelo natural de la autora?", correctAnswer: "castaño oscuro" },
+    ],
+    vocabulary: [
+      { es: "teñirme", en: "to dye (my hair)" },
+      { es: "asociaba", en: "I associated" },
+      { es: "aceptada", en: "accepted (fem.)" },
+      { es: "interioricé", en: "I internalized" },
+      { es: "cuestionarla", en: "to question it" },
+      { es: "castaño", en: "brown / chestnut (hair color)" },
+      { es: "acostumbrada", en: "used to / accustomed" },
+      { es: "espejo", en: "mirror" },
+    ],
+  },
+  {
+    id: "reading-experiences-21",
+    themeId: "experiences",
+    title: "Diario: mi primer día de universidad",
+    textType: "Diary entry",
+    level: "easy",
+    bodyEs:
+      "Querido diario:\n\n" +
+      "Hoy fue mi primer día en la universidad y todavía tengo la cabeza dándome vueltas. Llegué media hora antes porque tenía miedo de perderme en el campus, que es enorme comparado con mi antiguo instituto.\n\n" +
+      "La primera clase fue de historia del arte, con casi doscientos estudiantes en la sala. Me sentí pequeñísima al principio, acostumbrada a clases de veinte personas. Sin embargo, en el descanso hablé con una chica llamada Julia que también estudia primero, y descubrimos que vivimos en el mismo barrio.\n\n" +
+      "Lo más difícil fue encontrar mi próxima aula: el edificio de ciencias tiene cinco plantas y me perdí dos veces antes de llegar. Un estudiante de tercer año me vio con cara de confusión y se ofreció a acompañarme.\n\n" +
+      "Ha sido un día agotador, pero al final me fui a casa sintiéndome un poco menos sola. Mañana ya sabré por dónde ir, al menos eso espero.",
+    questions: [
+      { id: "experiences-21-q1", type: "true-false", prompt: "El instituto anterior de la autora tenía clases más numerosas que la universidad.", correctAnswer: "false", justification: "\"acostumbrada a clases de veinte personas\"" },
+      { id: "experiences-21-q2", type: "true-false", prompt: "Julia vive en el mismo barrio que la autora.", correctAnswer: "true", justification: "\"descubrimos que vivimos en el mismo barrio\"" },
+      { id: "experiences-21-q3", type: "mcq", prompt: "¿Quién ayudó a la autora a encontrar su aula?", options: ["Un estudiante de tercer año", "Un profesor", "Julia", "Un guardia de seguridad"], correctAnswer: "Un estudiante de tercer año" },
+      { id: "experiences-21-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Una entrada de diario", "Un correo formal", "Un artículo de periódico", "Un anuncio"], correctAnswer: "Una entrada de diario" },
+      { id: "experiences-21-q5", type: "short", prompt: "¿Cuántas plantas tiene el edificio de ciencias?", correctAnswer: "cinco plantas" },
+    ],
+    vocabulary: [
+      { es: "campus", en: "campus" },
+      { es: "descanso", en: "break" },
+      { es: "edificio", en: "building" },
+      { es: "plantas", en: "floors (of a building)" },
+      { es: "confusión", en: "confusion" },
+      { es: "acompañarme", en: "to accompany me" },
+      { es: "agotador", en: "exhausting" },
+      { es: "sintiéndome", en: "feeling (myself)" },
+    ],
+  },
+  {
+    id: "reading-experiences-22",
+    themeId: "experiences",
+    title: "Ritos de iniciación alrededor del mundo",
+    textType: "Magazine article",
+    level: "hard",
+    bodyEs:
+      "En casi todas las culturas existe algún rito que marca el paso de la infancia a la edad adulta. Aunque las formas varían enormemente, la función psicológica que cumplen es sorprendentemente parecida en todo el planeta.\n\n" +
+      "En Japón, el Seijin Shiki celebra a quienes cumplen veinte años con una ceremonia formal en la que los jóvenes visten kimono tradicional y reciben, simbólicamente, todos los derechos y responsabilidades de la vida adulta. En algunas comunidades indígenas de Norteamérica, los adolescentes realizan una búsqueda de visión: pasan varios días solos en la naturaleza, sin comida, reflexionando sobre su propósito en la vida.\n\n" +
+      "Los antropólogos coinciden en que estos ritos comparten una estructura común, dividida en tres fases: separación de la vida anterior, un periodo de transición difícil, y finalmente la reincorporación a la comunidad con un nuevo estatus reconocido por todos.\n\n" +
+      "En las sociedades occidentales contemporáneas, muchos de estos ritos han desaparecido o se han vuelto puramente simbólicos, lo cual, según algunos expertos, explicaría por qué a tantos jóvenes actuales les cuesta identificar el momento exacto en el que se convirtieron en adultos.",
+    questions: [
+      { id: "experiences-22-q1", type: "true-false", prompt: "La función psicológica de los ritos de iniciación varía enormemente entre culturas.", correctAnswer: "false", justification: "\"la función psicológica que cumplen es sorprendentemente parecida en todo el planeta\"" },
+      { id: "experiences-22-q2", type: "true-false", prompt: "En la búsqueda de visión, los adolescentes pasan varios días acompañados por su familia.", correctAnswer: "false", justification: "\"pasan varios días solos en la naturaleza\"" },
+      { id: "experiences-22-q3", type: "mcq", prompt: "¿Cuántas fases comparten estos ritos, según los antropólogos?", options: ["Tres", "Dos", "Cinco", "Cuatro"], correctAnswer: "Tres" },
+      { id: "experiences-22-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Un artículo de revista", "Una entrada de diario", "Un anuncio", "Una postal"], correctAnswer: "Un artículo de revista" },
+      { id: "experiences-22-q5", type: "short", prompt: "¿A qué edad se celebra el Seijin Shiki en Japón?", correctAnswer: "veinte años" },
+    ],
+    vocabulary: [
+      { es: "infancia", en: "childhood" },
+      { es: "ceremonia", en: "ceremony" },
+      { es: "simbólicamente", en: "symbolically" },
+      { es: "indígenas", en: "indigenous" },
+      { es: "propósito", en: "purpose" },
+      { es: "antropólogos", en: "anthropologists" },
+      { es: "reincorporación", en: "reintegration" },
+      { es: "contemporáneas", en: "contemporary" },
+    ],
+  },
+  {
+    id: "reading-experiences-23",
+    themeId: "experiences",
+    title: "Entrevista a una piloto de carreras de diecinueve años",
+    textType: "Interview",
+    level: "medium",
+    bodyEs:
+      "Esta semana hablamos con Carla Duarte, una de las pilotos más jóvenes en competir en el campeonato nacional de karting.\n\n" +
+      "— Carla, ¿cómo empezaste en el mundo de las carreras?\n" +
+      "— Mi padre corría karts como afición cuando era joven, y me llevó a un circuito por primera vez cuando tenía ocho años. Desde ese día no quise hacer otra cosa.\n\n" +
+      "— ¿Ha sido difícil que te tomen en serio en un deporte donde hay pocas mujeres?\n" +
+      "— Al principio sí, muchísimo. Algunos rivales pensaban que estaba ahí de casualidad. Pero en cuanto empecé a ganar carreras, esos comentarios desaparecieron rápidamente.\n\n" +
+      "— ¿Cuál ha sido tu momento más difícil hasta ahora?\n" +
+      "— Sin duda, un accidente que tuve hace dos años. Me rompí la muñeca y pensé que no volvería a competir al mismo nivel. Tardé seis meses en recuperarme completamente.\n\n" +
+      "— ¿Qué consejo darías a otras chicas que quieran empezar?\n" +
+      "— Que no dejen que las dudas de otras personas se conviertan en las suyas propias.",
+    questions: [
+      { id: "experiences-23-q1", type: "true-false", prompt: "Carla fue por primera vez a un circuito de karts a los ocho años.", correctAnswer: "true", justification: "\"me llevó a un circuito por primera vez cuando tenía ocho años\"" },
+      { id: "experiences-23-q2", type: "true-false", prompt: "Carla tardó seis meses en recuperarse de su accidente.", correctAnswer: "true", justification: "\"Tardé seis meses en recuperarme completamente\"" },
+      { id: "experiences-23-q3", type: "mcq", prompt: "¿Qué le pasó a Carla hace dos años?", options: ["Se rompió la muñeca", "Ganó el campeonato", "Dejó de competir", "Cambió de equipo"], correctAnswer: "Se rompió la muñeca" },
+      { id: "experiences-23-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Una entrevista", "Una entrada de diario", "Un anuncio", "Un informe"], correctAnswer: "Una entrevista" },
+      { id: "experiences-23-q5", type: "short", prompt: "¿Quién introdujo a Carla al mundo de las carreras?", correctAnswer: "su padre" },
+    ],
+    vocabulary: [
+      { es: "campeonato", en: "championship" },
+      { es: "afición", en: "hobby" },
+      { es: "circuito", en: "racetrack" },
+      { es: "rivales", en: "rivals / competitors" },
+      { es: "casualidad", en: "coincidence" },
+      { es: "accidente", en: "accident" },
+      { es: "muñeca", en: "wrist" },
+      { es: "recuperarme", en: "to recover" },
+    ],
+  },
+  {
+    id: "reading-experiences-24",
+    themeId: "experiences",
+    title: "Postal desde el Festival Sonora",
+    textType: "Postcard",
+    level: "easy",
+    bodyEs:
+      "¡Hola, Teo!\n\n" +
+      "Te escribo desde el Festival Sonora, acampada entre miles de tiendas de campaña. Llevamos tres días aquí y no he dormido más de cinco horas por noche, ¡pero mereció totalmente la pena!\n\n" +
+      "Ayer vimos actuar a mi grupo favorito desde el segundo escenario, tan cerca que casi podía tocar al cantante. También descubrimos una banda local que nadie conocía y que ahora es mi nueva obsesión.\n\n" +
+      "Hace un calor tremendo durante el día, así que pasamos las tardes bajo la sombra comiendo helados carísimos. La comida del festival es un desastre para el bolsillo, pero forma parte de la experiencia, supongo.\n\n" +
+      "Mañana es el último día y hay un concierto sorpresa a medianoche que nadie sabe quién será. ¡Ya te contaré todo cuando vuelva el domingo!\n\n" +
+      "Un abrazo enorme,\nLucía",
+    questions: [
+      { id: "experiences-24-q1", type: "true-false", prompt: "Lucía ha dormido más de siete horas cada noche en el festival.", correctAnswer: "false", justification: "\"no he dormido más de cinco horas por noche\"" },
+      { id: "experiences-24-q2", type: "true-false", prompt: "La comida del festival es barata.", correctAnswer: "false", justification: "\"La comida del festival es un desastre para el bolsillo\"" },
+      { id: "experiences-24-q3", type: "mcq", prompt: "¿Qué descubrió Lucía en el festival que ahora le encanta?", options: ["Una banda local", "Un restaurante nuevo", "Una tienda de ropa", "Un parque"], correctAnswer: "Una banda local" },
+      { id: "experiences-24-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Una postal", "Un informe oficial", "Un correo formal", "Una reseña"], correctAnswer: "Una postal" },
+      { id: "experiences-24-q5", type: "short", prompt: "¿Cuándo vuelve Lucía a casa?", correctAnswer: "el domingo" },
+    ],
+    vocabulary: [
+      { es: "acampada", en: "camping (out)" },
+      { es: "escenario", en: "stage" },
+      { es: "obsesión", en: "obsession" },
+      { es: "tremendo", en: "tremendous / huge" },
+      { es: "sombra", en: "shade" },
+      { es: "bolsillo", en: "pocket (i.e. wallet)" },
+      { es: "medianoche", en: "midnight" },
+      { es: "abrazo", en: "hug" },
+    ],
+  },
+  {
+    id: "reading-experiences-25",
+    themeId: "experiences",
+    title: "Foro: ¿Vale la pena viajar solo por primera vez?",
+    textType: "Forum post",
+    level: "medium",
+    bodyEs:
+      "Publicado por usuario Mochilera21:\n\n" +
+      "Tengo dieciocho años y estoy pensando en hacer mi primer viaje sola, dos semanas por el norte de Portugal. Todos mis amigos están ocupados este verano y no quiero esperar otro año. ¿Alguien tiene experiencia viajando solo la primera vez?\n\n" +
+      "Respuesta de usuario ViajeroConstante:\n\n" +
+      "¡Hazlo! Yo viajé solo por primera vez a los diecinueve, con muchísimo miedo, y fue una de las mejores decisiones de mi vida. Aprendes a resolver problemas tú solo y conoces gente que jamás conocerías viajando en grupo.\n\n" +
+      "Respuesta de usuario PrudenciaAnte:\n\n" +
+      "Yo sería un poco más cautelosa. No digo que no lo hagas, pero investiga bien los alojamientos, comparte tu ubicación con tu familia y evita caminar sola de noche en sitios desconocidos.\n\n" +
+      "Respuesta de usuario Mochilera21:\n\n" +
+      "Gracias a los dos. Creo que voy a hacerlo, pero siguiendo los consejos de seguridad de PrudenciaAnte. ¡Os contaré cómo me fue!",
+    questions: [
+      { id: "experiences-25-q1", type: "true-false", prompt: "ViajeroConstante recomienda a Mochilera21 que no viaje sola.", correctAnswer: "false", justification: "\"¡Hazlo!\"" },
+      { id: "experiences-25-q2", type: "true-false", prompt: "PrudenciaAnte aconseja compartir la ubicación con la familia.", correctAnswer: "true", justification: "\"comparte tu ubicación con tu familia\"" },
+      { id: "experiences-25-q3", type: "mcq", prompt: "¿A qué país quiere viajar Mochilera21?", options: ["Portugal", "España", "Francia", "Italia"], correctAnswer: "Portugal" },
+      { id: "experiences-25-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Una publicación de foro", "Una carta formal", "Un anuncio", "Una reseña"], correctAnswer: "Una publicación de foro" },
+      { id: "experiences-25-q5", type: "short", prompt: "¿Cuántas semanas planea viajar Mochilera21?", correctAnswer: "dos semanas" },
+    ],
+    vocabulary: [
+      { es: "mochilera", en: "backpacker (fem.)" },
+      { es: "cautelosa", en: "cautious (fem.)" },
+      { es: "alojamientos", en: "accommodations" },
+      { es: "ubicación", en: "location" },
+      { es: "desconocidos", en: "unknown / unfamiliar" },
+      { es: "seguridad", en: "safety" },
+      { es: "resolver", en: "to solve" },
+      { es: "jamás", en: "never" },
+    ],
+  },
+  {
+    id: "reading-experiences-26",
+    themeId: "experiences",
+    title: "Informe: el auge del turismo de aventura entre los jóvenes",
+    textType: "Official report",
+    level: "hard",
+    bodyEs:
+      "Un estudio reciente de la Organización Mundial del Turismo revela que el turismo de aventura ha crecido un cuarenta y cinco por ciento entre viajeros de dieciocho a veinticinco años en la última década, superando ampliamente el crecimiento del turismo tradicional.\n\n" +
+      "Según el informe, esta generación prioriza las experiencias sobre las posesiones materiales, y busca actividades como el senderismo extremo, el buceo en aguas remotas o las expediciones en bicicleta de montaña por terrenos poco transitados.\n\n" +
+      "Las redes sociales desempeñan un papel fundamental en esta tendencia: el sesenta y tres por ciento de los encuestados afirma haber elegido su destino después de ver contenido relacionado en plataformas digitales, más que por recomendaciones de agencias de viaje tradicionales.\n\n" +
+      "El informe también señala un riesgo creciente: el número de accidentes relacionados con actividades extremas ha aumentado paralelamente, lo que ha llevado a varios países a exigir seguros específicos y guías certificados para determinadas rutas consideradas de alto riesgo.",
+    questions: [
+      { id: "experiences-26-q1", type: "true-false", prompt: "El turismo de aventura ha crecido menos que el turismo tradicional.", correctAnswer: "false", justification: "\"superando ampliamente el crecimiento del turismo tradicional\"" },
+      { id: "experiences-26-q2", type: "true-false", prompt: "La mayoría de los encuestados eligió su destino gracias a agencias de viaje tradicionales.", correctAnswer: "false", justification: "\"más que por recomendaciones de agencias de viaje tradicionales\"" },
+      { id: "experiences-26-q3", type: "mcq", prompt: "¿Qué porcentaje de crecimiento tuvo el turismo de aventura?", options: ["45%", "63%", "25%", "10%"], correctAnswer: "45%" },
+      { id: "experiences-26-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Un informe oficial", "Una entrada de diario", "Una postal", "Un anuncio"], correctAnswer: "Un informe oficial" },
+      { id: "experiences-26-q5", type: "short", prompt: "¿Qué exigen varios países para rutas de alto riesgo?", correctAnswer: "seguros específicos y guías certificados" },
+    ],
+    vocabulary: [
+      { es: "turismo", en: "tourism" },
+      { es: "posesiones", en: "possessions" },
+      { es: "senderismo", en: "hiking" },
+      { es: "buceo", en: "diving" },
+      { es: "transitados", en: "traveled / trodden" },
+      { es: "encuestados", en: "survey respondents" },
+      { es: "riesgo", en: "risk" },
+      { es: "certificados", en: "certified" },
+    ],
+  },
+  {
+    id: "reading-human-ingenuity-21",
+    themeId: "human-ingenuity",
+    title: "Reseña: el videojuego educativo 'Codex'",
+    textType: "Review",
+    level: "medium",
+    bodyEs:
+      "\"Codex\" promete enseñar los fundamentos de la programación a través de puzles ambientados en una biblioteca mágica. Tras pasar quince horas jugando, puedo decir que cumple bastante bien lo que promete, aunque con algunos matices importantes.\n\n" +
+      "La mecánica principal consiste en escribir pequeños fragmentos de código para mover a un personaje, abrir puertas o resolver acertijos. El diseño es precioso, y la curva de dificultad al principio está muy bien pensada: nunca sientes que un puzle es imposible.\n\n" +
+      "El problema llega hacia la mitad del juego, cuando los conceptos se vuelven más avanzados sin suficiente explicación adicional. Un jugador sin ninguna experiencia previa en programación probablemente se sentirá perdido en el capítulo seis.\n\n" +
+      "Aun con este fallo, recomiendo \"Codex\" a cualquier adolescente curioso por la programación, especialmente si lo juega acompañado de alguien con más experiencia que pueda explicar los conceptos más difíciles.",
+    questions: [
+      { id: "human-ingenuity-21-q1", type: "true-false", prompt: "Según la reseña, la curva de dificultad al principio del juego está mal diseñada.", correctAnswer: "false", justification: "\"la curva de dificultad al principio está muy bien pensada\"" },
+      { id: "human-ingenuity-21-q2", type: "true-false", prompt: "El juego explica suficientemente bien los conceptos avanzados a partir de la mitad.", correctAnswer: "false", justification: "\"los conceptos se vuelven más avanzados sin suficiente explicación adicional\"" },
+      { id: "human-ingenuity-21-q3", type: "mcq", prompt: "¿Dónde está ambientado el juego?", options: ["En una biblioteca mágica", "En una nave espacial", "En un bosque encantado", "En una ciudad futurista"], correctAnswer: "En una biblioteca mágica" },
+      { id: "human-ingenuity-21-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Una reseña", "Un informe oficial", "Una entrevista", "Un anuncio"], correctAnswer: "Una reseña" },
+      { id: "human-ingenuity-21-q5", type: "short", prompt: "¿Cuántas horas jugó el autor antes de escribir la reseña?", correctAnswer: "quince horas" },
+    ],
+    vocabulary: [
+      { es: "fundamentos", en: "fundamentals" },
+      { es: "puzles", en: "puzzles" },
+      { es: "mecánica", en: "mechanic (game)" },
+      { es: "fragmentos", en: "fragments / snippets" },
+      { es: "acertijos", en: "riddles" },
+      { es: "curva", en: "curve" },
+      { es: "avanzados", en: "advanced" },
+      { es: "acompañado", en: "accompanied" },
+    ],
+  },
+  {
+    id: "reading-human-ingenuity-22",
+    themeId: "human-ingenuity",
+    title: "Impresoras 3D que construyen casas en un día",
+    textType: "Magazine article",
+    level: "hard",
+    bodyEs:
+      "En varios países ya se están construyendo viviendas completas utilizando impresoras 3D gigantes que depositan capas de un material similar al hormigón, siguiendo un diseño digital hasta completar toda la estructura de la casa.\n\n" +
+      "Lo más llamativo es la velocidad: mientras que una vivienda tradicional puede tardar meses en construirse, algunas empresas ya han demostrado que es posible imprimir las paredes de una casa pequeña en menos de veinticuatro horas, reduciendo también los costes de mano de obra de forma drástica.\n\n" +
+      "Esta tecnología resulta especialmente prometedora para zonas afectadas por desastres naturales, donde miles de familias necesitan vivienda de emergencia rápidamente. Organizaciones humanitarias ya han empezado a experimentar con esta técnica en campamentos de refugiados.\n\n" +
+      "Sin embargo, los críticos señalan limitaciones importantes: las normativas de construcción de muchos países todavía no contemplan este método, y persisten dudas sobre la durabilidad de estas estructuras frente a terremotos o huracanes intensos. Los ingenieros insisten en que se necesitan más años de pruebas antes de generalizar su uso.",
+    questions: [
+      { id: "human-ingenuity-22-q1", type: "true-false", prompt: "Imprimir una casa pequeña es más lento que construirla de forma tradicional.", correctAnswer: "false", justification: "\"es posible imprimir las paredes de una casa pequeña en menos de veinticuatro horas\"" },
+      { id: "human-ingenuity-22-q2", type: "true-false", prompt: "Todos los países ya tienen normativas preparadas para este tipo de construcción.", correctAnswer: "false", justification: "\"las normativas de construcción de muchos países todavía no contemplan este método\"" },
+      { id: "human-ingenuity-22-q3", type: "mcq", prompt: "¿Para qué tipo de zonas es especialmente prometedora esta tecnología?", options: ["Zonas afectadas por desastres naturales", "Zonas turísticas", "Zonas industriales", "Zonas rurales sin electricidad"], correctAnswer: "Zonas afectadas por desastres naturales" },
+      { id: "human-ingenuity-22-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Un artículo de revista", "Una entrada de diario", "Una postal", "Un menú"], correctAnswer: "Un artículo de revista" },
+      { id: "human-ingenuity-22-q5", type: "short", prompt: "¿Qué dudan los críticos sobre estas estructuras?", correctAnswer: "su durabilidad frente a terremotos o huracanes" },
+    ],
+    vocabulary: [
+      { es: "viviendas", en: "dwellings / homes" },
+      { es: "capas", en: "layers" },
+      { es: "hormigón", en: "concrete" },
+      { es: "llamativo", en: "striking / eye-catching" },
+      { es: "prometedora", en: "promising" },
+      { es: "refugiados", en: "refugees" },
+      { es: "normativas", en: "regulations" },
+      { es: "durabilidad", en: "durability" },
+    ],
+  },
+  {
+    id: "reading-human-ingenuity-23",
+    themeId: "human-ingenuity",
+    title: "Solicitud de beca para un curso de programación",
+    textType: "Formal email",
+    level: "medium",
+    bodyEs:
+      "Estimada señora Duarte:\n\n" +
+      "Le escribo en relación con la beca que su fundación ofrece para el curso intensivo de programación de este verano, anunciada la semana pasada en la página web del instituto.\n\n" +
+      "Actualmente curso primero de bachillerato y llevo dos años aprendiendo a programar por mi cuenta, principalmente a través de tutoriales gratuitos en internet. El año pasado creé una aplicación sencilla para ayudar a mis compañeros a organizar los horarios de estudio, lo cual despertó todavía más mi interés en este campo.\n\n" +
+      "Mi familia no puede asumir el coste completo del curso, por lo que esta beca representaría una oportunidad excelente para seguir formándome de manera más estructurada, con profesores especializados que puedan guiar mi aprendizaje.\n\n" +
+      "Adjunto mi expediente académico y una carta de recomendación de mi profesor de tecnología. Quedo a su disposición por si necesita cualquier información adicional.\n\n" +
+      "Atentamente,\nRodrigo Álvarez",
+    questions: [
+      { id: "human-ingenuity-23-q1", type: "true-false", prompt: "Rodrigo aprendió a programar principalmente en un instituto especializado.", correctAnswer: "false", justification: "\"principalmente a través de tutoriales gratuitos en internet\"" },
+      { id: "human-ingenuity-23-q2", type: "true-false", prompt: "La familia de Rodrigo puede pagar el curso completo sin problema.", correctAnswer: "false", justification: "\"Mi familia no puede asumir el coste completo del curso\"" },
+      { id: "human-ingenuity-23-q3", type: "mcq", prompt: "¿Qué creó Rodrigo el año pasado?", options: ["Una aplicación para organizar horarios de estudio", "Un videojuego", "Una página web de noticias", "Un robot"], correctAnswer: "Una aplicación para organizar horarios de estudio" },
+      { id: "human-ingenuity-23-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Un correo formal", "Una entrada de diario", "Un anuncio", "Una reseña"], correctAnswer: "Un correo formal" },
+      { id: "human-ingenuity-23-q5", type: "short", prompt: "¿Qué adjunta Rodrigo a su solicitud además del expediente académico?", correctAnswer: "una carta de recomendación de su profesor de tecnología" },
+    ],
+    vocabulary: [
+      { es: "fundación", en: "foundation" },
+      { es: "intensivo", en: "intensive" },
+      { es: "tutoriales", en: "tutorials" },
+      { es: "despertó", en: "sparked / awakened" },
+      { es: "asumir", en: "to take on / bear (cost)" },
+      { es: "formándome", en: "training myself" },
+      { es: "expediente", en: "academic record" },
+      { es: "adicional", en: "additional" },
+    ],
+  },
+  {
+    id: "reading-human-ingenuity-24",
+    themeId: "human-ingenuity",
+    title: "Entrevista a una inventora de dieciséis años",
+    textType: "Interview",
+    level: "medium",
+    bodyEs:
+      "Hablamos con Aitana Reyes, ganadora de la feria nacional de ciencia por un dispositivo que detecta fugas de agua en tuberías domésticas.\n\n" +
+      "— Aitana, ¿de dónde surgió la idea de tu invento?\n" +
+      "— Todo empezó porque a mi abuela se le rompió una tubería y no se dio cuenta hasta que llegó una factura de agua altísima. Pensé que tenía que haber una forma más barata de detectarlo a tiempo.\n\n" +
+      "— ¿Cuánto tiempo tardaste en construir el primer prototipo?\n" +
+      "— Casi ocho meses, entre clases. Rompí tres prototipos antes de conseguir uno que funcionara de verdad.\n\n" +
+      "— ¿Qué se siente al ganar un premio nacional con dieciséis años?\n" +
+      "— Todavía no me lo creo del todo. Lo más bonito ha sido que varias empresas se han puesto en contacto conmigo, aunque de momento solo quiero terminar el instituto tranquila.\n\n" +
+      "— ¿Algún consejo para otros jóvenes inventores?\n" +
+      "— Que no les dé miedo que algo falle. Mis tres primeros prototipos fueron un desastre total, y aun así llegué a donde quería llegar.",
+    questions: [
+      { id: "human-ingenuity-24-q1", type: "true-false", prompt: "El invento de Aitana surgió de un problema real en su familia.", correctAnswer: "true", justification: "\"a mi abuela se le rompió una tubería y no se dio cuenta hasta que llegó una factura de agua altísima\"" },
+      { id: "human-ingenuity-24-q2", type: "true-false", prompt: "Aitana consiguió un prototipo funcional al primer intento.", correctAnswer: "false", justification: "\"Rompí tres prototipos antes de conseguir uno que funcionara de verdad\"" },
+      { id: "human-ingenuity-24-q3", type: "mcq", prompt: "¿Qué detecta el invento de Aitana?", options: ["Fugas de agua en tuberías", "Fugas de gas", "Terremotos", "Incendios"], correctAnswer: "Fugas de agua en tuberías" },
+      { id: "human-ingenuity-24-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Una entrevista", "Un informe oficial", "Un anuncio", "Una postal"], correctAnswer: "Una entrevista" },
+      { id: "human-ingenuity-24-q5", type: "short", prompt: "¿Cuánto tiempo tardó Aitana en construir el primer prototipo?", correctAnswer: "casi ocho meses" },
+    ],
+    vocabulary: [
+      { es: "ganadora", en: "winner (fem.)" },
+      { es: "dispositivo", en: "device" },
+      { es: "fugas", en: "leaks" },
+      { es: "tuberías", en: "pipes" },
+      { es: "factura", en: "bill / invoice" },
+      { es: "prototipo", en: "prototype" },
+      { es: "premio", en: "prize" },
+      { es: "inventores", en: "inventors" },
+    ],
+  },
+  {
+    id: "reading-human-ingenuity-25",
+    themeId: "human-ingenuity",
+    title: "Mi experiencia usando un tutor de inteligencia artificial para estudiar",
+    textType: "Social media post",
+    level: "easy",
+    bodyEs:
+      "Llevo tres meses usando una aplicación con inteligencia artificial para prepararme el examen de química, y quería compartir mi experiencia sincera, ni toda buena ni toda mala. 🧪\n\n" +
+      "Lo positivo: puedo hacerle preguntas a cualquier hora sin sentirme tonta por no entender algo por quinta vez, y me explica los conceptos de formas distintas hasta que uno de ellos por fin tiene sentido para mí.\n\n" +
+      "Lo negativo: a veces se equivoca en cálculos y, si no tuviera ya una base sólida gracias a mi profesora, probablemente no me habría dado cuenta del error. También noto que uso menos mis apuntes de clase, y eso me preocupa un poco.\n\n" +
+      "Mi conclusión después de estos tres meses: la IA es una herramienta buenísima para repasar y aclarar dudas puntuales, pero no puede sustituir completamente ni a un profesor humano ni al esfuerzo de estudiar por mi cuenta. #estudiar #ia",
+    questions: [
+      { id: "human-ingenuity-25-q1", type: "true-false", prompt: "Según la autora, la aplicación nunca comete errores.", correctAnswer: "false", justification: "\"a veces se equivoca en cálculos\"" },
+      { id: "human-ingenuity-25-q2", type: "true-false", prompt: "La autora piensa que la IA puede sustituir completamente a un profesor humano.", correctAnswer: "false", justification: "\"no puede sustituir completamente ni a un profesor humano\"" },
+      { id: "human-ingenuity-25-q3", type: "mcq", prompt: "¿Para qué asignatura usa la autora la aplicación?", options: ["Química", "Matemáticas", "Historia", "Biología"], correctAnswer: "Química" },
+      { id: "human-ingenuity-25-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Una publicación en redes sociales", "Un informe oficial", "Una carta formal", "Un anuncio"], correctAnswer: "Una publicación en redes sociales" },
+      { id: "human-ingenuity-25-q5", type: "short", prompt: "¿Cuánto tiempo lleva la autora usando la aplicación?", correctAnswer: "tres meses" },
+    ],
+    vocabulary: [
+      { es: "sincera", en: "honest (fem.)" },
+      { es: "conceptos", en: "concepts" },
+      { es: "cálculos", en: "calculations" },
+      { es: "sólida", en: "solid (fem.)" },
+      { es: "apuntes", en: "notes" },
+      { es: "herramienta", en: "tool" },
+      { es: "aclarar", en: "to clarify" },
+      { es: "puntuales", en: "specific / one-off" },
+    ],
+  },
+  {
+    id: "reading-human-ingenuity-26",
+    themeId: "human-ingenuity",
+    title: "Cómo empezar en la robótica educativa",
+    textType: "Instructional guide",
+    level: "easy",
+    bodyEs:
+      "¿Te interesa la robótica pero no sabes por dónde empezar? Sigue esta guía sencilla para dar tus primeros pasos.\n\n" +
+      "Primero, no necesitas comprar material caro para comenzar. Muchos institutos tienen clubes de robótica con kits compartidos, y existen simuladores gratuitos en internet donde puedes programar robots virtuales antes de tocar uno de verdad.\n\n" +
+      "Segundo, aprende primero los conceptos básicos de programación por bloques antes de pasar a lenguajes de texto como Python. Intentar hacerlo al revés suele generar frustración innecesaria.\n\n" +
+      "Tercero, únete a una comunidad, ya sea en tu instituto o en línea. Aprender en compañía de otros principiantes hace que los errores, que son inevitables, resulten mucho menos desalentadores.\n\n" +
+      "Cuarto, participa en una competición local en cuanto te sientas mínimamente preparado. No hace falta ganar: la experiencia de construir algo bajo presión y con fecha límite acelera el aprendizaje enormemente.\n\n" +
+      "Por último, ten paciencia. Los primeros robots que construyas probablemente no funcionarán a la primera, y eso es completamente normal.",
+    questions: [
+      { id: "human-ingenuity-26-q1", type: "true-false", prompt: "Según la guía, es necesario comprar material caro para empezar en robótica.", correctAnswer: "false", justification: "\"no necesitas comprar material caro para comenzar\"" },
+      { id: "human-ingenuity-26-q2", type: "true-false", prompt: "La guía recomienda aprender Python antes que la programación por bloques.", correctAnswer: "false", justification: "\"aprende primero los conceptos básicos de programación por bloques antes de pasar a lenguajes de texto como Python\"" },
+      { id: "human-ingenuity-26-q3", type: "mcq", prompt: "Según el texto, ¿qué acelera enormemente el aprendizaje?", options: ["Participar en una competición local", "Comprar los kits más caros", "Estudiar solo, sin comunidad", "Evitar cometer errores"], correctAnswer: "Participar en una competición local" },
+      { id: "human-ingenuity-26-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Una guía de instrucciones", "Una entrevista", "Un informe oficial", "Una reseña"], correctAnswer: "Una guía de instrucciones" },
+      { id: "human-ingenuity-26-q5", type: "short", prompt: "Según el texto, ¿qué se debe tener al construir los primeros robots?", correctAnswer: "paciencia" },
+    ],
+    vocabulary: [
+      { es: "simuladores", en: "simulators" },
+      { es: "virtuales", en: "virtual" },
+      { es: "bloques", en: "blocks" },
+      { es: "lenguajes", en: "languages (programming)" },
+      { es: "innecesaria", en: "unnecessary" },
+      { es: "principiantes", en: "beginners" },
+      { es: "desalentadores", en: "discouraging" },
+      { es: "competición", en: "competition" },
+    ],
+  },
+  {
+    id: "reading-social-organization-21",
+    themeId: "social-organization",
+    title: "Discurso de bienvenida a los nuevos alumnos",
+    textType: "Speech",
+    level: "easy",
+    bodyEs:
+      "Buenos días a todas y a todos.\n\n" +
+      "En nombre de todo el profesorado, quiero daros la bienvenida a este instituto. Sé que empezar en un centro nuevo puede dar un poco de vértigo: pasillos desconocidos, caras nuevas y un horario que todavía no os habéis aprendido de memoria.\n\n" +
+      "Quiero deciros algo que a mí también me habría gustado escuchar hace años: aquí nadie espera que lo sepáis todo desde el primer día. Este instituto tiene más de cuarenta clubes y actividades extraescolares, y os animo a probar varias antes de decidir a cuál dedicaros.\n\n" +
+      "También quiero recordaros que tenéis un servicio de orientación disponible todos los días, tanto para dudas académicas como personales. No dudéis en usarlo; para eso está.\n\n" +
+      "Os deseo un año lleno de nuevos amigos, algún que otro error del que aprender, y muchos momentos de los que os sintáis orgullosos. Bienvenidos a vuestra nueva casa durante los próximos años.",
+    questions: [
+      { id: "social-organization-21-q1", type: "true-false", prompt: "El instituto espera que los nuevos alumnos lo sepan todo desde el primer día.", correctAnswer: "false", justification: "\"aquí nadie espera que lo sepáis todo desde el primer día\"" },
+      { id: "social-organization-21-q2", type: "true-false", prompt: "El servicio de orientación solo está disponible para dudas académicas.", correctAnswer: "false", justification: "\"tanto para dudas académicas como personales\"" },
+      { id: "social-organization-21-q3", type: "mcq", prompt: "¿Cuántos clubes y actividades extraescolares tiene el instituto?", options: ["Más de cuarenta", "Diez", "Veinte", "Cien"], correctAnswer: "Más de cuarenta" },
+      { id: "social-organization-21-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Un discurso", "Una entrada de diario", "Un anuncio", "Una carta formal"], correctAnswer: "Un discurso" },
+      { id: "social-organization-21-q5", type: "short", prompt: "¿Qué servicio está disponible todos los días para los alumnos?", correctAnswer: "el servicio de orientación" },
+    ],
+    vocabulary: [
+      { es: "profesorado", en: "teaching staff" },
+      { es: "vértigo", en: "vertigo / dizziness" },
+      { es: "pasillos", en: "hallways" },
+      { es: "extraescolares", en: "extracurricular" },
+      { es: "orientación", en: "guidance / counseling" },
+      { es: "académicas", en: "academic" },
+      { es: "dudéis", en: "hesitate (subjunctive)" },
+      { es: "orgullosos", en: "proud (pl.)" },
+    ],
+  },
+  {
+    id: "reading-social-organization-22",
+    themeId: "social-organization",
+    title: "Informe: la brecha salarial entre los trabajadores jóvenes",
+    textType: "Official report",
+    level: "hard",
+    bodyEs:
+      "Un informe publicado por el Ministerio de Trabajo revela que los trabajadores de entre dieciocho y veinticinco años ganan, de media, un treinta por ciento menos que la media salarial general, incluso realizando funciones similares a las de compañeros de mayor edad.\n\n" +
+      "El estudio identifica varios factores que explican esta diferencia: la falta de experiencia previa, la sobrerrepresentación de los jóvenes en contratos temporales y a tiempo parcial, y una menor capacidad de negociación salarial frente a empleadores establecidos.\n\n" +
+      "Un dato especialmente preocupante es que el cuarenta y dos por ciento de los jóvenes encuestados declara sentirse incapaz de negociar su salario por miedo a perder el empleo, un porcentaje considerablemente más alto que entre trabajadores mayores de treinta y cinco años.\n\n" +
+      "Entre las recomendaciones del informe destaca la necesidad de mayor transparencia salarial en las ofertas de empleo, así como programas específicos de formación en negociación dirigidos a los trabajadores más jóvenes del mercado laboral.",
+    questions: [
+      { id: "social-organization-22-q1", type: "true-false", prompt: "Los trabajadores jóvenes ganan más que la media salarial general.", correctAnswer: "false", justification: "\"ganan, de media, un treinta por ciento menos que la media salarial general\"" },
+      { id: "social-organization-22-q2", type: "true-false", prompt: "Los trabajadores mayores de treinta y cinco años declaran sentir el mismo miedo a negociar su salario que los jóvenes.", correctAnswer: "false", justification: "\"un porcentaje considerablemente más alto que entre trabajadores mayores de treinta y cinco años\"" },
+      { id: "social-organization-22-q3", type: "mcq", prompt: "¿Qué porcentaje de jóvenes se siente incapaz de negociar su salario?", options: ["42%", "30%", "63%", "18%"], correctAnswer: "42%" },
+      { id: "social-organization-22-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Un informe oficial", "Una entrada de diario", "Un anuncio", "Una postal"], correctAnswer: "Un informe oficial" },
+      { id: "social-organization-22-q5", type: "short", prompt: "¿Qué recomienda el informe para mejorar las ofertas de empleo?", correctAnswer: "mayor transparencia salarial" },
+    ],
+    vocabulary: [
+      { es: "brecha", en: "gap" },
+      { es: "salarial", en: "salary (adj.)" },
+      { es: "sobrerrepresentación", en: "overrepresentation" },
+      { es: "temporales", en: "temporary" },
+      { es: "negociación", en: "negotiation" },
+      { es: "empleadores", en: "employers" },
+      { es: "transparencia", en: "transparency" },
+      { es: "laboral", en: "labor (adj.)" },
+    ],
+  },
+  {
+    id: "reading-social-organization-23",
+    themeId: "social-organization",
+    title: "Entrevista con la alcaldesa más joven del país",
+    textType: "Interview",
+    level: "medium",
+    bodyEs:
+      "A sus veintiséis años, Lucía Font se convirtió en la alcaldesa más joven de la historia de su región. Hablamos con ella sobre su primer año en el cargo.\n\n" +
+      "— Lucía, ¿cómo reaccionó la gente al saber que la nueva alcaldesa tenía solo veinticinco años cuando ganó las elecciones?\n" +
+      "— Con bastante escepticismo, la verdad. Muchos vecinos mayores dudaban de que tuviera suficiente experiencia. Tuve que demostrar con hechos, no con palabras, que la edad no determina la capacidad de gestionar bien un pueblo.\n\n" +
+      "— ¿Cuál ha sido tu mayor logro hasta ahora?\n" +
+      "— Conseguimos renovar el centro de salud, que llevaba años en muy malas condiciones, sin aumentar los impuestos municipales.\n\n" +
+      "— ¿Y el mayor reto?\n" +
+      "— Sin duda, ganarme la confianza de funcionarios que llevan trabajando en el ayuntamiento treinta años, mucho más tiempo del que yo llevo viva.\n\n" +
+      "— ¿Qué le dirías a otros jóvenes que quieran dedicarse a la política?\n" +
+      "— Que la juventud no es un obstáculo, sino una perspectiva distinta que también hace falta en los ayuntamientos.",
+    questions: [
+      { id: "social-organization-23-q1", type: "true-false", prompt: "Lucía tenía veinticinco años cuando ganó las elecciones.", correctAnswer: "true", justification: "\"la nueva alcaldesa tenía solo veinticinco años cuando ganó las elecciones\"" },
+      { id: "social-organization-23-q2", type: "true-false", prompt: "Lucía aumentó los impuestos municipales para renovar el centro de salud.", correctAnswer: "false", justification: "\"sin aumentar los impuestos municipales\"" },
+      { id: "social-organization-23-q3", type: "mcq", prompt: "¿Cuál fue el mayor reto de Lucía, según ella misma?", options: ["Ganarse la confianza de los funcionarios", "Conseguir dinero para el ayuntamiento", "Aprender a hablar en público", "Ganar las elecciones"], correctAnswer: "Ganarse la confianza de los funcionarios" },
+      { id: "social-organization-23-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Una entrevista", "Un discurso", "Un anuncio", "Una reseña"], correctAnswer: "Una entrevista" },
+      { id: "social-organization-23-q5", type: "short", prompt: "¿Qué edad tiene Lucía actualmente, según el texto?", correctAnswer: "veintiséis años" },
+    ],
+    vocabulary: [
+      { es: "alcaldesa", en: "mayor (fem.)" },
+      { es: "escepticismo", en: "skepticism" },
+      { es: "gestionar", en: "to manage" },
+      { es: "logro", en: "achievement" },
+      { es: "renovar", en: "to renovate" },
+      { es: "impuestos", en: "taxes" },
+      { es: "funcionarios", en: "civil servants / officials" },
+      { es: "juventud", en: "youth" },
+    ],
+  },
+  {
+    id: "reading-social-organization-24",
+    themeId: "social-organization",
+    title: "Foro: ¿Deberían poder votar los jóvenes de dieciséis años?",
+    textType: "Forum post",
+    level: "hard",
+    bodyEs:
+      "Publicado por usuario PoliticaJoven:\n\n" +
+      "Con el debate sobre bajar la edad de voto a los dieciséis años otra vez de actualidad, quería preguntaros: ¿estáis a favor o en contra? Yo tengo diecisiete y me parece absurdo que pueda trabajar y pagar impuestos, pero no pueda votar a quienes deciden cómo se gastan.\n\n" +
+      "Respuesta de usuario Escéptico88:\n\n" +
+      "Entiendo tu argumento, pero a los dieciséis años todavía se está formando la capacidad de razonamiento político, según varios estudios. Me preocupa que el voto se base más en lo que dicen los padres que en una opinión propia.\n\n" +
+      "Respuesta de usuario PoliticaJoven:\n\n" +
+      "Ese mismo argumento se podría usar con adultos que votan igual que sus padres toda la vida. La influencia familiar no desaparece a los dieciocho años mágicamente.\n\n" +
+      "Respuesta de usuario Marina_Vota:\n\n" +
+      "En algunos países, como Austria, ya se vota a los dieciséis desde hace años, y no se ha observado ningún problema grave. Creo que merece la pena estudiar esos casos antes de descartar la idea.",
+    questions: [
+      { id: "social-organization-24-q1", type: "true-false", prompt: "PoliticaJoven está a favor de bajar la edad de voto a los dieciséis años.", correctAnswer: "true", justification: "\"me parece absurdo que pueda trabajar y pagar impuestos, pero no pueda votar\"" },
+      { id: "social-organization-24-q2", type: "true-false", prompt: "En Austria ya se puede votar a los dieciséis años.", correctAnswer: "true", justification: "\"En algunos países, como Austria, ya se vota a los dieciséis desde hace años\"" },
+      { id: "social-organization-24-q3", type: "mcq", prompt: "¿Qué le preocupa a Escéptico88 sobre bajar la edad de voto?", options: ["Que el voto se base en la opinión de los padres", "Que haya demasiados votantes", "Que se necesiten más urnas", "Que suba el gasto público"], correctAnswer: "Que el voto se base en la opinión de los padres" },
+      { id: "social-organization-24-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Una publicación de foro", "Un discurso", "Una carta formal", "Un informe"], correctAnswer: "Una publicación de foro" },
+      { id: "social-organization-24-q5", type: "short", prompt: "¿Qué edad tiene PoliticaJoven?", correctAnswer: "diecisiete años" },
+    ],
+    vocabulary: [
+      { es: "actualidad", en: "current affairs / topicality" },
+      { es: "absurdo", en: "absurd" },
+      { es: "razonamiento", en: "reasoning" },
+      { es: "propia", en: "own (fem.)" },
+      { es: "influencia", en: "influence" },
+      { es: "mágicamente", en: "magically" },
+      { es: "descartar", en: "to rule out / discard" },
+      { es: "votantes", en: "voters" },
+    ],
+  },
+  {
+    id: "reading-social-organization-25",
+    themeId: "social-organization",
+    title: "Se busca mentor para nuevos vecinos",
+    textType: "Advertisement",
+    level: "easy",
+    bodyEs:
+      "¿Tienes tiempo libre y ganas de ayudar? El Ayuntamiento busca voluntarios para el programa \"Vecinos Conectados\", dirigido a familias recién llegadas al barrio.\n\n" +
+      "Como mentor, acompañarías a una familia durante sus primeros tres meses en el barrio: les ayudarías a encontrar el centro de salud más cercano, explicarías cómo funciona el transporte público local y, simplemente, estarías disponible para resolver dudas del día a día.\n\n" +
+      "No se necesita experiencia previa ni formación especial, solo paciencia, amabilidad y un par de horas libres a la semana. Todos los mentores reciben una breve formación inicial de dos horas antes de empezar.\n\n" +
+      "\"Ser mentora me ha enseñado tanto a mí como a la familia que acompañé\", cuenta Carmen, voluntaria desde hace un año.\n\n" +
+      "Si te interesa, inscríbete en la oficina de atención ciudadana o a través de la página web del ayuntamiento antes de fin de mes.",
+    questions: [
+      { id: "social-organization-25-q1", type: "true-false", prompt: "Se necesita experiencia previa para ser mentor en este programa.", correctAnswer: "false", justification: "\"No se necesita experiencia previa ni formación especial\"" },
+      { id: "social-organization-25-q2", type: "true-false", prompt: "Los mentores reciben una formación inicial antes de empezar.", correctAnswer: "true", justification: "\"Todos los mentores reciben una breve formación inicial de dos horas antes de empezar\"" },
+      { id: "social-organization-25-q3", type: "mcq", prompt: "¿Cuánto tiempo acompaña un mentor a una familia?", options: ["Tres meses", "Una semana", "Un año", "Seis meses"], correctAnswer: "Tres meses" },
+      { id: "social-organization-25-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Un anuncio publicitario", "Un informe oficial", "Una entrevista", "Una postal"], correctAnswer: "Un anuncio publicitario" },
+      { id: "social-organization-25-q5", type: "short", prompt: "¿Dónde se puede uno inscribir para ser mentor?", correctAnswer: "en la oficina de atención ciudadana o en la página web del ayuntamiento" },
+    ],
+    vocabulary: [
+      { es: "mentor", en: "mentor" },
+      { es: "recién", en: "recently" },
+      { es: "acompañarías", en: "you would accompany" },
+      { es: "transporte", en: "transportation" },
+      { es: "amabilidad", en: "kindness" },
+      { es: "formación", en: "training" },
+      { es: "ciudadana", en: "citizen (adj.)" },
+      { es: "inscríbete", en: "sign up (command)" },
+    ],
+  },
+  {
+    id: "reading-social-organization-26",
+    themeId: "social-organization",
+    title: "Una semana viviendo en una cooperativa de vivienda",
+    textType: "Blog post",
+    level: "medium",
+    bodyEs:
+      "La semana pasada me mudé temporalmente a una cooperativa de vivienda para escribir un reportaje, y la experiencia cambió por completo mi idea de cómo se puede organizar una comunidad.\n\n" +
+      "En esta cooperativa viven treinta y dos personas de edades muy distintas, desde estudiantes hasta jubilados. Todas las decisiones importantes, desde el presupuesto hasta las normas de convivencia, se toman en asambleas mensuales donde cada persona tiene un voto, sin importar cuánto tiempo lleve viviendo allí.\n\n" +
+      "Lo que más me sorprendió fue el sistema de tareas compartidas: cada semana, un grupo distinto se encarga de cocinar para todos tres noches, mientras otro grupo se ocupa de la limpieza de los espacios comunes. Al principio pensé que generaría conflictos constantes, pero los propios vecinos me explicaron que, tras años de ajustes, el sistema funciona sorprendentemente bien.\n\n" +
+      "No sé si podría vivir así de forma permanente, pero esta semana me hizo cuestionar por qué damos por hecho que vivir de forma tan individual, sin apenas contacto con los vecinos, es la única opción normal.",
+    questions: [
+      { id: "social-organization-26-q1", type: "true-false", prompt: "En la cooperativa, solo las personas que llevan más tiempo viviendo allí pueden votar en las asambleas.", correctAnswer: "false", justification: "\"cada persona tiene un voto, sin importar cuánto tiempo lleve viviendo allí\"" },
+      { id: "social-organization-26-q2", type: "true-false", prompt: "La autora pensó al principio que el sistema de tareas compartidas generaría conflictos.", correctAnswer: "true", justification: "\"Al principio pensé que generaría conflictos constantes\"" },
+      { id: "social-organization-26-q3", type: "mcq", prompt: "¿Cuántas personas viven en la cooperativa?", options: ["Treinta y dos", "Doce", "Cincuenta", "Veinte"], correctAnswer: "Treinta y dos" },
+      { id: "social-organization-26-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Una entrada de blog", "Un informe oficial", "Un anuncio", "Una entrevista"], correctAnswer: "Una entrada de blog" },
+      { id: "social-organization-26-q5", type: "short", prompt: "¿Con qué frecuencia se celebran las asambleas de la cooperativa?", correctAnswer: "mensualmente" },
+    ],
+    vocabulary: [
+      { es: "cooperativa", en: "cooperative" },
+      { es: "reportaje", en: "news report / feature" },
+      { es: "jubilados", en: "retirees" },
+      { es: "presupuesto", en: "budget" },
+      { es: "convivencia", en: "coexistence / living together" },
+      { es: "asambleas", en: "assemblies" },
+      { es: "ajustes", en: "adjustments" },
+      { es: "individual", en: "individual" },
+    ],
+  },
+  {
+    id: "reading-sharing-planet-21",
+    themeId: "sharing-planet",
+    title: "El regreso del lobo ibérico sorprende a los ganaderos",
+    textType: "Newspaper article",
+    level: "medium",
+    bodyEs:
+      "La población de lobo ibérico ha aumentado un veinte por ciento en la última década, según datos del Ministerio de Medio Ambiente, expandiéndose hacia zonas donde no se veía esta especie desde hacía más de cincuenta años.\n\n" +
+      "Para los conservacionistas, la noticia es motivo de celebración: el lobo es una especie clave para mantener equilibrados los ecosistemas donde vive, controlando de forma natural la población de otros animales como los jabalíes.\n\n" +
+      "Sin embargo, no todos reciben la noticia con la misma alegría. Numerosos ganaderos de las zonas afectadas denuncian pérdidas económicas importantes debido a ataques a su ganado, y piden más ayudas económicas y medidas de protección más eficaces, como vallados especiales o perros guardianes entrenados.\n\n" +
+      "El gobierno regional ha anunciado un plan de compensaciones ampliado, aunque los representantes de los ganaderos consideran que las ayudas actuales siguen siendo insuficientes frente al aumento real de los ataques.",
+    questions: [
+      { id: "sharing-planet-21-q1", type: "true-false", prompt: "La población de lobo ibérico ha disminuido en la última década.", correctAnswer: "false", justification: "\"La población de lobo ibérico ha aumentado un veinte por ciento en la última década\"" },
+      { id: "sharing-planet-21-q2", type: "true-false", prompt: "Todos los ganaderos están contentos con el regreso del lobo.", correctAnswer: "false", justification: "\"no todos reciben la noticia con la misma alegría\"" },
+      { id: "sharing-planet-21-q3", type: "mcq", prompt: "¿Qué animal ayuda a controlar el lobo de forma natural?", options: ["Jabalíes", "Ovejas", "Zorros", "Ciervos"], correctAnswer: "Jabalíes" },
+      { id: "sharing-planet-21-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Un artículo de periódico", "Una entrada de diario", "Un anuncio", "Una postal"], correctAnswer: "Un artículo de periódico" },
+      { id: "sharing-planet-21-q5", type: "short", prompt: "¿Qué piden los ganaderos además de más ayudas económicas?", correctAnswer: "medidas de protección más eficaces" },
+    ],
+    vocabulary: [
+      { es: "ganaderos", en: "livestock farmers / ranchers" },
+      { es: "conservacionistas", en: "conservationists" },
+      { es: "equilibrados", en: "balanced" },
+      { es: "jabalíes", en: "wild boars" },
+      { es: "ganado", en: "livestock" },
+      { es: "vallados", en: "fences / fencing" },
+      { es: "guardianes", en: "guardian (adj.)" },
+      { es: "compensaciones", en: "compensation" },
+    ],
+  },
+  {
+    id: "reading-sharing-planet-22",
+    themeId: "sharing-planet",
+    title: "Cómo empezar una huerta urbana en tu balcón",
+    textType: "Instructional guide",
+    level: "easy",
+    bodyEs:
+      "¿Quieres cultivar tus propias verduras sin tener un jardín? Con estos pasos sencillos puedes empezar una huerta urbana en cualquier balcón, por pequeño que sea.\n\n" +
+      "Primero, elige el lugar con más horas de luz solar directa, idealmente al menos seis horas al día. La mayoría de las hortalizas necesitan bastante sol para crecer bien.\n\n" +
+      "Segundo, empieza con plantas fáciles para principiantes, como tomates cherry, lechugas o hierbas aromáticas. Cultivos más exigentes, como los pimientos, pueden esperar a que tengas más experiencia.\n\n" +
+      "Tercero, no subestimes la importancia de un buen drenaje: las macetas deben tener agujeros en la base para evitar que las raíces se pudran por exceso de agua.\n\n" +
+      "Cuarto, riega con regularidad, pero sin exceso; comprueba la humedad de la tierra con el dedo antes de regar cada vez.\n\n" +
+      "Por último, ten paciencia. Las primeras cosechas suelen ser pequeñas, pero con cada temporada aprenderás qué funciona mejor en tu espacio concreto.",
+    questions: [
+      { id: "sharing-planet-22-q1", type: "true-false", prompt: "Según la guía, la mayoría de las hortalizas necesitan poca luz solar.", correctAnswer: "false", justification: "\"La mayoría de las hortalizas necesitan bastante sol para crecer bien\"" },
+      { id: "sharing-planet-22-q2", type: "true-false", prompt: "La guía recomienda empezar con pimientos por ser fáciles de cultivar.", correctAnswer: "false", justification: "\"Cultivos más exigentes, como los pimientos, pueden esperar a que tengas más experiencia\"" },
+      { id: "sharing-planet-22-q3", type: "mcq", prompt: "¿Cuántas horas de luz solar directa se recomiendan como mínimo?", options: ["Seis horas", "Dos horas", "Diez horas", "Doce horas"], correctAnswer: "Seis horas" },
+      { id: "sharing-planet-22-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Una guía de instrucciones", "Un artículo de periódico", "Una entrevista", "Una reseña"], correctAnswer: "Una guía de instrucciones" },
+      { id: "sharing-planet-22-q5", type: "short", prompt: "¿Qué deben tener las macetas para un buen drenaje?", correctAnswer: "agujeros en la base" },
+    ],
+    vocabulary: [
+      { es: "huerta", en: "vegetable garden" },
+      { es: "hortalizas", en: "vegetables (grown crops)" },
+      { es: "principiantes", en: "beginners" },
+      { es: "exigentes", en: "demanding" },
+      { es: "subestimes", en: "underestimate (command)" },
+      { es: "drenaje", en: "drainage" },
+      { es: "macetas", en: "flowerpots" },
+      { es: "cosechas", en: "harvests" },
+    ],
+  },
+  {
+    id: "reading-sharing-planet-23",
+    themeId: "sharing-planet",
+    title: "Entrevista a una activista climática de dieciséis años",
+    textType: "Interview",
+    level: "hard",
+    bodyEs:
+      "Hablamos con Nadia Ortiz, fundadora de un movimiento estudiantil contra el cambio climático que ya cuenta con presencia en más de treinta institutos.\n\n" +
+      "— Nadia, ¿qué te llevó a empezar este movimiento con solo catorce años?\n" +
+      "— Vi un documental sobre el deshielo en el Ártico y no pude dejar de pensar en ello durante semanas. Me sentía frustrada porque los adultos parecían tener la situación bajo control, pero los datos decían todo lo contrario.\n\n" +
+      "— ¿Con qué obstáculos te has encontrado?\n" +
+      "— Muchos adultos me han dicho que soy demasiado joven para entender temas tan complejos, que debería centrarme en mis estudios. Pero la ciencia climática no es una opinión, son datos, y esos datos los entiendo perfectamente.\n\n" +
+      "— ¿Sientes que el movimiento ha logrado cambios reales?\n" +
+      "— Conseguimos que nuestro ayuntamiento declarara la emergencia climática, aunque todavía queda muchísimo por hacer. Los cambios grandes llevan tiempo, y a veces es agotador seguir insistiendo.\n\n" +
+      "— ¿Qué le dirías a un adolescente que quiere involucrarse pero no sabe cómo?\n" +
+      "— Que empiece por algo pequeño, en su propio instituto. Los movimientos grandes siempre empiezan siendo pequeños.",
+    questions: [
+      { id: "sharing-planet-23-q1", type: "true-false", prompt: "Nadia empezó su movimiento a los catorce años.", correctAnswer: "true", justification: "\"¿qué te llevó a empezar este movimiento con solo catorce años?\"" },
+      { id: "sharing-planet-23-q2", type: "true-false", prompt: "Nadia siente que el movimiento no ha logrado ningún cambio real.", correctAnswer: "false", justification: "\"Conseguimos que nuestro ayuntamiento declarara la emergencia climática\"" },
+      { id: "sharing-planet-23-q3", type: "mcq", prompt: "¿Qué vio Nadia que la impulsó a actuar?", options: ["Un documental sobre el deshielo en el Ártico", "Una noticia sobre incendios", "Una charla en el instituto", "Un libro sobre reciclaje"], correctAnswer: "Un documental sobre el deshielo en el Ártico" },
+      { id: "sharing-planet-23-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Una entrevista", "Un informe oficial", "Un anuncio", "Una postal"], correctAnswer: "Una entrevista" },
+      { id: "sharing-planet-23-q5", type: "short", prompt: "¿En cuántos institutos tiene presencia el movimiento de Nadia?", correctAnswer: "más de treinta institutos" },
+    ],
+    vocabulary: [
+      { es: "fundadora", en: "founder (fem.)" },
+      { es: "movimiento", en: "movement" },
+      { es: "deshielo", en: "thaw / melting (of ice)" },
+      { es: "frustrada", en: "frustrated (fem.)" },
+      { es: "obstáculos", en: "obstacles" },
+      { es: "complejos", en: "complex" },
+      { es: "emergencia", en: "emergency" },
+      { es: "involucrarse", en: "to get involved" },
+    ],
+  },
+  {
+    id: "reading-sharing-planet-24",
+    themeId: "sharing-planet",
+    title: "Postal desde una reserva natural",
+    textType: "Postcard",
+    level: "easy",
+    bodyEs:
+      "¡Hola, abuela!\n\n" +
+      "Te escribo desde la reserva natural donde estoy pasando una semana como voluntaria, contando aves junto a un grupo de biólogos. Nunca había madrugado tanto en mi vida: nos levantamos a las cinco de la mañana porque es cuando más actividad hay.\n\n" +
+      "Ayer vimos un águila real volando muy cerca del refugio donde dormimos, y todos nos quedamos en absoluto silencio para no espantarla. Fue uno de los momentos más bonitos que recuerdo.\n\n" +
+      "Duermo en una cabaña sin electricidad, así que por las noches solo tenemos linternas y las estrellas, que aquí se ven muchísimo mejor que en la ciudad. Al principio lo eché de menos, pero ya me he acostumbrado.\n\n" +
+      "Vuelvo el sábado. ¡Tengo tantas fotos e historias que contarte que no sé por dónde empezar!\n\n" +
+      "Con cariño,\nElsa",
+    questions: [
+      { id: "sharing-planet-24-q1", type: "true-false", prompt: "Elsa se levanta a las cinco de la mañana en la reserva.", correctAnswer: "true", justification: "\"nos levantamos a las cinco de la mañana porque es cuando más actividad hay\"" },
+      { id: "sharing-planet-24-q2", type: "true-false", prompt: "La cabaña donde duerme Elsa tiene electricidad.", correctAnswer: "false", justification: "\"Duermo en una cabaña sin electricidad\"" },
+      { id: "sharing-planet-24-q3", type: "mcq", prompt: "¿Qué animal vieron cerca del refugio?", options: ["Un águila real", "Un lobo", "Un ciervo", "Un oso"], correctAnswer: "Un águila real" },
+      { id: "sharing-planet-24-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Una postal", "Un informe oficial", "Un anuncio", "Una reseña"], correctAnswer: "Una postal" },
+      { id: "sharing-planet-24-q5", type: "short", prompt: "¿Qué día vuelve Elsa a casa?", correctAnswer: "el sábado" },
+    ],
+    vocabulary: [
+      { es: "reserva", en: "reserve (natural)" },
+      { es: "biólogos", en: "biologists" },
+      { es: "madrugado", en: "gotten up early" },
+      { es: "refugio", en: "shelter / refuge" },
+      { es: "espantarla", en: "to scare it away" },
+      { es: "linternas", en: "flashlights / lanterns" },
+      { es: "estrellas", en: "stars" },
+      { es: "acostumbrado", en: "gotten used to" },
+    ],
+  },
+  {
+    id: "reading-sharing-planet-25",
+    themeId: "sharing-planet",
+    title: "Reseña: 'El último glaciar'",
+    textType: "Review",
+    level: "medium",
+    bodyEs:
+      "\"El último glaciar\", de la escritora chilena Paula Nemesio, mezcla la historia de una glacióloga con datos científicos reales sobre el retroceso de los glaciares andinos, en una novela que engancha desde la primera página.\n\n" +
+      "Lo que distingue a este libro de otras novelas sobre el cambio climático es que evita el tono moralizante que tanto abunda en el género. La protagonista, Marisol, no es una heroína perfecta: comete errores, duda de su propio trabajo y, en varios momentos, se siente completamente derrotada frente a un problema que la sobrepasa.\n\n" +
+      "El único punto débil es el ritmo del último tercio, donde la trama secundaria sobre la vida familiar de Marisol se estira más de lo necesario y resta fuerza al mensaje principal de la novela.\n\n" +
+      "Aun así, \"El último glaciar\" es una lectura muy recomendable, especialmente para quienes buscan entender el cambio climático desde una perspectiva humana y no solo a través de cifras y gráficos.",
+    questions: [
+      { id: "sharing-planet-25-q1", type: "true-false", prompt: "Según la reseña, la protagonista Marisol es presentada como una heroína perfecta.", correctAnswer: "false", justification: "\"Marisol, no es una heroína perfecta: comete errores, duda de su propio trabajo\"" },
+      { id: "sharing-planet-25-q2", type: "true-false", prompt: "El autor considera que el ritmo del último tercio del libro es uno de sus puntos débiles.", correctAnswer: "true", justification: "\"El único punto débil es el ritmo del último tercio\"" },
+      { id: "sharing-planet-25-q3", type: "mcq", prompt: "¿Cuál es la profesión de la protagonista de la novela?", options: ["Glacióloga", "Periodista", "Bióloga marina", "Meteoróloga"], correctAnswer: "Glacióloga" },
+      { id: "sharing-planet-25-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Una reseña", "Un informe oficial", "Una entrevista", "Un anuncio"], correctAnswer: "Una reseña" },
+      { id: "sharing-planet-25-q5", type: "short", prompt: "¿De qué nacionalidad es la escritora del libro?", correctAnswer: "chilena" },
+    ],
+    vocabulary: [
+      { es: "glacióloga", en: "glaciologist (fem.)" },
+      { es: "retroceso", en: "retreat / recession" },
+      { es: "andinos", en: "Andean" },
+      { es: "engancha", en: "hooks / grips (a reader)" },
+      { es: "moralizante", en: "moralizing" },
+      { es: "derrotada", en: "defeated (fem.)" },
+      { es: "sobrepasa", en: "overwhelms / exceeds" },
+      { es: "trama", en: "plot (story)" },
+    ],
+  },
+  {
+    id: "reading-sharing-planet-26",
+    themeId: "sharing-planet",
+    title: "Informe: la energía solar llega a las escuelas públicas",
+    textType: "Official report",
+    level: "hard",
+    bodyEs:
+      "Un informe del Ministerio de Educación confirma que el número de escuelas públicas equipadas con paneles solares se ha triplicado en los últimos cinco años, alcanzando ya a más de mil doscientos centros educativos en todo el país.\n\n" +
+      "Según los datos recopilados, estas instalaciones han permitido reducir la factura eléctrica de los centros participantes en un promedio del sesenta por ciento, con un ahorro que muchos colegios destinan directamente a material didáctico y actividades extraescolares.\n\n" +
+      "Más allá del ahorro económico, el informe destaca un beneficio educativo inesperado: numerosos centros han integrado los propios paneles solares en el currículo de ciencias, permitiendo a los estudiantes analizar datos reales de producción energética como parte de sus clases.\n\n" +
+      "El Ministerio anuncia que la siguiente fase del programa buscará llegar a otras dos mil escuelas antes de que termine la década, priorizando centros situados en zonas rurales con menor acceso a la red eléctrica general.",
+    questions: [
+      { id: "sharing-planet-26-q1", type: "true-false", prompt: "El número de escuelas con paneles solares ha disminuido en los últimos cinco años.", correctAnswer: "false", justification: "\"se ha triplicado en los últimos cinco años\"" },
+      { id: "sharing-planet-26-q2", type: "true-false", prompt: "Algunos colegios destinan el dinero ahorrado a material didáctico.", correctAnswer: "true", justification: "\"un ahorro que muchos colegios destinan directamente a material didáctico\"" },
+      { id: "sharing-planet-26-q3", type: "mcq", prompt: "¿En qué porcentaje se ha reducido la factura eléctrica, de media?", options: ["60%", "30%", "90%", "15%"], correctAnswer: "60%" },
+      { id: "sharing-planet-26-q4", type: "mcq", prompt: "¿Qué tipo de texto es este?", options: ["Un informe oficial", "Una entrada de diario", "Un anuncio", "Una postal"], correctAnswer: "Un informe oficial" },
+      { id: "sharing-planet-26-q5", type: "short", prompt: "¿Qué zonas priorizará la siguiente fase del programa?", correctAnswer: "zonas rurales con menor acceso a la red eléctrica general" },
+    ],
+    vocabulary: [
+      { es: "paneles", en: "panels" },
+      { es: "triplicado", en: "tripled" },
+      { es: "instalaciones", en: "installations" },
+      { es: "eléctrica", en: "electric" },
+      { es: "promedio", en: "average" },
+      { es: "didáctico", en: "educational / teaching (adj.)" },
+      { es: "currículo", en: "curriculum" },
+      { es: "priorizando", en: "prioritizing" },
     ],
   },
 ];

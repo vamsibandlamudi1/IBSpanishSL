@@ -212,6 +212,11 @@ export interface ReadingQuestion {
   justification?: string;
 }
 
+export interface ReadingVocabItem {
+  es: string;
+  en: string;
+}
+
 export interface ReadingPassage {
   id: string;
   themeId: string;
@@ -222,6 +227,8 @@ export interface ReadingPassage {
   level: Difficulty;
   bodyEs: string;
   questions: ReadingQuestion[];
+  /** Key words drawn from the passage, shown after the questions to build vocabulary. */
+  vocabulary?: ReadingVocabItem[];
 }
 
 // ---------------------------------------------------------------------------

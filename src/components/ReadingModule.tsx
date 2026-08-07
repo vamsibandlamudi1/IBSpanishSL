@@ -6,6 +6,7 @@ import { READING_PASSAGES } from "@/lib/reading";
 import { useStore } from "@/lib/store";
 import { deriveJustification } from "@/lib/deriveJustification";
 import { ReadingQuestion } from "@/lib/types";
+import { getSpanishVoices, pauseSpeaking, pickDefaultSpanishVoice, resumeSpeaking, speak, stopSpeaking } from "@/lib/speech";
 
 const LEVEL_STYLES: Record<string, string> = {
   easy: "bg-green-100 text-green-700",
@@ -25,13 +26,34 @@ const normalize = (s: string) => stripAccents(s.trim().toLowerCase());
  *  same as Quiz/Grammar — completing a passage awards points via the
  *  shared gamification system. */
 export default function ReadingModule() {
-  const { completeQuiz, recordQuestionResult, lastAward, clearLastAward, setActiveSession } = useStore();
+  const { completeQuiz, recordQuestionResult, lastAward, clearLastAward, setActiveSession, quizAttempts } = useStore();
 
   const [passageId, setPassageId] = useState(READING_PASSAGES[0].id);
   const [answers, setAnswers] = useState<Record<string, string>>({});
   const [checked, setChecked] = useState(false);
 
+  const [voices, setVoices] = useState<SpeechSynthesisVoice[]>([]);
+  const [voiceURI, setVoiceURI] = useState("");
+  const [rate, setRate] = useState(0.9);
+  const [playState, setPlayState] = useState<"idle" | "playing" | "paused">("idle");
+  const [isMac, setIsMac] = useState(false);
+
   const passage = useMemo(() => READING_PASSAGES.find((p) => p.id === passageId) ?? READING_PASSAGES[0], [passageId]);
+
+  // Best (highest-scoring) attempt per passage, keyed by passage id — powers the
+  // completed checkmark + score shown on each entry in the sidebar list.
+  const bestAttemptByPassage = useMemo(() => {
+    const map = new Map<string, { score: number; total: number }>();
+    for (const attempt of quizAttempts) {
+      if (!attempt.themeId.startsWith("reading-")) continue;
+      const id = attempt.themeId.slice("reading-".length);
+      const existing = map.get(id);
+      if (!existing || attempt.score / attempt.total > existing.score / existing.total) {
+        map.set(id, { score: attempt.score, total: attempt.total });
+      }
+    }
+    return map;
+  }, [quizAttempts]);
 
   // Lets the global milestone/engagement popups know the student is mid-passage,
   // so they defer themselves until answers are checked — see lib/store.tsx's
@@ -41,7 +63,52 @@ export default function ReadingModule() {
     return () => setActiveSession(false);
   }, [checked, setActiveSession]);
 
+  // Voices load asynchronously in most browsers (Chrome fires
+  // onvoiceschanged once the list — including network voices — is ready).
+  useEffect(() => {
+    if (typeof window === "undefined" || !("speechSynthesis" in window)) return;
+    const loadVoices = () => {
+      const spanish = getSpanishVoices();
+      setVoices(spanish);
+      setVoiceURI((prev) => prev || pickDefaultSpanishVoice(spanish)?.voiceURI || "");
+    };
+    loadVoices();
+    window.speechSynthesis.onvoiceschanged = loadVoices;
+    setIsMac(/Mac|iPhone|iPad/.test(window.navigator.platform ?? window.navigator.userAgent));
+    return () => {
+      window.speechSynthesis.onvoiceschanged = null;
+    };
+  }, []);
+
+  // Stop any playback when leaving the passage (switching passages or
+  // navigating away) so audio never keeps reading a passage that's no longer on screen.
+  useEffect(() => {
+    return () => stopSpeaking();
+  }, [passageId]);
+
+  const playPassage = () => {
+    setPlayState("playing");
+    speak(passage.bodyEs, () => setPlayState("idle"), { rate, voiceURI });
+  };
+
+  const togglePause = () => {
+    if (playState === "playing") {
+      pauseSpeaking();
+      setPlayState("paused");
+    } else if (playState === "paused") {
+      resumeSpeaking();
+      setPlayState("playing");
+    }
+  };
+
+  const stopPassage = () => {
+    stopSpeaking();
+    setPlayState("idle");
+  };
+
   const selectPassage = (id: string) => {
+    stopSpeaking();
+    setPlayState("idle");
     setPassageId(id);
     setAnswers({});
     setChecked(false);
@@ -75,6 +142,7 @@ export default function ReadingModule() {
       <nav className="flex gap-2 overflow-x-auto pb-1 lg:w-72 lg:shrink-0 lg:flex-col lg:overflow-visible lg:pb-0">
         {READING_PASSAGES.map((p) => {
           const active = p.id === passage.id;
+          const best = bestAttemptByPassage.get(p.id);
           return (
             <button
               key={p.id}
@@ -84,10 +152,20 @@ export default function ReadingModule() {
                 active ? "border-brand-400 bg-brand-50" : "border-slate-200 bg-white hover:border-brand-300 hover:bg-slate-50"
               }`}
             >
-              <p className={`whitespace-nowrap text-sm font-semibold lg:whitespace-normal ${active ? "text-brand-800" : "text-slate-800"}`}>
-                {p.title}
-              </p>
-              <span className="mt-1 hidden text-[10px] font-medium uppercase tracking-wide text-slate-400 lg:block">{p.textType}</span>
+              <div className="flex items-center gap-1.5">
+                {best && (
+                  <span className="text-xs text-green-600" title={`Best score: ${best.score}/${best.total}`}>
+                    ✓
+                  </span>
+                )}
+                <p className={`whitespace-nowrap text-sm font-semibold lg:whitespace-normal ${active ? "text-brand-800" : "text-slate-800"}`}>
+                  {p.title}
+                </p>
+              </div>
+              <div className="mt-1 flex items-center gap-2">
+                <span className="hidden text-[10px] font-medium uppercase tracking-wide text-slate-400 lg:block">{p.textType}</span>
+                {best && <span className="text-[10px] font-medium text-green-600">{best.score}/{best.total}</span>}
+              </div>
             </button>
           );
         })}
@@ -105,6 +183,69 @@ export default function ReadingModule() {
               </span>
             </div>
           </div>
+
+          <div className="mb-3 flex flex-wrap items-center gap-2 rounded-lg bg-slate-50 p-2.5">
+            {playState === "idle" ? (
+              <button
+                type="button"
+                onClick={playPassage}
+                className="flex items-center gap-1.5 rounded-full border border-brand-300 bg-brand-50 px-3 py-1.5 text-sm font-medium text-brand-700 hover:bg-brand-100"
+              >
+                🔊 Escuchar
+              </button>
+            ) : (
+              <>
+                <button
+                  type="button"
+                  onClick={togglePause}
+                  className="flex items-center gap-1.5 rounded-full border border-brand-300 bg-brand-50 px-3 py-1.5 text-sm font-medium text-brand-700 hover:bg-brand-100"
+                >
+                  {playState === "playing" ? "⏸ Pausar" : "▶ Reanudar"}
+                </button>
+                <button
+                  type="button"
+                  onClick={stopPassage}
+                  className="flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-3 py-1.5 text-sm font-medium text-slate-600 hover:bg-slate-50"
+                >
+                  ⏹ Parar
+                </button>
+              </>
+            )}
+
+            <select
+              value={rate}
+              onChange={(e) => setRate(Number(e.target.value))}
+              className="rounded-md border border-slate-200 bg-white px-2 py-1.5 text-xs text-slate-600"
+              title="Velocidad de lectura"
+            >
+              <option value={0.7}>0.7x</option>
+              <option value={0.9}>0.9x</option>
+              <option value={1}>1x</option>
+              <option value={1.15}>1.15x</option>
+            </select>
+
+            {voices.length > 1 && (
+              <select
+                value={voiceURI}
+                onChange={(e) => setVoiceURI(e.target.value)}
+                className="min-w-0 max-w-[220px] rounded-md border border-slate-200 bg-white px-2 py-1.5 text-xs text-slate-600"
+                title="Voz"
+              >
+                {voices.map((v) => (
+                  <option key={v.voiceURI} value={v.voiceURI}>
+                    {v.name} ({v.lang}){v.localService ? "" : " • red"}
+                  </option>
+                ))}
+              </select>
+            )}
+
+            {isMac && !voices.some((v) => !v.localService) && (
+              <span className="text-[11px] text-slate-400">
+                Voz robótica en Mac — pruébalo en Chrome para voces de mejor calidad.
+              </span>
+            )}
+          </div>
+
           <div className="flex flex-col gap-3">
             {passage.bodyEs.split("\n\n").map((para, i) => (
               <p key={i} className="whitespace-pre-line text-sm leading-relaxed text-slate-700">
@@ -214,6 +355,26 @@ export default function ReadingModule() {
             {lastAward.newBadges.length > 0 && (
               <p className="mt-1">New badge{lastAward.newBadges.length > 1 ? "s" : ""}: {lastAward.newBadges.map((b) => b.name).join(", ")}</p>
             )}
+          </div>
+        )}
+
+        {passage.vocabulary && passage.vocabulary.length > 0 && (
+          <div className="mt-5 rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
+            <h3 className="mb-3 text-sm font-bold uppercase tracking-wide text-slate-500">Vocabulario clave</h3>
+            <div className="grid grid-cols-1 gap-x-6 gap-y-2 sm:grid-cols-2">
+              {passage.vocabulary.map((v) => (
+                <button
+                  key={v.es}
+                  type="button"
+                  onClick={() => speak(v.es, undefined, { rate: 0.85, voiceURI })}
+                  className="flex items-center justify-between gap-2 rounded-md px-2 py-1.5 text-left text-sm hover:bg-slate-50"
+                  title="Escuchar pronunciación"
+                >
+                  <span className="font-medium text-slate-800">🔊 {v.es}</span>
+                  <span className="text-slate-500">{v.en}</span>
+                </button>
+              ))}
+            </div>
           </div>
         )}
       </div>
