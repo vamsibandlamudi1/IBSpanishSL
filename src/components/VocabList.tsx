@@ -5,18 +5,16 @@ import { useEffect, useMemo, useState } from "react";
 import { VocabItem } from "@/lib/types";
 import { speak, stopSpeaking } from "@/lib/speech";
 
-const DEFAULT_VISIBLE = 12;
 const stripAccents = (s: string) => s.normalize("NFD").replace(/[̀-ͯ]/g, "");
 
 /** Renders a theme's vocabulary (typically 60-70 words) as a searchable,
  *  alphabetized Spanish/English table instead of one long unsorted grid —
  *  the previous flat dump was hard to scan or jump to a specific word in.
- *  Collapsed to DEFAULT_VISIBLE rows until expanded or a search is active.
+ *  All words are shown; the table scrolls internally rather than paginating.
  *  Each row has a 🔊 button that speaks the Spanish word aloud (Web Speech
  *  API, see lib/speech.ts) so students can hear pronunciation on demand. */
 export default function VocabList({ vocabulary }: { vocabulary: VocabItem[] }) {
   const [query, setQuery] = useState("");
-  const [expanded, setExpanded] = useState(false);
   const [speakingWord, setSpeakingWord] = useState<string | null>(null);
 
   useEffect(() => stopSpeaking, []); // stop any playback if the list unmounts
@@ -35,7 +33,7 @@ export default function VocabList({ vocabulary }: { vocabulary: VocabItem[] }) {
   }, [sorted, query]);
 
   const isSearching = query.trim().length > 0;
-  const visible = isSearching || expanded ? filtered : filtered.slice(0, DEFAULT_VISIBLE);
+  const visible = filtered;
 
   return (
     <div>
@@ -46,10 +44,7 @@ export default function VocabList({ vocabulary }: { vocabulary: VocabItem[] }) {
       <input
         type="text"
         value={query}
-        onChange={(e) => {
-          setQuery(e.target.value);
-          setExpanded(false);
-        }}
+        onChange={(e) => setQuery(e.target.value)}
         placeholder="Search Spanish or English..."
         className="mt-2 w-full rounded-full border border-slate-200 px-3 py-1.5 text-sm outline-none focus:ring-2 focus:ring-brand-500"
       />
@@ -62,7 +57,7 @@ export default function VocabList({ vocabulary }: { vocabulary: VocabItem[] }) {
             <span>Español</span>
             <span>English</span>
           </div>
-          <div className="max-h-80 divide-y divide-slate-100 overflow-y-auto">
+          <div className="divide-y divide-slate-100">
             {visible.map((v) => (
               <div key={v.es} className="grid grid-cols-2 items-center px-3 py-1.5 text-sm odd:bg-white even:bg-slate-50/60">
                 <span className="flex items-center gap-1.5">
@@ -85,11 +80,6 @@ export default function VocabList({ vocabulary }: { vocabulary: VocabItem[] }) {
         </div>
       )}
 
-      {!isSearching && filtered.length > DEFAULT_VISIBLE && (
-        <button type="button" onClick={() => setExpanded((e) => !e)} className="mt-2 text-xs font-semibold text-brand-600 hover:underline">
-          {expanded ? "Show less" : `Show all ${filtered.length} words`}
-        </button>
-      )}
       {isSearching && (
         <p className="mt-2 text-xs text-slate-400">
           {filtered.length} match{filtered.length === 1 ? "" : "es"}
