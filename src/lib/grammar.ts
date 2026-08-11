@@ -1,9 +1,11 @@
 /// File: src/lib/grammar.ts
 //
-// Content for the Grammar module: 16 core IB Spanish B SL practice topics
+// Content for the Grammar module: 22 core IB Spanish B SL practice topics
 // (11 verb/grammar topics + 5 added to close exam-format gaps: affirmative
 // commands, relative clauses, false cognates, and the two IB Paper 1 reading
-// strategies — heading-matching and word-bank gap-fill).
+// strategies — heading-matching and word-bank gap-fill — + 6 more added to
+// close further gaps: por/para, saber/conocer, negative & formal commands,
+// comparatives & superlatives, present perfect, and si-clauses).
 // EXERCISES ARE LAZY-LOADED per topic — only the selected topic's exercises
 // are fetched, preventing the 47 KB ser-estar dataset from blocking the
 // initial Grammar page render.
@@ -82,6 +84,30 @@ export async function loadExercises(topicId: string): Promise<GrammarExercise[]>
       const m = await import("./grammar-data/gap-fill");
       return m.GAP_FILL_EXERCISES;
     }
+    case "por-para": {
+      const m = await import("./grammar-data/por-para");
+      return m.POR_PARA_EXERCISES;
+    }
+    case "saber-conocer": {
+      const m = await import("./grammar-data/saber-conocer");
+      return m.SABER_CONOCER_EXERCISES;
+    }
+    case "negative-commands": {
+      const m = await import("./grammar-data/negative-commands");
+      return m.NEGATIVE_COMMANDS_EXERCISES;
+    }
+    case "comparatives": {
+      const m = await import("./grammar-data/comparatives");
+      return m.COMPARATIVES_EXERCISES;
+    }
+    case "present-perfect": {
+      const m = await import("./grammar-data/present-perfect");
+      return m.PRESENT_PERFECT_EXERCISES;
+    }
+    case "si-clauses": {
+      const m = await import("./grammar-data/si-clauses");
+      return m.SI_CLAUSES_EXERCISES;
+    }
     default:
       return [];
   }
@@ -136,6 +162,32 @@ export const GRAMMAR_TOPICS: GrammarTopicMeta[] = [
     ],
   },
   {
+    id: "por-para",
+    name: "Por vs. Para",
+    level: "intermediate",
+    rule: "Use 'para' for destination, deadline, purpose ('in order to'), recipient, and opinion. Use 'por' for duration, exchange/price, means/method, reason/cause, movement 'through', and the agent of a passive sentence.",
+    simpleExplanation:
+      "These two words both often translate as \"for\" in English, which is exactly why they're so tricky — but they answer different questions. PARA points FORWARD, toward a goal, deadline, or destination: \"Estudio para el examen\" (I study for [the goal of] the exam). POR points to a REASON or an exchange behind you: \"Gracias por tu ayuda\" (thanks for [because of] your help). A handy trick: if you can replace it with \"in order to\" or \"by [a date]\", it's PARA; if you can replace it with \"because of\" or \"in exchange for\", it's POR.",
+    examples: [
+      { es: "Estudio para el examen.", en: "I'm studying for the exam. (purpose)" },
+      { es: "Gracias por tu ayuda.", en: "Thanks for your help. (reason)" },
+      { es: "Pagué diez euros por el libro.", en: "I paid ten euros for the book. (exchange)" },
+    ],
+  },
+  {
+    id: "saber-conocer",
+    name: "Saber vs. Conocer",
+    level: "intermediate",
+    rule: "'Saber' means to know facts, information, or how to do something (saber + infinitive = a learned skill). 'Conocer' means to be familiar with a person, place, or thing. Both are irregular in the yo form: sé / conozco.",
+    simpleExplanation:
+      "English uses \"to know\" for everything, but Spanish splits it in two. SABER is for facts and skills stored in your head — \"Sé la respuesta\" (I know the answer), \"Sé nadar\" (I know how to swim). CONOCER is for being personally familiar with a person, place, or thing — \"Conozco a tu hermano\" (I know your brother), \"Conozco Madrid\" (I'm familiar with Madrid). A quick test: if you could look it up or memorize it, it's SABER; if you'd need to actually meet/visit/experience it, it's CONOCER.",
+    examples: [
+      { es: "Sé hablar tres idiomas.", en: "I know how to speak three languages." },
+      { es: "Conozco a tu profesor.", en: "I know (am acquainted with) your teacher." },
+      { es: "¿Sabes dónde está la estación?", en: "Do you know where the station is?" },
+    ],
+  },
+  {
     id: "preterite",
     name: "Preterite Tense",
     level: "intermediate",
@@ -159,6 +211,19 @@ export const GRAMMAR_TOPICS: GrammarTopicMeta[] = [
       { es: "Cuando era niño, jugaba mucho.", en: "When I was a kid, I used to play a lot." },
       { es: "Ella vivía en Madrid.", en: "She used to live in Madrid." },
       { es: "Hacía mucho calor ese día.", en: "It was very hot that day." },
+    ],
+  },
+  {
+    id: "present-perfect",
+    name: "Present Perfect (Pretérito Perfecto)",
+    level: "intermediate",
+    rule: "Formed with haber (he, has, ha, hemos, habéis, han) + past participle (-ado for -ar verbs, -ido for -er/-ir verbs). Used for actions that happened in a recent or still-relevant past, similar to English 'have done'.",
+    simpleExplanation:
+      "This is Spanish's version of \"I have done something\" — two words working together: a form of haber, then the action itself frozen as a participle. Example: \"He comido\" (I have eaten) — 'he' is from haber, 'comido' is eat's participle. Eight common verbs have irregular participles you just have to memorize: hacer→hecho, decir→dicho, ver→visto, escribir→escrito, poner→puesto, volver→vuelto, abrir→abierto, romper→roto.",
+    examples: [
+      { es: "He comido ya.", en: "I have already eaten." },
+      { es: "¿Has visto esa película?", en: "Have you seen that movie?" },
+      { es: "Todavía no hemos hecho la tarea.", en: "We haven't done the homework yet." },
     ],
   },
   {
@@ -201,6 +266,19 @@ export const GRAMMAR_TOPICS: GrammarTopicMeta[] = [
     ],
   },
   {
+    id: "si-clauses",
+    name: "Si-Clauses (Conditional Sentences)",
+    level: "advanced",
+    rule: "Type 1 (real/possible): si + present indicative, + future — 'Si estudias, aprobarás' (If you study, you'll pass). Type 2 (hypothetical/unlikely): si + imperfect subjunctive, + conditional — 'Si tuviera tiempo, viajaría' (If I had time, I'd travel).",
+    simpleExplanation:
+      "This ties together the Conditional Tense and the Subjunctive into the actual sentence pattern IB writing and speaking expect. There are two flavors: a REALISTIC one — \"Si llueve, no saldremos\" (If it rains, we won't go out — could genuinely happen) uses present + future. And a HYPOTHETICAL one — \"Si fuera rico, viajaría por el mundo\" (If I were rich, I'd travel the world — pure imagination, probably won't happen) uses imperfect subjunctive + conditional. The tenses in each half always travel together as a pair — never mix a hypothetical 'si' clause with a plain future.",
+    examples: [
+      { es: "Si estudias, aprobarás el examen.", en: "If you study, you'll pass the exam. (real)" },
+      { es: "Si tuviera más tiempo, viajaría por el mundo.", en: "If I had more time, I'd travel the world. (hypothetical)" },
+      { es: "Si fuera rico, compraría una casa grande.", en: "If I were rich, I'd buy a big house. (hypothetical)" },
+    ],
+  },
+  {
     id: "reflexive",
     name: "Reflexive Verbs",
     level: "intermediate",
@@ -227,6 +305,19 @@ export const GRAMMAR_TOPICS: GrammarTopicMeta[] = [
     ],
   },
   {
+    id: "comparatives",
+    name: "Comparatives & Superlatives",
+    level: "intermediate",
+    rule: "Unequal comparison: más/menos + adjective + QUE. Equal comparison: tan + adjective + COMO. Superlative: el/la/los/las (+ más/menos) + adjective + DE. Four common adjectives are irregular: bueno→mejor, malo→peor, and for age, grande→mayor, pequeño→menor.",
+    simpleExplanation:
+      "Comparing things in Spanish means picking the right connector word, not just the right adjective. For \"more/less... than\", the connector is QUE: \"más alto QUE yo\". For \"as... as\", it's COMO: \"tan alto COMO yo\". For superlatives (\"the most...\"), Spanish uses DE where English uses \"in/of\": \"el más alto DE la clase\" (the tallest IN the class). And four everyday adjectives break the más/menos pattern entirely — never say \"más bueno\" or \"más malo\", the correct forms are mejor and peor.",
+    examples: [
+      { es: "Mi hermano es más alto que yo.", en: "My brother is taller than me." },
+      { es: "Este libro es tan interesante como la película.", en: "This book is as interesting as the movie." },
+      { es: "Es el mejor restaurante de la ciudad.", en: "It's the best restaurant in the city." },
+    ],
+  },
+  {
     id: "listening-tenses",
     name: "Listening: Identify the Tense",
     level: "intermediate",
@@ -250,6 +341,19 @@ export const GRAMMAR_TOPICS: GrammarTopicMeta[] = [
       { es: "¡Habla más despacio, por favor!", en: "Speak more slowly, please! (tú)" },
       { es: "Escuche con atención, señor.", en: "Listen carefully, sir. (usted)" },
       { es: "Vayamos al cine esta noche.", en: "Let's go to the movies tonight. (nosotros)" },
+    ],
+  },
+  {
+    id: "negative-commands",
+    name: "Negative & Formal Commands",
+    level: "advanced",
+    rule: "Every negative command — tú, usted, nosotros, vosotros, ustedes — uses the SUBJUNCTIVE form, with no exceptions. This is different from affirmative tú (which has its own irregulars: di, haz, ve, pon, sal, sé, ten, ven) and affirmative vosotros (infinitive with -r → -d).",
+    simpleExplanation:
+      "Affirmative commands (\"Do this!\") and negative commands (\"Don't do this!\") don't just add \"no\" — for tú and vosotros they often use completely different word forms. Affirmative tú \"¡Ven aquí!\" (Come here!) becomes negative \"¡No vengas aquí!\", not \"no ven\". The good news: negative commands are actually MORE predictable than affirmative ones, because every single person — tú, usted, nosotros, vosotros, ustedes — just uses the subjunctive form after 'no', with zero exceptions.",
+    examples: [
+      { es: "No hables tan rápido.", en: "Don't speak so fast. (tú)" },
+      { es: "No coma tanto, por favor.", en: "Don't eat so much, please. (usted)" },
+      { es: "No habléis todos a la vez.", en: "Don't all talk at once. (vosotros)" },
     ],
   },
   {

@@ -26,7 +26,7 @@ const LEVEL_TO_DIFFICULTY: Record<GrammarTopicMeta["level"], Difficulty> = {
 const stripAccents = (s: string) => s.normalize("NFD").replace(/[̀-ͯ]/g, "");
 const normalizeAnswer = (s: string) => stripAccents(s.trim().toLowerCase());
 
-/** Grammar module: a persistent sidebar lists all 16 core IB Spanish B SL
+/** Grammar module: a persistent sidebar lists all core IB Spanish B SL
  *  practice topics (organized by structure, not by IB theme — grammar cuts
  *  across all five) so switching topics never requires backing out to a
  *  grid. Each topic shows its rule and examples, then a 10-question
@@ -186,7 +186,7 @@ export default function GrammarModule() {
       {/* The cheat sheet now has its own "Cheat Sheet" link in the main navbar, right next to
           Grammar — no need to repeat it here too. */}
       <p className="text-sm text-slate-500">
-        16 core practice topics for IB Spanish B SL — pick one from the list to read the rule and practice.
+        {GRAMMAR_TOPICS.length} core practice topics for IB Spanish B SL — pick one from the list to read the rule and practice.
       </p>
 
       <div className="flex flex-col gap-6 lg:flex-row lg:items-start">
