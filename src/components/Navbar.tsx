@@ -14,6 +14,7 @@ const LINKS = [
   { href: "/theme-practice", label: "Practice by Theme" },
   { href: "/quiz", label: "Quiz" },
   { href: "/reading", label: "Reading" },
+  { href: "/podcast", label: "Podcast" },
   { href: "/writing", label: "Writing" },
   { href: "/grammar", label: "Grammar" },
   { href: "/grammar/reference", label: "Cheat Sheet" },

@@ -67,7 +67,9 @@
       "Bash(awk 'NR>=2647 && NR<=6560 && /^\\\\];/{print NR; exit}' src/lib/data.ts)",
       "Bash(git add *)",
       "Bash(git commit -m ' *)",
-      "Bash(git push *)"
+      "Bash(git push *)",
+      "Read(//tmp/**)",
+      "Bash(npx tsx -e ' *)"
     ]
   }
 }

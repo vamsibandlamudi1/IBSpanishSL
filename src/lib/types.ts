@@ -259,6 +259,32 @@ export interface ReadingPassage {
 }
 
 // ---------------------------------------------------------------------------
+// Podcast (listening comprehension, Notes-in-Spanish style)
+// ---------------------------------------------------------------------------
+
+/** A listening-comprehension episode: a ~10-minute two-host dialogue transcript
+ *  (read aloud via the same Web Speech API used by Reading, with the current
+ *  word highlighted as it's spoken), followed by comprehension questions in
+ *  the same format as ReadingQuestion. Reuses ReadingQuestion/ReadingVocabItem
+ *  rather than defining parallel types, since the shape (and PodcastModule's
+ *  question-rendering UI, copied from ReadingModule) is identical. */
+export interface PodcastEpisode {
+  id: string;
+  themeId: string;
+  title: string;
+  description: string;
+  level: Difficulty;
+  /** Approximate spoken length shown in the sidebar, e.g. "~9 min" — actual
+   *  playback time varies with the student's chosen voice/rate. */
+  durationLabel: string;
+  /** Transcript text, spoken via speak() and rendered with word-level highlighting.
+   *  Speaker turns are separated by blank lines ("Marina: ...\n\nBen: ..."). */
+  bodyEs: string;
+  questions: ReadingQuestion[];
+  vocabulary?: ReadingVocabItem[];
+}
+
+// ---------------------------------------------------------------------------
 // Writing (Paper 2 style)
 // ---------------------------------------------------------------------------
 

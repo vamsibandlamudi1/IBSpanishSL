@@ -374,35 +374,444 @@ const SECTIONS: CheatSheetSection[] = [
       <>
         <SimpleExplainer>
           <p>
-            Boost your IB writing score (Criterion B: Language) by connecting your sentences with high-yield transitional phrases.
+            These connectors are the difference between a B and an A in IB writing (Criterion B: Language). Examiners reward variety — don&apos;t just use <em>pero</em> and <em>y</em> over and over! Aim for at least one connector from each category in your essays.
           </p>
         </SimpleExplainer>
-        <div className="grid grid-cols-1 gap-2 sm:grid-cols-3 text-xs">
-          <div className="rounded-lg border border-slate-200 bg-white p-3">
-            <p className="font-bold text-slate-900 mb-1">➕ Adding Ideas</p>
-            <ul className="text-slate-600 space-y-1">
-              <li>• <strong>Además:</strong> Furthermore</li>
+        <div className="mb-3 rounded-lg border border-indigo-200 bg-indigo-50/60 p-3 text-xs text-indigo-900">
+          <p className="font-bold mb-1">🏆 IB Examiner Favourites (use these often):</p>
+          <p>
+            <strong>Sin embargo</strong> (however) · <strong>Además</strong> (furthermore) · <strong>Por lo tanto</strong> (therefore) ·{" "}
+            <strong>A pesar de (que)</strong> (despite / even though) · <strong>Cabe destacar que</strong> (it is worth highlighting that) ·{" "}
+            <strong>En definitiva</strong> (in short) · <strong>Dicho esto</strong> (that said)
+          </p>
+        </div>
+        <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-3 text-xs">
+          <div className="rounded-lg border border-blue-200 bg-blue-50/60 p-3">
+            <p className="font-bold text-blue-900 mb-1.5">➕ Adding / Reinforcing</p>
+            <ul className="text-slate-700 space-y-1">
+              <li>• <strong>Además (de esto):</strong> Furthermore / In addition</li>
               <li>• <strong>También:</strong> Also</li>
-              <li>• <strong>Por un lado:</strong> On one hand</li>
+              <li>• <strong>Asimismo:</strong> Likewise / Moreover</li>
+              <li>• <strong>Por un lado… por otro:</strong> On one hand… on the other</li>
+              <li>• <strong>Es más:</strong> What is more</li>
+              <li>• <strong>De hecho:</strong> In fact</li>
             </ul>
           </div>
 
-          <div className="rounded-lg border border-slate-200 bg-white p-3">
-            <p className="font-bold text-slate-900 mb-1">⚡ Contrast</p>
-            <ul className="text-slate-600 space-y-1">
+          <div className="rounded-lg border border-rose-200 bg-rose-50/60 p-3">
+            <p className="font-bold text-rose-900 mb-1.5">⚡ Contrast & Concession</p>
+            <ul className="text-slate-700 space-y-1">
               <li>• <strong>Sin embargo:</strong> However</li>
               <li>• <strong>No obstante:</strong> Nevertheless</li>
-              <li>• <strong>Aunque:</strong> Although</li>
+              <li>• <strong>Aunque / Si bien:</strong> Although / Even though</li>
+              <li>• <strong>A pesar de (que):</strong> Despite / In spite of</li>
+              <li>• <strong>Ahora bien:</strong> That said / Having said that</li>
+              <li>• <strong>Por el contrario:</strong> On the contrary</li>
             </ul>
           </div>
 
-          <div className="rounded-lg border border-slate-200 bg-white p-3">
-            <p className="font-bold text-slate-900 mb-1">🎯 Conclusion / Result</p>
-            <ul className="text-slate-600 space-y-1">
-              <li>• <strong>Por lo tanto:</strong> Therefore</li>
+          <div className="rounded-lg border border-teal-200 bg-teal-50/60 p-3">
+            <p className="font-bold text-teal-900 mb-1.5">🔗 Cause & Effect</p>
+            <ul className="text-slate-700 space-y-1">
+              <li>• <strong>Por lo tanto / Por ende:</strong> Therefore</li>
               <li>• <strong>En consecuencia:</strong> Consequently</li>
-              <li>• <strong>Para concluir:</strong> To conclude</li>
+              <li>• <strong>Dado que / Ya que:</strong> Given that / Since</li>
+              <li>• <strong>Debido a (que):</strong> Due to / Because of</li>
+              <li>• <strong>Así que:</strong> So / As a result</li>
+              <li>• <strong>De ahí que (+ subj.):</strong> Hence the fact that</li>
             </ul>
+          </div>
+
+          <div className="rounded-lg border border-amber-200 bg-amber-50/60 p-3">
+            <p className="font-bold text-amber-900 mb-1.5">📋 Sequence & Order</p>
+            <ul className="text-slate-700 space-y-1">
+              <li>• <strong>En primer lugar / Primero:</strong> Firstly</li>
+              <li>• <strong>A continuación / Luego:</strong> Next / Then</li>
+              <li>• <strong>Por último / Finalmente:</strong> Finally</li>
+              <li>• <strong>Antes de (+ inf.):</strong> Before (-ing)</li>
+              <li>• <strong>Después de (+ inf.):</strong> After (-ing)</li>
+              <li>• <strong>Mientras tanto:</strong> Meanwhile</li>
+            </ul>
+          </div>
+
+          <div className="rounded-lg border border-violet-200 bg-violet-50/60 p-3">
+            <p className="font-bold text-violet-900 mb-1.5">💬 Opinion & Stance</p>
+            <ul className="text-slate-700 space-y-1">
+              <li>• <strong>Desde mi punto de vista:</strong> From my point of view</li>
+              <li>• <strong>En mi opinión / A mi parecer:</strong> In my opinion</li>
+              <li>• <strong>Cabe destacar que:</strong> It is worth highlighting</li>
+              <li>• <strong>Hay que tener en cuenta que:</strong> One must consider that</li>
+              <li>• <strong>Es innegable que:</strong> It is undeniable that</li>
+              <li>• <strong>Personalmente considero que:</strong> I personally believe</li>
+            </ul>
+          </div>
+
+          <div className="rounded-lg border border-emerald-200 bg-emerald-50/60 p-3">
+            <p className="font-bold text-emerald-900 mb-1.5">🎯 Conclusion & Summary</p>
+            <ul className="text-slate-700 space-y-1">
+              <li>• <strong>En conclusión / En resumen:</strong> In conclusion</li>
+              <li>• <strong>Para concluir / Para terminar:</strong> To conclude</li>
+              <li>• <strong>En definitiva:</strong> All in all / In short</li>
+              <li>• <strong>En suma:</strong> To sum up</li>
+              <li>• <strong>Dicho esto:</strong> That said / With that in mind</li>
+              <li>• <strong>Todo ello indica que:</strong> All of this suggests that</li>
+            </ul>
+          </div>
+        </div>
+      </>
+    ),
+  },
+  {
+    id: "ib-writing-boosters",
+    label: "IB Writing Boosters",
+    title: "IB Writing Score Boosters — Key Constructions",
+    icon: "✍️",
+    content: (
+      <>
+        <SimpleExplainer>
+          <p>
+            These verb constructions appear constantly in IB reading texts and are expected in high-scoring Paper 2 writing. Master these and your language score jumps immediately.
+          </p>
+        </SimpleExplainer>
+        <div className="flex flex-col gap-4">
+          {/* Infinitive constructions */}
+          <div className="rounded-xl border border-indigo-200 bg-indigo-50/60 p-3.5">
+            <p className="text-sm font-extrabold text-indigo-950 mb-2">⚙️ High-Frequency Verb Constructions</p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
+              {[
+                { form: "ir a + infinitivo", meaning: "going to (near future)", ex: "Voy a estudiar. → I am going to study." },
+                { form: "acabar de + infinitivo", meaning: "to have just done", ex: "Acabo de llegar. → I have just arrived." },
+                { form: "tener que + infinitivo", meaning: "to have to / must", ex: "Tenemos que mejorar. → We have to improve." },
+                { form: "hay que + infinitivo", meaning: "one must (impersonal)", ex: "Hay que actuar ya. → One must act now." },
+                { form: "dejar de + infinitivo", meaning: "to stop doing", ex: "Dejé de fumar. → I stopped smoking." },
+                { form: "volver a + infinitivo", meaning: "to do again", ex: "Volvió a intentarlo. → She tried again." },
+                { form: "seguir + gerundio", meaning: "to keep / continue doing", ex: "Sigo aprendiendo. → I keep learning." },
+                { form: "llevar + gerundio", meaning: "to have been doing (for)", ex: "Llevo dos años estudiando. → I have been studying for 2 years." },
+              ].map((row) => (
+                <div key={row.form} className="rounded-lg border border-indigo-100 bg-white p-2">
+                  <p className="font-bold text-indigo-800">{row.form}</p>
+                  <p className="text-slate-500 text-[11px]">{row.meaning}</p>
+                  <p className="text-slate-700 italic mt-0.5 text-[11px]">{row.ex}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Se passive */}
+          <div className="rounded-xl border border-teal-200 bg-teal-50/60 p-3.5">
+            <p className="text-sm font-extrabold text-teal-950 mb-1">🔄 The &quot;Se&quot; Passive — Sound Instantly Advanced</p>
+            <p className="text-xs text-slate-700 mb-2">
+              Instead of saying <em>&quot;La gente habla español aquí&quot;</em>, use the <strong>se + verb</strong> structure for a formal, essay-level register:
+            </p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
+              {[
+                ["Se habla español.", "Spanish is spoken."],
+                ["Se necesita más inversión.", "More investment is needed."],
+                ["Se cree que…", "It is believed that…"],
+                ["Se sabe que…", "It is known that…"],
+                ["Se ha demostrado que…", "It has been shown that…"],
+                ["Se puede afirmar que…", "It can be affirmed that…"],
+              ].map(([es, en]) => (
+                <div key={es} className="bg-white border border-teal-100 rounded p-2">
+                  <p className="font-semibold text-teal-900">{es}</p>
+                  <p className="text-slate-500 italic">{en}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* IB text type tips */}
+          <div className="rounded-xl border border-amber-200 bg-amber-50/60 p-3.5">
+            <p className="text-sm font-extrabold text-amber-950 mb-2">📝 IB Text Type Formula Starters</p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-slate-700">
+              {[
+                { type: "Blog / Article", opener: "Estimados lectores, hoy quiero hablarles sobre…" },
+                { type: "Formal letter", opener: "Me dirijo a usted con el fin de…" },
+                { type: "Report", opener: "El presente informe tiene como objetivo analizar…" },
+                { type: "Proposal", opener: "A continuación se presenta una propuesta para…" },
+                { type: "Speech / Talk", opener: "Buenos días a todos. El tema de hoy es…" },
+                { type: "Review", opener: "Recientemente tuve la oportunidad de… y quisiera compartir mi opinión." },
+              ].map((row) => (
+                <div key={row.type} className="bg-white border border-amber-100 rounded p-2">
+                  <p className="font-bold text-amber-800">{row.type}</p>
+                  <p className="italic text-slate-600 text-[11px] mt-0.5">{row.opener}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </>
+    ),
+  },
+  {
+    id: "ser-estar-adjectives",
+    label: "Ser/Estar — Meaning Changes",
+    title: "Adjectives That Change Meaning with Ser vs. Estar",
+    icon: "🔀",
+    content: (
+      <>
+        <SimpleExplainer>
+          <p>
+            Some adjectives have <strong>two completely different English meanings</strong> depending on whether you use <em>ser</em> or <em>estar</em>. This is one of the most common IB exam traps — get these right and you instantly sound fluent!
+          </p>
+        </SimpleExplainer>
+        <div className="overflow-x-auto rounded-lg border border-slate-200">
+          <table className="w-full min-w-[460px] text-sm text-left">
+            <thead className="bg-slate-50 text-xs font-semibold uppercase tracking-wide text-slate-500">
+              <tr>
+                <th className="px-3 py-2">Adjective</th>
+                <th className="px-3 py-2 text-blue-700">SER + adj.</th>
+                <th className="px-3 py-2 text-emerald-700">ESTAR + adj.</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-slate-100">
+              {[
+                ["aburrido/a", "boring (personality)", "bored (feeling right now)"],
+                ["bueno/a", "good (character / quality)", "tasty / feeling well"],
+                ["malo/a", "bad (character)", "sick / feeling ill"],
+                ["listo/a", "clever / smart", "ready"],
+                ["seguro/a", "safe (inherently)", "sure / certain"],
+                ["rico/a", "rich (wealthy)", "delicious"],
+                ["muerto/a", "a dead person (identity)", "dead (state)"],
+                ["vivo/a", "lively / vivid", "alive"],
+                ["libre", "free (unconstrained by nature)", "free / available right now"],
+              ].map(([adj, ser, estar]) => (
+                <tr key={adj} className="odd:bg-white even:bg-slate-50/60">
+                  <td className="px-3 py-1.5 font-semibold text-slate-900">{adj}</td>
+                  <td className="px-3 py-1.5 text-blue-800"><em>Es {adj.split("/")[0]}</em> → {ser}</td>
+                  <td className="px-3 py-1.5 text-emerald-800"><em>Está {adj.split("/")[0]}</em> → {estar}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <div className="mt-3 rounded-lg border border-amber-200 bg-amber-50/70 p-3 text-xs text-amber-950">
+          <p className="font-bold mb-1">💡 Classic Exam Trap:</p>
+          <p><strong>&quot;Es aburrido&quot;</strong> = He is boring (that&apos;s his personality — use SER). <strong>&quot;Está aburrido&quot;</strong> = He is bored right now (a temporary feeling — use ESTAR). Getting these swapped is a very common mistake IB examiners notice!</p>
+        </div>
+      </>
+    ),
+  },
+  {
+    id: "negatives",
+    label: "Negation & Negative Words",
+    title: "Negation — Double Negatives are Correct in Spanish!",
+    icon: "🚫",
+    content: (
+      <>
+        <SimpleExplainer>
+          <p>
+            In English, double negatives are wrong (&quot;I don&apos;t know nothing&quot; is incorrect). In Spanish, <strong>double negatives are required!</strong> You must say <em>&quot;No sé nada&quot;</em> (literally &quot;I don&apos;t know nothing&quot;) — that&apos;s perfect grammar.
+          </p>
+        </SimpleExplainer>
+        <div className="mb-3 overflow-x-auto rounded-lg border border-slate-200">
+          <table className="w-full min-w-[420px] text-sm text-left">
+            <thead className="bg-slate-50 text-xs font-semibold uppercase tracking-wide text-slate-500">
+              <tr>
+                <th className="px-3 py-2">Positive</th>
+                <th className="px-3 py-2">Negative</th>
+                <th className="px-3 py-2">Example</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-slate-100">
+              {[
+                ["algo (something)", "nada (nothing)", "No veo nada. — I don't see anything."],
+                ["alguien (someone)", "nadie (nobody)", "No viene nadie. — Nobody is coming."],
+                ["siempre (always)", "nunca / jamás (never)", "No como nunca carne. — I never eat meat."],
+                ["también (also)", "tampoco (neither/nor)", "Yo tampoco. — Me neither."],
+                ["algún/alguno (some)", "ningún/ninguno (none/any)", "No hay ningún problema. — There is no problem."],
+                ["o… o… (either…or)", "ni… ni… (neither…nor)", "No tengo ni tiempo ni dinero."],
+              ].map(([pos, neg, ex]) => (
+                <tr key={pos} className="odd:bg-white even:bg-slate-50/60">
+                  <td className="px-3 py-1.5 text-green-700 font-medium">{pos}</td>
+                  <td className="px-3 py-1.5 text-red-700 font-medium">{neg}</td>
+                  <td className="px-3 py-1.5 text-slate-600 text-xs italic">{ex}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <div className="rounded-xl border border-rose-200 bg-rose-50/60 p-3 text-xs">
+          <p className="font-bold text-rose-900 mb-1">⚠️ Placement Rule:</p>
+          <ul className="text-slate-700 space-y-1">
+            <li>• <strong>No + verb + negative word:</strong> <em>&quot;No sé nada.&quot;</em> (No before the verb, negative word after)</li>
+            <li>• <strong>Negative word first (no &quot;no&quot; needed):</strong> <em>&quot;Nada sé.&quot;</em> (literary/emphatic)</li>
+            <li>• <strong>Jamás</strong> is stronger than <strong>nunca</strong> — use jamás for &quot;never ever&quot;</li>
+          </ul>
+        </div>
+      </>
+    ),
+  },
+  {
+    id: "reflexive-verbs",
+    label: "Reflexive Verbs",
+    title: "Reflexive Verbs — Actions You Do to Yourself",
+    icon: "🔁",
+    content: (
+      <>
+        <SimpleExplainer>
+          <p>
+            Reflexive verbs use a <strong>reflexive pronoun</strong> (me, te, se, nos, os, se) to show the subject and object are the same — the person is doing the action to themselves. Many daily routine verbs are reflexive in Spanish even when they aren&apos;t in English!
+          </p>
+          <p>
+            <strong>Key sign:</strong> The verb ends in <strong>-se</strong> in the dictionary (e.g. <em>levantarse</em> = to get up). In sentences, chop off the -se and place the matching pronoun before the verb.
+          </p>
+        </SimpleExplainer>
+        <div className="mb-3 rounded-xl border border-sky-200 bg-sky-50/60 p-3 text-xs">
+          <p className="font-bold text-sky-900 mb-1">📋 Formula: [Pronoun] + [Verb without -se]</p>
+          <p className="text-slate-700 italic">
+            levantarse → Yo <strong>me levanto</strong> (I get up) · Tú <strong>te lavas</strong> (You wash yourself) · Ella <strong>se peina</strong> (She combs her hair)
+          </p>
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+          <div className="rounded-xl border border-slate-200 bg-white p-3">
+            <p className="font-bold text-slate-900 mb-1.5">🌅 Daily Routine (very common in IB oral!)</p>
+            <ul className="text-slate-600 space-y-1">
+              <li>• <strong>despertarse:</strong> to wake up → <em>me despierto</em></li>
+              <li>• <strong>levantarse:</strong> to get up → <em>me levanto</em></li>
+              <li>• <strong>ducharse:</strong> to shower → <em>me ducho</em></li>
+              <li>• <strong>vestirse (e→i):</strong> to get dressed → <em>me visto</em></li>
+              <li>• <strong>peinarse:</strong> to comb hair → <em>me peino</em></li>
+              <li>• <strong>acostarse (o→ue):</strong> to go to bed → <em>me acuesto</em></li>
+            </ul>
+          </div>
+          <div className="rounded-xl border border-slate-200 bg-white p-3">
+            <p className="font-bold text-slate-900 mb-1.5">💡 Meaning-Change Reflexives</p>
+            <ul className="text-slate-600 space-y-1">
+              <li>• <strong>ir</strong> (to go) vs <strong>irse</strong> (to leave/go away)</li>
+              <li>• <strong>dormir</strong> (to sleep) vs <strong>dormirse</strong> (to fall asleep)</li>
+              <li>• <strong>parecer</strong> (to seem) vs <strong>parecerse</strong> (to resemble)</li>
+              <li>• <strong>llamar</strong> (to call) vs <strong>llamarse</strong> (to be named)</li>
+              <li>• <strong>poner</strong> (to put) vs <strong>ponerse</strong> (to put on / become)</li>
+              <li>• <strong>hacer</strong> (to do) vs <strong>hacerse</strong> (to become)</li>
+            </ul>
+          </div>
+        </div>
+      </>
+    ),
+  },
+  {
+    id: "false-friends",
+    label: "False Friends",
+    title: "Common False Friends — Words That Trick English Speakers",
+    icon: "🪤",
+    content: (
+      <>
+        <SimpleExplainer>
+          <p>
+            <strong>False friends</strong> (falsos amigos) are Spanish words that look like English words but mean something completely different. These are classic exam traps in Paper 1 reading comprehension!
+          </p>
+        </SimpleExplainer>
+        <div className="overflow-x-auto rounded-lg border border-slate-200">
+          <table className="w-full min-w-[460px] text-sm text-left">
+            <thead className="bg-slate-50 text-xs font-semibold uppercase tracking-wide text-slate-500">
+              <tr>
+                <th className="px-3 py-2">Spanish word</th>
+                <th className="px-3 py-2">Looks like…</th>
+                <th className="px-3 py-2">Actually means</th>
+                <th className="px-3 py-2">Real Spanish word</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-slate-100">
+              {[
+                ["embarazada", "embarrassed", "pregnant", "avergonzada"],
+                ["sensible", "sensible", "sensitive", "sensato/a"],
+                ["actual", "actual", "current / present-day", "real / verdadero"],
+                ["realizar", "to realize", "to carry out / achieve", "darse cuenta de"],
+                ["exitoso/a", "exit", "successful", "salida (= exit)"],
+                ["constipado/a", "constipated", "having a cold", "estreñido/a"],
+                ["librería", "library", "bookshop", "biblioteca"],
+                ["carpeta", "carpet", "folder / binder", "alfombra"],
+                ["pretender", "to pretend", "to aim / intend to", "fingir"],
+                ["recordar", "to record", "to remember / remind", "grabar"],
+              ].map(([es, looksLike, means, real]) => (
+                <tr key={es} className="odd:bg-white even:bg-slate-50/60">
+                  <td className="px-3 py-1.5 font-bold text-rose-700">{es}</td>
+                  <td className="px-3 py-1.5 text-slate-500 line-through text-xs">{looksLike}</td>
+                  <td className="px-3 py-1.5 text-green-800 font-medium">{means}</td>
+                  <td className="px-3 py-1.5 text-slate-500 italic text-xs">{real}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <div className="mt-3 rounded-lg border border-rose-200 bg-rose-50/70 p-3 text-xs text-rose-950">
+          <p className="font-bold mb-1">🚨 Most Common Exam Mistake:</p>
+          <p><strong>&quot;Estoy embarazada&quot;</strong> ≠ &quot;I am embarrassed&quot; — it means &quot;I am pregnant&quot;! The correct way to say embarrassed is <strong>&quot;Estoy avergonzado/a&quot;</strong>.</p>
+        </div>
+      </>
+    ),
+  },
+  {
+    id: "accent-rules",
+    label: "Accent Mark Rules",
+    title: "Written Accent Marks (Tildes) — When & Why",
+    icon: "´",
+    content: (
+      <>
+        <SimpleExplainer>
+          <p>
+            Accent marks in Spanish are not random decorations — they follow strict rules. Getting them wrong drops your IB writing mark. The good news: there are only a few core rules to memorize!
+          </p>
+        </SimpleExplainer>
+        <div className="flex flex-col gap-3">
+          <div className="rounded-xl border border-slate-200 bg-white p-3.5">
+            <p className="text-sm font-extrabold text-slate-900 mb-2">📏 Rule 1 — Natural Stress (No Accent Needed)</p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-slate-700">
+              <div className="bg-slate-50 rounded p-2">
+                <p className="font-bold">Ends in vowel, -n, or -s → stress falls on 2nd-to-last syllable</p>
+                <p className="italic mt-0.5 text-slate-500">ha-<strong>blo</strong>, ca-<strong>sa</strong>, co-<strong>men</strong></p>
+              </div>
+              <div className="bg-slate-50 rounded p-2">
+                <p className="font-bold">Ends in consonant (not n/s) → stress falls on last syllable</p>
+                <p className="italic mt-0.5 text-slate-500">ha-<strong>blar</strong>, ciu-<strong>dad</strong>, pro-<strong>fe</strong>-sor</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="rounded-xl border border-indigo-200 bg-indigo-50/60 p-3.5">
+            <p className="text-sm font-extrabold text-indigo-950 mb-2">✏️ Rule 2 — Written Accent = Breaks the Natural Rule</p>
+            <p className="text-xs text-slate-700 mb-2">When a word is stressed on a different syllable than the natural rule predicts, add an accent:</p>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 text-xs text-center">
+              {[
+                { word: "café", note: "Ends in vowel → should stress ca, but stresses FÉ" },
+                { word: "árbol", note: "Ends in l → should stress bol, but stresses ÁR" },
+                { word: "canción", note: "Ends in n → should stress can, but stresses CIÓN" },
+              ].map((r) => (
+                <div key={r.word} className="bg-white border border-indigo-100 rounded p-2">
+                  <p className="text-lg font-extrabold text-indigo-700">{r.word}</p>
+                  <p className="text-slate-500 text-[11px] mt-0.5">{r.note}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="rounded-xl border border-amber-200 bg-amber-50/60 p-3.5">
+            <p className="text-sm font-extrabold text-amber-950 mb-2">🔍 Rule 3 — Accent to Tell Two Words Apart</p>
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs text-center">
+              {[
+                ["tú (you)", "tu (your)"],
+                ["él (he)", "el (the)"],
+                ["sí (yes)", "si (if)"],
+                ["más (more)", "mas (but)"],
+                ["sé (I know)", "se (reflexive)"],
+                ["té (tea)", "te (you, pronoun)"],
+                ["mí (me)", "mi (my)"],
+                ["dé (give, subj.)", "de (of)"],
+              ].map(([accented, plain]) => (
+                <div key={accented} className="bg-white border border-amber-100 rounded p-1.5">
+                  <p className="font-bold text-amber-800">{accented}</p>
+                  <p className="text-slate-400">vs.</p>
+                  <p className="text-slate-600">{plain}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="rounded-xl border border-teal-200 bg-teal-50/60 p-3 text-xs">
+            <p className="font-bold text-teal-900 mb-1">❓ Rule 4 — Question & Exclamation Words Always Get Accents</p>
+            <p className="text-slate-700"><strong>¿qué? / ¡qué! · ¿quién? · ¿dónde? · ¿cuándo? · ¿cómo? · ¿por qué? · ¿cuánto? · ¿cuál?</strong></p>
+            <p className="text-slate-500 mt-1">No accent = not a question: <em>donde</em> (where), <em>como</em> (as/like), <em>cuando</em> (when — as a connector)</p>
           </div>
         </div>
       </>

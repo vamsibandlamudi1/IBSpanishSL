@@ -73,8 +73,8 @@ export default function VocabularyModule() {
               </button>
             ))}
           </nav>
-          <div className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
-            <VocabList vocabulary={referenceTheme.vocabulary} />
+          <div className="rounded-xl border border-slate-200 bg-white shadow-sm overflow-hidden">
+            <VocabList key={referenceThemeId} vocabulary={referenceTheme.vocabulary} />
           </div>
         </div>
       )}
