@@ -221,7 +221,7 @@ export default function GrammarModule() {
         {/* Main content pane */}
         <div className="min-w-0 flex-1">
           {stage === "detail" && (
-            <div key={topic.id} className="animate-fade-slide-up rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
+            <div key={topic.id} className="animate-fade-slide-up rounded-xl border border-slate-200 bg-white p-5 shadow-xs">
               <div className="mb-2 flex items-center justify-between gap-2">
                 <h2 className="text-lg font-bold text-slate-900">{topic.name}</h2>
                 <span className={`shrink-0 rounded-full px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide ${LEVEL_STYLES[topic.level]}`}>
@@ -267,7 +267,7 @@ export default function GrammarModule() {
                   style={{ width: `${((current + (checked ? 1 : 0)) / activePool.length) * 100}%` }}
                 />
               </div>
-              <div key={exercise.id} className="animate-fade-slide-up rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
+              <div key={exercise.id} className="animate-fade-slide-up rounded-xl border border-slate-200 bg-white p-5 shadow-xs">
                 <p className="mb-4 text-base font-semibold text-slate-900">{exercise.prompt}</p>
 
                 {exercise.type === "listening" && (
@@ -360,7 +360,7 @@ export default function GrammarModule() {
                     </div>
 
                     {normalizeAnswer(response) !== normalizeAnswer(exercise.correctAnswer) && (exercise.tip || exercise.explanation || topic.rule) && (
-                      <div className="rounded-xl border border-amber-200 bg-amber-50 p-4 text-slate-800 shadow-sm animate-pop-in">
+                      <div className="rounded-xl border border-amber-200 bg-amber-50 p-4 text-slate-800 shadow-xs animate-pop-in">
                         <div className="flex items-center gap-2 mb-1 text-amber-800 font-bold text-xs uppercase tracking-wider">
                           <span>💡 Tip to Improve &amp; Master the Rule:</span>
                         </div>
@@ -381,7 +381,7 @@ export default function GrammarModule() {
           )}
 
           {stage === "results" && (
-            <div className="animate-fade-slide-up rounded-xl border border-slate-200 bg-white p-6 text-center shadow-sm">
+            <div className="animate-fade-slide-up rounded-xl border border-slate-200 bg-white p-6 text-center shadow-xs">
               <h2 className="text-xl font-bold text-slate-900">Practice complete!</h2>
               <p className="mt-2 text-3xl font-extrabold text-brand-600">
                 {correctCount} / {activePool.length}

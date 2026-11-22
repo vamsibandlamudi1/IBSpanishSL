@@ -1,6 +1,6 @@
 /// File: src/lib/reading.ts
 //
-// Paper 1 style reading comprehension: 20 passages per IB theme (100
+// Paper 2 style reading comprehension: 20 passages per IB theme (100
 // total, 500 questions), spanning nearly every official IB Spanish B text
 // type (blog post, diary entry, magazine article, interview, formal
 // email/letter, opinion column/essay, advertisement, forum post,
@@ -9,7 +9,7 @@
 // once the type list is exhausted. Recognizing text-type conventions is
 // itself an assessed skill, not just understanding the content. Each
 // passage has 5 questions mixing true/false-with-justification (the real
-// IB Paper 1 format), multiple choice, and short answer. All content is
+// IB Paper 2 format), multiple choice, and short answer. All content is
 // original, written to mirror the style/rigor of past IB papers — not copied from
 // any real exam. See components/ReadingModule.tsx.
 

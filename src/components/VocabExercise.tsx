@@ -52,7 +52,7 @@ function MatchingGame({ vocabulary }: { vocabulary: VocabItem[] }) {
   const allMatched = Object.keys(matched).length === words.length;
 
   return (
-    <div className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
+    <div className="rounded-xl border border-slate-200 bg-white p-4 shadow-xs">
       <h3 className="font-bold text-slate-900">Matching exercise</h3>
       <p className="mb-3 text-sm text-slate-600">
         Click a Spanish word, then click its English meaning.
@@ -131,7 +131,7 @@ function FillInTheBlank({ vocabulary }: { vocabulary: VocabItem[] }) {
   const correctCount = items.filter((w) => isCorrect(w.es)).length;
 
   return (
-    <div className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
+    <div className="rounded-xl border border-slate-200 bg-white p-4 shadow-xs">
       <h3 className="font-bold text-slate-900">Vocabulary fill in the blank</h3>
       <p className="mb-3 text-sm text-slate-600">
         Type the Spanish word that matches the English meaning shown.
@@ -232,7 +232,7 @@ function ThemeListeningPractice({ vocabulary }: { vocabulary: VocabItem[] }) {
   const isCorrect = selectedOpt === currentItem.en;
 
   return (
-    <div className="rounded-xl border border-amber-200 bg-gradient-to-br from-amber-50/40 via-white to-orange-50/20 p-5 shadow-sm">
+    <div className="rounded-xl border border-amber-200 bg-gradient-to-br from-amber-50/40 via-white to-orange-50/20 p-5 shadow-xs">
       <div className="flex items-center justify-between gap-2 border-b border-amber-100 pb-3">
         <div>
           <span className="rounded-full bg-amber-100 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-amber-800">
@@ -243,7 +243,7 @@ function ThemeListeningPractice({ vocabulary }: { vocabulary: VocabItem[] }) {
         <button
           type="button"
           onClick={playAudio}
-          className={`flex items-center gap-1.5 rounded-lg border px-3 py-1.5 text-xs font-bold transition shadow-sm ${
+          className={`flex items-center gap-1.5 rounded-lg border px-3 py-1.5 text-xs font-bold transition shadow-xs ${
             isPlaying ? "border-amber-400 bg-amber-100 text-amber-900 animate-pulse" : "border-amber-300 bg-white text-amber-700 hover:bg-amber-50"
           }`}
         >
@@ -355,7 +355,7 @@ function ParagraphFillInTheBlank({ themeId, subtopic }: { themeId?: string; subt
   };
 
   return (
-    <div className="rounded-xl border border-brand-200 bg-gradient-to-br from-white via-brand-50/20 to-slate-50 p-5 shadow-sm">
+    <div className="rounded-xl border border-brand-200 bg-gradient-to-br from-white via-brand-50/20 to-slate-50 p-5 shadow-xs">
       <div className="flex items-center justify-between gap-2 border-b border-slate-200 pb-3">
         <div>
           <span className="rounded-full bg-brand-100 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-brand-700">
@@ -363,7 +363,7 @@ function ParagraphFillInTheBlank({ themeId, subtopic }: { themeId?: string; subt
           </span>
           <h3 className="mt-1 text-base font-bold text-slate-900">{currentExercise.title}</h3>
         </div>
-        <button type="button" onClick={() => speak(`${currentExercise.textBefore} ${currentExercise.targetWord} ${currentExercise.textAfter}`)} className="flex items-center gap-1 rounded-md border border-slate-200 bg-white px-2.5 py-1 text-xs font-medium text-slate-700 shadow-sm hover:bg-slate-50">
+        <button type="button" onClick={() => speak(`${currentExercise.textBefore} ${currentExercise.targetWord} ${currentExercise.textAfter}`)} className="flex items-center gap-1 rounded-md border border-slate-200 bg-white px-2.5 py-1 text-xs font-medium text-slate-700 shadow-xs hover:bg-slate-50">
           🔊 Escuchar párrafo
         </button>
       </div>

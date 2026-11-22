@@ -2,7 +2,7 @@
 //
 // Content for the Grammar module: 22 core IB Spanish B SL practice topics
 // (11 verb/grammar topics + 5 added to close exam-format gaps: affirmative
-// commands, relative clauses, false cognates, and the two IB Paper 1 reading
+// commands, relative clauses, false cognates, and the two IB Paper 2 reading
 // strategies — heading-matching and word-bank gap-fill — + 6 more added to
 // close further gaps: por/para, saber/conocer, negative & formal commands,
 // comparatives & superlatives, present perfect, and si-clauses).
@@ -321,7 +321,7 @@ export const GRAMMAR_TOPICS: GrammarTopicMeta[] = [
     id: "listening-tenses",
     name: "Listening: Identify the Tense",
     level: "intermediate",
-    rule: "Spanish tenses often sound similar on paper but have distinct rhythms and endings when spoken aloud — a skill the IB Individual Oral and Paper 2 both draw on. Listen to each sentence (no text shown) and pick the tense you hear, using cues like endings (-aba/-ía for imperfect, -é/-ó for preterite, -ré/-rá for future) and signal words (ayer, mañana, cuando era niño, ojalá).",
+    rule: "Spanish tenses often sound similar on paper but have distinct rhythms and endings when spoken aloud — a skill the IB Individual Oral and Paper 1 both draw on. Listen to each sentence (no text shown) and pick the tense you hear, using cues like endings (-aba/-ía for imperfect, -é/-ó for preterite, -ré/-rá for future) and signal words (ayer, mañana, cuando era niño, ojalá).",
     simpleExplanation:
       "You'll hear a sentence spoken instead of reading it, then figure out which tense it's in by listening for clues — word endings and time words like \"ayer\" (yesterday) or \"mañana\" (tomorrow). It's like being a tense detective with your ears! Preterite endings sound sharp and stressed on the last syllable (habló), while imperfect endings have a softer -aba/-ía sound — training your ear for this is exactly what the real IB Individual Oral rewards.",
     examples: [
@@ -386,9 +386,9 @@ export const GRAMMAR_TOPICS: GrammarTopicMeta[] = [
     id: "heading-matching",
     name: "Reading Strategy: Match the Heading",
     level: "intermediate",
-    rule: "A real IB Paper 1 heading-matching task gives you a text split into sections and a list of headings (with a few extra, wrong ones) — you match each section to its best heading. The skill: find the main idea of a short passage, not just recognize repeated words.",
+    rule: "A real IB Paper 2 heading-matching task gives you a text split into sections and a list of headings (with a few extra, wrong ones) — you match each section to its best heading. The skill: find the main idea of a short passage, not just recognize repeated words.",
     simpleExplanation:
-      "This isn't a grammar rule — it's an exam SKILL. You'll read a short paragraph and pick which title best summarizes what it's actually about, from a few tempting-but-wrong options. The trap options usually mention a word that appears in the paragraph but isn't the main idea. Practicing this trains you to read for the big picture instead of getting distracted by individual words — exactly what IB Paper 1's heading-matching section rewards.",
+      "This isn't a grammar rule — it's an exam SKILL. You'll read a short paragraph and pick which title best summarizes what it's actually about, from a few tempting-but-wrong options. The trap options usually mention a word that appears in the paragraph but isn't the main idea. Practicing this trains you to read for the big picture instead of getting distracted by individual words — exactly what IB Paper 2's heading-matching section rewards.",
     examples: [
       { es: "Un párrafo sobre reciclaje en casa", en: "→ best heading: \"Pequeños gestos, gran impacto\" (not just any sentence mentioning \"basura\")." },
       { es: "Un párrafo sobre un intercambio escolar", en: "→ best heading captures the OVERALL experience, not one detail from the middle." },
@@ -399,9 +399,9 @@ export const GRAMMAR_TOPICS: GrammarTopicMeta[] = [
     id: "gap-fill",
     name: "Reading Strategy: Word-Bank Gap-Fill",
     level: "intermediate",
-    rule: "A real IB Paper 1 gap-fill task gives you a short word bank (usually a couple more words than blanks) and asks you to complete each blank with the word that fits both the grammar AND the meaning of the sentence — not just any word that 'sounds right'.",
+    rule: "A real IB Paper 2 gap-fill task gives you a short word bank (usually a couple more words than blanks) and asks you to complete each blank with the word that fits both the grammar AND the meaning of the sentence — not just any word that 'sounds right'.",
     simpleExplanation:
-      "You'll see a sentence with a blank and a small list of candidate words. Some words in the list are red herrings — they might be the right part of speech but the wrong meaning, or the right topic but the wrong grammatical form. This trains the exact skill IB Paper 1 tests: using both context and grammar together to pick the one word that truly fits, from a bank that's deliberately a little too big.",
+      "You'll see a sentence with a blank and a small list of candidate words. Some words in the list are red herrings — they might be the right part of speech but the wrong meaning, or the right topic but the wrong grammatical form. This trains the exact skill IB Paper 2 tests: using both context and grammar together to pick the one word that truly fits, from a bank that's deliberately a little too big.",
     examples: [
       { es: "Banco: reciclar / contaminación / ahorrar / basura / energía / plástico", en: "Word bank example (Sharing the Planet theme)." },
       { es: "Debemos ___ agua para proteger el medioambiente.", en: "→ correct answer: \"ahorrar\" (to save), not \"reciclar\" — both are plausible topically, but only one fits this sentence's meaning." },

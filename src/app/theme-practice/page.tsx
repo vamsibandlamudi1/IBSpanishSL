@@ -38,7 +38,7 @@ export default function ThemePracticePage() {
 
       {theme && (
         <div className="flex flex-col gap-5">
-          <div className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
+          <div className="rounded-xl border border-slate-200 bg-white p-5 shadow-xs">
             <h2 className="text-lg font-bold text-slate-900">{theme.name}</h2>
             <p className="text-sm text-slate-600">{theme.description}</p>
             <div className="mt-3">

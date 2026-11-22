@@ -238,7 +238,7 @@ export default function PracticeExamModule() {
     const listeningExs = await loadExercises("listening-tenses");
     setExamListening(shuffle(listeningExs).slice(0, 8).map(grammarToExam));
 
-    // Heading-matching and gap-fill are IB Paper 1 reading strategies, not
+    // Heading-matching and gap-fill are IB Paper 2 reading strategies, not
     // grammar rules — pulled into their own section instead of the generic
     // grammar pool so the exam labels them accurately.
     const READING_STRATEGY_TOPICS = ["heading-matching", "gap-fill"];
@@ -359,12 +359,52 @@ export default function PracticeExamModule() {
   return (
     <div className="flex flex-col gap-5">
       {stage === "intro" && (
-        <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+        <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-xs">
           <h2 className="mb-2 text-lg font-bold text-slate-900">Full practice exam</h2>
           <p className="mb-4 text-sm text-slate-600">
             A freshly randomized, full-length practice session covering every part of the IB Spanish B SL exam in one
             sitting:
           </p>
+          <div className="mb-5 overflow-x-auto rounded-xl border border-slate-200">
+            <table className="w-full text-left text-xs sm:text-sm">
+              <thead className="bg-slate-50 text-slate-600">
+                <tr>
+                  <th className="px-3 py-2 font-semibold">Component</th>
+                  <th className="px-3 py-2 font-semibold">Weight</th>
+                  <th className="px-3 py-2 font-semibold">Time (SL)</th>
+                  <th className="px-3 py-2 font-semibold">What you do</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-slate-100 text-slate-700">
+                <tr>
+                  <td className="px-3 py-2 font-medium">Paper 1 — Writing</td>
+                  <td className="px-3 py-2">25%</td>
+                  <td className="px-3 py-2">1 h 15 min</td>
+                  <td className="px-3 py-2">Choose 1 of 3 tasks; write 250–400 words in a text type</td>
+                </tr>
+                <tr>
+                  <td className="px-3 py-2 font-medium">Paper 2 — Listening</td>
+                  <td className="px-3 py-2" rowSpan={2}>50%<span className="block text-[11px] text-slate-400">(1 h 45 min total)</span></td>
+                  <td className="px-3 py-2">45 min</td>
+                  <td className="px-3 py-2">3 audio passages, answer questions on each</td>
+                </tr>
+                <tr>
+                  <td className="px-3 py-2 font-medium">Paper 2 — Reading</td>
+                  <td className="px-3 py-2">1 h</td>
+                  <td className="px-3 py-2">3 written texts, answer questions on each</td>
+                </tr>
+                <tr>
+                  <td className="px-3 py-2 font-medium">Individual Oral</td>
+                  <td className="px-3 py-2">25%</td>
+                  <td className="px-3 py-2">15 min prep + oral (about 12–15 min)</td>
+                  <td className="px-3 py-2">Choose 1 of 2 unseen photos; present it, then discuss themes</td>
+                </tr>
+              </tbody>
+            </table>
+            <p className="px-3 py-2 text-[11px] text-slate-400">
+              Based on the IB Spanish B SL structure. Confirm against the official IB Language B subject guide for your exam year.
+            </p>
+          </div>
           <div className="mb-5 grid grid-cols-1 gap-2.5 sm:grid-cols-2">
             {[
               { icon: "📖", label: "Reading comprehension", detail: "1 passage, 5 questions" },
@@ -372,11 +412,11 @@ export default function PracticeExamModule() {
               { icon: "🎧", label: "Listening comprehension", detail: "8 audio questions" },
               { icon: "✍️", label: "Grammar", detail: "10 questions across random topics" },
               { icon: "🗂️", label: "Vocabulary", detail: "10 questions across random themes" },
-              { icon: "📝", label: "Writing task", detail: "1 Paper 2 style prompt" },
+              { icon: "📝", label: "Writing task", detail: "1 Paper 1 style prompt" },
               { icon: "🎙️", label: "Speaking task", detail: "1 Individual Oral simulation" },
             ].map((section) => (
               <div key={section.label} className="flex items-center gap-3 rounded-xl border border-slate-200 bg-slate-50 p-3">
-                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white text-base shadow-sm">{section.icon}</span>
+                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white text-base shadow-xs">{section.icon}</span>
                 <div>
                   <p className="text-sm font-semibold text-slate-800">{section.label}</p>
                   <p className="text-xs text-slate-500">{section.detail}</p>
@@ -422,7 +462,7 @@ export default function PracticeExamModule() {
 
       {stage === "reading" && examReading && (
         <div key={examReading.id} className="animate-fade-slide-up flex flex-col gap-4">
-          <div className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
+          <div className="rounded-xl border border-slate-200 bg-white p-5 shadow-xs">
             <div className="mb-2 flex flex-wrap items-center justify-between gap-2">
               <h2 className="text-lg font-bold text-slate-900">{examReading.title}</h2>
               <span className="pill-badge">{examReading.textType}</span>
@@ -447,7 +487,7 @@ export default function PracticeExamModule() {
         <div className="animate-fade-slide-up flex flex-col gap-4">
           <div className="rounded-xl border border-brand-200 bg-brand-50 p-4">
             <p className="text-sm text-brand-800">
-              These questions practice the reading STRATEGIES IB Paper 1 tests — matching a heading to a paragraph,
+              These questions practice the reading STRATEGIES IB Paper 2 tests — matching a heading to a paragraph,
               and filling gaps from a word bank — not grammar rules.
             </p>
           </div>
@@ -477,7 +517,7 @@ export default function PracticeExamModule() {
         <div className="animate-fade-slide-up flex flex-col gap-4">
           <div className="rounded-xl border border-brand-200 bg-brand-50 p-4">
             <p className="text-sm text-brand-800">
-              Complete one Paper 2 writing task below — pick any prompt and submit it for feedback, same as the
+              Complete one Paper 1 writing task below — pick any prompt and submit it for feedback, same as the
               standalone Writing module.
             </p>
           </div>
@@ -510,7 +550,7 @@ export default function PracticeExamModule() {
         const pct = totalQuestions > 0 ? Math.round((totalCorrect / totalQuestions) * 100) : 0;
         const ringColor = pct >= 80 ? "text-green-500" : pct >= 50 ? "text-amber-500" : "text-rose-500";
         return (
-        <div className="animate-fade-slide-up rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
+        <div className="animate-fade-slide-up rounded-2xl border border-slate-200 bg-white p-8 shadow-xs">
           <h2 className="mb-1 text-center text-xl font-bold text-slate-900">Practice exam complete! 🎉</h2>
           <p className="mb-2 text-center text-sm text-slate-500">Here&apos;s how you did across every section.</p>
 
@@ -575,7 +615,7 @@ export default function PracticeExamModule() {
           )}
 
           {!feedbackLoading && examFeedback && (
-            <div className="mb-5 rounded-xl border border-slate-200 bg-white p-5 text-left shadow-sm">
+            <div className="mb-5 rounded-xl border border-slate-200 bg-white p-5 text-left shadow-xs">
               <div className="mb-3 flex flex-wrap items-center justify-between gap-3 border-b border-slate-100 pb-3">
                 <div>
                   <p className="eyebrow mb-1">{feedbackSource === "ai" ? "AI-generated report" : "Automatic estimate"}</p>
@@ -711,7 +751,7 @@ function QuestionSetSection({
         return (
           <div
             key={q.id}
-            className={`rounded-2xl border bg-white p-5 shadow-sm transition ${
+            className={`rounded-2xl border bg-white p-5 shadow-xs transition ${
               correct ? "border-green-300 bg-green-50" : wrong ? "border-red-300 bg-red-50" : "border-slate-200"
             }`}
           >

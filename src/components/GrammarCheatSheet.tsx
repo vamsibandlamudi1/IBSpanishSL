@@ -338,7 +338,7 @@ const SECTIONS: CheatSheetSection[] = [
       <>
         <SimpleExplainer>
           <p>
-            Spanish has two main past tenses! Understanding the difference between them is key for Paper 1 reading and Paper 2 writing.
+            Spanish has two main past tenses! Understanding the difference between them is key for Paper 2 reading and Paper 1 writing.
           </p>
         </SimpleExplainer>
         <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
@@ -470,7 +470,7 @@ const SECTIONS: CheatSheetSection[] = [
       <>
         <SimpleExplainer>
           <p>
-            These verb constructions appear constantly in IB reading texts and are expected in high-scoring Paper 2 writing. Master these and your language score jumps immediately.
+            These verb constructions appear constantly in IB reading texts and are expected in high-scoring Paper 1 writing. Master these and your language score jumps immediately.
           </p>
         </SimpleExplainer>
         <div className="flex flex-col gap-4">
@@ -699,7 +699,7 @@ const SECTIONS: CheatSheetSection[] = [
       <>
         <SimpleExplainer>
           <p>
-            <strong>False friends</strong> (falsos amigos) are Spanish words that look like English words but mean something completely different. These are classic exam traps in Paper 1 reading comprehension!
+            <strong>False friends</strong> (falsos amigos) are Spanish words that look like English words but mean something completely different. These are classic exam traps in Paper 2 reading comprehension!
           </p>
         </SimpleExplainer>
         <div className="overflow-x-auto rounded-lg border border-slate-200">
@@ -911,7 +911,7 @@ const SECTIONS: CheatSheetSection[] = [
       <>
         <SimpleExplainer>
           <p>
-            Used for giving directions, advice, and instructions (essential for Paper 2 blog posts and brochures!).
+            Used for giving directions, advice, and instructions (essential for Paper 1 blog posts and brochures!).
           </p>
         </SimpleExplainer>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
@@ -1534,7 +1534,7 @@ export default function GrammarCheatSheet() {
         </nav>
 
         {/* Active section */}
-        <section key={active.id} className="animate-fade-slide-up min-w-0 flex-1 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+        <section key={active.id} className="animate-fade-slide-up min-w-0 flex-1 rounded-2xl border border-slate-200 bg-white p-5 shadow-xs">
           <h2 className="mb-3 flex items-center gap-2 text-lg font-bold text-slate-900">
             <span>{active.icon}</span> {active.title}
           </h2>

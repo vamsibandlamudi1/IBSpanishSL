@@ -6,7 +6,7 @@ interface GapWord {
   /** "A" or "B" — each theme's 8 words split into two groups of 4; each
    *  group's word bank is padded with 2 words borrowed from the OTHER
    *  group in the same theme, so the bank always has a couple more words
-   *  than blanks (2 red herrings), matching the real IB Paper 1 format. */
+   *  than blanks (2 red herrings), matching the real IB Paper 2 format. */
   group: "A" | "B";
   word: string;
   cloze: string;
@@ -14,7 +14,7 @@ interface GapWord {
 
 // 40 themed vocabulary words (8 per IB theme, split into two 4-word groups),
 // each with a hand-written cloze sentence — addresses the "word-bank
-// gap-fill" critical gap (IB Paper 1 frequently gives a word bank with a
+// gap-fill" critical gap (IB Paper 2 frequently gives a word bank with a
 // couple more words than blanks and asks students to fill each blank with
 // the one word that fits both grammar and meaning).
 const WORDS: GapWord[] = [

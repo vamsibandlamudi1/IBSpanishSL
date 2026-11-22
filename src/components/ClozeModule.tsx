@@ -110,7 +110,7 @@ export default function ClozeModule() {
       </nav>
 
       <div key={passage.id} className="animate-fade-slide-up min-w-0 flex-1">
-        <div className="mb-4 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+        <div className="mb-4 rounded-2xl border border-slate-200 bg-white p-6 shadow-xs">
           <div className="mb-3 flex items-start gap-2.5">
             <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-brand-50 text-sm">📝</span>
             <div className="flex min-w-0 flex-1 flex-wrap items-center justify-between gap-2 pt-1">

@@ -54,7 +54,7 @@ interface PersistedState {
    *  brain-break has already been shown — see PointsMilestoneWatcher.tsx.
    *  Prevents re-showing the same popup on every reload/navigation. */
   highestPuzzleMilestone: number;
-  /** Count of Paper 2 writing tasks submitted — a plain count rather than a
+  /** Count of Paper 1 writing tasks submitted — a plain count rather than a
    *  full submissions array since no feature needs per-submission detail
    *  (writing text itself isn't persisted, same spirit as not persisting
    *  full audio recordings server-side in this prototype). */
@@ -103,7 +103,7 @@ interface StoreContextValue extends PersistedState {
   recordQuestionResult: (questionId: string, themeId: string, difficulty: Difficulty, correct: boolean) => void;
   completeQuiz: (themeId: string, difficulty: Difficulty, score: number, total: number) => AwardResult;
   submitAudio: (taskId: string, audioUrl: string, transcript?: string, feedback?: string) => AwardResult;
-  /** Records one Paper 2 writing task as submitted and awards points/badges. Called once per
+  /** Records one Paper 1 writing task as submitted and awards points/badges. Called once per
    *  submission — see WritingModule.tsx. The written text itself isn't persisted, only the count. */
   submitWriting: (promptId: string) => AwardResult;
   redeemPrize: (prizeId: string) => { ok: boolean; message: string };

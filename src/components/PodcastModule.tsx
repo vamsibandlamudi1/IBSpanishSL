@@ -301,7 +301,7 @@ export default function PodcastModule() {
 
       {/* Episode + questions */}
       <div key={episode.id} className="animate-fade-slide-up min-w-0 flex-1">
-        <div className="mb-4 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+        <div className="mb-4 rounded-2xl border border-slate-200 bg-white p-6 shadow-xs">
           <div className="mb-2 flex flex-wrap items-center justify-between gap-2">
             <h2 className="text-lg font-bold text-slate-900">{episode.title}</h2>
             <div className="flex items-center gap-1.5">
@@ -411,7 +411,7 @@ export default function PodcastModule() {
             return (
               <div
                 key={q.id}
-                className={`rounded-2xl border bg-white p-4 shadow-sm transition ${
+                className={`rounded-2xl border bg-white p-4 shadow-xs transition ${
                   correct ? "border-green-300 bg-green-50" : wrong ? "border-red-300 bg-red-50" : "border-slate-200"
                 }`}
               >
@@ -507,7 +507,7 @@ export default function PodcastModule() {
         )}
 
         {episode.vocabulary && episode.vocabulary.length > 0 && (
-          <div className="mt-5 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+          <div className="mt-5 rounded-2xl border border-slate-200 bg-white p-6 shadow-xs">
             <h3 className="mb-3 text-sm font-bold uppercase tracking-wide text-slate-500">Vocabulario clave</h3>
             <p className="mb-2 text-xs text-slate-400">
               Las palabras subrayadas en el guion también muestran su significado al pasar el ratón por encima.

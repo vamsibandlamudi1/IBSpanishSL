@@ -8,7 +8,7 @@ interface HeadingParagraph {
 }
 
 // 40 short paragraphs (8 per IB theme), each with one correct heading —
-// mirrors the real IB Paper 1 "match the heading to the section" task,
+// mirrors the real IB Paper 2 "match the heading to the section" task,
 // which was a flagged critical gap (no equivalent existed anywhere in the
 // app). Distractor headings for each question are pulled only from OTHER
 // paragraphs within the SAME theme, so they stay topically plausible

@@ -1,12 +1,12 @@
 /// File: src/lib/writing.ts
 //
-// Paper 2 style writing prompts: ten per IB theme (50 total), spanning
+// Paper 1 style writing prompts: ten per IB theme (50 total), spanning
 // nearly every official IB Spanish B text type (email/letter — personal
 // and formal, blog post, magazine article, interview, diary entry, opinion
 // essay, proposal, set of instructions, brochure, social media post,
 // postcard, review, speech, newspaper article, report) with
 // format-convention tips — recognizing and producing the right structure
-// for a text type is itself an assessed Paper 2 skill, not just writing
+// for a text type is itself an assessed Paper 1 skill, not just writing
 // correct Spanish. All prompts are original, written to mirror the
 // style/rigor of past IB papers — not copied from any real exam. See
 // components/WritingModule.tsx.
@@ -29,8 +29,8 @@ export const WRITING_PROMPTS: WritingPrompt[] = [
       "Close with a friendly sign-off (e.g. 'Un abrazo,')",
       "Keep paragraphs short and conversational",
     ],
-    minWords: 200,
-    maxWords: 300,
+    minWords: 250,
+    maxWords: 400,
   },
   {
     id: "writing-experiences",
@@ -121,8 +121,8 @@ export const WRITING_PROMPTS: WritingPrompt[] = [
       "Be personal and reflective — this is private, not for an audience",
       "No formal greeting/closing needed",
     ],
-    minWords: 200,
-    maxWords: 300,
+    minWords: 250,
+    maxWords: 400,
   },
   {
     id: "writing-experiences-2",
@@ -175,8 +175,8 @@ export const WRITING_PROMPTS: WritingPrompt[] = [
       "Keep each step short and clear",
       "Include a friendly introduction and closing tip",
     ],
-    minWords: 200,
-    maxWords: 300,
+    minWords: 250,
+    maxWords: 400,
   },
   {
     id: "writing-sharing-planet-2",
@@ -193,8 +193,8 @@ export const WRITING_PROMPTS: WritingPrompt[] = [
       "Include practical details (when, where, how to sign up)",
       "Keep the tone upbeat and motivating",
     ],
-    minWords: 200,
-    maxWords: 350,
+    minWords: 250,
+    maxWords: 400,
   },
 
   // --- Third prompt per theme, filling out the remaining official IB text types ---
@@ -213,8 +213,8 @@ export const WRITING_PROMPTS: WritingPrompt[] = [
       "Use a friendly, personal tone",
       "End with a question or call to action to engage followers",
     ],
-    minWords: 150,
-    maxWords: 250,
+    minWords: 250,
+    maxWords: 400,
   },
   {
     id: "writing-experiences-3",
@@ -231,8 +231,8 @@ export const WRITING_PROMPTS: WritingPrompt[] = [
       "Use the present/recent past to describe your trip",
       "Close with a warm sign-off (e.g. 'Con cariño,')",
     ],
-    minWords: 100,
-    maxWords: 200,
+    minWords: 250,
+    maxWords: 400,
   },
   {
     id: "writing-human-ingenuity-3",
@@ -249,8 +249,8 @@ export const WRITING_PROMPTS: WritingPrompt[] = [
       "Consider ending with a rating (e.g. out of 5 stars)",
       "State clearly who you would/wouldn't recommend it for",
     ],
-    minWords: 200,
-    maxWords: 350,
+    minWords: 250,
+    maxWords: 400,
   },
   {
     id: "writing-social-organization-3",
@@ -319,8 +319,8 @@ export const WRITING_PROMPTS: WritingPrompt[] = [
       "Use imperative verb forms to give advice (e.g. 'Prueba', 'Recuerda')",
       "Include practical details such as schedule, location, or contact information",
     ],
-    minWords: 200,
-    maxWords: 300,
+    minWords: 250,
+    maxWords: 400,
   },
   {
     id: "writing-identities-6",
@@ -383,8 +383,8 @@ export const WRITING_PROMPTS: WritingPrompt[] = [
       "Use evaluative adjectives and comparative structures",
       "End with a clear recommendation or star rating",
     ],
-    minWords: 200,
-    maxWords: 300,
+    minWords: 250,
+    maxWords: 400,
   },
   {
     id: "writing-identities-10",
@@ -399,8 +399,8 @@ export const WRITING_PROMPTS: WritingPrompt[] = [
       "Keep each instruction short and action-focused",
       "Include approximate times or durations for each step",
     ],
-    minWords: 200,
-    maxWords: 300,
+    minWords: 250,
+    maxWords: 400,
   },
   // --- Fourth through tenth items for experiences, added by parallel content-drafting pass ---
 {
@@ -418,8 +418,8 @@ export const WRITING_PROMPTS: WritingPrompt[] = [
       "Clearly state the purpose of the email in the first paragraph",
       "Close with a formal sign-off (e.g. Atentamente) and your full name",
     ],
-    minWords: 220,
-    maxWords: 320,
+    minWords: 250,
+    maxWords: 400,
   },
   {
     id: "writing-experiences-5",
@@ -490,8 +490,8 @@ export const WRITING_PROMPTS: WritingPrompt[] = [
       "Use persuasive, enthusiastic language to attract young travelers",
       "Include practical details such as dates, price, and contact information",
     ],
-    minWords: 150,
-    maxWords: 250,
+    minWords: 250,
+    maxWords: 400,
   },
   {
     id: "writing-experiences-9",
@@ -508,8 +508,8 @@ export const WRITING_PROMPTS: WritingPrompt[] = [
       "Include a short introduction explaining the purpose of the guide",
       "Add practical tips or warnings in a separate section",
     ],
-    minWords: 150,
-    maxWords: 250,
+    minWords: 250,
+    maxWords: 400,
   },
   {
     id: "writing-experiences-10",
@@ -526,8 +526,8 @@ export const WRITING_PROMPTS: WritingPrompt[] = [
       "Give your personal opinion, supported by specific examples",
       "End with a clear recommendation stating who would enjoy the book",
     ],
-    minWords: 200,
-    maxWords: 350,
+    minWords: 250,
+    maxWords: 400,
   },
   // --- Fourth through tenth items for human-ingenuity, added by parallel content-drafting pass ---
 {
@@ -545,8 +545,8 @@ export const WRITING_PROMPTS: WritingPrompt[] = [
       "Organize the post with short paragraphs and maybe a subheading or two",
       "End with a clear personal recommendation or rating",
     ],
-    minWords: 200,
-    maxWords: 300,
+    minWords: 250,
+    maxWords: 400,
   },
   {
     id: "writing-human-ingenuity-5",
@@ -617,8 +617,8 @@ export const WRITING_PROMPTS: WritingPrompt[] = [
       "Keep each instruction short, clear and direct",
       "Include a brief warning or useful tip where relevant",
     ],
-    minWords: 150,
-    maxWords: 250,
+    minWords: 250,
+    maxWords: 400,
   },
   {
     id: "writing-human-ingenuity-9",
@@ -635,8 +635,8 @@ export const WRITING_PROMPTS: WritingPrompt[] = [
       "Use persuasive, inviting language to attract potential users",
       "Use bullet points to highlight benefits or the steps to use the service",
     ],
-    minWords: 200,
-    maxWords: 300,
+    minWords: 250,
+    maxWords: 400,
   },
   {
     id: "writing-human-ingenuity-10",
@@ -653,8 +653,8 @@ export const WRITING_PROMPTS: WritingPrompt[] = [
       "Use hashtags relevant to the topic",
       "Include a call to action inviting comments, likes or trying it out",
     ],
-    minWords: 100,
-    maxWords: 200,
+    minWords: 250,
+    maxWords: 400,
   },
   // --- Fourth through tenth items for social-organization, added by parallel content-drafting pass ---
 {
@@ -670,8 +670,8 @@ export const WRITING_PROMPTS: WritingPrompt[] = [
       "Keep the tone personal, honest, and reflective",
       "No greeting or formal closing is needed — end naturally",
     ],
-    minWords: 200,
-    maxWords: 300,
+    minWords: 250,
+    maxWords: 400,
   },
   {
     id: "writing-social-organization-5",
@@ -734,8 +734,8 @@ export const WRITING_PROMPTS: WritingPrompt[] = [
       "Include practical details: who can join, how, and when",
       "End with a clear call to action, such as contact information",
     ],
-    minWords: 100,
-    maxWords: 200,
+    minWords: 250,
+    maxWords: 400,
   },
   {
     id: "writing-social-organization-9",
@@ -750,8 +750,8 @@ export const WRITING_PROMPTS: WritingPrompt[] = [
       "Use the past tense to narrate what happened",
       "End with an informal closing like 'Un abrazo' plus your name",
     ],
-    minWords: 100,
-    maxWords: 200,
+    minWords: 250,
+    maxWords: 400,
   },
   {
     id: "writing-social-organization-10",
@@ -766,8 +766,8 @@ export const WRITING_PROMPTS: WritingPrompt[] = [
       "Support opinions with specific examples from your experience",
       "End with a rating or a clear final recommendation",
     ],
-    minWords: 200,
-    maxWords: 300,
+    minWords: 250,
+    maxWords: 400,
   },
   // --- Fourth through tenth items for sharing-planet, added by parallel content-drafting pass ---
 {
@@ -799,8 +799,8 @@ export const WRITING_PROMPTS: WritingPrompt[] = [
       "Organize ideas into short paragraphs for easy online reading",
       "Invite readers to comment or share their own experiences at the end",
     ],
-    minWords: 200,
-    maxWords: 300,
+    minWords: 250,
+    maxWords: 400,
   },
   {
     id: "writing-sharing-planet-6",
@@ -815,8 +815,8 @@ export const WRITING_PROMPTS: WritingPrompt[] = [
       "Include specific details about what happened during the day",
       "End with a reflection or resolution for the future",
     ],
-    minWords: 200,
-    maxWords: 300,
+    minWords: 250,
+    maxWords: 400,
   },
   {
     id: "writing-sharing-planet-7",
@@ -863,8 +863,8 @@ export const WRITING_PROMPTS: WritingPrompt[] = [
       "Balance positive and negative points fairly",
       "End with a clear recommendation for potential users",
     ],
-    minWords: 200,
-    maxWords: 300,
+    minWords: 250,
+    maxWords: 400,
   },
   {
     id: "writing-sharing-planet-10",
@@ -879,7 +879,7 @@ export const WRITING_PROMPTS: WritingPrompt[] = [
       "Use a hashtag or call-to-action phrase",
       "Keep sentences short and easy to skim quickly",
     ],
-    minWords: 100,
-    maxWords: 200,
+    minWords: 250,
+    maxWords: 400,
   },
 ];

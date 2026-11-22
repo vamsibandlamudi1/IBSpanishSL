@@ -17,7 +17,7 @@ const LEVEL_STYLES: Record<string, string> = {
 const stripAccents = (s: string) => s.normalize("NFD").replace(/[̀-ͯ]/g, "");
 const normalize = (s: string) => stripAccents(s.trim().toLowerCase());
 
-/** Paper 1 style reading comprehension: pick a passage (sidebar, same
+/** Paper 2 style reading comprehension: pick a passage (sidebar, same
  *  pattern as GrammarModule's topic list), read the Spanish text, answer a
  *  mix of true/false (with justification, matching the real IB format),
  *  multiple choice, and short-answer questions, then check everything at
@@ -173,7 +173,7 @@ export default function ReadingModule() {
 
       {/* Passage + questions */}
       <div key={passage.id} className="animate-fade-slide-up min-w-0 flex-1">
-        <div className="mb-4 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+        <div className="mb-4 rounded-2xl border border-slate-200 bg-white p-6 shadow-xs">
           <div className="mb-2 flex flex-wrap items-center justify-between gap-2">
             <h2 className="text-lg font-bold text-slate-900">{passage.title}</h2>
             <div className="flex items-center gap-1.5">
@@ -263,7 +263,7 @@ export default function ReadingModule() {
             return (
               <div
                 key={q.id}
-                className={`rounded-2xl border bg-white p-4 shadow-sm transition ${
+                className={`rounded-2xl border bg-white p-4 shadow-xs transition ${
                   correct ? "border-green-300 bg-green-50" : wrong ? "border-red-300 bg-red-50" : "border-slate-200"
                 }`}
               >
@@ -359,7 +359,7 @@ export default function ReadingModule() {
         )}
 
         {passage.vocabulary && passage.vocabulary.length > 0 && (
-          <div className="mt-5 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+          <div className="mt-5 rounded-2xl border border-slate-200 bg-white p-6 shadow-xs">
             <h3 className="mb-3 text-sm font-bold uppercase tracking-wide text-slate-500">Vocabulario clave</h3>
             <div className="grid grid-cols-1 gap-x-6 gap-y-2 sm:grid-cols-2">
               {passage.vocabulary.map((v) => (

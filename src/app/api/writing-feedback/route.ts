@@ -2,8 +2,8 @@
 //
 // Server-side only, same pattern as src/app/api/feedback/route.ts (oral
 // feedback): reads ANTHROPIC_API_KEY server-side only, turns a student's
-// Paper 2 writing submission into structured, examiner-style feedback using
-// the Claude API — organized around the two real IB Paper 2 assessment
+// Paper 1 writing submission into structured, examiner-style feedback using
+// the Claude API — organized around the two real IB Paper 1 assessment
 // criteria (Language, Message) plus concrete strengths/improvements, so the
 // UI can render it as clear sections instead of one dense paragraph. Always
 // responds 200 with `available: false` on any failure — the caller
@@ -16,7 +16,7 @@ import Anthropic from "@anthropic-ai/sdk";
 const MODEL = process.env.ANTHROPIC_MODEL || "claude-opus-5";
 const client = process.env.ANTHROPIC_API_KEY ? new Anthropic() : null;
 
-const SYSTEM_PROMPT = `You are a supportive IB Spanish B examiner giving feedback on a student's Paper 2 writing submission. You receive the required text type (e.g. formal letter, blog post), the task instructions, the target word range, and the student's Spanish text.
+const SYSTEM_PROMPT = `You are a supportive IB Spanish B examiner giving feedback on a student's Paper 1 writing submission. You receive the required text type (e.g. formal letter, blog post), the task instructions, the target word range, and the student's Spanish text.
 
 Respond with ONLY a JSON object (no markdown code fences, no text outside the JSON) matching exactly this shape:
 {

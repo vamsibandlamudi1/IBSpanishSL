@@ -73,7 +73,7 @@ export default function VocabularyModule() {
               </button>
             ))}
           </nav>
-          <div className="rounded-xl border border-slate-200 bg-white shadow-sm overflow-hidden">
+          <div className="rounded-xl border border-slate-200 bg-white shadow-xs overflow-hidden">
             <VocabList key={referenceThemeId} vocabulary={referenceTheme.vocabulary} />
           </div>
         </div>
@@ -305,7 +305,7 @@ function VocabularyLearn() {
           {current.attempt > 1 && <span className="rounded-full bg-amber-100 px-2 py-0.5 text-xs font-semibold text-amber-700">🔁 Retry</span>}
         </div>
 
-        <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+        <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-xs">
           <div className="mb-3 flex items-start gap-2.5">
             <button
               type="button"
@@ -401,7 +401,7 @@ function VocabularyLearn() {
   const pct = totalQuestions > 0 ? Math.round((firstTryCorrectCount / totalQuestions) * 100) : 0;
   const ringColor = pct >= 80 ? "text-green-500" : pct >= 50 ? "text-amber-500" : "text-rose-500";
   return (
-    <div className="max-w-2xl rounded-2xl border border-slate-200 bg-white p-8 text-center shadow-sm">
+    <div className="max-w-2xl rounded-2xl border border-slate-200 bg-white p-8 text-center shadow-xs">
       <h2 className="text-xl font-bold text-slate-900">Learn session complete!</h2>
 
       <div className="relative mx-auto my-5 flex h-32 w-32 items-center justify-center">
@@ -593,7 +593,7 @@ function VocabularyQuiz() {
           <span className="pill-badge">{selectedTheme?.name}</span>
         </div>
 
-        <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+        <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-xs">
           <div className="mb-3 flex items-start gap-2.5">
             <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-brand-50 text-sm">
               {TYPE_ICON[currentQuestion.type]}
@@ -702,7 +702,7 @@ function VocabularyQuiz() {
   const pct = quiz.length > 0 ? Math.round((correctCount / quiz.length) * 100) : 0;
   const ringColor = pct >= 80 ? "text-green-500" : pct >= 50 ? "text-amber-500" : "text-rose-500";
   return (
-    <div className="max-w-2xl rounded-2xl border border-slate-200 bg-white p-8 text-center shadow-sm">
+    <div className="max-w-2xl rounded-2xl border border-slate-200 bg-white p-8 text-center shadow-xs">
       <h2 className="text-xl font-bold text-slate-900">Vocabulary quiz complete!</h2>
 
       <div className="relative mx-auto my-5 flex h-32 w-32 items-center justify-center">

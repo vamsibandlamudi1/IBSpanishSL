@@ -24,7 +24,7 @@ export default function ProgressInsights() {
   };
 
   return (
-    <div className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
+    <div className="rounded-xl border border-slate-200 bg-white p-5 shadow-xs">
       <div className="mb-3 flex items-center justify-between">
         <h2 className="text-lg font-bold text-slate-900">Your progress by theme</h2>
         <span className="text-xs text-slate-500">{totalAnswered} question{totalAnswered === 1 ? "" : "s"} answered</span>

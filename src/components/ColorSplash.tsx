@@ -35,7 +35,7 @@ export default function ColorSplash() {
       {pieces.map((p) => (
         <span
           key={p.id}
-          className={`confetti-piece ${p.square ? "rounded-sm" : "rounded-full"}`}
+          className={`confetti-piece ${p.square ? "rounded-xs" : "rounded-full"}`}
           style={
             {
               "--tx": `${p.tx}px`,

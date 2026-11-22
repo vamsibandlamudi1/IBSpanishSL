@@ -222,7 +222,7 @@ export interface GrammarTopic {
 }
 
 // ---------------------------------------------------------------------------
-// Reading comprehension (Paper 1 style)
+// Reading comprehension (Paper 2 style)
 // ---------------------------------------------------------------------------
 
 export interface ReadingQuestion {
@@ -235,7 +235,7 @@ export interface ReadingQuestion {
    *  text for short-answer questions. */
   correctAnswer: string;
   /** A short quote from the passage justifying a true/false answer, shown after checking — mirrors
-   *  the real IB Paper 1 requirement to justify true/false answers with evidence from the text. */
+   *  the real IB Paper 2 requirement to justify true/false answers with evidence from the text. */
   justification?: string;
 }
 
@@ -249,7 +249,7 @@ export interface ReadingPassage {
   themeId: string;
   title: string;
   /** The IB text type (blog post, formal email, magazine article...) — recognizing text-type
-   *  conventions is itself an assessed Paper 1 skill, not just comprehension of content. */
+   *  conventions is itself an assessed Paper 2 skill, not just comprehension of content. */
   textType: string;
   level: Difficulty;
   bodyEs: string;
@@ -285,7 +285,7 @@ export interface PodcastEpisode {
 }
 
 // ---------------------------------------------------------------------------
-// Writing (Paper 2 style)
+// Writing (Paper 1 style)
 // ---------------------------------------------------------------------------
 
 export interface WritingPrompt {

@@ -7,10 +7,11 @@ export default function WritingPage() {
       <div>
         <p className="eyebrow mb-1">Writing</p>
         <h1 className="text-2xl font-extrabold tracking-tight text-slate-900 sm:text-3xl">
-          Paper 2: <span className="highlight-mark">writing practice</span>
+          Paper 1: <span className="highlight-mark">writing practice</span>
         </h1>
         <p className="mt-1 text-slate-500">
-          Pick a text type, write a response following its format conventions, and get examiner-style feedback.
+          Paper 1 (25%, 1 h 15 min): on the exam you choose 1 of 3 tasks and write 250–400 words in the text type it
+          asks for. Pick a task here, follow its format conventions, and get examiner-style feedback.
         </p>
       </div>
       <WritingModule />

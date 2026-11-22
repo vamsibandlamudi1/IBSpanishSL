@@ -14,7 +14,7 @@ const LEVEL_STYLES: Record<string, string> = {
 
 /** Structured feedback shape shared by the AI route (/api/writing-feedback)
  *  and the local fallback below, so the UI always renders the same way
- *  regardless of source — organized around the two real IB Paper 2
+ *  regardless of source — organized around the two real IB Paper 1
  *  assessment criteria (Language, Message) plus concrete, actionable
  *  strengths/improvements instead of one dense paragraph. */
 interface WritingFeedback {
@@ -78,7 +78,7 @@ async function fetchAiFeedback(params: {
   }
 }
 
-/** Paper 2 style writing: pick a prompt (sidebar, same pattern as
+/** Paper 1 style writing: pick a prompt (sidebar, same pattern as
  *  GrammarModule/ReadingModule), read the task + format-convention tips,
  *  write a response in Spanish with a live word counter, then submit for
  *  examiner-style feedback — via the Claude API when a key is configured
@@ -163,7 +163,7 @@ export default function WritingModule() {
       </nav>
 
       <div key={prompt.id} className="animate-fade-slide-up min-w-0 flex-1">
-        <div className="mb-4 rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
+        <div className="mb-4 rounded-xl border border-slate-200 bg-white p-5 shadow-xs">
           <div className="mb-2 flex flex-wrap items-center justify-between gap-2">
             <h2 className="text-lg font-bold text-slate-900">{prompt.textType}</h2>
             <span className={`rounded-full px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide ${LEVEL_STYLES[prompt.level]}`}>
@@ -187,7 +187,7 @@ export default function WritingModule() {
         </div>
 
         {!submitted ? (
-          <div className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
+          <div className="rounded-xl border border-slate-200 bg-white p-5 shadow-xs">
             <textarea
               value={text}
               onChange={(e) => setText(e.target.value)}
@@ -206,13 +206,13 @@ export default function WritingModule() {
           </div>
         ) : (
           <div className="flex flex-col gap-4">
-            <div className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
+            <div className="rounded-xl border border-slate-200 bg-white p-5 shadow-xs">
               <p className="mb-2 text-sm font-semibold text-slate-800">Your response ({countWords(submittedText)} words)</p>
               <p className="whitespace-pre-wrap rounded-lg bg-slate-50 p-3 text-sm leading-relaxed text-slate-700">{submittedText}</p>
             </div>
 
             {feedback && (
-              <div className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
+              <div className="rounded-xl border border-slate-200 bg-white p-5 shadow-xs">
                 <p className="mb-3 text-sm font-medium text-green-700">
                   Submitted! Here&apos;s your {feedbackSource === "ai" ? "AI-generated" : "automatic"} feedback:
                 </p>
@@ -265,7 +265,7 @@ export default function WritingModule() {
             )}
 
             {feedback?.improvedVersion && (
-              <div className="rounded-xl border border-mint-200 bg-mint-50 p-5 shadow-sm">
+              <div className="rounded-xl border border-mint-200 bg-mint-50 p-5 shadow-xs">
                 <div className="mb-1 flex items-center justify-between gap-2">
                   <p className="text-sm font-semibold text-mint-800">📝 Model answer (full-marks version)</p>
                   <button type="button" onClick={() => setShowModel((v) => !v)} className="text-xs font-semibold text-mint-700 hover:underline">
