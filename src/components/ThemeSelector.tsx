@@ -27,7 +27,7 @@ export default function ThemeSelector({ themes, selectedThemeId, onSelect, recom
             key={theme.id}
             type="button"
             onClick={() => onSelect(theme.id)}
-            className={`relative rounded-xl border p-4 text-left shadow-sm transition hover:shadow-md ${
+            className={`relative rounded-xl border p-4 text-left shadow-xs transition hover:shadow-md ${
               active ? "border-brand-500 bg-brand-50 ring-2 ring-brand-500" : "border-slate-200 bg-white"
             }`}
           >

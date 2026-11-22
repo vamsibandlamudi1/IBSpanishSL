@@ -25,7 +25,7 @@ export function pointsForQuizDifficulty(difficulty: Difficulty): number {
 /** Flat point award for completing one audio (oral practice) assignment. */
 export const AUDIO_ASSIGNMENT_POINTS = 15;
 
-/** Flat point award for completing one Paper 2 writing task — a bigger
+/** Flat point award for completing one Paper 1 writing task — a bigger
  *  point value than an audio assignment since it's a longer piece of work. */
 export const WRITING_ASSIGNMENT_POINTS = 20;
 

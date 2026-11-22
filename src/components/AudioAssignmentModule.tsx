@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from "react";
 import { useStore } from "@/lib/store";
 import { speak, stopSpeaking } from "@/lib/speech";
 import { AudioTask, Theme } from "@/lib/types";
+import { ORAL_IMAGE_CREDITS } from "@/lib/oralImageCredits";
 
 type RecordingState = "idle" | "recording" | "recorded";
 
@@ -297,9 +298,12 @@ function TaskCard({
   };
 
   const showRealImage = task.imageUrl && !imageError;
+  // Photo credit (author, licence, source page) keyed by the image file name.
+  const imageKey = task.imageUrl?.split("/").pop()?.replace(/\.[a-z]+$/i, "") ?? "";
+  const imageCredit = ORAL_IMAGE_CREDITS[imageKey];
 
   return (
-    <div className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
+    <div className="rounded-xl border border-slate-200 bg-white p-5 shadow-xs">
       {/* IB Oral Photo Stimulus Container */}
       <div className="mb-4 overflow-hidden rounded-xl border border-slate-200 bg-slate-900 shadow-inner">
         <div className="relative flex min-h-[240px] items-center justify-center sm:min-h-[320px]">
@@ -380,13 +384,22 @@ function TaskCard({
         <div className="bg-slate-950/90 border-t border-slate-800 p-3.5 text-slate-200">
           <p className="text-xs font-semibold uppercase tracking-wide text-purple-400 mb-0.5">Stimulus Description</p>
           <p className="text-sm text-slate-200 leading-relaxed">{task.imageDescription}</p>
+          {imageCredit && (
+            <p className="mt-2 text-[11px] text-slate-400">
+              Photo:{" "}
+              <a href={imageCredit.page} target="_blank" rel="noopener noreferrer" className="underline hover:text-slate-200">
+                {imageCredit.author}
+              </a>
+              , {imageCredit.license}, via Wikimedia Commons
+            </p>
+          )}
         </div>
       </div>
 
       {/* Lightbox / Zoom Modal */}
       {isZoomed && showRealImage && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4 backdrop-blur-sm"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4 backdrop-blur-xs"
           onClick={() => setIsZoomed(false)}
         >
           <div

@@ -61,7 +61,7 @@ export default function RockPaperScissorsGame({ onDone }: { onDone: (bonus: numb
             type="button"
             onClick={() => play(m.key)}
             aria-label={m.key}
-            className="flex h-16 w-16 items-center justify-center rounded-full border border-slate-200 bg-white text-3xl shadow-sm transition hover:scale-105 hover:border-brand-300"
+            className="flex h-16 w-16 items-center justify-center rounded-full border border-slate-200 bg-white text-3xl shadow-xs transition hover:scale-105 hover:border-brand-300"
           >
             {m.emoji}
           </button>

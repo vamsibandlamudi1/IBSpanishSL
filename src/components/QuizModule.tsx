@@ -292,7 +292,7 @@ export default function QuizModule() {
             {isWeakMode && <span className="pill-badge">⚡ Weak areas review</span>}
           </div>
 
-          <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+          <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-xs">
             <div className="mb-3 flex items-start gap-2.5">
               <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-brand-50 text-sm">
                 {TYPE_ICON[currentQuestion.type]}
@@ -439,7 +439,7 @@ export default function QuizModule() {
         const pct = quiz.length > 0 ? Math.round((correctCount / quiz.length) * 100) : 0;
         const ringColor = pct >= 80 ? "text-green-500" : pct >= 50 ? "text-amber-500" : "text-rose-500";
         return (
-          <div className="max-w-2xl rounded-2xl border border-slate-200 bg-white p-8 text-center shadow-sm">
+          <div className="max-w-2xl rounded-2xl border border-slate-200 bg-white p-8 text-center shadow-xs">
             <h2 className="text-xl font-bold text-slate-900">Quiz complete!</h2>
 
             <div className="relative mx-auto my-5 flex h-32 w-32 items-center justify-center">
@@ -544,7 +544,7 @@ function PuzzleAnswer({
             disabled={disabled}
             onClick={() => removeAt(i)}
             title="Remove this word"
-            className="flex items-center gap-1.5 rounded-full bg-brand-100 py-1.5 pl-3 pr-2 text-sm font-medium text-brand-800 shadow-sm transition hover:bg-brand-200 disabled:cursor-default"
+            className="flex items-center gap-1.5 rounded-full bg-brand-100 py-1.5 pl-3 pr-2 text-sm font-medium text-brand-800 shadow-xs transition hover:bg-brand-200 disabled:cursor-default"
           >
             <span className="text-[10px] font-bold text-brand-500">{i + 1}</span>
             {t.split("#")[0]}
@@ -559,7 +559,7 @@ function PuzzleAnswer({
             type="button"
             disabled={disabled}
             onClick={() => setPicked((p) => [...p, t])}
-            className="rounded-full border border-slate-200 bg-white px-3 py-1.5 text-sm font-medium text-slate-700 transition hover:-translate-y-0.5 hover:border-brand-300 hover:bg-slate-50 hover:shadow-sm disabled:cursor-default"
+            className="rounded-full border border-slate-200 bg-white px-3 py-1.5 text-sm font-medium text-slate-700 transition hover:-translate-y-0.5 hover:border-brand-300 hover:bg-slate-50 hover:shadow-xs disabled:cursor-default"
           >
             {t.split("#")[0]}
           </button>

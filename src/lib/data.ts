@@ -4664,7 +4664,7 @@ const CORE_QUESTIONS: QuizItem[] = [
     id: "cq-exp-w4",
     themeId: "experiences",
     type: "mcq",
-    prompt: "[IB Paper 2] Escribes una carta formal describiendo tu experiencia de intercambio. ¿Cuál es el saludo más apropiado?",
+    prompt: "[IB Paper 1] Escribes una carta formal describiendo tu experiencia de intercambio. ¿Cuál es el saludo más apropiado?",
     options: ["Estimado/a señor/a:","Hola amigo,","Querido diario,","Buenos días:"],
     correctAnswer: "Estimado/a señor/a:",
     difficulty: "medium",
@@ -4841,7 +4841,7 @@ const CORE_QUESTIONS: QuizItem[] = [
     id: "cq-exp-x1",
     themeId: "experiences",
     type: "mcq",
-    prompt: "[IB Paper 1 - Verdadero/Falso] 'La migración puede ser voluntaria o forzada.' ¿Esta afirmación es verdadera o falsa?",
+    prompt: "[IB Paper 2 - Verdadero/Falso] 'La migración puede ser voluntaria o forzada.' ¿Esta afirmación es verdadera o falsa?",
     options: ["Verdadera","Falsa"],
     correctAnswer: "Verdadera",
     difficulty: "easy",
@@ -4959,7 +4959,7 @@ const CORE_QUESTIONS: QuizItem[] = [
     id: "cq-exp-x13",
     themeId: "experiences",
     type: "mcq",
-    prompt: "[IB Paper 2 - Formato] En una carta formal a un director de instituto sobre un viaje educativo, ¿cómo se debe terminar la carta?",
+    prompt: "[IB Paper 1 - Formato] En una carta formal a un director de instituto sobre un viaje educativo, ¿cómo se debe terminar la carta?",
     options: ["Atentamente, / En espera de su respuesta, le saludo cordialmente,","¡Chao!","Tuyo,","Hasta luego :)"],
     correctAnswer: "Atentamente, / En espera de su respuesta, le saludo cordialmente,",
     difficulty: "medium",
@@ -6183,7 +6183,7 @@ const CORE_QUESTIONS: QuizItem[] = [
     id: "cq-ib-p1-1",
     themeId: "identities",
     type: "mcq",
-    prompt: "[IB Paper 1 - Completar frase] 'La autoestima es la clave para una vida ___.' ¿Cuál es la palabra más adecuada?",
+    prompt: "[IB Paper 2 - Completar frase] 'La autoestima es la clave para una vida ___.' ¿Cuál es la palabra más adecuada?",
     options: ["plena y satisfactoria","triste y difícil","solitaria e incierta","corta e infeliz"],
     correctAnswer: "plena y satisfactoria",
     difficulty: "medium",
@@ -6193,7 +6193,7 @@ const CORE_QUESTIONS: QuizItem[] = [
     id: "cq-ib-p1-2",
     themeId: "experiences",
     type: "mcq",
-    prompt: "[IB Paper 1 - Comprensión] 'Los viajes culturales amplían nuestra perspectiva del mundo y fomentan la tolerancia.' Según el texto, ¿qué fomentan los viajes culturales?",
+    prompt: "[IB Paper 2 - Comprensión] 'Los viajes culturales amplían nuestra perspectiva del mundo y fomentan la tolerancia.' Según el texto, ¿qué fomentan los viajes culturales?",
     options: ["la tolerancia","el egoísmo","la xenofobia","el aislamiento"],
     correctAnswer: "la tolerancia",
     difficulty: "easy",
@@ -6203,7 +6203,7 @@ const CORE_QUESTIONS: QuizItem[] = [
     id: "cq-ib-p1-3",
     themeId: "human-ingenuity",
     type: "mcq",
-    prompt: "[IB Paper 1 - Verdadero/Falso] 'La inteligencia artificial puede mejorar los diagnósticos médicos.' ¿Verdadero o Falso?",
+    prompt: "[IB Paper 2 - Verdadero/Falso] 'La inteligencia artificial puede mejorar los diagnósticos médicos.' ¿Verdadero o Falso?",
     options: ["Verdadero","Falso"],
     correctAnswer: "Verdadero",
     difficulty: "easy",
@@ -6213,7 +6213,7 @@ const CORE_QUESTIONS: QuizItem[] = [
     id: "cq-ib-p1-4",
     themeId: "social-organization",
     type: "mcq",
-    prompt: "[IB Paper 1 - Completar] 'La educación de calidad debe ser un ___ para todos los ciudadanos.'",
+    prompt: "[IB Paper 2 - Completar] 'La educación de calidad debe ser un ___ para todos los ciudadanos.'",
     options: ["derecho fundamental","privilegio exclusivo","servicio opcional","beneficio temporal"],
     correctAnswer: "derecho fundamental",
     difficulty: "medium",
@@ -6223,7 +6223,7 @@ const CORE_QUESTIONS: QuizItem[] = [
     id: "cq-ib-p1-5",
     themeId: "sharing-planet",
     type: "mcq",
-    prompt: "[IB Paper 1 - Comprensión] 'Sin una acción urgente, muchas especies animales se extinguirán en los próximos 50 años.' ¿Qué pasará sin acción urgente?",
+    prompt: "[IB Paper 2 - Comprensión] 'Sin una acción urgente, muchas especies animales se extinguirán en los próximos 50 años.' ¿Qué pasará sin acción urgente?",
     options: ["Many animal species will go extinct","Animals will adapt to climate change","Species will multiply","Nature will heal itself"],
     correctAnswer: "Many animal species will go extinct",
     difficulty: "easy",
@@ -6233,7 +6233,7 @@ const CORE_QUESTIONS: QuizItem[] = [
     id: "cq-ib-p2-1",
     themeId: "identities",
     type: "mcq",
-    prompt: "[IB Paper 2 - Registro] Escribes un folleto sobre salud mental para jóvenes. ¿Cuál es el mejor título?",
+    prompt: "[IB Paper 1 - Registro] Escribes un folleto sobre salud mental para jóvenes. ¿Cuál es el mejor título?",
     options: ["¡Cuida tu mente! Guía para jóvenes sobre el bienestar emocional","Cómo ser rico en 30 días","Manual técnico de psiquiatría","Informe estadístico sobre trastornos mentales"],
     correctAnswer: "¡Cuida tu mente! Guía para jóvenes sobre el bienestar emocional",
     difficulty: "medium",
@@ -6243,7 +6243,7 @@ const CORE_QUESTIONS: QuizItem[] = [
     id: "cq-ib-p2-2",
     themeId: "experiences",
     type: "mcq",
-    prompt: "[IB Paper 2 - Formato de carta] ¿Cuál de los siguientes es un correcto cierre de carta formal en español?",
+    prompt: "[IB Paper 1 - Formato de carta] ¿Cuál de los siguientes es un correcto cierre de carta formal en español?",
     options: ["En espera de su respuesta, le saludo atentamente,","Bye!","Con amor,","Hasta pronto amigo,"],
     correctAnswer: "En espera de su respuesta, le saludo atentamente,",
     difficulty: "medium",
@@ -6253,7 +6253,7 @@ const CORE_QUESTIONS: QuizItem[] = [
     id: "cq-ib-p2-3",
     themeId: "human-ingenuity",
     type: "mcq",
-    prompt: "[IB Paper 2 - Conectores] ¿Qué expresión introduces para dar tu opinión en un ensayo?",
+    prompt: "[IB Paper 1 - Conectores] ¿Qué expresión introduces para dar tu opinión en un ensayo?",
     options: ["En mi opinión, / Desde mi punto de vista,","Así que,","Por eso que,","Ya que todo el mundo sabe"],
     correctAnswer: "En mi opinión, / Desde mi punto de vista,",
     difficulty: "easy",
@@ -6263,7 +6263,7 @@ const CORE_QUESTIONS: QuizItem[] = [
     id: "cq-ib-p2-4",
     themeId: "social-organization",
     type: "mcq",
-    prompt: "[IB Paper 2] Escribes un artículo de opinión. ¿Qué párrafo debería tener primero?",
+    prompt: "[IB Paper 1] Escribes un artículo de opinión. ¿Qué párrafo debería tener primero?",
     options: ["Introducción del tema y tesis","Conclusión","Ejemplos específicos","Referencias bibliográficas"],
     correctAnswer: "Introducción del tema y tesis",
     difficulty: "easy",
@@ -6273,7 +6273,7 @@ const CORE_QUESTIONS: QuizItem[] = [
     id: "cq-ib-p2-5",
     themeId: "sharing-planet",
     type: "mcq",
-    prompt: "[IB Paper 2 - Argumentación] ¿Cuál de estas expresiones introduce un contraargumento?",
+    prompt: "[IB Paper 1 - Argumentación] ¿Cuál de estas expresiones introduce un contraargumento?",
     options: ["No obstante, / Sin embargo,","En resumen,","En primer lugar,","Por lo tanto,"],
     correctAnswer: "No obstante, / Sin embargo,",
     difficulty: "medium",
@@ -7515,7 +7515,7 @@ const CORE_QUESTIONS: QuizItem[] = [
     id: "gap-imp-27",
     themeId: "human-ingenuity",
     type: "mcq",
-    prompt: "[Imperativo - IB Paper 2] En un artículo de instrucciones sobre cómo usar una app: '¡___ (instalar, usted) la aplicación primero!'",
+    prompt: "[Imperativo - IB Paper 1] En un artículo de instrucciones sobre cómo usar una app: '¡___ (instalar, usted) la aplicación primero!'",
     options: ["instale","instala","instalar","instalad"],
     correctAnswer: "instale",
     difficulty: "medium",
@@ -11180,7 +11180,7 @@ function buildVocabQuestions(theme: Theme): QuizItem[] {
       explanation: `Spanish audio: "${v.es}" translates to "${v.en}" in English.`,
     });
 
-    // 6. IB Paper 1 / Reading Comprehension Context Fill-in-the-blank (Spanish context)
+    // 6. IB Paper 2 / Reading Comprehension Context Fill-in-the-blank (Spanish context)
     items.push({
       id: `${theme.id}-v${i}-ib-context`,
       themeId: theme.id,
@@ -11192,7 +11192,7 @@ function buildVocabQuestions(theme: Theme): QuizItem[] {
       explanation: `La palabra adecuada en español es "${v.es}".`,
     });
 
-    // 7. IB Paper 2 / Writing Register & Format Question
+    // 7. IB Paper 1 / Writing Register & Format Question
     // NOTE: this used to quote v.es directly in the prompt ('Si estás
     // escribiendo sobre "${v.es}" (${v.en})...') which handed the MCQ
     // answer to the student for free — the correct option was literally
@@ -11239,7 +11239,7 @@ function buildVocabQuestions(theme: Theme): QuizItem[] {
       explanation: `Oración correcta: "${sentence}".`,
     });
 
-    // 10. True/false meaning-check — mirrors the IB Paper 1 true/false
+    // 10. True/false meaning-check — mirrors the IB Paper 2 true/false
     // format (QuizItemType has no dedicated "true-false" type, so it's
     // answered as typed "verdadero"/"falso", same convention used for
     // true/false answers elsewhere in the app). Capped to the first 20
@@ -12002,7 +12002,7 @@ export const BADGES: Badge[] = [
   {
     id: "escritor-estelar",
     name: "Escritor Estelar",
-    description: "Awarded for submitting your first Paper 2 writing task.",
+    description: "Awarded for submitting your first Paper 1 writing task.",
     criteria: "Submit 1 writing task.",
   },
 ];

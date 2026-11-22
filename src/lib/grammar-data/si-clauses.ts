@@ -19,7 +19,7 @@ interface SiPair {
 // conditional — e.g. "Si tuviera tiempo, viajaría") pairs. This is the
 // natural capstone of Conditional Tense + Present Subjunctive, which were
 // covered separately but never combined into the actual "si" structure IB
-// Paper 2 writing and the Individual Oral both expect.
+// Paper 1 writing and the Individual Oral both expect.
 const PAIRS: SiPair[] = [
   { type: 1, siVerb: "estudiar", siForm: "estudias", siDistractors: ["estudiarías", "estudiaste", "estudies"], siPrefix: "Si ", middle: " mucho, ", mainVerb: "aprobar", mainForm: "aprobarás", mainDistractors: ["apruebas", "aprobaste", "apruebes"], mainSuffix: " el examen." },
   { type: 1, siVerb: "llover", siForm: "llueve", siDistractors: ["llovía", "llovió", "llueva"], siPrefix: "Si ", middle: " mañana, no ", mainVerb: "ir", mainForm: "iremos", mainDistractors: ["vamos", "fuimos", "vayamos"], mainSuffix: " a la playa." },
