@@ -20,6 +20,7 @@ const LINKS = [
   { href: "/grammar/reference", label: "Cheat Sheet" },
   { href: "/audio", label: "Oral Practice" },
   { href: "/practice-exam", label: "Practice Exam" },
+  { href: "/mock-exams", label: "Mock Exams" },
   { href: "/rewards", label: "Rewards" },
 ];
 
