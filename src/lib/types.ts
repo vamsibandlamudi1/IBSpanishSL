@@ -297,6 +297,8 @@ export interface WritingPrompt {
   themeId: string;
   /** The IB text type this prompt asks the student to produce. */
   textType: string;
+  /** The three text types a student may choose from for this task (the first is the primary). */
+  textOptions: string[];
   level: Difficulty;
   /** The task instructions, as they'd appear on the exam paper. */
   instructions: string;

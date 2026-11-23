@@ -18,6 +18,7 @@ export const WRITING_PROMPTS: WritingPrompt[] = [
     id: "writing-identities",
     themeId: "identities",
     textType: "Personal email",
+    textOptions: ["Personal email", "Blog post", "Diary entry"],
     level: "easy",
     instructions:
       "Write an email to a friend describing a change you've made to your lifestyle recently and why. Include how it has affected your sense of identity.",
@@ -36,6 +37,7 @@ export const WRITING_PROMPTS: WritingPrompt[] = [
     id: "writing-experiences",
     themeId: "experiences",
     textType: "Blog post",
+    textOptions: ["Blog post", "Magazine article", "Diary entry"],
     level: "medium",
     instructions:
       "Write a blog post about a trip or experience that taught you something important. Describe what happened and reflect on what you learned.",
@@ -54,6 +56,7 @@ export const WRITING_PROMPTS: WritingPrompt[] = [
     id: "writing-human-ingenuity",
     themeId: "human-ingenuity",
     textType: "Magazine article",
+    textOptions: ["Magazine article", "Blog post", "Opinion essay"],
     level: "medium",
     instructions:
       "Write an article for your school magazine about a piece of technology you think has changed young people's lives, for better or worse.",
@@ -72,6 +75,7 @@ export const WRITING_PROMPTS: WritingPrompt[] = [
     id: "writing-social-organization",
     themeId: "social-organization",
     textType: "Formal letter",
+    textOptions: ["Formal letter", "Proposal", "Speech"],
     level: "hard",
     instructions:
       "Write a formal letter to your local council requesting a new resource for young people in your community (e.g. a youth center, a park, a library program). Explain why it is needed.",
@@ -90,6 +94,7 @@ export const WRITING_PROMPTS: WritingPrompt[] = [
     id: "writing-sharing-planet",
     themeId: "sharing-planet",
     textType: "Interview",
+    textOptions: ["Interview", "Newspaper article", "Speech"],
     level: "hard",
     instructions:
       "Write an interview between a journalist and a young environmental activist about what motivates them and what changes they want to see.",
@@ -110,6 +115,7 @@ export const WRITING_PROMPTS: WritingPrompt[] = [
     id: "writing-identities-2",
     themeId: "identities",
     textType: "Diary entry",
+    textOptions: ["Diary entry", "Blog post", "Personal email"],
     level: "easy",
     instructions:
       "Write a diary entry reflecting on an event that made you think differently about who you are. Describe what happened and how it affected your sense of identity.",
@@ -128,6 +134,7 @@ export const WRITING_PROMPTS: WritingPrompt[] = [
     id: "writing-experiences-2",
     themeId: "experiences",
     textType: "Opinion essay",
+    textOptions: ["Opinion essay", "Magazine article", "Blog post"],
     level: "hard",
     instructions:
       "Write an opinion essay about whether traveling is the best way to learn about the world, compared to other ways like reading or watching documentaries.",
@@ -146,6 +153,7 @@ export const WRITING_PROMPTS: WritingPrompt[] = [
     id: "writing-human-ingenuity-2",
     themeId: "human-ingenuity",
     textType: "Proposal",
+    textOptions: ["Proposal", "Formal letter", "Report"],
     level: "medium",
     instructions:
       "Write a proposal to your school principal suggesting a new piece of technology or app that could improve student life at school.",
@@ -164,6 +172,7 @@ export const WRITING_PROMPTS: WritingPrompt[] = [
     id: "writing-social-organization-2",
     themeId: "social-organization",
     textType: "Set of instructions",
+    textOptions: ["Set of instructions", "Brochure", "Blog post"],
     level: "easy",
     instructions:
       "Write a set of instructions for new students explaining how to get involved in clubs and activities at your school.",
@@ -182,6 +191,7 @@ export const WRITING_PROMPTS: WritingPrompt[] = [
     id: "writing-sharing-planet-2",
     themeId: "sharing-planet",
     textType: "Brochure",
+    textOptions: ["Brochure", "Advertisement", "Newspaper article"],
     level: "medium",
     instructions:
       "Write the text for a brochure encouraging young people in your community to take part in an environmental volunteering project.",
@@ -202,6 +212,7 @@ export const WRITING_PROMPTS: WritingPrompt[] = [
     id: "writing-identities-3",
     themeId: "identities",
     textType: "Social media post",
+    textOptions: ["Social media post", "Blog post", "Diary entry"],
     level: "easy",
     instructions:
       "Write a social media post reflecting on an aspect of your identity (culture, language, beliefs, or interests) that you are proud of, and why it matters to you.",
@@ -220,6 +231,7 @@ export const WRITING_PROMPTS: WritingPrompt[] = [
     id: "writing-experiences-3",
     themeId: "experiences",
     textType: "Postcard",
+    textOptions: ["Postcard", "Personal email", "Diary entry"],
     level: "easy",
     instructions:
       "Write a postcard to your family describing a trip you are currently on. Mention where you are, what you've been doing, and how you feel.",
@@ -238,6 +250,7 @@ export const WRITING_PROMPTS: WritingPrompt[] = [
     id: "writing-human-ingenuity-3",
     themeId: "human-ingenuity",
     textType: "Review",
+    textOptions: ["Review", "Blog post", "Magazine article"],
     level: "medium",
     instructions:
       "Write a review of an app, gadget, or piece of technology you use regularly. Describe what it does, what you like and dislike about it, and whether you'd recommend it.",
@@ -256,6 +269,7 @@ export const WRITING_PROMPTS: WritingPrompt[] = [
     id: "writing-social-organization-3",
     themeId: "social-organization",
     textType: "Speech",
+    textOptions: ["Speech", "Opinion essay", "Social media post"],
     level: "hard",
     instructions:
       "Write a speech to persuade your classmates to get involved in a cause or project that matters to your school community.",
@@ -274,6 +288,7 @@ export const WRITING_PROMPTS: WritingPrompt[] = [
     id: "writing-sharing-planet-3",
     themeId: "sharing-planet",
     textType: "Newspaper article",
+    textOptions: ["Newspaper article", "Magazine article", "Report"],
     level: "hard",
     instructions:
       "Write a newspaper article reporting on a local environmental initiative or event (real or invented) that made a positive impact on your community.",
@@ -294,6 +309,7 @@ export const WRITING_PROMPTS: WritingPrompt[] = [
     id: "writing-identities-4",
     themeId: "identities",
     textType: "Formal letter",
+    textOptions: ["Formal letter", "Opinion essay", "Blog post"],
     level: "medium",
     instructions: "Write a formal letter to the editor of a health magazine explaining why you changed your lifestyle habits and encouraging other young people to do the same.",
     instructionsEs: "Escribe una carta formal al director de una revista de salud explicando por qué cambiaste tus hábitos de vida y animando a otros jóvenes a hacer lo mismo.",
@@ -310,6 +326,7 @@ export const WRITING_PROMPTS: WritingPrompt[] = [
     id: "writing-identities-5",
     themeId: "identities",
     textType: "Brochure",
+    textOptions: ["Brochure", "Advertisement", "Social media post"],
     level: "easy",
     instructions: "Design a brochure for a new school wellness program aimed at helping students manage stress and build healthy habits.",
     instructionsEs: "Diseña un folleto para un nuevo programa de bienestar escolar dirigido a ayudar a los estudiantes a manejar el estrés y crear hábitos saludables.",
@@ -326,6 +343,7 @@ export const WRITING_PROMPTS: WritingPrompt[] = [
     id: "writing-identities-6",
     themeId: "identities",
     textType: "Report",
+    textOptions: ["Report", "Proposal", "Opinion essay"],
     level: "hard",
     instructions: "Write a report for your school administration analyzing how multilingualism among students affects their sense of identity and community, based on interviews or observations you invent.",
     instructionsEs: "Escribe un informe para la administración de tu escuela analizando cómo el multilingüismo entre los estudiantes afecta su sentido de identidad y comunidad, basado en entrevistas u observaciones que inventes.",
@@ -342,6 +360,7 @@ export const WRITING_PROMPTS: WritingPrompt[] = [
     id: "writing-identities-7",
     themeId: "identities",
     textType: "Opinion essay",
+    textOptions: ["Opinion essay", "Speech", "Blog post"],
     level: "hard",
     instructions: "Write an opinion essay discussing whether young people should follow the traditions and values of their family or form their own independently.",
     instructionsEs: "Escribe un ensayo de opinión sobre si los jóvenes deben seguir las tradiciones y valores de su familia o formar los suyos propios de manera independiente.",
@@ -358,6 +377,7 @@ export const WRITING_PROMPTS: WritingPrompt[] = [
     id: "writing-identities-8",
     themeId: "identities",
     textType: "Interview",
+    textOptions: ["Interview", "Magazine article", "Blog post"],
     level: "medium",
     instructions: "Write the transcript of an interview with an older family member about what their childhood was like, including at least five questions and answers.",
     instructionsEs: "Escribe la transcripción de una entrevista con un familiar mayor sobre cómo fue su infancia, incluyendo al menos cinco preguntas y respuestas.",
@@ -374,6 +394,7 @@ export const WRITING_PROMPTS: WritingPrompt[] = [
     id: "writing-identities-9",
     themeId: "identities",
     textType: "Review",
+    textOptions: ["Review", "Blog post", "Social media post"],
     level: "easy",
     instructions: "Write a review of a wellness app or fitness program you have used, describing its features and whether you would recommend it.",
     instructionsEs: "Escribe una reseña de una aplicación de bienestar o programa de ejercicio que hayas usado, describiendo sus características y si la recomendarías.",
@@ -390,6 +411,7 @@ export const WRITING_PROMPTS: WritingPrompt[] = [
     id: "writing-identities-10",
     themeId: "identities",
     textType: "Set of instructions",
+    textOptions: ["Set of instructions", "Brochure", "Blog post"],
     level: "easy",
     instructions: "Write a set of instructions for classmates explaining how to build a simple morning routine that supports physical and mental well-being.",
     instructionsEs: "Escribe una guía de instrucciones para tus compañeros explicando cómo crear una rutina matutina sencilla que favorezca el bienestar físico y mental.",
@@ -407,6 +429,7 @@ export const WRITING_PROMPTS: WritingPrompt[] = [
     id: "writing-experiences-4",
     themeId: "experiences",
     textType: "Formal letter",
+    textOptions: ["Formal letter", "Review", "Blog post"],
     level: "medium",
     instructions:
       "You recently went on a guided tour organized by a travel agency, but several things went wrong (delays, poor accommodation, an unqualified guide). Write a formal email to the agency describing the problems you experienced and requesting a partial refund or compensation.",
@@ -425,6 +448,7 @@ export const WRITING_PROMPTS: WritingPrompt[] = [
     id: "writing-experiences-5",
     themeId: "experiences",
     textType: "Magazine article",
+    textOptions: ["Magazine article", "Blog post", "Brochure"],
     level: "medium",
     instructions:
       "Write an article for a youth travel magazine about a unique local festival or celebration in your region. Explain its traditions, history, and why young readers should experience it at least once.",
@@ -443,6 +467,7 @@ export const WRITING_PROMPTS: WritingPrompt[] = [
     id: "writing-experiences-6",
     themeId: "experiences",
     textType: "Interview",
+    textOptions: ["Interview", "Magazine article", "Blog post"],
     level: "hard",
     instructions:
       "For a school project on family traditions, write the transcript of an interview you conducted with an older relative about a coming-of-age ceremony or rite of passage they experienced (e.g. a quinceañera, a religious ceremony, a graduation tradition).",
@@ -461,6 +486,7 @@ export const WRITING_PROMPTS: WritingPrompt[] = [
     id: "writing-experiences-7",
     themeId: "experiences",
     textType: "Speech",
+    textOptions: ["Speech", "Blog post", "Opinion essay"],
     level: "hard",
     instructions:
       "Write the text of a speech to be delivered at a school assembly, sharing the personal experience of someone who migrated to a new country (yourself, a family member, or an invented character), and encouraging classmates to be more empathetic towards immigrants.",
@@ -479,6 +505,7 @@ export const WRITING_PROMPTS: WritingPrompt[] = [
     id: "writing-experiences-8",
     themeId: "experiences",
     textType: "Brochure",
+    textOptions: ["Brochure", "Advertisement", "Social media post"],
     level: "easy",
     instructions:
       "Write a brochure for a travel company promoting a two-week cultural exchange trip for teenagers to a Spanish-speaking country. Describe the itinerary, activities, host families, and the price.",
@@ -497,6 +524,7 @@ export const WRITING_PROMPTS: WritingPrompt[] = [
     id: "writing-experiences-9",
     themeId: "experiences",
     textType: "Set of instructions",
+    textOptions: ["Set of instructions", "Blog post", "Brochure"],
     level: "easy",
     instructions:
       "Write a step-by-step guide for a friend explaining how to plan and organize a memorable surprise birthday celebration, from choosing a theme to the day of the event.",
@@ -515,6 +543,7 @@ export const WRITING_PROMPTS: WritingPrompt[] = [
     id: "writing-experiences-10",
     themeId: "experiences",
     textType: "Review",
+    textOptions: ["Review", "Blog post", "Magazine article"],
     level: "medium",
     instructions:
       "Write a review for a book blog of a memoir or autobiography (real or invented) that tells the personal story of someone's life-changing journey or transformation. Describe the book's content and explain whether you would recommend it.",
@@ -534,6 +563,7 @@ export const WRITING_PROMPTS: WritingPrompt[] = [
     id: "writing-human-ingenuity-4",
     themeId: "human-ingenuity",
     textType: "Blog post",
+    textOptions: ["Blog post", "Review", "Social media post"],
     level: "easy",
     instructions:
       "Write a blog post recommending a streaming series or film you recently watched to your readers. Explain what it is about, what you liked about it, and why others should watch it.",
@@ -552,6 +582,7 @@ export const WRITING_PROMPTS: WritingPrompt[] = [
     id: "writing-human-ingenuity-5",
     themeId: "human-ingenuity",
     textType: "Formal letter",
+    textOptions: ["Formal letter", "Personal email", "Review"],
     level: "medium",
     instructions:
       "Write a formal letter to a technology company complaining about a smartphone that stopped working shortly after purchase, requesting a repair or a refund.",
@@ -570,6 +601,7 @@ export const WRITING_PROMPTS: WritingPrompt[] = [
     id: "writing-human-ingenuity-6",
     themeId: "human-ingenuity",
     textType: "Report",
+    textOptions: ["Report", "Proposal", "Opinion essay"],
     level: "hard",
     instructions:
       "Write a report for your school council evaluating a recent technology fair held at your school, including its strengths, weaknesses, and recommendations for next year.",
@@ -588,6 +620,7 @@ export const WRITING_PROMPTS: WritingPrompt[] = [
     id: "writing-human-ingenuity-7",
     themeId: "human-ingenuity",
     textType: "Speech",
+    textOptions: ["Speech", "Opinion essay", "Social media post"],
     level: "medium",
     instructions:
       "Write the text of a speech to give at a school assembly about the responsible use of social media among teenagers.",
@@ -606,6 +639,7 @@ export const WRITING_PROMPTS: WritingPrompt[] = [
     id: "writing-human-ingenuity-8",
     themeId: "human-ingenuity",
     textType: "Set of instructions",
+    textOptions: ["Set of instructions", "Brochure", "Blog post"],
     level: "easy",
     instructions:
       "Write a set of instructions explaining to a classmate how to set up and use a new school email account for the first time.",
@@ -624,6 +658,7 @@ export const WRITING_PROMPTS: WritingPrompt[] = [
     id: "writing-human-ingenuity-9",
     themeId: "human-ingenuity",
     textType: "Brochure",
+    textOptions: ["Brochure", "Advertisement", "Newspaper article"],
     level: "medium",
     instructions:
       "Write a brochure for a new city bike-sharing scheme, informing residents how it works, its benefits, and the pricing.",
@@ -642,6 +677,7 @@ export const WRITING_PROMPTS: WritingPrompt[] = [
     id: "writing-human-ingenuity-10",
     themeId: "human-ingenuity",
     textType: "Social media post",
+    textOptions: ["Social media post", "Advertisement", "Blog post"],
     level: "easy",
     instructions:
       "Write a social media post announcing an invention or app you created for a school science fair, encouraging classmates to try it.",
@@ -661,6 +697,7 @@ export const WRITING_PROMPTS: WritingPrompt[] = [
     id: "writing-social-organization-4",
     themeId: "social-organization",
     textType: "Diary entry",
+    textOptions: ["Diary entry", "Personal email", "Blog post"],
     level: "easy",
     instructions: "Write a diary entry about your first week at a new school. Describe how you felt, what surprised you, and how you started to make friends.",
     instructionsEs: "Escribe una entrada de diario sobre tu primera semana en un nuevo colegio. Describe cómo te sentiste, qué te sorprendió y cómo empezaste a hacer amigos.",
@@ -677,6 +714,7 @@ export const WRITING_PROMPTS: WritingPrompt[] = [
     id: "writing-social-organization-5",
     themeId: "social-organization",
     textType: "Magazine article",
+    textOptions: ["Magazine article", "Opinion essay", "Blog post"],
     level: "medium",
     instructions: "Write an article for a youth magazine about the challenges young people face when looking for their first job. Include possible solutions and give your own opinion.",
     instructionsEs: "Escribe un artículo para una revista juvenil sobre los desafíos que enfrentan los jóvenes al buscar su primer trabajo. Incluye posibles soluciones y da tu propia opinión.",
@@ -693,6 +731,7 @@ export const WRITING_PROMPTS: WritingPrompt[] = [
     id: "writing-social-organization-6",
     themeId: "social-organization",
     textType: "Proposal",
+    textOptions: ["Proposal", "Formal letter", "Report"],
     level: "medium",
     instructions: "Write a proposal to your local council suggesting improvements to a community center in your neighborhood. Explain the current problems and describe your proposed changes and their benefits.",
     instructionsEs: "Escribe una propuesta para el ayuntamiento sugiriendo mejoras para un centro comunitario de tu barrio. Explica los problemas actuales y describe los cambios que propones y sus beneficios.",
@@ -709,6 +748,7 @@ export const WRITING_PROMPTS: WritingPrompt[] = [
     id: "writing-social-organization-7",
     themeId: "social-organization",
     textType: "Report",
+    textOptions: ["Report", "Proposal", "Newspaper article"],
     level: "hard",
     instructions: "Write a report for your school administration about a rise in minor incidents in the school corridors. Summarize the situation, present possible causes, and recommend measures to improve order.",
     instructionsEs: "Escribe un informe para la dirección de tu colegio sobre un aumento de incidentes menores en los pasillos. Resume la situación, presenta posibles causas y recomienda medidas para mejorar el orden.",
@@ -725,6 +765,7 @@ export const WRITING_PROMPTS: WritingPrompt[] = [
     id: "writing-social-organization-8",
     themeId: "social-organization",
     textType: "Advertisement",
+    textOptions: ["Advertisement", "Brochure", "Social media post"],
     level: "easy",
     instructions: "Write an advertisement for a new mentoring program that pairs older and younger neighbors to build stronger friendships in the community. Make it appealing and persuasive.",
     instructionsEs: "Escribe un anuncio para un nuevo programa de mentoría que une a vecinos mayores y jóvenes para crear amistades más fuertes en la comunidad. Hazlo atractivo y persuasivo.",
@@ -741,6 +782,7 @@ export const WRITING_PROMPTS: WritingPrompt[] = [
     id: "writing-social-organization-9",
     themeId: "social-organization",
     textType: "Postcard",
+    textOptions: ["Postcard", "Personal email", "Diary entry"],
     level: "easy",
     instructions: "Write a postcard to a friend describing a community festival you attended in a town you are visiting. Mention what you saw, who you met, and how you felt.",
     instructionsEs: "Escribe una postal a un amigo describiendo un festival comunitario al que asististe en un pueblo que estás visitando. Menciona lo que viste, a quién conociste y cómo te sentiste.",
@@ -757,6 +799,7 @@ export const WRITING_PROMPTS: WritingPrompt[] = [
     id: "writing-social-organization-10",
     themeId: "social-organization",
     textType: "Review",
+    textOptions: ["Review", "Blog post", "Social media post"],
     level: "medium",
     instructions: "Write a review of an online tutoring platform you used to prepare for exams. Describe its features, evaluate its strengths and weaknesses, and say whether you would recommend it.",
     instructionsEs: "Escribe una reseña de una plataforma de tutorías en línea que usaste para prepararte para tus exámenes. Describe sus funciones, evalúa sus puntos fuertes y débiles, y di si la recomendarías.",
@@ -774,6 +817,7 @@ export const WRITING_PROMPTS: WritingPrompt[] = [
     id: "writing-sharing-planet-4",
     themeId: "sharing-planet",
     textType: "Speech",
+    textOptions: ["Speech", "Opinion essay", "Newspaper article"],
     level: "hard",
     instructions: "Write the text of a speech you would give at a school assembly calling for greater youth involvement in peace-building efforts in areas affected by conflict.",
     instructionsEs: "Escribe el texto de un discurso que darías en una asamblea escolar pidiendo una mayor participación juvenil en los esfuerzos de construcción de paz en zonas afectadas por conflictos.",
@@ -790,6 +834,7 @@ export const WRITING_PROMPTS: WritingPrompt[] = [
     id: "writing-sharing-planet-5",
     themeId: "sharing-planet",
     textType: "Blog post",
+    textOptions: ["Blog post", "Diary entry", "Magazine article"],
     level: "medium",
     instructions: "Write a blog post describing a personal experience that changed the way you think about protecting the environment.",
     instructionsEs: "Escribe una entrada de blog describiendo una experiencia personal que cambió tu manera de pensar sobre la protección del medio ambiente.",
@@ -806,6 +851,7 @@ export const WRITING_PROMPTS: WritingPrompt[] = [
     id: "writing-sharing-planet-6",
     themeId: "sharing-planet",
     textType: "Diary entry",
+    textOptions: ["Diary entry", "Blog post", "Personal email"],
     level: "medium",
     instructions: "Write a diary entry reflecting on a day when you witnessed or learned about an act of discrimination and how it made you feel.",
     instructionsEs: "Escribe una entrada de diario reflexionando sobre un día en el que presenciaste o conociste un acto de discriminación y cómo te hizo sentir.",
@@ -822,6 +868,7 @@ export const WRITING_PROMPTS: WritingPrompt[] = [
     id: "writing-sharing-planet-7",
     themeId: "sharing-planet",
     textType: "Formal letter",
+    textOptions: ["Formal letter", "Proposal", "Opinion essay"],
     level: "hard",
     instructions: "Write a formal letter to the director of a multinational company that is opening a large factory in your town, expressing your community's concerns about its impact on local businesses and culture.",
     instructionsEs: "Escribe una carta formal al director de una empresa multinacional que va a abrir una gran fábrica en tu pueblo, expresando las preocupaciones de tu comunidad sobre su impacto en los negocios y la cultura locales.",
@@ -838,6 +885,7 @@ export const WRITING_PROMPTS: WritingPrompt[] = [
     id: "writing-sharing-planet-8",
     themeId: "sharing-planet",
     textType: "Proposal",
+    textOptions: ["Proposal", "Formal letter", "Report"],
     level: "hard",
     instructions: "Write a proposal to your school administration suggesting the introduction of a fair-trade and ethically sourced products policy in the school cafeteria.",
     instructionsEs: "Escribe una propuesta dirigida a la administración de tu colegio sugiriendo la introducción de una política de productos de comercio justo y origen ético en la cafetería escolar.",
@@ -854,6 +902,7 @@ export const WRITING_PROMPTS: WritingPrompt[] = [
     id: "writing-sharing-planet-9",
     themeId: "sharing-planet",
     textType: "Review",
+    textOptions: ["Review", "Blog post", "Social media post"],
     level: "medium",
     instructions: "Write a review of a shop, app, or product that helps consumers make more ethical or sustainable choices.",
     instructionsEs: "Escribe una reseña de una tienda, aplicación o producto que ayuda a los consumidores a tomar decisiones más éticas o sostenibles.",
@@ -870,6 +919,7 @@ export const WRITING_PROMPTS: WritingPrompt[] = [
     id: "writing-sharing-planet-10",
     themeId: "sharing-planet",
     textType: "Social media post",
+    textOptions: ["Social media post", "Advertisement", "Newspaper article"],
     level: "easy",
     instructions: "Write a social media post encouraging your followers to take part in a local river clean-up event you are organizing.",
     instructionsEs: "Escribe una publicación en redes sociales animando a tus seguidores a participar en una jornada de limpieza de un río local que estás organizando.",
@@ -886,6 +936,7 @@ export const WRITING_PROMPTS: WritingPrompt[] = [
     id: "writing-experiences-informal-letter",
     themeId: "experiences",
     textType: "Informal letter",
+    textOptions: ["Informal letter", "Personal email", "Postcard"],
     level: "medium",
     instructions:
       "Write a letter to a friend who lives abroad, describing your most recent visit to their city: what you did together and how you felt about it.",
@@ -904,6 +955,7 @@ export const WRITING_PROMPTS: WritingPrompt[] = [
     id: "writing-sharing-planet-advertisement",
     themeId: "sharing-planet",
     textType: "Advertisement",
+    textOptions: ["Advertisement", "Brochure", "Social media post"],
     level: "easy",
     instructions:
       "Design an advertisement for a school campaign that encourages students to use less plastic. Include a catchy slogan and three reasons why it matters.",
@@ -919,3 +971,26 @@ export const WRITING_PROMPTS: WritingPrompt[] = [
     maxWords: 400,
   },
 ];
+
+/** Format conventions for each text type. The prompt's own formatTips cover its
+ *  primary type; when a student picks one of the other allowed types, these show instead. */
+export const TEXT_TYPE_TIPS: Record<string, string[]> = {
+  "Personal email": ["Subject line, then a greeting (Hola ...,)", "Informal tone: contractions and questions to the reader", "Sign-off such as Un abrazo or Saludos"],
+  "Informal letter": ["Place and date at the top", "Greeting such as Querido/a ...,", "Warm closing such as Un abrazo or Con cariño"],
+  "Formal letter": ["Your address and the date at the top", "Greeting such as Estimado/a Sr./Sra. ... (formal usted)", "Clear purpose, then sign off with Atentamente"],
+  "Blog post": ["Catchy title", "Conversational tone that speaks to readers", "Personal reflection and an invitation to comment"],
+  "Magazine article": ["Headline and subheading", "Engaging opening and clearly organised sections", "Mix of facts, opinion and a quote"],
+  "Newspaper article": ["Headline and byline", "Most important information first (qué, quién, cuándo, dónde)", "Objective register with quotes from people"],
+  "Interview": ["Speaker labels (P: and R:)", "Questions that invite detailed answers", "A short introduction that sets the scene"],
+  "Diary entry": ["Date at the top", "First person, with past tenses and reflection", "Personal feelings and what you learned"],
+  "Opinion essay": ["Clear thesis in the introduction", "Arguments with examples, then a counter-argument", "Conclusion that restates your view"],
+  "Proposal": ["Title and addressee", "Problem, proposed solution and benefits", "Formal register; conditional for suggestions"],
+  "Set of instructions": ["Title", "Numbered steps starting with imperative verbs", "Short sentences in a clear order"],
+  "Brochure": ["Eye-catching title and slogan", "Short sections with headings and bullet points", "Direct, persuasive address to the reader"],
+  "Social media post": ["Short, catchy opening and hashtags", "Informal, direct register", "A clear call to action"],
+  "Postcard": ["Greeting such as Querida familia,", "Short description of the place and how you feel", "Sign-off such as Besos"],
+  "Review": ["Title and rating", "Description, then opinion with pros and cons", "Clear recommendation at the end"],
+  "Speech": ["Greeting to the audience (Buenos días a todos,)", "Rhetorical questions and direct address", "Strong closing call to action"],
+  "Report": ["Title and introduction stating the purpose", "Findings in headed sections", "Objective, formal register with recommendations at the end"],
+  "Advertisement": ["Attention-grabbing headline and slogan", "Benefits in short persuasive phrases", "Clear call to action and contact details"],
+};

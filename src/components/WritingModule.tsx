@@ -2,7 +2,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { WRITING_PROMPTS } from "@/lib/writing";
+import { TEXT_TYPE_TIPS, WRITING_PROMPTS } from "@/lib/writing";
 import { useStore } from "@/lib/store";
 import { WritingPrompt } from "@/lib/types";
 
@@ -41,10 +41,10 @@ function countWords(text: string): number {
  *  request fails): checks length against the target range and points the
  *  student back at the format-tips checklist. Not real grammar/content
  *  grading — just enough to keep the app useful without a key. */
-function buildLocalFeedback(wordCount: number, prompt: WritingPrompt): WritingFeedback {
+function buildLocalFeedback(wordCount: number, prompt: WritingPrompt, textType: string): WritingFeedback {
   const lengthNote =
     wordCount < prompt.minWords
-      ? `Your response is ${wordCount} words — try to reach at least ${prompt.minWords} words for a ${prompt.textType.toLowerCase()}.`
+      ? `Your response is ${wordCount} words — try to reach at least ${prompt.minWords} words for a ${textType.toLowerCase()}.`
       : wordCount > prompt.maxWords
       ? `Your response is ${wordCount} words, a bit over the ${prompt.maxWords}-word target — see if you can be more concise.`
       : `Good length — ${wordCount} words, right in the ${prompt.minWords}-${prompt.maxWords} word target range.`;
@@ -95,6 +95,8 @@ export default function WritingModule() {
   const { submitWriting, lastAward, clearLastAward } = useStore();
 
   const [promptId, setPromptId] = useState(WRITING_PROMPTS[0].id);
+  // The text type the student chose for this task (defaults to the primary one).
+  const [chosenType, setChosenType] = useState<string | null>(null);
   const [text, setText] = useState("");
   const [submittedText, setSubmittedText] = useState("");
   const [submitted, setSubmitted] = useState(false);
@@ -108,11 +110,14 @@ export default function WritingModule() {
   const [planFailed, setPlanFailed] = useState(false);
 
   const prompt = useMemo(() => WRITING_PROMPTS.find((p) => p.id === promptId) ?? WRITING_PROMPTS[0], [promptId]);
+  const writeAs = chosenType && prompt.textOptions.includes(chosenType) ? chosenType : prompt.textType;
+  const tips = writeAs === prompt.textType ? prompt.formatTips : TEXT_TYPE_TIPS[writeAs] ?? prompt.formatTips;
   const wordCount = countWords(text);
   const inRange = wordCount >= prompt.minWords && wordCount <= prompt.maxWords;
 
   const selectPrompt = (id: string) => {
     setPromptId(id);
+    setChosenType(null);
     setText("");
     setSubmitted(false);
     setFeedback(null);
@@ -125,12 +130,12 @@ export default function WritingModule() {
     setAnalyzing(true);
     const aiFeedback = await fetchAiFeedback({
       text,
-      textType: prompt.textType,
+      textType: writeAs,
       instructions: prompt.instructions,
       minWords: prompt.minWords,
       maxWords: prompt.maxWords,
     });
-    const finalFeedback = aiFeedback ?? buildLocalFeedback(wordCount, prompt);
+    const finalFeedback = aiFeedback ?? buildLocalFeedback(wordCount, prompt, writeAs);
     setSubmittedText(text);
     setFeedback(finalFeedback);
     setFeedbackSource(aiFeedback ? "ai" : "local");
@@ -165,7 +170,7 @@ export default function WritingModule() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          textType: prompt.textType,
+          textType: writeAs,
           instructions: prompt.instructions,
           theme: THEME_LABELS[prompt.themeId] ?? prompt.themeId,
           minWords: prompt.minWords,
@@ -220,7 +225,7 @@ export default function WritingModule() {
       <div key={prompt.id} className="animate-fade-slide-up min-w-0 flex-1">
         <div className="mb-4 rounded-xl border border-slate-200 bg-white p-5 shadow-xs">
           <div className="mb-2 flex flex-wrap items-center justify-between gap-2">
-            <h2 className="text-lg font-bold text-slate-900">{prompt.textType}</h2>
+            <h2 className="text-lg font-bold text-slate-900">{writeAs}</h2>
             <span className={`rounded-full px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide ${LEVEL_STYLES[prompt.level]}`}>
               {prompt.level}
             </span>
@@ -228,9 +233,28 @@ export default function WritingModule() {
           <p className="text-sm text-slate-700">{prompt.instructions}</p>
           <p className="mt-1 text-sm italic text-slate-500">{prompt.instructionsEs}</p>
 
+          <p className="mb-1 mt-4 text-sm font-semibold text-slate-800">Choose a text type</p>
+          <div className="mb-3 flex flex-wrap gap-2">
+            {prompt.textOptions.map((opt) => {
+              const active = opt === writeAs;
+              return (
+                <button
+                  key={opt}
+                  type="button"
+                  disabled={submitted}
+                  onClick={() => setChosenType(opt)}
+                  className={`rounded-full border px-3 py-1 text-sm font-medium transition disabled:opacity-60 ${
+                    active ? "border-brand-500 bg-brand-50 text-brand-800" : "border-slate-200 bg-white text-slate-600 hover:border-brand-300"
+                  }`}
+                >
+                  {opt}
+                </button>
+              );
+            })}
+          </div>
           <p className="mb-1 mt-4 text-sm font-semibold text-slate-800">Format tips</p>
           <ul className="flex flex-col gap-1">
-            {prompt.formatTips.map((tip) => (
+            {tips.map((tip) => (
               <li key={tip} className="flex items-start gap-1.5 text-sm text-slate-600">
                 <span className="text-brand-500">✓</span> {tip}
               </li>
