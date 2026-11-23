@@ -3,15 +3,31 @@
 
 import { useMemo, useState } from "react";
 import { useStore } from "@/lib/store";
-import { LISTENING_SETS, ListeningItem } from "@/lib/listening-sets";
+import { LISTENING_SETS, ListeningItem, ListeningSet } from "@/lib/listening-sets";
 import { speak, stopSpeaking } from "@/lib/speech";
 import { answersMatch } from "@/lib/utils";
 
 /** Paper 2 listening practice in the IB style: one text at a time, a maximum mark, the
  *  transcript hidden unless the student opens it, marks per item, and AI help after checking. */
-export default function ListeningExam() {
+/** A question the student got wrong in exam mode, reported back to the practice exam. */
+export interface ExamMiss {
+  prompt: string;
+  studentAnswer: string;
+  correctAnswer: string;
+}
+
+/** With `examSet`, the component runs one set inside the practice exam: no sidebar, no
+ *  transcript toggle, no answers shown, and a Continue button that reports the score. */
+export default function ListeningExam({
+  examSet,
+  onExamDone,
+}: {
+  examSet?: ListeningSet;
+  onExamDone?: (correct: number, total: number, missed: ExamMiss[]) => void;
+} = {}) {
   const [setIndex, setSetIndex] = useState(0);
-  const set = LISTENING_SETS[setIndex];
+  const exam = !!examSet;
+  const set = examSet ?? LISTENING_SETS[setIndex];
   const [answers, setAnswers] = useState<Record<number, string | string[]>>({});
   const [checked, setChecked] = useState(false);
   const [playing, setPlaying] = useState(false);
@@ -83,7 +99,21 @@ export default function ListeningExam() {
     return Math.min(item.marks, count);
   };
 
-  const total = set.items.reduce((n, it, i) => n + (checked ? markItem(it, i) : 0), 0);
+  const total = set.items.reduce((n, it, i) => n + (checked || exam ? markItem(it, i) : 0), 0);
+
+  const finishExam = () => {
+    stopSpeaking();
+    const missed: ExamMiss[] = [];
+    set.items.forEach((it, i) => {
+      if (markItem(it, i) >= it.marks) return;
+      const given = answers[i];
+      const parts = Array.isArray(given) ? given.filter(Boolean) : given ? [given] : [];
+      const studentAnswer = parts.length ? parts.join(", ") : "(sin respuesta)";
+      const correctAnswer = it.kind === "mc" ? it.correct : it.kind === "ms" ? it.correct.join(", ") : it.answers.join(", ");
+      missed.push({ prompt: it.kind === "gap" ? "Completa los espacios en blanco" : it.prompt, studentAnswer, correctAnswer });
+    });
+    onExamDone?.(total, set.totalMarks, missed);
+  };
 
   const askHelp = async () => {
     setHelpState("loading");
@@ -121,7 +151,7 @@ export default function ListeningExam() {
 
   return (
     <div className="flex flex-col gap-6 lg:flex-row lg:items-start">
-      <aside className="lg:sticky lg:top-20 lg:max-h-[calc(100vh-6rem)] lg:w-72 lg:shrink-0 lg:overflow-y-auto lg:pr-1">
+      {!exam && <aside className="lg:sticky lg:top-20 lg:max-h-[calc(100vh-6rem)] lg:w-72 lg:shrink-0 lg:overflow-y-auto lg:pr-1">
         <div className="mb-3 rounded-xl border border-slate-200 bg-white p-3">
           <p className="text-sm font-semibold text-slate-800">
             {LISTENING_SETS.filter((st) => bestBySet.has(st.id)).length} of {LISTENING_SETS.length} completed
@@ -213,7 +243,7 @@ export default function ListeningExam() {
             );
           })}
         </div>
-      </aside>
+      </aside>}
 
       <div className="flex min-w-0 flex-1 flex-col gap-5">
       <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-xs">
@@ -227,9 +257,11 @@ export default function ListeningExam() {
           <button type="button" onClick={togglePlay} className="btn-primary px-4 py-2 text-sm">
             {playing ? "⏹ Stop" : "▶ Play"}
           </button>
-          <button type="button" onClick={() => setShowScript((v) => !v)} className="text-xs font-semibold text-slate-600 underline">
-            {showScript ? "Hide transcript" : "Show transcript (practice only)"}
-          </button>
+          {!exam && (
+            <button type="button" onClick={() => setShowScript((v) => !v)} className="text-xs font-semibold text-slate-600 underline">
+              {showScript ? "Hide transcript" : "Show transcript (practice only)"}
+            </button>
+          )}
         </div>
         {showScript && <p className="mt-3 whitespace-pre-line rounded-md bg-slate-50 p-3 text-sm leading-relaxed text-slate-700">{set.script}</p>}
       </div>
@@ -350,7 +382,7 @@ export default function ListeningExam() {
                       />
                     );
                   })}
-                  {checked && <p className="text-xs text-slate-500">Respuestas válidas: {item.answers.join(" / ")}</p>}
+                  {checked && !exam && <p className="text-xs text-slate-500">Respuestas válidas: {item.answers.join(" / ")}</p>}
                 </div>
               )}
             </div>
@@ -358,7 +390,11 @@ export default function ListeningExam() {
         })}
 
         <div className="mt-2 flex flex-wrap items-center gap-3">
-          {!checked ? (
+          {exam ? (
+            <button type="button" onClick={finishExam} className="btn-accent px-4 py-2 text-sm">
+              Continue →
+            </button>
+          ) : !checked ? (
             <button
               type="button"
               onClick={() => {

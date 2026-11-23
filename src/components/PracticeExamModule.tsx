@@ -3,13 +3,14 @@
 
 import { useEffect, useRef, useState } from "react";
 import { READING_PASSAGES } from "@/lib/reading";
-import { PODCAST_EPISODES } from "@/lib/podcast";
+import { LISTENING_SETS, ListeningSet } from "@/lib/listening-sets";
+import ListeningExam, { ExamMiss } from "./ListeningExam";
 import { GRAMMAR_TOPICS, loadExercises } from "@/lib/grammar";
 import { useStore } from "@/lib/store";
 import { speak, stopSpeaking } from "@/lib/speech";
 import { deriveJustification } from "@/lib/deriveJustification";
 import { answersMatch } from "@/lib/utils";
-import { Difficulty, GrammarExercise, PodcastEpisode, QuizItem, ReadingPassage, ReadingQuestion } from "@/lib/types";
+import { Difficulty, GrammarExercise, QuizItem, ReadingPassage, ReadingQuestion } from "@/lib/types";
 import { LEVEL_STYLES, OPTION_LETTERS } from "@/lib/quizUi";
 import WritingModule from "./WritingModule";
 import AudioAssignmentModule from "./AudioAssignmentModule";
@@ -234,7 +235,7 @@ export default function PracticeExamModule() {
   const [examReadings, setExamReadings] = useState<ReadingPassage[]>([]);
   const [readingIdx, setReadingIdx] = useState(0);
   const readingAcc = useRef<PartAccumulator>(emptyAccumulator());
-  const [examEpisodes, setExamEpisodes] = useState<PodcastEpisode[]>([]);
+  const [examEpisodes, setExamEpisodes] = useState<ListeningSet[]>([]);
   const [listeningIdx, setListeningIdx] = useState(0);
   const listeningAcc = useRef<PartAccumulator>(emptyAccumulator());
   const [examReadingStrategies, setExamReadingStrategies] = useState<ExamQuestion[]>([]);
@@ -266,7 +267,7 @@ export default function PracticeExamModule() {
 
     // Paper 2 listening: three audio episodes from different themes. The
     // transcript stays hidden; the student listens, then answers.
-    setExamEpisodes(pickDistinctThemes(PODCAST_EPISODES, 3));
+    setExamEpisodes(pickDistinctThemes(LISTENING_SETS, 3));
     setListeningIdx(0);
     listeningAcc.current = emptyAccumulator();
 
@@ -318,17 +319,17 @@ export default function PracticeExamModule() {
     setStage("reading-strategies");
   };
 
-  const finishListeningEpisode = (correct: number, total: number, missed: MissedQuestion[]) => {
+  const finishListeningEpisode = (correct: number, total: number, missed: ExamMiss[]) => {
     stopSpeaking();
     const episode = examEpisodes[listeningIdx];
     if (episode) {
-      const award = completeQuiz(`exam-listening-${episode.id}`, episode.level, correct, total);
+      const award = completeQuiz(`exam-listening-${episode.id}`, "medium", correct, total);
       setSectionPoints((p) => p + award.pointsAwarded);
     }
     const acc = listeningAcc.current;
     acc.correct += correct;
     acc.total += total;
-    acc.missed.push(...missed);
+    acc.missed.push(...missed.map((m) => ({ ...m, section: "Listening" })));
     if (listeningIdx + 1 < examEpisodes.length) {
       setListeningIdx(listeningIdx + 1);
       return;
@@ -560,13 +561,16 @@ export default function PracticeExamModule() {
       )}
 
       {stage === "listening" && examEpisodes[listeningIdx] && (
-        <ListeningEpisode
-          key={examEpisodes[listeningIdx].id}
-          episode={examEpisodes[listeningIdx]}
-          index={listeningIdx}
-          total={examEpisodes.length}
-          onContinue={finishListeningEpisode}
-        />
+        <div className="animate-fade-slide-up flex flex-col gap-3">
+          <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
+            Listening {listeningIdx + 1} of {examEpisodes.length}
+          </p>
+          <ListeningExam
+            key={examEpisodes[listeningIdx].id}
+            examSet={examEpisodes[listeningIdx]}
+            onExamDone={finishListeningEpisode}
+          />
+        </div>
       )}
 
       {stage === "grammar" && (
@@ -742,66 +746,6 @@ export default function PracticeExamModule() {
  *  at once on "Check answers" — mirroring ReadingModule's check-as-a-set
  *  pattern, which fits an exam section better than one-question-at-a-time —
  *  then hands the score back to the parent via onContinue. */
-/** Listening passage for the practice exam: the student presses play, hears
- *  the episode, and answers its questions. The transcript is deliberately
- *  hidden, as it is on the real listening paper. */
-function ListeningEpisode({
-  episode,
-  index,
-  total,
-  onContinue,
-}: {
-  episode: PodcastEpisode;
-  index: number;
-  total: number;
-  onContinue: (correct: number, total: number, missed: MissedQuestion[]) => void;
-}) {
-  const [playing, setPlaying] = useState(false);
-  const [played, setPlayed] = useState(false);
-
-  useEffect(() => () => stopSpeaking(), []);
-
-  const togglePlay = () => {
-    if (playing) {
-      stopSpeaking();
-      setPlaying(false);
-      return;
-    }
-    setPlaying(true);
-    speak(episode.bodyEs, () => {
-      setPlaying(false);
-      setPlayed(true);
-    });
-  };
-
-  const items = episode.questions.map((q) => readingToExam(q, episode));
-
-  return (
-    <div className="animate-fade-slide-up flex flex-col gap-4">
-      <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
-        Listening {index + 1} of {total}
-      </p>
-      <div className="flex flex-col gap-3 rounded-xl border border-slate-200 bg-white p-5 shadow-xs sm:flex-row sm:items-center">
-        <div className="flex-1">
-          <h2 className="text-lg font-bold text-slate-900">{episode.title}</h2>
-          <p className="mt-1 text-sm text-slate-500">{episode.description}</p>
-        </div>
-        <button type="button" onClick={togglePlay} className="btn-primary shrink-0 px-5 py-2.5">
-          {playing ? "■ Stop" : played ? "▶ Listen again" : "▶ Play audio"}
-        </button>
-      </div>
-      <p className="text-xs text-slate-400">
-        Listen to the whole episode before answering. The transcript is hidden, as in the real exam.
-      </p>
-      <QuestionSetSection
-        items={items}
-        onContinue={onContinue}
-        continueLabel={index + 1 < total ? "Next listening →" : "Continue to Grammar →"}
-      />
-    </div>
-  );
-}
-
 function QuestionSetSection({
   items,
   onContinue,
