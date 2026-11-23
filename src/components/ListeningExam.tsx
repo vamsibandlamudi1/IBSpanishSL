@@ -146,7 +146,7 @@ export default function ListeningExam() {
           </div>
         </div>
         <div className="flex flex-col gap-3">
-          {themes.map((th) => {
+          {themes.map((th, ti) => {
             const sets = LISTENING_SETS.map((st, i) => ({ st, i })).filter(({ st }) => st.themeId === th.id);
             if (sets.length === 0) return null;
             const done = sets.filter(({ st }) => bestBySet.has(st.id)).length;
@@ -160,8 +160,17 @@ export default function ListeningExam() {
                     {done}/{sets.length}
                   </span>
                 </div>
-                <div className="flex flex-col gap-1.5">
-                  {visible.map(({ st, i }) => {
+                <div className="flex flex-col gap-3">
+                  {th.subtopics.map((sub, si) => {
+                    const group = visible.filter(({ st }) => st.subtopic === sub);
+                    if (group.length === 0) return null;
+                    return (
+                      <div key={sub}>
+                        <p className="mb-1 px-1 text-[11px] font-semibold text-slate-400">
+                          {ti + 1}.{si + 1} - {sub}
+                        </p>
+                        <div className="flex flex-col gap-1.5">
+                  {group.map(({ st, i }) => {
                     const active = i === setIndex;
                     const best = bestBySet.get(st.id);
                     return (
@@ -193,6 +202,10 @@ export default function ListeningExam() {
                           </div>
                         </div>
                       </button>
+                    );
+                  })}
+                        </div>
+                      </div>
                     );
                   })}
                 </div>

@@ -11328,6 +11328,7 @@ export const AUDIO_TASKS: AudioTask[] = [
   {
     id: "audio-identities-lifestyles",
     themeId: "identities",
+    subtopic: "Estilos de vida",
     imageDescription:
       "A teenager looking at their reflection in a mirror, surrounded by items representing different hobbies (a guitar, a soccer ball, books).",
     imageDescriptionEs:
@@ -11343,6 +11344,7 @@ export const AUDIO_TASKS: AudioTask[] = [
   {
     id: "audio-identities-health",
     themeId: "identities",
+    subtopic: "Salud y bienestar",
     imageDescription:
       "A doctor's waiting room with patients reading magazines, a nurse calling a name, and health posters on the wall.",
     imageDescriptionEs:
@@ -11358,6 +11360,7 @@ export const AUDIO_TASKS: AudioTask[] = [
   {
     id: "audio-identities-language",
     themeId: "identities",
+    subtopic: "Lengua e identidad",
     imageDescription:
       "Two friends from different countries talking at a school International Day event, each wearing traditional clothing.",
     imageDescriptionEs:
@@ -11373,6 +11376,7 @@ export const AUDIO_TASKS: AudioTask[] = [
   {
     id: "audio-identities-beliefs",
     themeId: "identities",
+    subtopic: "Creencias y valores",
     imageDescription:
       "A family sitting together at a dinner table, having a serious conversation, with an older relative speaking.",
     imageDescriptionEs:
@@ -11387,6 +11391,7 @@ export const AUDIO_TASKS: AudioTask[] = [
   {
     id: "audio-identities-childhood",
     themeId: "identities",
+    subtopic: "Estilos de vida",
     imageDescription:
       "A teenager's bedroom wall covered with childhood photos, drawings, and a graduation cap on the desk.",
     imageDescriptionEs:
@@ -11402,6 +11407,7 @@ export const AUDIO_TASKS: AudioTask[] = [
   {
     id: "audio-experiences-travel",
     themeId: "experiences",
+    subtopic: "Vacaciones y viajes",
     imageDescription:
       "A family with suitcases at an airport, checking a departures board, looking excited.",
     imageDescriptionEs:
@@ -11417,6 +11423,7 @@ export const AUDIO_TASKS: AudioTask[] = [
   {
     id: "audio-experiences-holidays",
     themeId: "experiences",
+    subtopic: "Costumbres y tradiciones",
     imageDescription:
       "A large family gathered around a table full of festive food, with decorations and lights around the room.",
     imageDescriptionEs:
@@ -11430,6 +11437,7 @@ export const AUDIO_TASKS: AudioTask[] = [
   {
     id: "audio-experiences-rites",
     themeId: "experiences",
+    subtopic: "Ritos de paso",
     imageDescription:
       "A group of students in graduation gowns throwing their caps in the air outside a school building.",
     imageDescriptionEs:
@@ -11443,6 +11451,7 @@ export const AUDIO_TASKS: AudioTask[] = [
   {
     id: "audio-experiences-migration",
     themeId: "experiences",
+    subtopic: "Migración",
     imageDescription:
       "A family unpacking boxes in a new apartment in an unfamiliar city, looking both tired and hopeful.",
     imageDescriptionEs:
@@ -11457,6 +11466,7 @@ export const AUDIO_TASKS: AudioTask[] = [
   {
     id: "audio-experiences-personal-stories",
     themeId: "experiences",
+    subtopic: "Historias de vida",
     imageDescription:
       "An elderly person showing a photo album to a teenager, both smiling and pointing at an old picture.",
     imageDescriptionEs:
@@ -11472,6 +11482,7 @@ export const AUDIO_TASKS: AudioTask[] = [
   {
     id: "audio-human-ingenuity-entertainment",
     themeId: "human-ingenuity",
+    subtopic: "Entretenimiento",
     imageDescription:
       "A group of friends playing video games together in a living room, laughing and holding controllers.",
     imageDescriptionEs:
@@ -11485,6 +11496,7 @@ export const AUDIO_TASKS: AudioTask[] = [
   {
     id: "audio-human-ingenuity-innovation",
     themeId: "human-ingenuity",
+    subtopic: "Innovación científica",
     imageDescription:
       "A young inventor in a garage workshop building a small solar-powered device, surrounded by tools and sketches.",
     imageDescriptionEs:
@@ -11499,6 +11511,7 @@ export const AUDIO_TASKS: AudioTask[] = [
   {
     id: "audio-human-ingenuity-communication",
     themeId: "human-ingenuity",
+    subtopic: "Comunicación y medios",
     imageDescription:
       "A teenager scrolling through social media on a smartphone late at night in bed, the room dark except for the screen's glow.",
     imageDescriptionEs:
@@ -11512,6 +11525,7 @@ export const AUDIO_TASKS: AudioTask[] = [
   {
     id: "audio-human-ingenuity-technology",
     themeId: "human-ingenuity",
+    subtopic: "Tecnología",
     imageDescription:
       "A group of students in a classroom using tablets and a robot to complete a science project.",
     imageDescriptionEs:
@@ -11527,6 +11541,7 @@ export const AUDIO_TASKS: AudioTask[] = [
   {
     id: "audio-human-ingenuity-transport",
     themeId: "human-ingenuity",
+    subtopic: "Tecnología",
     imageDescription:
       "A busy city street with electric scooters, bicycles, and a public bus, with cyclists wearing helmets.",
     imageDescriptionEs:
@@ -11543,6 +11558,7 @@ export const AUDIO_TASKS: AudioTask[] = [
   {
     id: "audio-social-organization-education",
     themeId: "social-organization",
+    subtopic: "Educación",
     imageDescription:
       "A classroom of students raising their hands eagerly while a teacher points to a diagram on the whiteboard.",
     imageDescriptionEs:
@@ -11556,6 +11572,7 @@ export const AUDIO_TASKS: AudioTask[] = [
   {
     id: "audio-social-organization-employment",
     themeId: "social-organization",
+    subtopic: "El mundo laboral",
     imageDescription:
       "A young person in a job interview, sitting across from two interviewers at a table with a resume.",
     imageDescriptionEs:
@@ -11569,6 +11586,7 @@ export const AUDIO_TASKS: AudioTask[] = [
   {
     id: "audio-social-organization-community",
     themeId: "social-organization",
+    subtopic: "Comunidad",
     imageDescription: "Volunteers organizing donated food and clothing at a community center.",
     imageDescriptionEs: "Voluntarios organizando alimentos y ropa donados en un centro comunitario.",
     instructions: "Describe the scene, then discuss the importance of community involvement or volunteering.",
@@ -11581,6 +11599,7 @@ export const AUDIO_TASKS: AudioTask[] = [
   {
     id: "audio-social-organization-relationships",
     themeId: "social-organization",
+    subtopic: "Relaciones sociales",
     imageDescription: "Two teenagers sitting on a park bench, one comforting the other who looks upset.",
     imageDescriptionEs:
       "Dos adolescentes sentados en un banco del parque, uno consolando al otro que parece disgustado.",
@@ -11594,6 +11613,7 @@ export const AUDIO_TASKS: AudioTask[] = [
   {
     id: "audio-social-organization-law",
     themeId: "social-organization",
+    subtopic: "Ley y orden",
     imageDescription: "People lining up to vote at a polling station, with volunteers checking identification.",
     imageDescriptionEs:
       "Personas haciendo fila para votar en un centro de votación, con voluntarios revisando identificaciones.",
@@ -11609,6 +11629,7 @@ export const AUDIO_TASKS: AudioTask[] = [
   {
     id: "audio-sharing-planet-environment",
     themeId: "sharing-planet",
+    subtopic: "El medio ambiente",
     imageDescription:
       "A group of people cleaning up plastic waste on a beach, with recycling bins nearby.",
     imageDescriptionEs:
@@ -11624,6 +11645,7 @@ export const AUDIO_TASKS: AudioTask[] = [
   {
     id: "audio-sharing-planet-human-rights",
     themeId: "sharing-planet",
+    subtopic: "Derechos humanos",
     imageDescription: "A group of diverse students holding signs about equality at a peaceful school assembly.",
     imageDescriptionEs:
       "Un grupo de estudiantes diversos sosteniendo carteles sobre la igualdad en una asamblea escolar pacífica.",
@@ -11636,6 +11658,7 @@ export const AUDIO_TASKS: AudioTask[] = [
   {
     id: "audio-sharing-planet-peace",
     themeId: "sharing-planet",
+    subtopic: "Paz y conflicto",
     imageDescription:
       "Two youth delegations shaking hands at an international peace conference, with flags from different countries in the background.",
     imageDescriptionEs:
@@ -11649,6 +11672,7 @@ export const AUDIO_TASKS: AudioTask[] = [
   {
     id: "audio-sharing-planet-globalization",
     themeId: "sharing-planet",
+    subtopic: "Globalización",
     imageDescription:
       "A busy market stall selling products from many different countries, with customers of different nationalities browsing.",
     imageDescriptionEs:
@@ -11663,6 +11687,7 @@ export const AUDIO_TASKS: AudioTask[] = [
   {
     id: "audio-sharing-planet-consumption",
     themeId: "sharing-planet",
+    subtopic: "Ética",
     imageDescription:
       "A person comparing two products in a supermarket, one with a fair-trade label and one without.",
     imageDescriptionEs:
@@ -11679,6 +11704,7 @@ export const AUDIO_TASKS: AudioTask[] = [
   {
     id: "audio-identities-lifestyles-2",
     themeId: "identities",
+    subtopic: "Estilos de vida",
     imageDescription:
       "A student choosing between a salad and fast food at a school cafeteria, with a gym bag and a video game controller visible nearby.",
     imageDescriptionEs:
@@ -11692,6 +11718,7 @@ export const AUDIO_TASKS: AudioTask[] = [
   {
     id: "audio-identities-health-2",
     themeId: "identities",
+    subtopic: "Salud y bienestar",
     imageDescription:
       "A group of teenagers doing yoga together in a park at sunrise, with water bottles and mats spread on the grass.",
     imageDescriptionEs:
@@ -11705,6 +11732,7 @@ export const AUDIO_TASKS: AudioTask[] = [
   {
     id: "audio-identities-language-2",
     themeId: "identities",
+    subtopic: "Lengua e identidad",
     imageDescription:
       "A classroom with students' flags from many countries pinned to a world map, and a teacher pointing to different regions.",
     imageDescriptionEs:
@@ -11718,6 +11746,7 @@ export const AUDIO_TASKS: AudioTask[] = [
   {
     id: "audio-identities-beliefs-2",
     themeId: "identities",
+    subtopic: "Creencias y valores",
     imageDescription:
       "A teenager reading quietly in a place of worship, sunlight streaming through a stained-glass window.",
     imageDescriptionEs:
@@ -11732,6 +11761,7 @@ export const AUDIO_TASKS: AudioTask[] = [
   {
     id: "audio-identities-childhood-2",
     themeId: "identities",
+    subtopic: "Estilos de vida",
     imageDescription:
       "An old family photo album open on a table, next to a smartphone showing a recent photo of the same person.",
     imageDescriptionEs:
@@ -11748,6 +11778,7 @@ export const AUDIO_TASKS: AudioTask[] = [
   {
     id: "audio-experiences-travel-2",
     themeId: "experiences",
+    subtopic: "Vacaciones y viajes",
     imageDescription: "A family checking a departures board at an airport, surrounded by suitcases and boarding passes.",
     imageDescriptionEs:
       "Una familia consultando el panel de salidas en un aeropuerto, rodeada de maletas y tarjetas de embarque.",
@@ -11760,6 +11791,7 @@ export const AUDIO_TASKS: AudioTask[] = [
   {
     id: "audio-experiences-holidays-2",
     themeId: "experiences",
+    subtopic: "Costumbres y tradiciones",
     imageDescription: "A town square decorated with lights and a large crowd dancing during a local festival.",
     imageDescriptionEs:
       "Una plaza del pueblo decorada con luces y una gran multitud bailando durante un festival local.",
@@ -11772,6 +11804,7 @@ export const AUDIO_TASKS: AudioTask[] = [
   {
     id: "audio-experiences-rites-2",
     themeId: "experiences",
+    subtopic: "Ritos de paso",
     imageDescription: "A young person receiving a driver's license from an instructor outside a driving school.",
     imageDescriptionEs:
       "Un joven recibiendo su carné de conducir de manos de un instructor fuera de una autoescuela.",
@@ -11784,6 +11817,7 @@ export const AUDIO_TASKS: AudioTask[] = [
   {
     id: "audio-experiences-migration-2",
     themeId: "experiences",
+    subtopic: "Migración",
     imageDescription: "A moving truck parked outside a house, with boxes labeled in two different languages.",
     imageDescriptionEs:
       "Un camión de mudanzas aparcado frente a una casa, con cajas etiquetadas en dos idiomas diferentes.",
@@ -11797,6 +11831,7 @@ export const AUDIO_TASKS: AudioTask[] = [
   {
     id: "audio-experiences-personal-stories-2",
     themeId: "experiences",
+    subtopic: "Historias de vida",
     imageDescription: "An elderly grandparent telling a story to grandchildren gathered around a campfire.",
     imageDescriptionEs:
       "Un abuelo mayor contando una historia a sus nietos reunidos alrededor de una fogata.",
@@ -11811,6 +11846,7 @@ export const AUDIO_TASKS: AudioTask[] = [
   {
     id: "audio-human-ingenuity-entertainment-2",
     themeId: "human-ingenuity",
+    subtopic: "Entretenimiento",
     imageDescription: "A group of friends playing a board game together at a kitchen table, phones set aside.",
     imageDescriptionEs:
       "Un grupo de amigos jugando juntos a un juego de mesa en la cocina, con los teléfonos apartados.",
@@ -11823,6 +11859,7 @@ export const AUDIO_TASKS: AudioTask[] = [
   {
     id: "audio-human-ingenuity-innovation-2",
     themeId: "human-ingenuity",
+    subtopic: "Innovación científica",
     imageDescription: "A student presenting a homemade robot to judges at a school science fair.",
     imageDescriptionEs: "Un estudiante presentando un robot casero a los jueces en una feria de ciencias del colegio.",
     instructions: "Describe the scene, then talk about an invention you think has changed the world.",
@@ -11834,6 +11871,7 @@ export const AUDIO_TASKS: AudioTask[] = [
   {
     id: "audio-human-ingenuity-communication-2",
     themeId: "human-ingenuity",
+    subtopic: "Comunicación y medios",
     imageDescription: "A teenager video-calling a relative in another country, both laughing and waving at the screen.",
     imageDescriptionEs:
       "Un adolescente haciendo una videollamada con un familiar en otro país, ambos riendo y saludando a la pantalla.",
@@ -11847,6 +11885,7 @@ export const AUDIO_TASKS: AudioTask[] = [
   {
     id: "audio-human-ingenuity-technology-2",
     themeId: "human-ingenuity",
+    subtopic: "Tecnología",
     imageDescription: "A pair of hands typing on a laptop covered in stickers, with headphones and a coding book nearby.",
     imageDescriptionEs:
       "Un par de manos escribiendo en un portátil cubierto de pegatinas, con auriculares y un libro de programación cerca.",
@@ -11859,6 +11898,7 @@ export const AUDIO_TASKS: AudioTask[] = [
   {
     id: "audio-human-ingenuity-transport-2",
     themeId: "human-ingenuity",
+    subtopic: "Tecnología",
     imageDescription: "A busy bicycle-sharing station in a city center, with commuters unlocking bikes during rush hour.",
     imageDescriptionEs:
       "Una estación concurrida de bicicletas compartidas en el centro de una ciudad, con viajeros desbloqueando bicicletas en hora punta.",
@@ -11874,6 +11914,7 @@ export const AUDIO_TASKS: AudioTask[] = [
   {
     id: "audio-social-organization-education-2",
     themeId: "social-organization",
+    subtopic: "Educación",
     imageDescription: "A tutor helping a younger student with homework at a public library table.",
     imageDescriptionEs: "Un tutor ayudando a un estudiante más joven con la tarea en una mesa de la biblioteca pública.",
     instructions: "Describe the scene, then talk about a teacher or mentor who has influenced you.",
@@ -11885,6 +11926,7 @@ export const AUDIO_TASKS: AudioTask[] = [
   {
     id: "audio-social-organization-employment-2",
     themeId: "social-organization",
+    subtopic: "El mundo laboral",
     imageDescription: "A teenager handing a résumé to a shop manager during a part-time job interview.",
     imageDescriptionEs:
       "Un adolescente entregando su currículum a un gerente de tienda durante una entrevista para un trabajo a tiempo parcial.",
@@ -11897,6 +11939,7 @@ export const AUDIO_TASKS: AudioTask[] = [
   {
     id: "audio-social-organization-community-2",
     themeId: "social-organization",
+    subtopic: "Comunidad",
     imageDescription: "Neighbors of different ages working together to plant trees in a shared community garden.",
     imageDescriptionEs:
       "Vecinos de diferentes edades trabajando juntos para plantar árboles en un huerto comunitario compartido.",
@@ -11909,6 +11952,7 @@ export const AUDIO_TASKS: AudioTask[] = [
   {
     id: "audio-social-organization-relationships-2",
     themeId: "social-organization",
+    subtopic: "Relaciones sociales",
     imageDescription: "Two friends sitting on a bench, one comforting the other after an argument.",
     imageDescriptionEs: "Dos amigos sentados en un banco, uno consolando al otro después de una discusión.",
     instructions: "Describe the scene, then talk about what makes a friendship last.",
@@ -11920,6 +11964,7 @@ export const AUDIO_TASKS: AudioTask[] = [
   {
     id: "audio-social-organization-law-2",
     themeId: "social-organization",
+    subtopic: "Ley y orden",
     imageDescription: "Students role-playing a courtroom scene in a classroom, with one acting as judge.",
     imageDescriptionEs: "Estudiantes representando una escena de juicio en el aula, con uno haciendo de juez.",
     instructions: "Describe the scene, then talk about why rules and laws are important in society.",
@@ -11934,6 +11979,7 @@ export const AUDIO_TASKS: AudioTask[] = [
   {
     id: "audio-sharing-planet-environment-2",
     themeId: "sharing-planet",
+    subtopic: "El medio ambiente",
     imageDescription: "Volunteers in matching t-shirts collecting plastic bottles along a riverbank.",
     imageDescriptionEs: "Voluntarios con camisetas iguales recogiendo botellas de plástico a orillas de un río.",
     instructions: "Describe the scene, then talk about one change you could make to help the environment.",
@@ -11945,6 +11991,7 @@ export const AUDIO_TASKS: AudioTask[] = [
   {
     id: "audio-sharing-planet-human-rights-2",
     themeId: "sharing-planet",
+    subtopic: "Derechos humanos",
     imageDescription: "A crowd holding handmade signs at a peaceful march in a city square.",
     imageDescriptionEs: "Una multitud sosteniendo carteles hechos a mano en una marcha pacífica en la plaza de una ciudad.",
     instructions: "Describe the scene, then talk about a human right you believe deserves more attention.",
@@ -11956,6 +12003,7 @@ export const AUDIO_TASKS: AudioTask[] = [
   {
     id: "audio-sharing-planet-peace-2",
     themeId: "sharing-planet",
+    subtopic: "Paz y conflicto",
     imageDescription: "Students from two rival schools shaking hands before a friendly sports match.",
     imageDescriptionEs: "Estudiantes de dos escuelas rivales dándose la mano antes de un partido deportivo amistoso.",
     instructions: "Describe the scene, then talk about how sport can help build peace between groups.",
@@ -11967,6 +12015,7 @@ export const AUDIO_TASKS: AudioTask[] = [
   {
     id: "audio-sharing-planet-globalization-2",
     themeId: "sharing-planet",
+    subtopic: "Globalización",
     imageDescription: "A supermarket shelf stocked with fruit labeled from many different countries.",
     imageDescriptionEs: "Una estantería de supermercado llena de fruta etiquetada de muchos países diferentes.",
     instructions: "Describe the scene, then talk about a positive and a negative effect of globalization.",
@@ -11978,6 +12027,7 @@ export const AUDIO_TASKS: AudioTask[] = [
   {
     id: "audio-sharing-planet-consumption-2",
     themeId: "sharing-planet",
+    subtopic: "Ética",
     imageDescription: "A teenager choosing a reusable water bottle over a single-use plastic one in a store aisle.",
     imageDescriptionEs:
       "Un adolescente eligiendo una botella de agua reutilizable en lugar de una de plástico desechable en el pasillo de una tienda.",
@@ -11987,6 +12037,96 @@ export const AUDIO_TASKS: AudioTask[] = [
     sceneEmoji: ["🚰", "🚯", "🧑"],
     maxDurationSeconds: 240,
   },
+  {
+    id: "audio-identities-subcultures",
+    themeId: "identities",
+    subtopic: "Subculturas",
+    imageDescription:
+      "Teenagers in alternative clothing at a local live music gig, sharing a playlist on their phones.",
+    imageDescriptionEs:
+      "Adolescentes con ropa alternativa en un concierto local, compartiendo una lista de música en sus teléfonos.",
+    instructions:
+      "Describe the scene, then talk about a youth group or style you feel you belong to, and what it means to you.",
+    instructionsEs:
+      "Describe la escena y luego habla de un grupo juvenil o un estilo al que sientes que perteneces, y qué significa para ti.",
+    sceneEmoji: ["🎸", "🎧", "🤘"],
+    maxDurationSeconds: 240,
+  },
+  {
+    id: "audio-experiences-recreation",
+    themeId: "experiences",
+    subtopic: "Actividades recreativas",
+    imageDescription:
+      "Friends hiking up a mountain trail, cycling, and playing a board game at a campsite in the evening.",
+    imageDescriptionEs:
+      "Amigos caminando por un sendero de montaña, en bicicleta y jugando a un juego de mesa en un campamento por la noche.",
+    instructions:
+      "Describe the scene, then talk about how you like to spend your free time and why it matters to you.",
+    instructionsEs:
+      "Describe la escena y luego habla de cómo te gusta pasar tu tiempo libre y por qué es importante para ti.",
+    sceneEmoji: ["🥾", "🚴", "🎲"],
+    maxDurationSeconds: 240,
+  },
+  {
+    id: "audio-human-ingenuity-arts",
+    themeId: "human-ingenuity",
+    subtopic: "Expresiones artísticas",
+    imageDescription:
+      "A young painter working on a large mural on a city wall, with passers-by stopping to watch.",
+    imageDescriptionEs:
+      "Una joven pintora trabajando en un gran mural en una pared de la ciudad, con transeúntes que se detienen a mirar.",
+    instructions:
+      "Describe the scene, then talk about an artistic activity you enjoy or an artist whose work you admire.",
+    instructionsEs:
+      "Describe la escena y luego habla de una actividad artística que disfrutas o de un artista cuya obra admiras.",
+    sceneEmoji: ["🎨", "🖌️", "🏙️"],
+    maxDurationSeconds: 240,
+  },
+  {
+    id: "audio-social-organization-participation",
+    themeId: "social-organization",
+    subtopic: "Participación social",
+    imageDescription:
+      "A town hall meeting where residents raise their hands to speak, while a volunteer holds a ballot box.",
+    imageDescriptionEs:
+      "Una reunión vecinal donde los residentes levantan la mano para hablar, mientras una voluntaria sostiene una urna.",
+    instructions:
+      "Describe the scene, then discuss how young people can take part in decisions and social life in their community.",
+    instructionsEs:
+      "Describe la escena y luego habla de cómo pueden los jóvenes participar en las decisiones y en la vida social de su comunidad.",
+    sceneEmoji: ["🗳️", "🙋", "🏛️"],
+    maxDurationSeconds: 240,
+  },
+  {
+    id: "audio-sharing-planet-equality",
+    themeId: "sharing-planet",
+    subtopic: "Igualdad",
+    imageDescription:
+      "Students from different backgrounds working together on a team project, all contributing equally.",
+    imageDescriptionEs:
+      "Estudiantes de distintos orígenes trabajando juntos en un proyecto de equipo, y todos aportan por igual.",
+    instructions:
+      "Describe the scene, then discuss what equal opportunities mean and what still needs to change.",
+    instructionsEs:
+      "Describe la escena y luego habla de lo que significa la igualdad de oportunidades y de lo que todavía debe cambiar.",
+    sceneEmoji: ["🤝", "⚖️", "🌍"],
+    maxDurationSeconds: 240,
+  },
+  {
+    id: "audio-sharing-planet-urban-rural",
+    themeId: "sharing-planet",
+    subtopic: "El medio urbano y rural",
+    imageDescription:
+      "A quiet village road beside a busy city highway, with green fields in the distance and a bus stop nearby.",
+    imageDescriptionEs:
+      "Un tranquilo camino de pueblo junto a una autopista urbana concurrida, con campos verdes al fondo y una parada de autobús.",
+    instructions:
+      "Describe the scene, then compare life in a city with life in a village and say where you would prefer to live.",
+    instructionsEs:
+      "Describe la escena y luego compara la vida en la ciudad con la vida en el pueblo y di dónde preferirías vivir.",
+    sceneEmoji: ["🏘️", "🌾", "🚌"],
+    maxDurationSeconds: 240,
+  }
 ];
 
 // ---------------------------------------------------------------------------

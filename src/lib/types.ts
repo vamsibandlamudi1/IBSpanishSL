@@ -95,6 +95,8 @@ export interface ClozePassage {
 export interface AudioTask {
   id: string;
   themeId: string;
+  /** Official IB subtopic (e.g. "Vacaciones y viajes"). */
+  subtopic: string;
   /** Text placeholder standing in for the real photograph/image stimulus used in the IB Oral. */
   imageDescription: string;
   instructions: string;
