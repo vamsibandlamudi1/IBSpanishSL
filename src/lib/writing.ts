@@ -17,6 +17,7 @@ export const WRITING_PROMPTS: WritingPrompt[] = [
   {
     id: "writing-identities",
     themeId: "identities",
+    subtopic: "Estilos de vida",
     textType: "Personal email",
     textOptions: ["Personal email", "Blog post", "Diary entry"],
     level: "easy",
@@ -36,6 +37,7 @@ export const WRITING_PROMPTS: WritingPrompt[] = [
   {
     id: "writing-experiences",
     themeId: "experiences",
+    subtopic: "Vacaciones y viajes",
     textType: "Blog post",
     textOptions: ["Blog post", "Magazine article", "Diary entry"],
     level: "medium",
@@ -55,6 +57,7 @@ export const WRITING_PROMPTS: WritingPrompt[] = [
   {
     id: "writing-human-ingenuity",
     themeId: "human-ingenuity",
+    subtopic: "Tecnología",
     textType: "Magazine article",
     textOptions: ["Magazine article", "Blog post", "Opinion essay"],
     level: "medium",
@@ -74,6 +77,7 @@ export const WRITING_PROMPTS: WritingPrompt[] = [
   {
     id: "writing-social-organization",
     themeId: "social-organization",
+    subtopic: "Comunidad",
     textType: "Formal letter",
     textOptions: ["Formal letter", "Proposal", "Speech"],
     level: "hard",
@@ -93,6 +97,7 @@ export const WRITING_PROMPTS: WritingPrompt[] = [
   {
     id: "writing-sharing-planet",
     themeId: "sharing-planet",
+    subtopic: "El medio ambiente",
     textType: "Interview",
     textOptions: ["Interview", "Newspaper article", "Speech"],
     level: "hard",
@@ -114,6 +119,7 @@ export const WRITING_PROMPTS: WritingPrompt[] = [
   {
     id: "writing-identities-2",
     themeId: "identities",
+    subtopic: "Estilos de vida",
     textType: "Diary entry",
     textOptions: ["Diary entry", "Blog post", "Personal email"],
     level: "easy",
@@ -133,6 +139,7 @@ export const WRITING_PROMPTS: WritingPrompt[] = [
   {
     id: "writing-experiences-2",
     themeId: "experiences",
+    subtopic: "Vacaciones y viajes",
     textType: "Opinion essay",
     textOptions: ["Opinion essay", "Magazine article", "Blog post"],
     level: "hard",
@@ -152,6 +159,7 @@ export const WRITING_PROMPTS: WritingPrompt[] = [
   {
     id: "writing-human-ingenuity-2",
     themeId: "human-ingenuity",
+    subtopic: "Tecnología",
     textType: "Proposal",
     textOptions: ["Proposal", "Formal letter", "Report"],
     level: "medium",
@@ -171,6 +179,7 @@ export const WRITING_PROMPTS: WritingPrompt[] = [
   {
     id: "writing-social-organization-2",
     themeId: "social-organization",
+    subtopic: "Educación",
     textType: "Set of instructions",
     textOptions: ["Set of instructions", "Brochure", "Blog post"],
     level: "easy",
@@ -190,6 +199,7 @@ export const WRITING_PROMPTS: WritingPrompt[] = [
   {
     id: "writing-sharing-planet-2",
     themeId: "sharing-planet",
+    subtopic: "El medio ambiente",
     textType: "Brochure",
     textOptions: ["Brochure", "Advertisement", "Newspaper article"],
     level: "medium",
@@ -211,6 +221,7 @@ export const WRITING_PROMPTS: WritingPrompt[] = [
   {
     id: "writing-identities-3",
     themeId: "identities",
+    subtopic: "Lengua e identidad",
     textType: "Social media post",
     textOptions: ["Social media post", "Blog post", "Diary entry"],
     level: "easy",
@@ -230,6 +241,7 @@ export const WRITING_PROMPTS: WritingPrompt[] = [
   {
     id: "writing-experiences-3",
     themeId: "experiences",
+    subtopic: "Vacaciones y viajes",
     textType: "Postcard",
     textOptions: ["Postcard", "Personal email", "Diary entry"],
     level: "easy",
@@ -249,6 +261,7 @@ export const WRITING_PROMPTS: WritingPrompt[] = [
   {
     id: "writing-human-ingenuity-3",
     themeId: "human-ingenuity",
+    subtopic: "Tecnología",
     textType: "Review",
     textOptions: ["Review", "Blog post", "Magazine article"],
     level: "medium",
@@ -268,6 +281,7 @@ export const WRITING_PROMPTS: WritingPrompt[] = [
   {
     id: "writing-social-organization-3",
     themeId: "social-organization",
+    subtopic: "Participación social",
     textType: "Speech",
     textOptions: ["Speech", "Opinion essay", "Social media post"],
     level: "hard",
@@ -287,6 +301,7 @@ export const WRITING_PROMPTS: WritingPrompt[] = [
   {
     id: "writing-sharing-planet-3",
     themeId: "sharing-planet",
+    subtopic: "El medio ambiente",
     textType: "Newspaper article",
     textOptions: ["Newspaper article", "Magazine article", "Report"],
     level: "hard",
@@ -308,6 +323,7 @@ export const WRITING_PROMPTS: WritingPrompt[] = [
 {
     id: "writing-identities-4",
     themeId: "identities",
+    subtopic: "Salud y bienestar",
     textType: "Formal letter",
     textOptions: ["Formal letter", "Opinion essay", "Blog post"],
     level: "medium",
@@ -325,6 +341,7 @@ export const WRITING_PROMPTS: WritingPrompt[] = [
   {
     id: "writing-identities-5",
     themeId: "identities",
+    subtopic: "Salud y bienestar",
     textType: "Brochure",
     textOptions: ["Brochure", "Advertisement", "Social media post"],
     level: "easy",
@@ -342,6 +359,7 @@ export const WRITING_PROMPTS: WritingPrompt[] = [
   {
     id: "writing-identities-6",
     themeId: "identities",
+    subtopic: "Lengua e identidad",
     textType: "Report",
     textOptions: ["Report", "Proposal", "Opinion essay"],
     level: "hard",
@@ -359,6 +377,7 @@ export const WRITING_PROMPTS: WritingPrompt[] = [
   {
     id: "writing-identities-7",
     themeId: "identities",
+    subtopic: "Creencias y valores",
     textType: "Opinion essay",
     textOptions: ["Opinion essay", "Speech", "Blog post"],
     level: "hard",
@@ -376,6 +395,7 @@ export const WRITING_PROMPTS: WritingPrompt[] = [
   {
     id: "writing-identities-8",
     themeId: "identities",
+    subtopic: "Estilos de vida",
     textType: "Interview",
     textOptions: ["Interview", "Magazine article", "Blog post"],
     level: "medium",
@@ -393,6 +413,7 @@ export const WRITING_PROMPTS: WritingPrompt[] = [
   {
     id: "writing-identities-9",
     themeId: "identities",
+    subtopic: "Salud y bienestar",
     textType: "Review",
     textOptions: ["Review", "Blog post", "Social media post"],
     level: "easy",
@@ -410,6 +431,7 @@ export const WRITING_PROMPTS: WritingPrompt[] = [
   {
     id: "writing-identities-10",
     themeId: "identities",
+    subtopic: "Salud y bienestar",
     textType: "Set of instructions",
     textOptions: ["Set of instructions", "Brochure", "Blog post"],
     level: "easy",
@@ -428,6 +450,7 @@ export const WRITING_PROMPTS: WritingPrompt[] = [
 {
     id: "writing-experiences-4",
     themeId: "experiences",
+    subtopic: "Vacaciones y viajes",
     textType: "Formal letter",
     textOptions: ["Formal letter", "Review", "Blog post"],
     level: "medium",
@@ -447,6 +470,7 @@ export const WRITING_PROMPTS: WritingPrompt[] = [
   {
     id: "writing-experiences-5",
     themeId: "experiences",
+    subtopic: "Costumbres y tradiciones",
     textType: "Magazine article",
     textOptions: ["Magazine article", "Blog post", "Brochure"],
     level: "medium",
@@ -466,6 +490,7 @@ export const WRITING_PROMPTS: WritingPrompt[] = [
   {
     id: "writing-experiences-6",
     themeId: "experiences",
+    subtopic: "Ritos de paso",
     textType: "Interview",
     textOptions: ["Interview", "Magazine article", "Blog post"],
     level: "hard",
@@ -485,6 +510,7 @@ export const WRITING_PROMPTS: WritingPrompt[] = [
   {
     id: "writing-experiences-7",
     themeId: "experiences",
+    subtopic: "Migración",
     textType: "Speech",
     textOptions: ["Speech", "Blog post", "Opinion essay"],
     level: "hard",
@@ -504,6 +530,7 @@ export const WRITING_PROMPTS: WritingPrompt[] = [
   {
     id: "writing-experiences-8",
     themeId: "experiences",
+    subtopic: "Vacaciones y viajes",
     textType: "Brochure",
     textOptions: ["Brochure", "Advertisement", "Social media post"],
     level: "easy",
@@ -523,6 +550,7 @@ export const WRITING_PROMPTS: WritingPrompt[] = [
   {
     id: "writing-experiences-9",
     themeId: "experiences",
+    subtopic: "Actividades recreativas",
     textType: "Set of instructions",
     textOptions: ["Set of instructions", "Blog post", "Brochure"],
     level: "easy",
@@ -542,6 +570,7 @@ export const WRITING_PROMPTS: WritingPrompt[] = [
   {
     id: "writing-experiences-10",
     themeId: "experiences",
+    subtopic: "Historias de vida",
     textType: "Review",
     textOptions: ["Review", "Blog post", "Magazine article"],
     level: "medium",
@@ -562,6 +591,7 @@ export const WRITING_PROMPTS: WritingPrompt[] = [
 {
     id: "writing-human-ingenuity-4",
     themeId: "human-ingenuity",
+    subtopic: "Entretenimiento",
     textType: "Blog post",
     textOptions: ["Blog post", "Review", "Social media post"],
     level: "easy",
@@ -581,6 +611,7 @@ export const WRITING_PROMPTS: WritingPrompt[] = [
   {
     id: "writing-human-ingenuity-5",
     themeId: "human-ingenuity",
+    subtopic: "Tecnología",
     textType: "Formal letter",
     textOptions: ["Formal letter", "Personal email", "Review"],
     level: "medium",
@@ -600,6 +631,7 @@ export const WRITING_PROMPTS: WritingPrompt[] = [
   {
     id: "writing-human-ingenuity-6",
     themeId: "human-ingenuity",
+    subtopic: "Innovación científica",
     textType: "Report",
     textOptions: ["Report", "Proposal", "Opinion essay"],
     level: "hard",
@@ -619,6 +651,7 @@ export const WRITING_PROMPTS: WritingPrompt[] = [
   {
     id: "writing-human-ingenuity-7",
     themeId: "human-ingenuity",
+    subtopic: "Comunicación y medios",
     textType: "Speech",
     textOptions: ["Speech", "Opinion essay", "Social media post"],
     level: "medium",
@@ -638,6 +671,7 @@ export const WRITING_PROMPTS: WritingPrompt[] = [
   {
     id: "writing-human-ingenuity-8",
     themeId: "human-ingenuity",
+    subtopic: "Tecnología",
     textType: "Set of instructions",
     textOptions: ["Set of instructions", "Brochure", "Blog post"],
     level: "easy",
@@ -657,6 +691,7 @@ export const WRITING_PROMPTS: WritingPrompt[] = [
   {
     id: "writing-human-ingenuity-9",
     themeId: "human-ingenuity",
+    subtopic: "Tecnología",
     textType: "Brochure",
     textOptions: ["Brochure", "Advertisement", "Newspaper article"],
     level: "medium",
@@ -676,6 +711,7 @@ export const WRITING_PROMPTS: WritingPrompt[] = [
   {
     id: "writing-human-ingenuity-10",
     themeId: "human-ingenuity",
+    subtopic: "Innovación científica",
     textType: "Social media post",
     textOptions: ["Social media post", "Advertisement", "Blog post"],
     level: "easy",
@@ -696,6 +732,7 @@ export const WRITING_PROMPTS: WritingPrompt[] = [
 {
     id: "writing-social-organization-4",
     themeId: "social-organization",
+    subtopic: "Educación",
     textType: "Diary entry",
     textOptions: ["Diary entry", "Personal email", "Blog post"],
     level: "easy",
@@ -713,6 +750,7 @@ export const WRITING_PROMPTS: WritingPrompt[] = [
   {
     id: "writing-social-organization-5",
     themeId: "social-organization",
+    subtopic: "El mundo laboral",
     textType: "Magazine article",
     textOptions: ["Magazine article", "Opinion essay", "Blog post"],
     level: "medium",
@@ -730,6 +768,7 @@ export const WRITING_PROMPTS: WritingPrompt[] = [
   {
     id: "writing-social-organization-6",
     themeId: "social-organization",
+    subtopic: "Comunidad",
     textType: "Proposal",
     textOptions: ["Proposal", "Formal letter", "Report"],
     level: "medium",
@@ -747,6 +786,7 @@ export const WRITING_PROMPTS: WritingPrompt[] = [
   {
     id: "writing-social-organization-7",
     themeId: "social-organization",
+    subtopic: "Ley y orden",
     textType: "Report",
     textOptions: ["Report", "Proposal", "Newspaper article"],
     level: "hard",
@@ -764,6 +804,7 @@ export const WRITING_PROMPTS: WritingPrompt[] = [
   {
     id: "writing-social-organization-8",
     themeId: "social-organization",
+    subtopic: "Relaciones sociales",
     textType: "Advertisement",
     textOptions: ["Advertisement", "Brochure", "Social media post"],
     level: "easy",
@@ -781,6 +822,7 @@ export const WRITING_PROMPTS: WritingPrompt[] = [
   {
     id: "writing-social-organization-9",
     themeId: "social-organization",
+    subtopic: "Comunidad",
     textType: "Postcard",
     textOptions: ["Postcard", "Personal email", "Diary entry"],
     level: "easy",
@@ -798,6 +840,7 @@ export const WRITING_PROMPTS: WritingPrompt[] = [
   {
     id: "writing-social-organization-10",
     themeId: "social-organization",
+    subtopic: "Educación",
     textType: "Review",
     textOptions: ["Review", "Blog post", "Social media post"],
     level: "medium",
@@ -816,6 +859,7 @@ export const WRITING_PROMPTS: WritingPrompt[] = [
 {
     id: "writing-sharing-planet-4",
     themeId: "sharing-planet",
+    subtopic: "Paz y conflicto",
     textType: "Speech",
     textOptions: ["Speech", "Opinion essay", "Newspaper article"],
     level: "hard",
@@ -833,6 +877,7 @@ export const WRITING_PROMPTS: WritingPrompt[] = [
   {
     id: "writing-sharing-planet-5",
     themeId: "sharing-planet",
+    subtopic: "El medio ambiente",
     textType: "Blog post",
     textOptions: ["Blog post", "Diary entry", "Magazine article"],
     level: "medium",
@@ -850,6 +895,7 @@ export const WRITING_PROMPTS: WritingPrompt[] = [
   {
     id: "writing-sharing-planet-6",
     themeId: "sharing-planet",
+    subtopic: "Igualdad",
     textType: "Diary entry",
     textOptions: ["Diary entry", "Blog post", "Personal email"],
     level: "medium",
@@ -867,6 +913,7 @@ export const WRITING_PROMPTS: WritingPrompt[] = [
   {
     id: "writing-sharing-planet-7",
     themeId: "sharing-planet",
+    subtopic: "El medio urbano y rural",
     textType: "Formal letter",
     textOptions: ["Formal letter", "Proposal", "Opinion essay"],
     level: "hard",
@@ -884,6 +931,7 @@ export const WRITING_PROMPTS: WritingPrompt[] = [
   {
     id: "writing-sharing-planet-8",
     themeId: "sharing-planet",
+    subtopic: "Ética",
     textType: "Proposal",
     textOptions: ["Proposal", "Formal letter", "Report"],
     level: "hard",
@@ -901,6 +949,7 @@ export const WRITING_PROMPTS: WritingPrompt[] = [
   {
     id: "writing-sharing-planet-9",
     themeId: "sharing-planet",
+    subtopic: "Ética",
     textType: "Review",
     textOptions: ["Review", "Blog post", "Social media post"],
     level: "medium",
@@ -918,6 +967,7 @@ export const WRITING_PROMPTS: WritingPrompt[] = [
   {
     id: "writing-sharing-planet-10",
     themeId: "sharing-planet",
+    subtopic: "El medio ambiente",
     textType: "Social media post",
     textOptions: ["Social media post", "Advertisement", "Newspaper article"],
     level: "easy",
@@ -935,6 +985,7 @@ export const WRITING_PROMPTS: WritingPrompt[] = [
   {
     id: "writing-experiences-informal-letter",
     themeId: "experiences",
+    subtopic: "Vacaciones y viajes",
     textType: "Informal letter",
     textOptions: ["Informal letter", "Personal email", "Postcard"],
     level: "medium",
@@ -954,6 +1005,7 @@ export const WRITING_PROMPTS: WritingPrompt[] = [
   {
     id: "writing-sharing-planet-advertisement",
     themeId: "sharing-planet",
+    subtopic: "El medio ambiente",
     textType: "Advertisement",
     textOptions: ["Advertisement", "Brochure", "Social media post"],
     level: "easy",
@@ -966,6 +1018,86 @@ export const WRITING_PROMPTS: WritingPrompt[] = [
       "Use short sentences and imperatives (Usa, Reduce, Elige)",
       "Give three clear reasons in a list or short paragraphs",
       "End with a call to action",
+    ],
+    minWords: 250,
+    maxWords: 400,
+  },
+  {
+    id: "writing-identities-subcultures",
+    themeId: "identities",
+    subtopic: "Subculturas",
+    textType: "Magazine article",
+    textOptions: ["Magazine article", "Blog post", "Opinion essay"],
+    level: "medium",
+    instructions:
+      "Write an article for a youth magazine about a subculture or youth group you know well. Describe its style and values, and explain why people feel they belong to it.",
+    instructionsEs:
+      "Escribe un artículo para una revista juvenil sobre una subcultura o un grupo de jóvenes que conoces bien. Describe su estilo y sus valores, y explica por qué la gente siente que pertenece a ese grupo.",
+    formatTips: [
+      "Headline and subheading",
+      "Engaging opening, then clearly organised paragraphs",
+      "Mix of description, your opinion and a quote from a member",
+      "Informal but informative tone for young readers",
+    ],
+    minWords: 250,
+    maxWords: 400,
+  },
+  {
+    id: "writing-human-ingenuity-arts",
+    themeId: "human-ingenuity",
+    subtopic: "Expresiones artísticas",
+    textType: "Review",
+    textOptions: ["Review", "Blog post", "Magazine article"],
+    level: "medium",
+    instructions:
+      "Write a review of an art exhibition, a play, or a concert you attended. Describe what you saw, evaluate the artistic style, and say whether you would recommend it.",
+    instructionsEs:
+      "Escribe una reseña de una exposición de arte, una obra de teatro o un concierto al que asististe. Describe lo que viste, valora el estilo artístico y di si lo recomendarías.",
+    formatTips: [
+      "Title and a rating out of five",
+      "Brief description of the event, then your evaluation",
+      "Specific praise and criticism with examples",
+      "Clear recommendation at the end",
+    ],
+    minWords: 250,
+    maxWords: 400,
+  },
+  {
+    id: "writing-sharing-planet-rights",
+    themeId: "sharing-planet",
+    subtopic: "Derechos humanos",
+    textType: "Speech",
+    textOptions: ["Speech", "Opinion essay", "Newspaper article"],
+    level: "hard",
+    instructions:
+      "Write a speech for a school assembly about a human right that young people in your community do not always enjoy (for example, access to education or freedom of expression). Explain why it matters and what can be done.",
+    instructionsEs:
+      "Escribe un discurso para una asamblea escolar sobre un derecho humano que los jóvenes de tu comunidad no siempre disfrutan (por ejemplo, el acceso a la educación o la libertad de expresión). Explica por qué es importante y qué se puede hacer.",
+    formatTips: [
+      "Greeting to the audience (Buenos días a todos,)",
+      "Rhetorical questions and direct address",
+      "Concrete examples that make the issue real",
+      "Strong closing call to action",
+    ],
+    minWords: 250,
+    maxWords: 400,
+  },
+  {
+    id: "writing-sharing-planet-globalisation",
+    themeId: "sharing-planet",
+    subtopic: "Globalización",
+    textType: "Opinion essay",
+    textOptions: ["Opinion essay", "Blog post", "Magazine article"],
+    level: "hard",
+    instructions:
+      "Write an opinion essay on whether globalisation has made cultures more similar, or whether it has helped them share their traditions. Give your view with examples and address the opposing argument.",
+    instructionsEs:
+      "Escribe un ensayo de opinión sobre si la globalización ha hecho las culturas más parecidas o si les ha ayudado a compartir sus tradiciones. Da tu punto de vista con ejemplos y responde al argumento contrario.",
+    formatTips: [
+      "Clear thesis in the introduction",
+      "Arguments with examples, then a counter-argument",
+      "Conclusion that restates your view",
+      "Formal register, linking words such as en cambio and por un lado",
     ],
     minWords: 250,
     maxWords: 400,

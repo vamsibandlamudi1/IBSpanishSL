@@ -3,6 +3,7 @@
 
 import { useMemo, useState } from "react";
 import { TEXT_TYPE_TIPS, WRITING_PROMPTS } from "@/lib/writing";
+import { THEMES } from "@/lib/data";
 import { useStore } from "@/lib/store";
 import { WritingPrompt } from "@/lib/types";
 
@@ -192,29 +193,46 @@ export default function WritingModule() {
       {/* Sidebar: prompts grouped by IB theme, sticky on desktop. */}
       <aside className="lg:sticky lg:top-20 lg:max-h-[calc(100vh-6rem)] lg:w-72 lg:shrink-0 lg:overflow-y-auto lg:pr-1">
         <div className="flex flex-col gap-4">
-          {Object.entries(THEME_LABELS).map(([themeId, label]) => {
-            const items = WRITING_PROMPTS.filter((p) => p.themeId === themeId);
-            if (items.length === 0) return null;
+          {THEMES.map((th, ti) => {
+            const groups = th.subtopics
+              .map((sub, si) => ({
+                sub,
+                num: `${ti + 1}.${si + 1}`,
+                items: WRITING_PROMPTS.filter((p) => p.themeId === th.id && p.subtopic === sub),
+              }))
+              .filter((g) => g.items.length > 0);
+            if (groups.length === 0) return null;
             return (
-              <section key={themeId}>
-                <p className="mb-1.5 px-1 text-xs font-bold uppercase tracking-wide text-slate-500">{label}</p>
-                <div className="flex flex-col gap-1.5">
-                  {items.map((p) => {
-                    const active = p.id === prompt.id;
-                    return (
-                      <button
-                        key={p.id}
-                        type="button"
-                        onClick={() => selectPrompt(p.id)}
-                        className={`w-full rounded-lg border p-2.5 text-left transition ${
-                          active ? "border-brand-400 bg-brand-50" : "border-slate-200 bg-white hover:border-brand-300 hover:bg-slate-50"
-                        }`}
-                      >
-                        <p className={`text-sm font-semibold leading-snug ${active ? "text-brand-800" : "text-slate-800"}`}>{p.textType}</p>
-                        <p className="mt-0.5 text-[10px] font-medium uppercase tracking-wide text-slate-400">{p.level}</p>
-                      </button>
-                    );
-                  })}
+              <section key={th.id}>
+                <p className="mb-1.5 px-1 text-xs font-bold uppercase tracking-wide text-slate-500">
+                  Tema {ti + 1} · {THEME_LABELS[th.id] ?? th.name}
+                </p>
+                <div className="flex flex-col gap-3">
+                  {groups.map((g) => (
+                    <div key={g.sub}>
+                      <p className="mb-1 px-1 text-[11px] font-semibold text-slate-400">
+                        {g.num} - {g.sub}
+                      </p>
+                      <div className="flex flex-col gap-1.5">
+                        {g.items.map((p) => {
+                          const active = p.id === prompt.id;
+                          return (
+                            <button
+                              key={p.id}
+                              type="button"
+                              onClick={() => selectPrompt(p.id)}
+                              className={`w-full rounded-lg border p-2.5 text-left transition ${
+                                active ? "border-brand-400 bg-brand-50" : "border-slate-200 bg-white hover:border-brand-300 hover:bg-slate-50"
+                              }`}
+                            >
+                              <p className={`text-sm font-semibold leading-snug ${active ? "text-brand-800" : "text-slate-800"}`}>{p.textType}</p>
+                              <p className="mt-0.5 text-[10px] font-medium uppercase tracking-wide text-slate-400">{p.level}</p>
+                            </button>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  ))}
                 </div>
               </section>
             );
@@ -225,7 +243,16 @@ export default function WritingModule() {
       <div key={prompt.id} className="animate-fade-slide-up min-w-0 flex-1">
         <div className="mb-4 rounded-xl border border-slate-200 bg-white p-5 shadow-xs">
           <div className="mb-2 flex flex-wrap items-center justify-between gap-2">
-            <h2 className="text-lg font-bold text-slate-900">{writeAs}</h2>
+            <div>
+              <p className="text-xs font-semibold text-brand-700">
+                {(() => {
+                  const ti = THEMES.findIndex((t) => t.id === prompt.themeId);
+                  const si = ti >= 0 ? THEMES[ti].subtopics.indexOf(prompt.subtopic) : -1;
+                  return ti >= 0 && si >= 0 ? `${ti + 1}.${si + 1} - ${prompt.subtopic}` : prompt.subtopic;
+                })()}
+              </p>
+              <h2 className="text-lg font-bold text-slate-900">{writeAs}</h2>
+            </div>
             <span className={`rounded-full px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide ${LEVEL_STYLES[prompt.level]}`}>
               {prompt.level}
             </span>

@@ -295,6 +295,8 @@ export interface PodcastEpisode {
 export interface WritingPrompt {
   id: string;
   themeId: string;
+  /** The official IB subtopic this task belongs to (e.g. "Estilos de vida"). */
+  subtopic: string;
   /** The IB text type this prompt asks the student to produce. */
   textType: string;
   /** The three text types a student may choose from for this task (the first is the primary). */
