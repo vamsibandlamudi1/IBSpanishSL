@@ -6,6 +6,7 @@ import { useState } from "react";
 import { usePathname } from "next/navigation";
 import { useStore } from "@/lib/store";
 import ThemeToggle from "./ThemeToggle";
+import WordLookup from "./WordLookup";
 
 const LINKS = [
   { href: "/", label: "Home" },
@@ -35,7 +36,7 @@ export default function Navbar() {
           </span>
           <span className="hidden text-sm font-medium text-slate-500 sm:inline">IB Spanish B SL</span>
         </Link>
-        <nav className="flex flex-wrap items-center gap-1">
+        <nav className="order-last flex w-full flex-wrap items-center gap-1">
           {LINKS.map((link) => {
             const active = pathname === link.href;
             return (
@@ -53,7 +54,8 @@ export default function Navbar() {
             );
           })}
         </nav>
-        <div className="flex items-center gap-2">
+        <div className="ml-auto flex items-center gap-2">
+          <WordLookup />
           <ThemeToggle />
           <div className="flex items-center gap-2 rounded-full border border-amber-200 bg-amber-50 px-3 py-1 text-sm font-semibold text-amber-700">
             ⭐ {profile.currentPoints} pts

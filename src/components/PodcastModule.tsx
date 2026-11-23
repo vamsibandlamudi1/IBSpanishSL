@@ -65,6 +65,21 @@ function parseTurns(bodyEs: string): Turn[] {
     if (labelMatch) {
       const start = match.index + labelMatch[0].length;
       turns.push({ speaker: labelMatch[1], spoken: para.slice(labelMatch[0].length), start });
+    } else if (/^—/.test(para)) {
+      // Interview format: each dash-marked line is one turn. A line with a question is the
+      // interviewer; any other dash line is the interviewee, so each side gets its own voice.
+      let offset = match.index;
+      for (const line of para.split("\n")) {
+        const dash = line.match(/^—\s*/);
+        if (dash) {
+          const text = line.slice(dash[0].length);
+          const isQuestion = text.includes("?");
+          turns.push({ speaker: isQuestion ? "Entrevistador" : "Entrevistado", spoken: text, start: offset + dash[0].length });
+        } else {
+          turns.push({ speaker: "", spoken: line, start: offset });
+        }
+        offset += line.length + 1;
+      }
     } else {
       turns.push({ speaker: "", spoken: para, start: match.index });
     }

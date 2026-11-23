@@ -5,6 +5,7 @@ import { useEffect, useMemo, useState } from "react";
 import { READING_PASSAGES } from "@/lib/reading";
 import { useStore } from "@/lib/store";
 import { deriveJustification } from "@/lib/deriveJustification";
+import { answersMatch } from "@/lib/utils";
 import { ReadingQuestion } from "@/lib/types";
 import { getSpanishVoices, pauseSpeaking, pickDefaultSpanishVoice, resumeSpeaking, speak, stopSpeaking } from "@/lib/speech";
 
@@ -122,7 +123,8 @@ export default function ReadingModule() {
     setAnswers((prev) => ({ ...prev, [questionId]: value }));
   };
 
-  const isCorrect = (q: ReadingQuestion) => normalize(answers[q.id] ?? "") === normalize(q.correctAnswer);
+  const isCorrect = (q: ReadingQuestion) =>
+    q.type === "short" ? answersMatch(answers[q.id] ?? "", q.correctAnswer) : normalize(answers[q.id] ?? "") === normalize(q.correctAnswer);
 
   const checkAnswers = () => {
     // Guards against double-counting the whole passage — a rapid double-click

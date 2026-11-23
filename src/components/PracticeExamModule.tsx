@@ -8,6 +8,7 @@ import { GRAMMAR_TOPICS, loadExercises } from "@/lib/grammar";
 import { useStore } from "@/lib/store";
 import { speak, stopSpeaking } from "@/lib/speech";
 import { deriveJustification } from "@/lib/deriveJustification";
+import { answersMatch } from "@/lib/utils";
 import { Difficulty, GrammarExercise, PodcastEpisode, QuizItem, ReadingPassage, ReadingQuestion } from "@/lib/types";
 import { LEVEL_STYLES, OPTION_LETTERS } from "@/lib/quizUi";
 import WritingModule from "./WritingModule";
@@ -815,7 +816,8 @@ function QuestionSetSection({
   const [checked, setChecked] = useState(false);
   const [speakingId, setSpeakingId] = useState<string | null>(null);
 
-  const isCorrect = (q: ExamQuestion) => normalizeAnswer(answers[q.id] ?? "") === normalizeAnswer(q.correctAnswer);
+  const isCorrect = (q: ExamQuestion) =>
+    q.type === "short" ? answersMatch(answers[q.id] ?? "", q.correctAnswer) : normalizeAnswer(answers[q.id] ?? "") === normalizeAnswer(q.correctAnswer);
   const correctCount = items.filter(isCorrect).length;
   const answeredCount = items.filter((q) => (answers[q.id] ?? "").trim().length > 0).length;
   const getMissed = (): MissedQuestion[] =>
