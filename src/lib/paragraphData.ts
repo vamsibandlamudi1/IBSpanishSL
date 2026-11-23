@@ -296,5 +296,126 @@ export const PARAGRAPH_EXERCISES: ParagraphExercise[] = [
     targetWord: "economía circular",
     translation: "circular economy",
     hints: ["economía circular", "sostenibilidad", "comercio justo"]
+  },
+  {
+    id: "par-id-subc-1",
+    themeId: "identities",
+    subtopic: "Subculturas",
+    title: "Un grupo de amigos",
+    textBefore: "Muchos jóvenes buscan la ",
+    textAfter: " a un grupo que comparte su música y su forma de vestir.",
+    targetWord: "pertenencia",
+    translation: "belonging",
+    hints: ["pertenencia", "rechazo", "tribu urbana"]
+  },
+  {
+    id: "par-ex-recr-1",
+    themeId: "experiences",
+    subtopic: "Actividades recreativas",
+    title: "Un sábado en el barrio",
+    textBefore: "Los sábados por la mañana, el club organiza un ",
+    textAfter: " de fútbol para todos los niños del barrio.",
+    targetWord: "entrenamiento",
+    translation: "training session",
+    hints: ["entrenamiento", "campamento", "excursión"]
+  },
+  {
+    id: "par-hi-arte-1",
+    themeId: "human-ingenuity",
+    subtopic: "Expresiones artísticas",
+    title: "Una visita al museo",
+    textBefore: "En el museo se exponía una ",
+    textAfter: " de bronce que representaba a un bailarín.",
+    targetWord: "escultura",
+    translation: "sculpture",
+    hints: ["escultura", "pintura", "mural"]
+  },
+  {
+    id: "par-hi-tec-1",
+    themeId: "human-ingenuity",
+    subtopic: "Tecnología",
+    title: "Una nueva plataforma",
+    textBefore: "La empresa presentó un nuevo ",
+    textAfter: " que recomienda vídeos según los gustos de cada usuario.",
+    targetWord: "algoritmo",
+    translation: "algorithm",
+    hints: ["algoritmo", "dispositivo", "internet"]
+  },
+  {
+    id: "par-hi-cien-1",
+    themeId: "human-ingenuity",
+    subtopic: "Innovación científica",
+    title: "Un hallazgo en el laboratorio",
+    textBefore: "El laboratorio anunció un ",
+    textAfter: " que podría cambiar el tratamiento de la enfermedad.",
+    targetWord: "descubrimiento",
+    translation: "discovery",
+    hints: ["descubrimiento", "investigación", "teoría"]
+  },
+  {
+    id: "par-so-com-1",
+    themeId: "social-organization",
+    subtopic: "Comunidad",
+    title: "Un barrio unido",
+    textBefore: "En el barrio, el ",
+    textAfter: " entre vecinos es lo que mantiene unida a la comunidad.",
+    targetWord: "apoyo mutuo",
+    translation: "mutual support",
+    hints: ["apoyo mutuo", "vecindario", "convivencia"]
+  },
+  {
+    id: "par-so-part-1",
+    themeId: "social-organization",
+    subtopic: "Participación social",
+    title: "Jóvenes en acción",
+    textBefore: "Muchos jóvenes participan en el ",
+    textAfter: " de la ciudad, ayudando en comedores y bibliotecas.",
+    targetWord: "voluntariado",
+    translation: "volunteering",
+    hints: ["voluntariado", "voto", "activismo"]
+  },
+  {
+    id: "par-so-lab-1",
+    themeId: "social-organization",
+    subtopic: "El mundo laboral",
+    title: "Mi primer empleo",
+    textBefore: "Antes de firmar el ",
+    textAfter: " leyó con atención el salario y el horario.",
+    targetWord: "contrato",
+    translation: "contract",
+    hints: ["contrato", "salario", "empleo"]
+  },
+  {
+    id: "par-sp-amb-1",
+    themeId: "sharing-planet",
+    subtopic: "El medio ambiente",
+    title: "La selva en peligro",
+    textBefore: "La ",
+    textAfter: " de la selva amenaza a miles de especies.",
+    targetWord: "deforestación",
+    translation: "deforestation",
+    hints: ["deforestación", "biodiversidad", "contaminación"]
+  },
+  {
+    id: "par-sp-igu-1",
+    themeId: "sharing-planet",
+    subtopic: "Igualdad",
+    title: "Igualdad en el trabajo",
+    textBefore: "Las organizaciones luchan contra la ",
+    textAfter: " laboral y exigen la misma paga por el mismo trabajo.",
+    targetWord: "discriminación",
+    translation: "discrimination",
+    hints: ["discriminación", "equidad", "inclusión"]
+  },
+  {
+    id: "par-sp-urb-1",
+    themeId: "sharing-planet",
+    subtopic: "El medio urbano y rural",
+    title: "Dejar el pueblo",
+    textBefore: "Muchos jóvenes se van del ",
+    textAfter: " para estudiar y encontrar trabajo en la ciudad.",
+    targetWord: "pueblo",
+    translation: "village",
+    hints: ["pueblo", "despoblación", "transporte público"]
   }
 ];
