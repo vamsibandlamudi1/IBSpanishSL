@@ -433,7 +433,7 @@ export default function PracticeExamModule() {
                   <td className="px-3 py-2 font-medium">Paper 1 — Writing</td>
                   <td className="px-3 py-2">25%</td>
                   <td className="px-3 py-2">1 h 15 min</td>
-                  <td className="px-3 py-2">Choose 1 of 3 tasks; write 250–400 words in a text type</td>
+                  <td className="px-3 py-2">Choose 1 task and one of its three text types; write 250–400 words</td>
                 </tr>
                 <tr>
                   <td className="px-3 py-2 font-medium">Paper 2 — Listening</td>
@@ -450,7 +450,7 @@ export default function PracticeExamModule() {
                   <td className="px-3 py-2 font-medium">Individual Oral</td>
                   <td className="px-3 py-2">25%</td>
                   <td className="px-3 py-2">15 min prep + oral (about 12–15 min)</td>
-                  <td className="px-3 py-2">Choose 1 of 2 unseen photos; present it, then discuss themes</td>
+                  <td className="px-3 py-2">Choose 1 unseen photo from the topic you prefer; present it, then discuss themes</td>
                 </tr>
               </tbody>
             </table>
@@ -460,7 +460,7 @@ export default function PracticeExamModule() {
           </div>
           <div className="mb-5 grid grid-cols-1 gap-2.5 sm:grid-cols-2">
             {[
-              { icon: "📖", label: "Reading comprehension", detail: "3 texts from different themes, about 8 questions each" },
+              { icon: "📖", label: "Reading comprehension", detail: "3 texts from different themes, 5–8 questions each" },
               { icon: "🧩", label: "Reading strategies", detail: "8 heading-matching & gap-fill questions" },
               { icon: "🎧", label: "Listening comprehension", detail: "3 audio episodes, hidden transcript" },
               { icon: "✍️", label: "Grammar", detail: "10 questions across random topics" },
