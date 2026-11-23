@@ -253,6 +253,8 @@ export interface ReadingVocabItem {
 export interface ReadingPassage {
   id: string;
   themeId: string;
+  /** Official IB subtopic (e.g. "Vacaciones y viajes"). */
+  subtopic: string;
   title: string;
   /** The IB text type (blog post, formal email, magazine article...) — recognizing text-type
    *  conventions is itself an assessed Paper 2 skill, not just comprehension of content. */

@@ -20,6 +20,7 @@ export const READING_PASSAGES: ReadingPassage[] = [
   {
     id: "reading-identities",
     themeId: "identities",
+    subtopic: "Lengua e identidad",
     title: "Mi vida bilingüe",
     textType: "Blog post",
     level: "medium",
@@ -78,6 +79,7 @@ export const READING_PASSAGES: ReadingPassage[] = [
   {
     id: "reading-experiences",
     themeId: "experiences",
+    subtopic: "Vacaciones y viajes",
     title: "Un viaje inolvidable",
     textType: "Diary entry",
     level: "easy",
@@ -137,6 +139,7 @@ export const READING_PASSAGES: ReadingPassage[] = [
   {
     id: "reading-human-ingenuity",
     themeId: "human-ingenuity",
+    subtopic: "Tecnología",
     title: "Robots que ayudan en casa",
     textType: "Magazine article",
     level: "hard",
@@ -195,6 +198,7 @@ export const READING_PASSAGES: ReadingPassage[] = [
   {
     id: "reading-social-organization",
     themeId: "social-organization",
+    subtopic: "Participación social",
     title: "Solicitud de voluntariado",
     textType: "Formal email",
     level: "medium",
@@ -255,6 +259,7 @@ export const READING_PASSAGES: ReadingPassage[] = [
   {
     id: "reading-sharing-planet",
     themeId: "sharing-planet",
+    subtopic: "Ética",
     title: "¿Consumidores responsables?",
     textType: "Opinion column",
     level: "hard",
@@ -315,6 +320,7 @@ export const READING_PASSAGES: ReadingPassage[] = [
   {
     id: "reading-identities-2",
     themeId: "identities",
+    subtopic: "Lengua e identidad",
     title: "Entrevista: Creciendo entre dos culturas",
     textType: "Magazine interview",
     level: "medium",
@@ -378,6 +384,7 @@ export const READING_PASSAGES: ReadingPassage[] = [
   {
     id: "reading-experiences-2",
     themeId: "experiences",
+    subtopic: "Actividades recreativas",
     title: "¡Vive la aventura de tu vida!",
     textType: "Advertisement",
     level: "easy",
@@ -437,6 +444,7 @@ export const READING_PASSAGES: ReadingPassage[] = [
   {
     id: "reading-human-ingenuity-2",
     themeId: "human-ingenuity",
+    subtopic: "Tecnología",
     title: "Foro: ¿Deberíamos preocuparnos por la inteligencia artificial?",
     textType: "Online forum post",
     level: "hard",
@@ -499,6 +507,7 @@ export const READING_PASSAGES: ReadingPassage[] = [
   {
     id: "reading-social-organization-2",
     themeId: "social-organization",
+    subtopic: "Participación social",
     title: "Cómo organizar una campaña de voluntariado en tu colegio",
     textType: "Instructional guide",
     level: "medium",
@@ -559,6 +568,7 @@ export const READING_PASSAGES: ReadingPassage[] = [
   {
     id: "reading-sharing-planet-2",
     themeId: "sharing-planet",
+    subtopic: "El medio ambiente",
     title: "Informe: El impacto del turismo en las islas Galápagos",
     textType: "Report",
     level: "hard",
@@ -619,6 +629,7 @@ export const READING_PASSAGES: ReadingPassage[] = [
   {
     id: "reading-identities-3",
     themeId: "identities",
+    subtopic: "Lengua e identidad",
     title: "Discurso: La riqueza de nuestras diferencias",
     textType: "Speech",
     level: "hard",
@@ -679,6 +690,7 @@ export const READING_PASSAGES: ReadingPassage[] = [
   {
     id: "reading-experiences-3",
     themeId: "experiences",
+    subtopic: "Vacaciones y viajes",
     title: "Postal desde la Patagonia",
     textType: "Postcard",
     level: "easy",
@@ -739,6 +751,7 @@ export const READING_PASSAGES: ReadingPassage[] = [
   {
     id: "reading-human-ingenuity-3",
     themeId: "human-ingenuity",
+    subtopic: "Tecnología",
     title: "Reseña: La nueva aplicación EcoRuta",
     textType: "Review",
     level: "medium",
@@ -797,6 +810,7 @@ export const READING_PASSAGES: ReadingPassage[] = [
   {
     id: "reading-social-organization-3",
     themeId: "social-organization",
+    subtopic: "Participación social",
     title: "Publicación: ¡Únete al club de debate!",
     textType: "Social media post",
     level: "easy",
@@ -861,6 +875,7 @@ export const READING_PASSAGES: ReadingPassage[] = [
   {
     id: "reading-sharing-planet-3",
     themeId: "sharing-planet",
+    subtopic: "El medio ambiente",
     title: "Estudiantes plantan mil árboles en su ciudad",
     textType: "Newspaper article",
     level: "hard",
@@ -922,6 +937,7 @@ export const READING_PASSAGES: ReadingPassage[] = [
 {
     id: "reading-identities-4",
     themeId: "identities",
+    subtopic: "Salud y bienestar",
     title: "Refugio Verde: retiro de bienestar en la montaña",
     textType: "Advertisement",
     level: "easy",
@@ -952,6 +968,7 @@ export const READING_PASSAGES: ReadingPassage[] = [
   {
     id: "reading-identities-5",
     themeId: "identities",
+    subtopic: "Salud y bienestar",
     title: "Los adolescentes españoles duermen cada vez menos",
     textType: "Newspaper article",
     level: "medium",
@@ -982,6 +999,7 @@ export const READING_PASSAGES: ReadingPassage[] = [
   {
     id: "reading-identities-6",
     themeId: "identities",
+    subtopic: "Lengua e identidad",
     title: "Entre dos idiomas",
     textType: "Online forum post",
     level: "medium",
@@ -1012,6 +1030,7 @@ export const READING_PASSAGES: ReadingPassage[] = [
   {
     id: "reading-identities-7",
     themeId: "identities",
+    subtopic: "Estilos de vida",
     title: "Por qué dejé de comer carne",
     textType: "Opinion column",
     level: "hard",
@@ -1041,6 +1060,7 @@ export const READING_PASSAGES: ReadingPassage[] = [
   {
     id: "reading-identities-8",
     themeId: "identities",
+    subtopic: "Estilos de vida",
     title: "Informe anual sobre la infancia y las nuevas tecnologías",
     textType: "Official report",
     level: "hard",
@@ -1072,6 +1092,7 @@ export const READING_PASSAGES: ReadingPassage[] = [
 {
     id: "reading-experiences-4",
     themeId: "experiences",
+    subtopic: "Vacaciones y viajes",
     title: "Mochileros en los Andes: una aventura inolvidable",
     textType: "Magazine article",
     level: "medium",
@@ -1101,6 +1122,7 @@ export const READING_PASSAGES: ReadingPassage[] = [
   {
     id: "reading-experiences-5",
     themeId: "experiences",
+    subtopic: "Costumbres y tradiciones",
     title: "¿Cómo celebráis el Año Nuevo en vuestro país?",
     textType: "Forum post",
     level: "easy",
@@ -1131,6 +1153,7 @@ export const READING_PASSAGES: ReadingPassage[] = [
   {
     id: "reading-experiences-6",
     themeId: "experiences",
+    subtopic: "Ritos de paso",
     title: "Solicitud de información sobre la ceremonia de graduación",
     textType: "Formal email",
     level: "medium",
@@ -1164,6 +1187,7 @@ export const READING_PASSAGES: ReadingPassage[] = [
   {
     id: "reading-experiences-7",
     themeId: "experiences",
+    subtopic: "Migración",
     title: "Entrevista: \"Emigrar me enseñó a empezar de nuevo\"",
     textType: "Interview",
     level: "hard",
@@ -1198,6 +1222,7 @@ export const READING_PASSAGES: ReadingPassage[] = [
   {
     id: "reading-experiences-8",
     themeId: "experiences",
+    subtopic: "Historias de vida",
     title: "Informe: proyecto de historias orales en la residencia de mayores",
     textType: "Report",
     level: "medium",
@@ -1229,6 +1254,7 @@ export const READING_PASSAGES: ReadingPassage[] = [
 {
     id: "reading-human-ingenuity-4",
     themeId: "human-ingenuity",
+    subtopic: "Tecnología",
     title: "Correo electrónico: Problema con mi portátil nuevo",
     textType: "Formal email/letter",
     level: "medium",
@@ -1259,6 +1285,7 @@ export const READING_PASSAGES: ReadingPassage[] = [
   {
     id: "reading-human-ingenuity-5",
     themeId: "human-ingenuity",
+    subtopic: "Entretenimiento",
     title: "Diario: Una noche en el festival de cortometrajes",
     textType: "Diary entry",
     level: "easy",
@@ -1290,6 +1317,7 @@ export const READING_PASSAGES: ReadingPassage[] = [
   {
     id: "reading-human-ingenuity-6",
     themeId: "human-ingenuity",
+    subtopic: "Comunicación y medios",
     title: "Columna de opinión: ¿Nos está robando la atención las redes sociales?",
     textType: "Opinion essay/column",
     level: "hard",
@@ -1319,6 +1347,7 @@ export const READING_PASSAGES: ReadingPassage[] = [
   {
     id: "reading-human-ingenuity-7",
     themeId: "human-ingenuity",
+    subtopic: "Tecnología",
     title: "Anuncio: Bicicletas eléctricas VoltiBici",
     textType: "Advertisement",
     level: "easy",
@@ -1349,6 +1378,7 @@ export const READING_PASSAGES: ReadingPassage[] = [
   {
     id: "reading-human-ingenuity-8",
     themeId: "human-ingenuity",
+    subtopic: "Innovación científica",
     title: "Entrevista: Hablamos con una joven inventora",
     textType: "Interview",
     level: "medium",
@@ -1384,6 +1414,7 @@ export const READING_PASSAGES: ReadingPassage[] = [
 {
     id: "reading-social-organization-4",
     themeId: "social-organization",
+    subtopic: "Educación",
     title: "Blog: Mi primer año como profesora voluntaria",
     textType: "Blog post",
     level: "easy",
@@ -1413,6 +1444,7 @@ export const READING_PASSAGES: ReadingPassage[] = [
   {
     id: "reading-social-organization-5",
     themeId: "social-organization",
+    subtopic: "El mundo laboral",
     title: "Columna de opinión: ¿Es el teletrabajo el futuro?",
     textType: "Opinion essay",
     level: "medium",
@@ -1442,6 +1474,7 @@ export const READING_PASSAGES: ReadingPassage[] = [
   {
     id: "reading-social-organization-6",
     themeId: "social-organization",
+    subtopic: "Comunidad",
     title: "Entrevista: presidenta de la asociación de vecinos",
     textType: "Interview",
     level: "easy",
@@ -1476,6 +1509,7 @@ export const READING_PASSAGES: ReadingPassage[] = [
   {
     id: "reading-social-organization-7",
     themeId: "social-organization",
+    subtopic: "Ley y orden",
     title: "Artículo: El ayuntamiento aprueba nuevas cámaras de vigilancia",
     textType: "Newspaper article",
     level: "hard",
@@ -1505,6 +1539,7 @@ export const READING_PASSAGES: ReadingPassage[] = [
   {
     id: "reading-social-organization-8",
     themeId: "social-organization",
+    subtopic: "Relaciones sociales",
     title: "Foro: ¿Se puede mantener una amistad solo por internet?",
     textType: "Forum post",
     level: "medium",
@@ -1536,6 +1571,7 @@ export const READING_PASSAGES: ReadingPassage[] = [
 {
     id: "reading-sharing-planet-4",
     themeId: "sharing-planet",
+    subtopic: "Ética",
     title: "Mi semana sin plástico",
     textType: "Blog post",
     level: "easy",
@@ -1565,6 +1601,7 @@ export const READING_PASSAGES: ReadingPassage[] = [
   {
     id: "reading-sharing-planet-5",
     themeId: "sharing-planet",
+    subtopic: "Derechos humanos",
     title: "Diario de un voluntario en el centro de refugiados",
     textType: "Diary entry",
     level: "medium",
@@ -1595,6 +1632,7 @@ export const READING_PASSAGES: ReadingPassage[] = [
   {
     id: "reading-sharing-planet-6",
     themeId: "sharing-planet",
+    subtopic: "Paz y conflicto",
     title: "Carta a la alcaldesa sobre el monumento a la paz",
     textType: "Formal letter",
     level: "hard",
@@ -1626,6 +1664,7 @@ export const READING_PASSAGES: ReadingPassage[] = [
   {
     id: "reading-sharing-planet-7",
     themeId: "sharing-planet",
+    subtopic: "Globalización",
     title: "El mundo en tu plato",
     textType: "Magazine article",
     level: "medium",
@@ -1655,6 +1694,7 @@ export const READING_PASSAGES: ReadingPassage[] = [
   {
     id: "reading-sharing-planet-8",
     themeId: "sharing-planet",
+    subtopic: "Ética",
     title: "Foro: ¿Vale la pena comprar ropa de segunda mano?",
     textType: "Forum post",
     level: "easy",
@@ -1686,6 +1726,7 @@ export const READING_PASSAGES: ReadingPassage[] = [
   {
     "id": "reading-identities-9",
     "themeId": "identities",
+    "subtopic": "Salud y bienestar",
     "title": "Informe sobre el bienestar emocional de los adolescentes",
     "textType": "Official report",
     "level": "hard",
@@ -1750,6 +1791,7 @@ export const READING_PASSAGES: ReadingPassage[] = [
   {
     "id": "reading-identities-10",
     "themeId": "identities",
+    "subtopic": "Salud y bienestar",
     "title": "Entrevista: 'La dieta mediterránea cambió mi vida'",
     "textType": "Interview",
     "level": "medium",
@@ -1814,6 +1856,7 @@ export const READING_PASSAGES: ReadingPassage[] = [
   {
     "id": "reading-experiences-9",
     "themeId": "experiences",
+    "subtopic": "Vacaciones y viajes",
     "title": "Reseña: Mi intercambio cultural en Salamanca",
     "textType": "Review",
     "level": "medium",
@@ -1878,6 +1921,7 @@ export const READING_PASSAGES: ReadingPassage[] = [
   {
     "id": "reading-human-ingenuity-9",
     "themeId": "human-ingenuity",
+    "subtopic": "Tecnología",
     "title": "Discurso en el club de robótica escolar",
     "textType": "Speech",
     "level": "hard",
@@ -1942,6 +1986,7 @@ export const READING_PASSAGES: ReadingPassage[] = [
   {
     "id": "reading-social-organization-9",
     "themeId": "social-organization",
+    "subtopic": "Comunidad",
     "title": "Folleto: Voluntariado juvenil en el centro vecinal",
     "textType": "Instructional guide",
     "level": "easy",
@@ -2006,6 +2051,7 @@ export const READING_PASSAGES: ReadingPassage[] = [
   {
     "id": "reading-sharing-planet-9",
     "themeId": "sharing-planet",
+    "subtopic": "El medio ambiente",
     "title": "Artículo: La crisis global del agua dulce",
     "textType": "Newspaper article",
     "level": "hard",
@@ -2070,6 +2116,7 @@ export const READING_PASSAGES: ReadingPassage[] = [
   {
     id: "reading-identities-11",
     themeId: "identities",
+    subtopic: "Estilos de vida",
     title: "Mi primer día en el instituto nuevo",
     textType: "Diary entry",
     level: "easy",
@@ -2100,6 +2147,7 @@ export const READING_PASSAGES: ReadingPassage[] = [
   {
     id: "reading-identities-12",
     themeId: "identities",
+    subtopic: "Lengua e identidad",
     title: "Postal desde el pueblo de mis abuelos",
     textType: "Postcard",
     level: "medium",
@@ -2131,6 +2179,7 @@ export const READING_PASSAGES: ReadingPassage[] = [
   {
     id: "reading-experiences-10",
     themeId: "experiences",
+    subtopic: "Vacaciones y viajes",
     title: "Lo que nadie te cuenta sobre estudiar un año en el extranjero",
     textType: "Blog post",
     level: "hard",
@@ -2161,6 +2210,7 @@ export const READING_PASSAGES: ReadingPassage[] = [
   {
     id: "reading-experiences-11",
     themeId: "experiences",
+    subtopic: "Actividades recreativas",
     title: "Publicación: Mi primer maratón",
     textType: "Social media post",
     level: "medium",
@@ -2191,6 +2241,7 @@ export const READING_PASSAGES: ReadingPassage[] = [
   {
     id: "reading-human-ingenuity-10",
     themeId: "human-ingenuity",
+    subtopic: "Tecnología",
     title: "Guía rápida: cómo reciclar tu móvil viejo",
     textType: "Instructional guide",
     level: "easy",
@@ -2222,6 +2273,7 @@ export const READING_PASSAGES: ReadingPassage[] = [
   {
     id: "reading-human-ingenuity-11",
     themeId: "human-ingenuity",
+    subtopic: "Tecnología",
     title: "Estudiantes crean una app que traduce el lenguaje de signos en tiempo real",
     textType: "Newspaper article",
     level: "medium",
@@ -2252,6 +2304,7 @@ export const READING_PASSAGES: ReadingPassage[] = [
   {
     id: "reading-social-organization-10",
     themeId: "social-organization",
+    subtopic: "Educación",
     title: "Informe del consejo escolar sobre la convivencia en los centros educativos",
     textType: "Official report",
     level: "hard",
@@ -2282,6 +2335,7 @@ export const READING_PASSAGES: ReadingPassage[] = [
   {
     id: "reading-social-organization-11",
     themeId: "social-organization",
+    subtopic: "Participación social",
     title: "Discurso de la candidata a delegada de clase",
     textType: "Speech",
     level: "medium",
@@ -2313,6 +2367,7 @@ export const READING_PASSAGES: ReadingPassage[] = [
   {
     id: "reading-sharing-planet-10",
     themeId: "sharing-planet",
+    subtopic: "El medio ambiente",
     title: "Anuncio: Únete a la limpieza de la playa",
     textType: "Advertisement",
     level: "easy",
@@ -2344,6 +2399,7 @@ export const READING_PASSAGES: ReadingPassage[] = [
   {
     id: "reading-sharing-planet-11",
     themeId: "sharing-planet",
+    subtopic: "El medio ambiente",
     title: "Entrevista con una bióloga marina sobre el coral en peligro",
     textType: "Interview",
     level: "medium",
@@ -2376,6 +2432,7 @@ export const READING_PASSAGES: ReadingPassage[] = [
   {
     id: "reading-identities-13",
     themeId: "identities",
+    subtopic: "Estilos de vida",
     title: "Correo: Solicitud de cambio de horario con la orientadora",
     textType: "Formal email",
     level: "easy",
@@ -2406,6 +2463,7 @@ export const READING_PASSAGES: ReadingPassage[] = [
   {
     id: "reading-identities-14",
     themeId: "identities",
+    subtopic: "Estilos de vida",
     title: "Guía: Cómo llevar un diario personal para conocerte mejor",
     textType: "Instructional guide",
     level: "medium",
@@ -2436,6 +2494,7 @@ export const READING_PASSAGES: ReadingPassage[] = [
   {
     id: "reading-identities-15",
     themeId: "identities",
+    subtopic: "Estilos de vida",
     title: "La generación que creció con una identidad digital",
     textType: "Magazine article",
     level: "hard",
@@ -2465,6 +2524,7 @@ export const READING_PASSAGES: ReadingPassage[] = [
   {
     id: "reading-identities-16",
     themeId: "identities",
+    subtopic: "Estilos de vida",
     title: "Reseña: 'Encontrarme a mí misma', de Valeria Núñez",
     textType: "Review",
     level: "medium",
@@ -2494,6 +2554,7 @@ export const READING_PASSAGES: ReadingPassage[] = [
   {
     id: "reading-identities-17",
     themeId: "identities",
+    subtopic: "Salud y bienestar",
     title: "Publicación: Dejar de compararme con los demás",
     textType: "Social media post",
     level: "easy",
@@ -2523,6 +2584,7 @@ export const READING_PASSAGES: ReadingPassage[] = [
   {
     id: "reading-identities-18",
     themeId: "identities",
+    subtopic: "Salud y bienestar",
     title: "Mi lucha silenciosa con el síndrome del impostor",
     textType: "Blog post",
     level: "hard",
@@ -2552,6 +2614,7 @@ export const READING_PASSAGES: ReadingPassage[] = [
   {
     id: "reading-identities-19",
     themeId: "identities",
+    subtopic: "Salud y bienestar",
     title: "Foro: ¿Cómo aceptar tu propio cuerpo?",
     textType: "Forum post",
     level: "medium",
@@ -2582,6 +2645,7 @@ export const READING_PASSAGES: ReadingPassage[] = [
   {
     id: "reading-identities-20",
     themeId: "identities",
+    subtopic: "Estilos de vida",
     title: "Entrevista con una psicóloga sobre la identidad en la adolescencia",
     textType: "Interview",
     level: "medium",
@@ -2614,6 +2678,7 @@ export const READING_PASSAGES: ReadingPassage[] = [
   {
     id: "reading-experiences-12",
     themeId: "experiences",
+    subtopic: "Vacaciones y viajes",
     title: "Cada vez más jóvenes eligen un año sabático antes de la universidad",
     textType: "Newspaper article",
     level: "medium",
@@ -2643,6 +2708,7 @@ export const READING_PASSAGES: ReadingPassage[] = [
   {
     id: "reading-experiences-13",
     themeId: "experiences",
+    subtopic: "Historias de vida",
     title: "Discurso de graduación: lo que el instituto me enseñó de verdad",
     textType: "Speech",
     level: "hard",
@@ -2673,6 +2739,7 @@ export const READING_PASSAGES: ReadingPassage[] = [
   {
     id: "reading-experiences-14",
     themeId: "experiences",
+    subtopic: "Vacaciones y viajes",
     title: "Entrevista: Un año de intercambio en Alemania",
     textType: "Interview",
     level: "medium",
@@ -2705,6 +2772,7 @@ export const READING_PASSAGES: ReadingPassage[] = [
   {
     id: "reading-experiences-15",
     themeId: "experiences",
+    subtopic: "Vacaciones y viajes",
     title: "Guía: Cómo preparar la maleta para un intercambio escolar",
     textType: "Instructional guide",
     level: "easy",
@@ -2735,6 +2803,7 @@ export const READING_PASSAGES: ReadingPassage[] = [
   {
     id: "reading-experiences-16",
     themeId: "experiences",
+    subtopic: "Vacaciones y viajes",
     title: "¿Deberían los institutos organizar más viajes educativos?",
     textType: "Opinion column",
     level: "hard",
@@ -2764,6 +2833,7 @@ export const READING_PASSAGES: ReadingPassage[] = [
   {
     id: "reading-experiences-17",
     themeId: "experiences",
+    subtopic: "Vacaciones y viajes",
     title: "Informe sobre el impacto de los programas de intercambio estudiantil",
     textType: "Official report",
     level: "hard",
@@ -2794,6 +2864,7 @@ export const READING_PASSAGES: ReadingPassage[] = [
   {
     id: "reading-experiences-18",
     themeId: "experiences",
+    subtopic: "Actividades recreativas",
     title: "Diario: Mi primer día como monitor de campamento",
     textType: "Diary entry",
     level: "easy",
@@ -2824,6 +2895,7 @@ export const READING_PASSAGES: ReadingPassage[] = [
   {
     id: "reading-experiences-19",
     themeId: "experiences",
+    subtopic: "Actividades recreativas",
     title: "Lo que aprendí trabajando de voluntario un verano",
     textType: "Blog post",
     level: "medium",
@@ -2853,6 +2925,7 @@ export const READING_PASSAGES: ReadingPassage[] = [
   {
     id: "reading-experiences-20",
     themeId: "experiences",
+    subtopic: "Vacaciones y viajes",
     title: "Foro: ¿Alguien ha hecho el Camino de Santiago con el instituto?",
     textType: "Forum post",
     level: "easy",
@@ -2883,6 +2956,7 @@ export const READING_PASSAGES: ReadingPassage[] = [
   {
     id: "reading-human-ingenuity-12",
     themeId: "human-ingenuity",
+    subtopic: "Tecnología",
     title: "Informe sobre el uso de la inteligencia artificial en las aulas",
     textType: "Official report",
     level: "hard",
@@ -2912,6 +2986,7 @@ export const READING_PASSAGES: ReadingPassage[] = [
   {
     id: "reading-human-ingenuity-13",
     themeId: "human-ingenuity",
+    subtopic: "Innovación científica",
     title: "Postal desde la Feria Internacional de Ciencia",
     textType: "Postcard",
     level: "easy",
@@ -2943,6 +3018,7 @@ export const READING_PASSAGES: ReadingPassage[] = [
   {
     id: "reading-human-ingenuity-14",
     themeId: "human-ingenuity",
+    subtopic: "Innovación científica",
     title: "Publicación: ¡Ganamos el concurso de ciencias!",
     textType: "Social media post",
     level: "easy",
@@ -2972,6 +3048,7 @@ export const READING_PASSAGES: ReadingPassage[] = [
   {
     id: "reading-human-ingenuity-15",
     themeId: "human-ingenuity",
+    subtopic: "Innovación científica",
     title: "¿Hasta dónde deberíamos llegar con la bioingeniería?",
     textType: "Blog post",
     level: "hard",
@@ -3001,6 +3078,7 @@ export const READING_PASSAGES: ReadingPassage[] = [
   {
     id: "reading-human-ingenuity-16",
     themeId: "human-ingenuity",
+    subtopic: "Innovación científica",
     title: "Estudiantes diseñan un coche solar para una carrera universitaria",
     textType: "Newspaper article",
     level: "medium",
@@ -3030,6 +3108,7 @@ export const READING_PASSAGES: ReadingPassage[] = [
   {
     id: "reading-human-ingenuity-17",
     themeId: "human-ingenuity",
+    subtopic: "Innovación científica",
     title: "Entrevista con una joven ingeniera aeroespacial",
     textType: "Interview",
     level: "medium",
@@ -3062,6 +3141,7 @@ export const READING_PASSAGES: ReadingPassage[] = [
   {
     id: "reading-human-ingenuity-18",
     themeId: "human-ingenuity",
+    subtopic: "Tecnología",
     title: "Anuncio: Taller de programación para jóvenes",
     textType: "Advertisement",
     level: "easy",
@@ -3092,6 +3172,7 @@ export const READING_PASSAGES: ReadingPassage[] = [
   {
     id: "reading-human-ingenuity-19",
     themeId: "human-ingenuity",
+    subtopic: "Innovación científica",
     title: "Reseña: El nuevo museo interactivo de ciencia",
     textType: "Review",
     level: "medium",
@@ -3121,6 +3202,7 @@ export const READING_PASSAGES: ReadingPassage[] = [
   {
     id: "reading-human-ingenuity-20",
     themeId: "human-ingenuity",
+    subtopic: "Innovación científica",
     title: "Diario: Mi primer día en la feria de robótica",
     textType: "Diary entry",
     level: "easy",
@@ -3151,6 +3233,7 @@ export const READING_PASSAGES: ReadingPassage[] = [
   {
     id: "reading-social-organization-12",
     themeId: "social-organization",
+    subtopic: "Participación social",
     title: "Diario: Mi primer día de voluntariado en el ayuntamiento",
     textType: "Diary entry",
     level: "easy",
@@ -3181,6 +3264,7 @@ export const READING_PASSAGES: ReadingPassage[] = [
   {
     id: "reading-social-organization-13",
     themeId: "social-organization",
+    subtopic: "El mundo laboral",
     title: "El auge del trabajo remoto y sus efectos en la organización social",
     textType: "Magazine article",
     level: "hard",
@@ -3210,6 +3294,7 @@ export const READING_PASSAGES: ReadingPassage[] = [
   {
     id: "reading-social-organization-14",
     themeId: "social-organization",
+    subtopic: "Educación",
     title: "Anuncio: Se buscan voluntarios para campaña de alfabetización",
     textType: "Advertisement",
     level: "easy",
@@ -3240,6 +3325,7 @@ export const READING_PASSAGES: ReadingPassage[] = [
   {
     id: "reading-social-organization-15",
     themeId: "social-organization",
+    subtopic: "Participación social",
     title: "Postal desde un proyecto de cooperación internacional",
     textType: "Postcard",
     level: "medium",
@@ -3271,6 +3357,7 @@ export const READING_PASSAGES: ReadingPassage[] = [
   {
     id: "reading-social-organization-16",
     themeId: "social-organization",
+    subtopic: "Relaciones sociales",
     title: "Reseña: Documental 'Dos ciudades, un mismo país'",
     textType: "Review",
     level: "medium",
@@ -3300,6 +3387,7 @@ export const READING_PASSAGES: ReadingPassage[] = [
   {
     id: "reading-social-organization-17",
     themeId: "social-organization",
+    subtopic: "El mundo laboral",
     title: "Nueva ley busca mejorar la conciliación laboral y familiar",
     textType: "Newspaper article",
     level: "medium",
@@ -3329,6 +3417,7 @@ export const READING_PASSAGES: ReadingPassage[] = [
   {
     id: "reading-social-organization-18",
     themeId: "social-organization",
+    subtopic: "Participación social",
     title: "Entrevista con una activista por los derechos humanos",
     textType: "Interview",
     level: "hard",
@@ -3361,6 +3450,7 @@ export const READING_PASSAGES: ReadingPassage[] = [
   {
     id: "reading-social-organization-19",
     themeId: "social-organization",
+    subtopic: "Participación social",
     title: "¿Debería existir un año de servicio social obligatorio?",
     textType: "Blog post",
     level: "medium",
@@ -3390,6 +3480,7 @@ export const READING_PASSAGES: ReadingPassage[] = [
   {
     id: "reading-social-organization-20",
     themeId: "social-organization",
+    subtopic: "Participación social",
     title: "Foro: ¿Cómo puedo empezar a hacer voluntariado?",
     textType: "Forum post",
     level: "easy",
@@ -3420,6 +3511,7 @@ export const READING_PASSAGES: ReadingPassage[] = [
   {
     id: "reading-sharing-planet-12",
     themeId: "sharing-planet",
+    subtopic: "El medio ambiente",
     title: "Guía: Cómo hacer compost casero",
     textType: "Instructional guide",
     level: "easy",
@@ -3450,6 +3542,7 @@ export const READING_PASSAGES: ReadingPassage[] = [
   {
     id: "reading-sharing-planet-13",
     themeId: "sharing-planet",
+    subtopic: "El medio ambiente",
     title: "Informe sobre la pérdida de biodiversidad marina",
     textType: "Official report",
     level: "hard",
@@ -3479,6 +3572,7 @@ export const READING_PASSAGES: ReadingPassage[] = [
   {
     id: "reading-sharing-planet-14",
     themeId: "sharing-planet",
+    subtopic: "El medio ambiente",
     title: "Discurso de un joven activista climático",
     textType: "Speech",
     level: "hard",
@@ -3509,6 +3603,7 @@ export const READING_PASSAGES: ReadingPassage[] = [
   {
     id: "reading-sharing-planet-15",
     themeId: "sharing-planet",
+    subtopic: "El medio ambiente",
     title: "Postal desde un parque nacional en peligro",
     textType: "Postcard",
     level: "medium",
@@ -3540,6 +3635,7 @@ export const READING_PASSAGES: ReadingPassage[] = [
   {
     id: "reading-sharing-planet-16",
     themeId: "sharing-planet",
+    subtopic: "El medio ambiente",
     title: "Reseña: 'La Tierra que heredamos'",
     textType: "Review",
     level: "medium",
@@ -3569,6 +3665,7 @@ export const READING_PASSAGES: ReadingPassage[] = [
   {
     id: "reading-sharing-planet-17",
     themeId: "sharing-planet",
+    subtopic: "El medio ambiente",
     title: "Publicación: Pequeños cambios para ahorrar agua",
     textType: "Social media post",
     level: "easy",
@@ -3598,6 +3695,7 @@ export const READING_PASSAGES: ReadingPassage[] = [
   {
     id: "reading-sharing-planet-18",
     themeId: "sharing-planet",
+    subtopic: "Ética",
     title: "Mi experiencia viviendo sin plástico durante un mes",
     textType: "Blog post",
     level: "medium",
@@ -3627,6 +3725,7 @@ export const READING_PASSAGES: ReadingPassage[] = [
   {
     id: "reading-sharing-planet-19",
     themeId: "sharing-planet",
+    subtopic: "El medio ambiente",
     title: "Diario: Un día limpiando la playa",
     textType: "Diary entry",
     level: "easy",
@@ -3657,6 +3756,7 @@ export const READING_PASSAGES: ReadingPassage[] = [
   {
     id: "reading-sharing-planet-20",
     themeId: "sharing-planet",
+    subtopic: "El medio ambiente",
     title: "Entrevista con un climatólogo sobre el futuro del planeta",
     textType: "Interview",
     level: "hard",
@@ -3690,6 +3790,7 @@ export const READING_PASSAGES: ReadingPassage[] = [
   {
     id: "reading-identities-21",
     themeId: "identities",
+    subtopic: "Lengua e identidad",
     title: "Mi abuela y su acento inolvidable",
     textType: "Blog post",
     level: "easy",
@@ -3719,6 +3820,7 @@ export const READING_PASSAGES: ReadingPassage[] = [
   {
     id: "reading-identities-22",
     themeId: "identities",
+    subtopic: "Estilos de vida",
     title: "Entrevista: Ser una persona trans en un pueblo pequeño",
     textType: "Interview",
     level: "hard",
@@ -3751,6 +3853,7 @@ export const READING_PASSAGES: ReadingPassage[] = [
   {
     id: "reading-identities-23",
     themeId: "identities",
+    subtopic: "Lengua e identidad",
     title: "¡Campamento de verano multicultural!",
     textType: "Advertisement",
     level: "easy",
@@ -3780,6 +3883,7 @@ export const READING_PASSAGES: ReadingPassage[] = [
   {
     id: "reading-identities-24",
     themeId: "identities",
+    subtopic: "Estilos de vida",
     title: "Carta a mi yo del futuro",
     textType: "Personal letter",
     level: "medium",
@@ -3811,6 +3915,7 @@ export const READING_PASSAGES: ReadingPassage[] = [
   {
     id: "reading-identities-25",
     themeId: "identities",
+    subtopic: "Lengua e identidad",
     title: "Reseña: el documental 'Raíces y alas'",
     textType: "Review",
     level: "medium",
@@ -3840,6 +3945,7 @@ export const READING_PASSAGES: ReadingPassage[] = [
   {
     id: "reading-identities-26",
     themeId: "identities",
+    subtopic: "Estilos de vida",
     title: "Por qué dejé de teñirme el pelo de rubio",
     textType: "Social media post",
     level: "easy",
@@ -3869,6 +3975,7 @@ export const READING_PASSAGES: ReadingPassage[] = [
   {
     id: "reading-experiences-21",
     themeId: "experiences",
+    subtopic: "Historias de vida",
     title: "Diario: mi primer día de universidad",
     textType: "Diary entry",
     level: "easy",
@@ -3899,6 +4006,7 @@ export const READING_PASSAGES: ReadingPassage[] = [
   {
     id: "reading-experiences-22",
     themeId: "experiences",
+    subtopic: "Ritos de paso",
     title: "Ritos de iniciación alrededor del mundo",
     textType: "Magazine article",
     level: "hard",
@@ -3928,6 +4036,7 @@ export const READING_PASSAGES: ReadingPassage[] = [
   {
     id: "reading-experiences-23",
     themeId: "experiences",
+    subtopic: "Historias de vida",
     title: "Entrevista a una piloto de carreras de diecinueve años",
     textType: "Interview",
     level: "medium",
@@ -3962,6 +4071,7 @@ export const READING_PASSAGES: ReadingPassage[] = [
   {
     id: "reading-experiences-24",
     themeId: "experiences",
+    subtopic: "Actividades recreativas",
     title: "Postal desde el Festival Sonora",
     textType: "Postcard",
     level: "easy",
@@ -3993,6 +4103,7 @@ export const READING_PASSAGES: ReadingPassage[] = [
   {
     id: "reading-experiences-25",
     themeId: "experiences",
+    subtopic: "Vacaciones y viajes",
     title: "Foro: ¿Vale la pena viajar solo por primera vez?",
     textType: "Forum post",
     level: "medium",
@@ -4026,6 +4137,7 @@ export const READING_PASSAGES: ReadingPassage[] = [
   {
     id: "reading-experiences-26",
     themeId: "experiences",
+    subtopic: "Vacaciones y viajes",
     title: "Informe: el auge del turismo de aventura entre los jóvenes",
     textType: "Official report",
     level: "hard",
@@ -4055,6 +4167,7 @@ export const READING_PASSAGES: ReadingPassage[] = [
   {
     id: "reading-human-ingenuity-21",
     themeId: "human-ingenuity",
+    subtopic: "Tecnología",
     title: "Reseña: el videojuego educativo 'Codex'",
     textType: "Review",
     level: "medium",
@@ -4084,6 +4197,7 @@ export const READING_PASSAGES: ReadingPassage[] = [
   {
     id: "reading-human-ingenuity-22",
     themeId: "human-ingenuity",
+    subtopic: "Innovación científica",
     title: "Impresoras 3D que construyen casas en un día",
     textType: "Magazine article",
     level: "hard",
@@ -4113,6 +4227,7 @@ export const READING_PASSAGES: ReadingPassage[] = [
   {
     id: "reading-human-ingenuity-23",
     themeId: "human-ingenuity",
+    subtopic: "Tecnología",
     title: "Solicitud de beca para un curso de programación",
     textType: "Formal email",
     level: "medium",
@@ -4144,6 +4259,7 @@ export const READING_PASSAGES: ReadingPassage[] = [
   {
     id: "reading-human-ingenuity-24",
     themeId: "human-ingenuity",
+    subtopic: "Innovación científica",
     title: "Entrevista a una inventora de dieciséis años",
     textType: "Interview",
     level: "medium",
@@ -4178,6 +4294,7 @@ export const READING_PASSAGES: ReadingPassage[] = [
   {
     id: "reading-human-ingenuity-25",
     themeId: "human-ingenuity",
+    subtopic: "Tecnología",
     title: "Mi experiencia usando un tutor de inteligencia artificial para estudiar",
     textType: "Social media post",
     level: "easy",
@@ -4207,6 +4324,7 @@ export const READING_PASSAGES: ReadingPassage[] = [
   {
     id: "reading-human-ingenuity-26",
     themeId: "human-ingenuity",
+    subtopic: "Tecnología",
     title: "Cómo empezar en la robótica educativa",
     textType: "Instructional guide",
     level: "easy",
@@ -4238,6 +4356,7 @@ export const READING_PASSAGES: ReadingPassage[] = [
   {
     id: "reading-social-organization-21",
     themeId: "social-organization",
+    subtopic: "Educación",
     title: "Discurso de bienvenida a los nuevos alumnos",
     textType: "Speech",
     level: "easy",
@@ -4268,6 +4387,7 @@ export const READING_PASSAGES: ReadingPassage[] = [
   {
     id: "reading-social-organization-22",
     themeId: "social-organization",
+    subtopic: "El mundo laboral",
     title: "Informe: la brecha salarial entre los trabajadores jóvenes",
     textType: "Official report",
     level: "hard",
@@ -4297,6 +4417,7 @@ export const READING_PASSAGES: ReadingPassage[] = [
   {
     id: "reading-social-organization-23",
     themeId: "social-organization",
+    subtopic: "Participación social",
     title: "Entrevista con la alcaldesa más joven del país",
     textType: "Interview",
     level: "medium",
@@ -4331,6 +4452,7 @@ export const READING_PASSAGES: ReadingPassage[] = [
   {
     id: "reading-social-organization-24",
     themeId: "social-organization",
+    subtopic: "Participación social",
     title: "Foro: ¿Deberían poder votar los jóvenes de dieciséis años?",
     textType: "Forum post",
     level: "hard",
@@ -4364,6 +4486,7 @@ export const READING_PASSAGES: ReadingPassage[] = [
   {
     id: "reading-social-organization-25",
     themeId: "social-organization",
+    subtopic: "Comunidad",
     title: "Se busca mentor para nuevos vecinos",
     textType: "Advertisement",
     level: "easy",
@@ -4394,6 +4517,7 @@ export const READING_PASSAGES: ReadingPassage[] = [
   {
     id: "reading-social-organization-26",
     themeId: "social-organization",
+    subtopic: "Comunidad",
     title: "Una semana viviendo en una cooperativa de vivienda",
     textType: "Blog post",
     level: "medium",
@@ -4423,6 +4547,7 @@ export const READING_PASSAGES: ReadingPassage[] = [
   {
     id: "reading-sharing-planet-21",
     themeId: "sharing-planet",
+    subtopic: "El medio ambiente",
     title: "El regreso del lobo ibérico sorprende a los ganaderos",
     textType: "Newspaper article",
     level: "medium",
@@ -4452,6 +4577,7 @@ export const READING_PASSAGES: ReadingPassage[] = [
   {
     id: "reading-sharing-planet-22",
     themeId: "sharing-planet",
+    subtopic: "El medio ambiente",
     title: "Cómo empezar una huerta urbana en tu balcón",
     textType: "Instructional guide",
     level: "easy",
@@ -4483,6 +4609,7 @@ export const READING_PASSAGES: ReadingPassage[] = [
   {
     id: "reading-sharing-planet-23",
     themeId: "sharing-planet",
+    subtopic: "El medio ambiente",
     title: "Entrevista a una activista climática de dieciséis años",
     textType: "Interview",
     level: "hard",
@@ -4517,6 +4644,7 @@ export const READING_PASSAGES: ReadingPassage[] = [
   {
     id: "reading-sharing-planet-24",
     themeId: "sharing-planet",
+    subtopic: "El medio ambiente",
     title: "Postal desde una reserva natural",
     textType: "Postcard",
     level: "easy",
@@ -4548,6 +4676,7 @@ export const READING_PASSAGES: ReadingPassage[] = [
   {
     id: "reading-sharing-planet-25",
     themeId: "sharing-planet",
+    subtopic: "El medio ambiente",
     title: "Reseña: 'El último glaciar'",
     textType: "Review",
     level: "medium",
@@ -4577,6 +4706,7 @@ export const READING_PASSAGES: ReadingPassage[] = [
   {
     id: "reading-sharing-planet-26",
     themeId: "sharing-planet",
+    subtopic: "El medio ambiente",
     title: "Informe: la energía solar llega a las escuelas públicas",
     textType: "Official report",
     level: "hard",

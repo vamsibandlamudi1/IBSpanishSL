@@ -174,7 +174,7 @@ export default function ReadingModule() {
         </div>
 
         <div className="flex flex-col gap-3">
-          {themes.map((th) => {
+          {themes.map((th, ti) => {
             const themePassages = READING_PASSAGES.filter((p) => p.themeId === th.id);
             const doneInTheme = themePassages.filter((p) => bestAttemptByPassage.has(p.id)).length;
             const visible = themePassages.filter((p) => {
@@ -197,8 +197,17 @@ export default function ReadingModule() {
                   </span>
                 </button>
                 {!collapsed && (
-                  <div className="flex flex-col gap-1.5">
-                    {visible.map((p) => {
+                  <div className="flex flex-col gap-3">
+                    {th.subtopics.map((sub, si) => {
+                      const group = visible.filter((p) => p.subtopic === sub);
+                      if (group.length === 0) return null;
+                      return (
+                        <div key={sub}>
+                          <p className="mb-1 px-1 text-[11px] font-semibold text-slate-400">
+                            {ti + 1}.{si + 1} - {sub}
+                          </p>
+                          <div className="flex flex-col gap-1.5">
+                    {group.map((p) => {
                       const active = p.id === passage.id;
                       const best = bestAttemptByPassage.get(p.id);
                       return (
@@ -232,6 +241,10 @@ export default function ReadingModule() {
                             </div>
                           </div>
                         </button>
+                      );
+                    })}
+                          </div>
+                        </div>
                       );
                     })}
                   </div>
