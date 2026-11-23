@@ -23,8 +23,12 @@ interface WritingFeedback {
   improvements: string[];
   languageComment: string;
   messageComment: string;
-  /** A full rewrite of the student's own submission, polished to full-marks
-   *  quality — only present for AI feedback (the local fallback can't write
+  /** Criterion C: Conceptual understanding (text-type conventions). */
+  conceptualComment?: string;
+  /** Approximate 0-10 practice marks per criterion (not official IB marks). */
+  marks?: { language: number; message: number; conceptual: number } | null;
+  /** A rewrite of the student's own submission, improved for the target
+   *  text type — only present for AI feedback (the local fallback can't write
    *  Spanish prose), so callers should check for it before rendering. */
   improvedVersion?: string;
 }
@@ -98,6 +102,10 @@ export default function WritingModule() {
   const [feedback, setFeedback] = useState<WritingFeedback | null>(null);
   const [feedbackSource, setFeedbackSource] = useState<"ai" | "local" | null>(null);
   const [showModel, setShowModel] = useState(false);
+  // AI planning guide for the current task (null = not requested yet).
+  const [plan, setPlan] = useState<{ outline: string[]; vocabulary: { es: string; en: string }[]; connectors: string[]; conventions: string } | null>(null);
+  const [planLoading, setPlanLoading] = useState(false);
+  const [planFailed, setPlanFailed] = useState(false);
 
   const prompt = useMemo(() => WRITING_PROMPTS.find((p) => p.id === promptId) ?? WRITING_PROMPTS[0], [promptId]);
   const wordCount = countWords(text);
@@ -137,30 +145,77 @@ export default function WritingModule() {
     setFeedback(null);
     setFeedbackSource(null);
     setShowModel(false);
+    setPlan(null);
+    setPlanFailed(false);
+  };
+
+  const THEME_LABELS: Record<string, string> = {
+    identities: "Identities",
+    experiences: "Experiences",
+    "human-ingenuity": "Human Ingenuity",
+    "social-organization": "Social Organization",
+    "sharing-planet": "Sharing the Planet",
+  };
+
+  const requestPlan = async () => {
+    setPlanLoading(true);
+    setPlanFailed(false);
+    try {
+      const res = await fetch("/api/writing-hints", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          textType: prompt.textType,
+          instructions: prompt.instructions,
+          theme: THEME_LABELS[prompt.themeId] ?? prompt.themeId,
+          minWords: prompt.minWords,
+          maxWords: prompt.maxWords,
+        }),
+      });
+      const data = await res.json();
+      if (data.available && data.plan) setPlan(data.plan);
+      else setPlanFailed(true);
+    } catch {
+      setPlanFailed(true);
+    } finally {
+      setPlanLoading(false);
+    }
   };
 
   return (
     <div className="flex flex-col gap-6 lg:flex-row lg:items-start">
-      {/* Sidebar: one prompt per theme, same pattern as GrammarModule/ReadingModule. */}
-      <nav className="flex gap-2 overflow-x-auto pb-1 lg:w-72 lg:shrink-0 lg:flex-col lg:overflow-visible lg:pb-0">
-        {WRITING_PROMPTS.map((p) => {
-          const active = p.id === prompt.id;
-          return (
-            <button
-              key={p.id}
-              type="button"
-              onClick={() => selectPrompt(p.id)}
-              className={`shrink-0 rounded-lg border p-3 text-left transition lg:shrink ${
-                active ? "border-brand-400 bg-brand-50" : "border-slate-200 bg-white hover:border-brand-300 hover:bg-slate-50"
-              }`}
-            >
-              <p className={`whitespace-nowrap text-sm font-semibold lg:whitespace-normal ${active ? "text-brand-800" : "text-slate-800"}`}>
-                {p.textType}
-              </p>
-            </button>
-          );
-        })}
-      </nav>
+      {/* Sidebar: prompts grouped by IB theme, sticky on desktop. */}
+      <aside className="lg:sticky lg:top-20 lg:max-h-[calc(100vh-6rem)] lg:w-72 lg:shrink-0 lg:overflow-y-auto lg:pr-1">
+        <div className="flex flex-col gap-4">
+          {Object.entries(THEME_LABELS).map(([themeId, label]) => {
+            const items = WRITING_PROMPTS.filter((p) => p.themeId === themeId);
+            if (items.length === 0) return null;
+            return (
+              <section key={themeId}>
+                <p className="mb-1.5 px-1 text-xs font-bold uppercase tracking-wide text-slate-500">{label}</p>
+                <div className="flex flex-col gap-1.5">
+                  {items.map((p) => {
+                    const active = p.id === prompt.id;
+                    return (
+                      <button
+                        key={p.id}
+                        type="button"
+                        onClick={() => selectPrompt(p.id)}
+                        className={`w-full rounded-lg border p-2.5 text-left transition ${
+                          active ? "border-brand-400 bg-brand-50" : "border-slate-200 bg-white hover:border-brand-300 hover:bg-slate-50"
+                        }`}
+                      >
+                        <p className={`text-sm font-semibold leading-snug ${active ? "text-brand-800" : "text-slate-800"}`}>{p.textType}</p>
+                        <p className="mt-0.5 text-[10px] font-medium uppercase tracking-wide text-slate-400">{p.level}</p>
+                      </button>
+                    );
+                  })}
+                </div>
+              </section>
+            );
+          })}
+        </div>
+      </aside>
 
       <div key={prompt.id} className="animate-fade-slide-up min-w-0 flex-1">
         <div className="mb-4 rounded-xl border border-slate-200 bg-white p-5 shadow-xs">
@@ -184,6 +239,56 @@ export default function WritingModule() {
           <p className="mt-3 text-xs text-slate-400">
             Target length: {prompt.minWords}–{prompt.maxWords} words
           </p>
+        </div>
+
+        <div className="mb-4 rounded-xl border border-brand-100 bg-brand-50/50 p-4">
+          <div className="flex flex-wrap items-center justify-between gap-2">
+            <p className="text-sm font-semibold text-brand-900">✨ Plan before you write</p>
+            <button
+              type="button"
+              onClick={requestPlan}
+              disabled={planLoading}
+              className="rounded-full border border-brand-300 bg-white px-3 py-1 text-xs font-semibold text-brand-800 hover:bg-brand-100 disabled:cursor-wait disabled:opacity-60"
+            >
+              {planLoading ? "Planning…" : plan ? "✨ Plan again" : "✨ Get an AI plan"}
+            </button>
+          </div>
+          {planFailed && (
+            <p className="mt-2 text-xs text-amber-700">An AI plan isn&apos;t available right now. Use the format tips above.</p>
+          )}
+          {plan && (
+            <div className="mt-3 grid grid-cols-1 gap-3 text-sm md:grid-cols-2">
+              <div>
+                <p className="mb-1 text-xs font-semibold uppercase tracking-wide text-slate-500">Outline</p>
+                <ol className="flex list-decimal flex-col gap-1 pl-4 text-slate-700">
+                  {plan.outline.map((o, i) => (
+                    <li key={i}>{o}</li>
+                  ))}
+                </ol>
+                {plan.conventions && <p className="mt-2 text-xs text-slate-500">{plan.conventions}</p>}
+              </div>
+              <div className="flex flex-col gap-3">
+                <div>
+                  <p className="mb-1 text-xs font-semibold uppercase tracking-wide text-slate-500">Useful vocabulary</p>
+                  <ul className="flex flex-col gap-0.5 text-slate-700">
+                    {plan.vocabulary.map((v, i) => (
+                      <li key={i}>
+                        <span className="font-medium">{v.es}</span> <span className="text-slate-400">— {v.en}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div>
+                  <p className="mb-1 text-xs font-semibold uppercase tracking-wide text-slate-500">Connectors</p>
+                  <div className="flex flex-wrap gap-1.5">
+                    {plan.connectors.map((c, i) => (
+                      <span key={i} className="rounded-full bg-white px-2 py-0.5 text-xs text-slate-700 shadow-xs">{c}</span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
         </div>
 
         {!submitted ? (
@@ -245,8 +350,27 @@ export default function WritingModule() {
                   </div>
                 )}
 
-                {(feedback.languageComment || feedback.messageComment) && (
-                  <div className="mb-1 grid grid-cols-1 gap-3 sm:grid-cols-2">
+                {feedback.marks && (
+                  <div className="mb-3 flex flex-wrap items-center gap-2">
+                    {[
+                      { label: "Language", value: feedback.marks.language },
+                      { label: "Message", value: feedback.marks.message },
+                      { label: "Text type", value: feedback.marks.conceptual },
+                    ].map((m) => (
+                      <span key={m.label} className="rounded-full border border-slate-200 bg-white px-3 py-1 text-sm text-slate-700">
+                        {m.label}: <strong>{m.value}/10</strong>
+                      </span>
+                    ))}
+                    <span className="rounded-full bg-brand-50 px-3 py-1 text-sm font-semibold text-brand-800">
+                      Total ≈ {feedback.marks.language + feedback.marks.message + feedback.marks.conceptual}/30
+                    </span>
+                    <span className="w-full text-xs text-slate-400">
+                      Approximate practice estimate, not an official IB mark.
+                    </span>
+                  </div>
+                )}
+                {(feedback.languageComment || feedback.messageComment || feedback.conceptualComment) && (
+                  <div className="mb-1 grid grid-cols-1 gap-3 sm:grid-cols-3">
                     {feedback.languageComment && (
                       <div className="rounded-lg border border-slate-200 p-3">
                         <p className="mb-1 text-xs font-semibold uppercase tracking-wide text-slate-500">Language (Criterion A)</p>
@@ -259,6 +383,12 @@ export default function WritingModule() {
                         <p className="text-sm text-slate-700">{feedback.messageComment}</p>
                       </div>
                     )}
+                    {feedback.conceptualComment && (
+                      <div className="rounded-lg border border-slate-200 p-3">
+                        <p className="mb-1 text-xs font-semibold uppercase tracking-wide text-slate-500">Text type (Criterion C)</p>
+                        <p className="text-sm text-slate-700">{feedback.conceptualComment}</p>
+                      </div>
+                    )}
                   </div>
                 )}
               </div>
@@ -267,7 +397,7 @@ export default function WritingModule() {
             {feedback?.improvedVersion && (
               <div className="rounded-xl border border-mint-200 bg-mint-50 p-5 shadow-xs">
                 <div className="mb-1 flex items-center justify-between gap-2">
-                  <p className="text-sm font-semibold text-mint-800">📝 Model answer (full-marks version)</p>
+                  <p className="text-sm font-semibold text-mint-800">📝 Improved model version</p>
                   <button type="button" onClick={() => setShowModel((v) => !v)} className="text-xs font-semibold text-mint-700 hover:underline">
                     {showModel ? "Hide" : "Show"}
                   </button>

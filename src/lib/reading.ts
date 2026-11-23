@@ -14,6 +14,7 @@
 // any real exam. See components/ReadingModule.tsx.
 
 import { ReadingPassage } from "./types";
+import { EXTRA_READING_QUESTIONS } from "./reading-extra";
 
 export const READING_PASSAGES: ReadingPassage[] = [
   {
@@ -4603,3 +4604,9 @@ export const READING_PASSAGES: ReadingPassage[] = [
     ],
   },
 ];
+
+// Merge the AI-generated extra questions into each passage (see reading-extra.ts).
+for (const passage of READING_PASSAGES) {
+  const extra = EXTRA_READING_QUESTIONS[passage.id];
+  if (extra && extra.length > 0) passage.questions = [...passage.questions, ...extra];
+}

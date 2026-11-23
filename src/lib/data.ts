@@ -136,7 +136,7 @@ export const THEMES: Theme[] = [
       { es: "la brecha generacional", en: "generation gap", subtopic: "Childhood and adolescence" },
       { es: "la tutela", en: "guardianship", subtopic: "Childhood and adolescence" },
       { es: "la orientación vocacional", en: "career guidance", subtopic: "Childhood and adolescence" },
-      { es: "la autodescubrimiento", en: "self-discovery", subtopic: "Childhood and adolescence" },
+      { es: "el autodescubrimiento", en: "self-discovery", subtopic: "Childhood and adolescence" },
       { es: "el rito de iniciación", en: "initiation rite", subtopic: "Childhood and adolescence" },
       { es: "la pubertad", en: "puberty", subtopic: "Childhood and adolescence" },
       { es: "la tutoría", en: "mentorship", subtopic: "Childhood and adolescence" },
@@ -11110,15 +11110,35 @@ const PUZZLE_FRAMES: ((es: string) => string)[] = [
  *  translation/listening/word-order drills built from fixed, POS-safe
  *  frames, which is exactly how vocabulary range is tested on the real
  *  exam. */
+/** Three distractors for vocabulary item i: the next entries whose English and
+ *  Spanish forms both differ from the correct word (and from each other), so no
+ *  wrong option is a duplicate of the answer. */
+function pickVocabDistractors(vocab: { es: string; en: string }[], i: number): [{ es: string; en: string }, { es: string; en: string }, { es: string; en: string }] {
+  const correct = vocab[i];
+  const out: { es: string; en: string }[] = [];
+  for (let k = 1; k < vocab.length && out.length < 3; k++) {
+    const c = vocab[(i + k) % vocab.length];
+    if (c.en !== correct.en && c.es !== correct.es && !out.some((o) => o.en === c.en || o.es === c.es)) out.push(c);
+  }
+  while (out.length < 3) out.push({ es: `opción ${out.length + 1}`, en: `option ${out.length + 1}` });
+  return [out[0], out[1], out[2]];
+}
+
 function buildVocabQuestions(theme: Theme): QuizItem[] {
-  const vocab = theme.vocabulary;
+  // Remove repeated entries first: duplicates produced identical quiz questions.
+  const seen = new Set<string>();
+  const vocab = theme.vocabulary.filter((v) => {
+    const key = `${v.es}|${v.en}|${v.subtopic}`;
+    if (seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
   const n = vocab.length;
   const items: QuizItem[] = [];
 
   vocab.forEach((v, i) => {
-    const d1 = vocab[(i + 1) % n];
-    const d2 = vocab[(i + 2) % n];
-    const d3 = vocab[(i + 3) % n];
+    const [d1, d2, d3] = pickVocabDistractors(vocab, i);
+    const itemsBefore = items.length;
 
     items.push({
       id: `${theme.id}-v${i}-mcq-en`,
@@ -11259,6 +11279,8 @@ function buildVocabQuestions(theme: Theme): QuizItem[] {
         explanation: `'${v.es}' significa '${v.en}' en inglés.`,
       });
     }
+    // Tag every question made for this word with its subtopic.
+    for (let j = itemsBefore; j < items.length; j++) items[j].subtopic = v.subtopic;
   });
 
   return items;

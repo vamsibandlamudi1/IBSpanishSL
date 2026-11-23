@@ -4,18 +4,21 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import ThemeSelector from "./ThemeSelector";
-import MiniGameBreak from "./MiniGameBreak";
 import ColorSplash from "./ColorSplash";
 import { useStore } from "@/lib/store";
 import { selectAdaptiveQuizQuestions, selectWeakAreaQuestions, weakestTheme } from "@/lib/analytics";
 import { speak, stopSpeaking } from "@/lib/speech";
 import { Difficulty, QuizItem } from "@/lib/types";
+import { shuffle, uniqueVocab } from "@/lib/utils";
+import { GRAMMAR_TOPICS, loadExercises } from "@/lib/grammar";
+import { READING_PASSAGES } from "@/lib/reading";
+import { PODCAST_EPISODES } from "@/lib/podcast";
+import { getSpanishVoices } from "@/lib/speech";
 import { LEVEL_STYLES, OPTION_LETTERS, TYPE_ICON } from "@/lib/quizUi";
 
 const DIFFICULTIES: Difficulty[] = ["easy", "medium", "hard"];
 /** Show a 50-second "brain break" mini-game every time the student's
  *  lifetime answered-question count crosses a multiple of this. */
-const MINI_GAME_INTERVAL = 15;
 
 type Stage = "setup" | "in-progress" | "results";
 
@@ -45,7 +48,6 @@ export default function QuizModule() {
     questionResults,
     completeQuiz,
     recordQuestionResult,
-    awardMiniGameBonus,
     lastAward,
     clearLastAward,
     setActiveSession,
@@ -55,6 +57,25 @@ export default function QuizModule() {
   const [stage, setStage] = useState<Stage>("setup");
   const [themeId, setThemeId] = useState<string | null>(null);
   const [difficulty, setDifficulty] = useState<Difficulty>("easy");
+  // Quiz length (questions per quiz) and an optional listening-focus mode.
+  const [quizLength, setQuizLength] = useState(6);
+  // One focus mode at a time: adaptive (default), listening words, exam mix, reading passage, or podcast.
+  // Spanish voices available in this browser, for the audio-question voice picker.
+  const [voices, setVoices] = useState<SpeechSynthesisVoice[]>([]);
+  const [voiceURI, setVoiceURI] = useState<string | undefined>(undefined);
+  useEffect(() => {
+    const load = () => setVoices(getSpanishVoices());
+    load();
+    window.speechSynthesis?.addEventListener?.("voiceschanged", load);
+    return () => window.speechSynthesis?.removeEventListener?.("voiceschanged", load);
+  }, []);
+  const [focus, setFocus] = useState<"adaptive" | "listening" | "exam" | "reading" | "podcast">("adaptive");
+  const listeningFocus = focus === "listening";
+  const examMix = focus === "exam";
+  const readingFocus = focus === "reading";
+  const podcastFocus = focus === "podcast";
+  // Optional subtopic filter and an exam-style mix (vocabulary + grammar).
+  const [subtopic, setSubtopic] = useState<string | null>(null);
   const [quiz, setQuiz] = useState<QuizItem[]>([]);
   const [isWeakMode, setIsWeakMode] = useState(false);
   const [current, setCurrent] = useState(0);
@@ -62,9 +83,7 @@ export default function QuizModule() {
   const [correctCount, setCorrectCount] = useState(0);
   const [lastQuestionResult, setLastQuestionResult] = useState<"correct" | "incorrect" | null>(null);
   const [missedItems, setMissedItems] = useState<QuizItem[]>([]);
-  const [showMiniGame, setShowMiniGame] = useState(false);
   const [isSpeaking, setIsSpeaking] = useState(false);
-  const miniGameShownAt = useRef<number | null>(null);
 
   useEffect(() => stopSpeaking, []); // stop any playback if the module unmounts
 
@@ -90,14 +109,123 @@ export default function QuizModule() {
     }
     if (!currentQuestion?.audioText) return;
     setIsSpeaking(true);
-    speak(currentQuestion.audioText, () => setIsSpeaking(false));
+    // Slightly slower than natural speed, with the voice the student picked (if any).
+    speak(currentQuestion.audioText, () => setIsSpeaking(false), { rate: 0.9, voiceURI });
   };
 
   const recommendedThemeId = useMemo(() => weakestTheme(questionResults, themes)?.themeId ?? null, [questionResults, themes]);
   const selectedTheme = useMemo(() => themes.find((t) => t.id === themeId) ?? null, [themes, themeId]);
 
-  const startQuiz = (forThemeId: string, forDifficulty: Difficulty) => {
-    const picked = selectAdaptiveQuizQuestions(questions, forThemeId, forDifficulty, questionResults, 6);
+  // Listening-focus quiz: each question plays one theme word and asks for its English
+  // meaning. Built from the theme vocabulary, so it adds listening practice without new data.
+  const buildListeningQuiz = (forThemeId: string, forDifficulty: Difficulty, count: number): QuizItem[] => {
+    const theme = themes.find((t) => t.id === forThemeId);
+    const vocab = uniqueVocab((theme?.vocabulary ?? []).filter((v) => !subtopic || v.subtopic === subtopic));
+    return shuffle(vocab)
+      .slice(0, count)
+      .map((v, i) => {
+        const wrong = shuffle(vocab.filter((w) => w.en !== v.en)).slice(0, 3).map((w) => w.en);
+        return {
+          id: `listen-${forThemeId}-${i}-${v.es}`,
+          themeId: forThemeId,
+          type: "listening" as const,
+          prompt: "Escucha la palabra y elige su significado en inglés.",
+          options: shuffle([v.en, ...wrong]),
+          correctAnswer: v.en,
+          audioText: v.es,
+          difficulty: forDifficulty,
+          points: 10,
+        };
+      });
+  };
+
+  // Exam-mix half: grammar exercises from across the grammar topics, shaped like quiz items.
+  const buildGrammarQuizItems = async (forThemeId: string, forDifficulty: Difficulty, count: number): Promise<QuizItem[]> => {
+    const topics = GRAMMAR_TOPICS.filter((t) => t.id !== "listening-tenses" && t.id !== "heading-matching" && t.id !== "gap-fill");
+    const lists = await Promise.all(
+      shuffle(topics)
+        .slice(0, 8)
+        .map(async (t) => (await loadExercises(t.id)).map((ex) => ({ ex, topic: t.id })))
+    );
+    return shuffle(lists.flat())
+      .filter(({ ex }) => ex.type === "mcq" || ex.type === "short")
+      .slice(0, count)
+      .map(({ ex, topic }) => ({
+        id: `gram-${topic}-${ex.id}`,
+        themeId: forThemeId,
+        type: ex.type === "short" ? ("short" as const) : ("mcq" as const),
+        prompt: ex.prompt,
+        options: ex.type === "mcq" ? ex.options : undefined,
+        correctAnswer: ex.correctAnswer,
+        difficulty: forDifficulty,
+        points: 10,
+        explanation: ex.tip ?? ex.explanation,
+      }));
+  };
+
+  // Reading and podcast focus: one passage or episode from the theme. Its questions are
+  // shown one by one. True/false items become Verdadero/Falso choices.
+  type SourceQuestion = { id: string; type: string; prompt: string; options?: string[]; correctAnswer: string; justification?: string };
+  const passageQuestionItems = (
+    source: { id: string; themeId: string; level: Difficulty; bodyEs: string; questions: SourceQuestion[] },
+    forDifficulty: Difficulty,
+    showText: boolean,
+    audio: boolean
+  ): QuizItem[] =>
+    source.questions.map((q) => {
+      const base = {
+        id: `pass-${source.id}-${q.id}`,
+        themeId: source.themeId,
+        prompt: q.prompt,
+        difficulty: forDifficulty,
+        points: 10,
+        explanation: q.justification ? `Evidencia en el texto: ${q.justification}` : undefined,
+        context: showText ? source.bodyEs : undefined,
+        audioText: audio ? source.bodyEs : undefined,
+      };
+      if (q.type === "true-false") {
+        return { ...base, type: "mcq" as const, options: ["Verdadero", "Falso"], correctAnswer: q.correctAnswer === "true" ? "Verdadero" : "Falso" };
+      }
+      if (q.type === "mcq") return { ...base, type: "mcq" as const, options: q.options, correctAnswer: q.correctAnswer };
+      return { ...base, type: "short" as const, correctAnswer: q.correctAnswer };
+    });
+
+  // Draws from several passages (or episodes) of the theme until `count` questions are collected,
+  // so a 10-question quiz is not cut short when one passage has only 8 questions.
+  const collectQuestions = <T,>(sources: T[], toItems: (source: T) => QuizItem[], count: number): QuizItem[] => {
+    const out: QuizItem[] = [];
+    for (const source of shuffle(sources)) {
+      if (out.length >= count) break;
+      out.push(...toItems(source));
+    }
+    return out.slice(0, Math.max(count, 1));
+  };
+
+  const buildPassageQuiz = (forThemeId: string, forDifficulty: Difficulty, count: number): QuizItem[] =>
+    collectQuestions(READING_PASSAGES.filter((p) => p.themeId === forThemeId), (p) => passageQuestionItems(p, forDifficulty, true, false), count);
+
+  // The transcript stays hidden; the student listens with the play button.
+  const buildPodcastQuiz = (forThemeId: string, forDifficulty: Difficulty, count: number): QuizItem[] =>
+    collectQuestions(PODCAST_EPISODES.filter((e) => e.themeId === forThemeId), (e) => passageQuestionItems(e, forDifficulty, false, true), count);
+
+  const startQuiz = async (forThemeId: string, forDifficulty: Difficulty) => {
+    // Subtopic filter applies to vocabulary-based questions.
+    const themeBank = subtopic ? questions.filter((q) => q.themeId === forThemeId && q.subtopic === subtopic) : questions;
+    let picked: QuizItem[];
+    if (listeningFocus) {
+      picked = buildListeningQuiz(forThemeId, forDifficulty, quizLength);
+    } else if (readingFocus) {
+      picked = buildPassageQuiz(forThemeId, forDifficulty, quizLength);
+    } else if (podcastFocus) {
+      picked = buildPodcastQuiz(forThemeId, forDifficulty, quizLength);
+    } else if (examMix) {
+      const half = Math.floor(quizLength / 2);
+      const vocabPart = selectAdaptiveQuizQuestions(themeBank, forThemeId, forDifficulty, questionResults, quizLength - half);
+      const grammarPart = await buildGrammarQuizItems(forThemeId, forDifficulty, half);
+      picked = shuffle([...vocabPart, ...grammarPart]);
+    } else {
+      picked = selectAdaptiveQuizQuestions(themeBank, forThemeId, forDifficulty, questionResults, quizLength);
+    }
     setQuiz(picked);
     setIsWeakMode(false);
     setCurrent(0);
@@ -172,21 +300,6 @@ export default function QuizModule() {
   };
 
   const handleNextClick = () => {
-    // Only offer the mini-game break at the very end of the quiz (never
-    // between questions) so it can't interrupt a test in progress.
-    const isLastQuestion = current + 1 >= quiz.length;
-    const total = questionResults.length;
-    if (isLastQuestion && total > 0 && total % MINI_GAME_INTERVAL === 0 && miniGameShownAt.current !== total) {
-      miniGameShownAt.current = total;
-      setShowMiniGame(true);
-    } else {
-      advance();
-    }
-  };
-
-  const handleMiniGameFinish = (bonusPoints: number) => {
-    awardMiniGameBonus(bonusPoints);
-    setShowMiniGame(false);
     advance();
   };
 
@@ -215,7 +328,6 @@ export default function QuizModule() {
 
   return (
     <>
-      {showMiniGame && <MiniGameBreak onFinish={handleMiniGameFinish} />}
 
       {stage === "setup" && (
         <div className="flex flex-col gap-5">
@@ -234,7 +346,10 @@ export default function QuizModule() {
             <ThemeSelector
               themes={themes}
               selectedThemeId={themeId}
-              onSelect={setThemeId}
+              onSelect={(id) => {
+                setThemeId(id);
+                setSubtopic(null);
+              }}
               recommendedThemeId={recommendedThemeId}
             />
           </div>
@@ -254,6 +369,90 @@ export default function QuizModule() {
                 </button>
               ))}
             </div>
+          </div>
+          {themeId && (
+            <div>
+              <h2 className="mb-2 text-lg font-bold text-slate-900">Subtopic (optional)</h2>
+              <div className="flex flex-wrap gap-2">
+                {["All", ...(themes.find((t) => t.id === themeId)?.subtopics ?? [])].map((sub) => {
+                  const value = sub === "All" ? null : sub;
+                  const active = subtopic === value;
+                  return (
+                    <button
+                      key={sub}
+                      type="button"
+                      onClick={() => setSubtopic(value)}
+                      aria-pressed={active}
+                      className={`rounded-full border px-3 py-1 text-xs font-medium transition ${
+                        active ? "border-brand-400 bg-brand-100 text-brand-800" : "border-slate-200 text-slate-600 hover:bg-slate-50"
+                      }`}
+                    >
+                      {sub}
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+          )}
+          <div>
+            <h2 className="mb-2 text-lg font-bold text-slate-900">3. Choose options</h2>
+            <div className="flex flex-wrap items-center gap-2">
+              {[6, 10, 15].map((n) => (
+                <button
+                  key={n}
+                  type="button"
+                  onClick={() => setQuizLength(n)}
+                  className={`rounded-full border px-3 py-1.5 text-sm font-medium transition ${
+                    quizLength === n ? "border-brand-400 bg-brand-100 text-brand-800" : "border-slate-200 text-slate-600 hover:bg-slate-50"
+                  }`}
+                >
+                  {n} questions
+                </button>
+              ))}
+              <button
+                type="button"
+                onClick={() => setFocus((f) => (f === "listening" ? "adaptive" : "listening"))}
+                aria-pressed={listeningFocus}
+                className={`rounded-full border px-3 py-1.5 text-sm font-medium transition ${
+                  listeningFocus ? "border-amber-400 bg-amber-100 text-amber-800" : "border-slate-200 text-slate-600 hover:bg-slate-50"
+                }`}
+              >
+                🎧 Listening focus
+              </button>
+              <button
+                type="button"
+                onClick={() => setFocus((f) => (f === "exam" ? "adaptive" : "exam"))}
+                aria-pressed={examMix}
+                className={`rounded-full border px-3 py-1.5 text-sm font-medium transition disabled:opacity-50 ${
+                  examMix ? "border-brand-400 bg-brand-100 text-brand-800" : "border-slate-200 text-slate-600 hover:bg-slate-50"
+                }`}
+              >
+                📚 Exam mix (vocab + grammar)
+              </button>
+              <button
+                type="button"
+                onClick={() => setFocus((f) => (f === "reading" ? "adaptive" : "reading"))}
+                aria-pressed={readingFocus}
+                className={`rounded-full border px-3 py-1.5 text-sm font-medium transition ${
+                  readingFocus ? "border-green-400 bg-green-100 text-green-800" : "border-slate-200 text-slate-600 hover:bg-slate-50"
+                }`}
+              >
+                📖 Reading passage
+              </button>
+              <button
+                type="button"
+                onClick={() => setFocus((f) => (f === "podcast" ? "adaptive" : "podcast"))}
+                aria-pressed={podcastFocus}
+                className={`rounded-full border px-3 py-1.5 text-sm font-medium transition ${
+                  podcastFocus ? "border-rose-400 bg-rose-100 text-rose-800" : "border-slate-200 text-slate-600 hover:bg-slate-50"
+                }`}
+              >
+                🎙️ Podcast listening
+              </button>
+            </div>
+            {listeningFocus && (
+              <p className="mt-2 text-xs text-slate-500">Each question plays a theme word aloud. Choose its English meaning.</p>
+            )}
           </div>
           <button
             type="button"
@@ -298,6 +497,16 @@ export default function QuizModule() {
                 {TYPE_ICON[currentQuestion.type]}
               </span>
               <div className="min-w-0 flex-1 pt-1">
+                {currentQuestion.context && (
+                  <details open className="mb-3 rounded-lg border border-slate-200 bg-slate-50 p-3">
+                    <summary className="cursor-pointer text-xs font-semibold uppercase tracking-wide text-slate-500">Read the text</summary>
+                    <div className="mt-2 flex flex-col gap-2 text-sm leading-relaxed text-slate-700">
+                      {currentQuestion.context.split("\n\n").map((para, i) => (
+                        <p key={i} className="whitespace-pre-line">{para}</p>
+                      ))}
+                    </div>
+                  </details>
+                )}
                 {promptParts.tag && (
                   <p className="mb-1 text-xs font-semibold uppercase tracking-wide text-brand-500">{promptParts.tag}</p>
                 )}
@@ -305,15 +514,32 @@ export default function QuizModule() {
               </div>
             </div>
 
-            {currentQuestion.type === "listening" && (
+            {(currentQuestion.type === "listening" || (currentQuestion.audioText && !currentQuestion.context)) && (
               <div className="mb-4 pl-[42px]">
                 <button
                   type="button"
                   onClick={togglePlayAudio}
                   className={`btn-outline ${isSpeaking ? "border-red-300 bg-red-50 text-red-700 hover:bg-red-100" : ""}`}
                 >
-                  {isSpeaking ? "⏹ Stop" : "🔊 Play word"}
+                  {isSpeaking ? "⏹ Stop" : currentQuestion.type === "listening" ? "🔊 Play word" : "🔊 Play episode"}
                 </button>
+                {voices.length > 0 && (
+                  <label className="ml-2 inline-flex items-center gap-1.5 text-xs text-slate-500">
+                    Voice
+                    <select
+                      value={voiceURI ?? ""}
+                      onChange={(e) => setVoiceURI(e.target.value || undefined)}
+                      className="rounded-md border border-slate-200 bg-white px-2 py-1 text-xs text-slate-700"
+                    >
+                      <option value="">Default Spanish voice</option>
+                      {voices.map((v) => (
+                        <option key={v.voiceURI} value={v.voiceURI}>
+                          {v.name}
+                        </option>
+                      ))}
+                    </select>
+                  </label>
+                )}
                 {lastQuestionResult && currentQuestion.audioText && (
                   <p className="mt-2 text-xs italic text-slate-500">You heard: &ldquo;{currentQuestion.audioText}&rdquo;</p>
                 )}

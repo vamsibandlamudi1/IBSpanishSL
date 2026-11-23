@@ -331,7 +331,7 @@ const SECTIONS: CheatSheetSection[] = [
   },
   {
     id: "past-tenses",
-    label: "Preterite vs. Imperfect",
+    label: "Past tenses: snapshot vs. movie",
     title: "Preterite vs. Imperfect: Snapshot vs. Movie",
     icon: "📸",
     content: (
@@ -1496,8 +1496,21 @@ const SECTIONS: CheatSheetSection[] = [
   },
 ];
 
+/** Sidebar categories. Every section id appears in exactly one group. */
+const CHEAT_SHEET_GROUPS: { label: string; ids: string[] }[] = [
+  { label: "Exam skills", ids: ["ib-connectors", "ib-writing-boosters"] },
+  { label: "Ser & estar", ids: ["ser-estar", "ser-estar-adjectives"] },
+  {
+    label: "Verbs & tenses",
+    ids: ["conjugation", "irregular", "boot-verbs", "preterite-imperfect", "past-tenses", "future-conditional", "subjunctive", "reflexive-verbs", "haber-vs-tener", "imperative-commands"],
+  },
+  { label: "Pronouns & structure", ids: ["pronouns", "pronoun-order-rid", "gustar-structure", "negatives", "questions", "por-para"] },
+  { label: "Words & spelling", ids: ["gender-plurals", "accent-rules", "false-friends"] },
+];
+
 export default function GrammarCheatSheet() {
   const [activeId, setActiveId] = useState(SECTIONS[0].id);
+  const [query, setQuery] = useState("");
   const active = SECTIONS.find((s) => s.id === activeId) ?? SECTIONS[0];
 
   return (
@@ -1510,28 +1523,49 @@ export default function GrammarCheatSheet() {
       </div>
 
       <div className="flex flex-col gap-6 lg:flex-row lg:items-start">
-        {/* Sidebar: same pattern as GrammarModule's topic list — horizontal-scroll pill row on
-            mobile, stacked list on larger screens. */}
-        <nav className="flex gap-2 overflow-x-auto pb-1 lg:w-72 lg:shrink-0 lg:flex-col lg:overflow-visible lg:pb-0">
-          {SECTIONS.map((s) => {
-            const isActive = s.id === activeId;
-            return (
-              <button
-                key={s.id}
-                type="button"
-                onClick={() => setActiveId(s.id)}
-                className={`flex shrink-0 items-center gap-2 rounded-lg border p-3 text-left transition lg:shrink ${
-                  isActive ? "border-brand-400 bg-brand-50" : "border-slate-200 bg-white hover:border-brand-300 hover:bg-slate-50"
-                }`}
-              >
-                <span>{s.icon}</span>
-                <span className={`whitespace-nowrap text-sm font-semibold lg:whitespace-normal ${isActive ? "text-brand-800" : "text-slate-800"}`}>
-                  {s.label}
-                </span>
-              </button>
-            );
-          })}
-        </nav>
+        {/* Sidebar: sections grouped by category, with a search box. Sticky on desktop. */}
+        <aside className="lg:sticky lg:top-20 lg:max-h-[calc(100vh-6rem)] lg:w-72 lg:shrink-0 lg:overflow-y-auto lg:pr-1">
+          <input
+            type="search"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            placeholder="Search the cheat sheet…"
+            aria-label="Search the cheat sheet"
+            className="mb-3 w-full rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm outline-none transition focus:border-brand-400 focus:ring-2 focus:ring-brand-100"
+          />
+          <div className="flex flex-col gap-4">
+            {CHEAT_SHEET_GROUPS.map((group) => {
+              const items = group.ids
+                .map((id) => SECTIONS.find((s) => s.id === id))
+                .filter((s): s is CheatSheetSection => !!s)
+                .filter((s) => s.label.toLowerCase().includes(query.trim().toLowerCase()));
+              if (items.length === 0) return null;
+              return (
+                <section key={group.label}>
+                  <p className="mb-1.5 px-1 text-xs font-bold uppercase tracking-wide text-slate-500">{group.label}</p>
+                  <div className="flex flex-col gap-1.5">
+                    {items.map((s) => {
+                      const isActive = s.id === activeId;
+                      return (
+                        <button
+                          key={s.id}
+                          type="button"
+                          onClick={() => setActiveId(s.id)}
+                          className={`flex w-full items-center gap-2 rounded-lg border p-2.5 text-left transition ${
+                            isActive ? "border-brand-400 bg-brand-50" : "border-slate-200 bg-white hover:border-brand-300 hover:bg-slate-50"
+                          }`}
+                        >
+                          <span aria-hidden="true">{s.icon}</span>
+                          <span className={`text-sm font-semibold leading-snug ${isActive ? "text-brand-800" : "text-slate-800"}`}>{s.label}</span>
+                        </button>
+                      );
+                    })}
+                  </div>
+                </section>
+              );
+            })}
+          </div>
+        </aside>
 
         {/* Active section */}
         <section key={active.id} className="animate-fade-slide-up min-w-0 flex-1 rounded-2xl border border-slate-200 bg-white p-5 shadow-xs">

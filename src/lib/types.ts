@@ -53,6 +53,10 @@ export interface QuizItem {
    *  The bigger "completion bonus" awarded to the student's profile is computed separately —
    *  see lib/gamification.ts pointsForQuizDifficulty(). */
   points: number;
+  /** Theme subtopic this question belongs to (vocabulary-based questions). Lets the quiz filter by subtopic. */
+  subtopic?: string;
+  /** Reading text shown above the question (reading-passage quizzes). */
+  context?: string;
   /** Optional explanation shown after the student answers, giving context about why the answer is correct. */
   explanation?: string;
 }

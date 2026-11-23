@@ -11,8 +11,8 @@ export default function PodcastPage() {
         </h1>
         <p className="mt-1 text-slate-500">
           Listen to a ~10-minute Notes-in-Spanish-style episode with the transcript highlighted word by word as it
-          plays, hover any underlined word for its English meaning, then answer comprehension questions — one
-          episode per IB theme.
+          plays, hover any underlined word for its English meaning, then answer comprehension questions. Three
+          episodes per IB theme.
         </p>
       </div>
       <PodcastModule />

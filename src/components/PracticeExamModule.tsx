@@ -3,11 +3,12 @@
 
 import { useEffect, useRef, useState } from "react";
 import { READING_PASSAGES } from "@/lib/reading";
+import { PODCAST_EPISODES } from "@/lib/podcast";
 import { GRAMMAR_TOPICS, loadExercises } from "@/lib/grammar";
 import { useStore } from "@/lib/store";
 import { speak, stopSpeaking } from "@/lib/speech";
 import { deriveJustification } from "@/lib/deriveJustification";
-import { Difficulty, GrammarExercise, QuizItem, ReadingPassage, ReadingQuestion } from "@/lib/types";
+import { Difficulty, GrammarExercise, PodcastEpisode, QuizItem, ReadingPassage, ReadingQuestion } from "@/lib/types";
 import { LEVEL_STYLES, OPTION_LETTERS } from "@/lib/quizUi";
 import WritingModule from "./WritingModule";
 import AudioAssignmentModule from "./AudioAssignmentModule";
@@ -152,7 +153,7 @@ interface ExamQuestion {
   difficulty?: Difficulty;
 }
 
-const readingToExam = (q: ReadingQuestion, passage: ReadingPassage): ExamQuestion => ({
+const readingToExam = (q: ReadingQuestion, passage: Pick<ReadingPassage, "bodyEs" | "themeId" | "level">): ExamQuestion => ({
   id: q.id,
   prompt: q.prompt,
   type: q.type,
@@ -162,6 +163,28 @@ const readingToExam = (q: ReadingQuestion, passage: ReadingPassage): ExamQuestio
   themeId: passage.themeId,
   difficulty: passage.level,
 });
+
+/** Picks up to n items from distinct themes, so a section covers different
+ *  IB themes instead of three passages on the same topic. */
+function pickDistinctThemes<T extends { themeId: string }>(items: T[], n: number): T[] {
+  const byTheme = new Map<string, T[]>();
+  for (const it of shuffle(items)) {
+    const arr = byTheme.get(it.themeId) ?? [];
+    arr.push(it);
+    byTheme.set(it.themeId, arr);
+  }
+  return shuffle([...byTheme.keys()])
+    .slice(0, n)
+    .map((t) => byTheme.get(t)![0]);
+}
+
+/** Running totals for a multi-part section (3 passages / 3 episodes). */
+interface PartAccumulator {
+  correct: number;
+  total: number;
+  missed: MissedQuestion[];
+}
+const emptyAccumulator = (): PartAccumulator => ({ correct: 0, total: 0, missed: [] });
 
 const grammarToExam = (g: GrammarExercise): ExamQuestion => ({
   id: g.id,
@@ -207,9 +230,13 @@ export default function PracticeExamModule() {
   const { questions, completeQuiz, clearLastAward, setActiveSession } = useStore();
 
   const [stage, setStage] = useState<Stage>("intro");
-  const [examReading, setExamReading] = useState<ReadingPassage | null>(null);
+  const [examReadings, setExamReadings] = useState<ReadingPassage[]>([]);
+  const [readingIdx, setReadingIdx] = useState(0);
+  const readingAcc = useRef<PartAccumulator>(emptyAccumulator());
+  const [examEpisodes, setExamEpisodes] = useState<PodcastEpisode[]>([]);
+  const [listeningIdx, setListeningIdx] = useState(0);
+  const listeningAcc = useRef<PartAccumulator>(emptyAccumulator());
   const [examReadingStrategies, setExamReadingStrategies] = useState<ExamQuestion[]>([]);
-  const [examListening, setExamListening] = useState<ExamQuestion[]>([]);
   const [examGrammar, setExamGrammar] = useState<ExamQuestion[]>([]);
   const [examVocab, setExamVocab] = useState<ExamQuestion[]>([]);
   const [scores, setScores] = useState<Record<keyof typeof EMPTY_SCORES, SectionScore>>(EMPTY_SCORES);
@@ -231,12 +258,16 @@ export default function PracticeExamModule() {
   }, [stage, setActiveSession]);
 
   const generateExam = async () => {
-    setExamReading(shuffle(READING_PASSAGES)[0]);
+    // Paper 2 reading: three texts from different themes, as in the real paper.
+    setExamReadings(pickDistinctThemes(READING_PASSAGES, 3));
+    setReadingIdx(0);
+    readingAcc.current = emptyAccumulator();
 
-    // Lazy-load grammar exercises on demand (exercises are no longer bundled
-    // in the static GRAMMAR_TOPICS array — see lib/grammar.ts).
-    const listeningExs = await loadExercises("listening-tenses");
-    setExamListening(shuffle(listeningExs).slice(0, 8).map(grammarToExam));
+    // Paper 2 listening: three audio episodes from different themes. The
+    // transcript stays hidden; the student listens, then answers.
+    setExamEpisodes(pickDistinctThemes(PODCAST_EPISODES, 3));
+    setListeningIdx(0);
+    listeningAcc.current = emptyAccumulator();
 
     // Heading-matching and gap-fill are IB Paper 2 reading strategies, not
     // grammar rules — pulled into their own section instead of the generic
@@ -268,13 +299,42 @@ export default function PracticeExamModule() {
   const tagSection = (section: string, missed: MissedQuestion[]) => missed.map((m) => ({ ...m, section }));
 
   const finishReading = (correct: number, total: number, missed: MissedQuestion[]) => {
-    setScores((s) => ({ ...s, reading: { correct, total } }));
-    setExamMissed((prev) => [...prev, ...tagSection("Reading", missed)]);
-    if (examReading) {
-      const award = completeQuiz(`exam-reading-${examReading.id}`, examReading.level, correct, total);
+    const passage = examReadings[readingIdx];
+    if (passage) {
+      const award = completeQuiz(`exam-reading-${passage.id}`, passage.level, correct, total);
       setSectionPoints((p) => p + award.pointsAwarded);
     }
+    const acc = readingAcc.current;
+    acc.correct += correct;
+    acc.total += total;
+    acc.missed.push(...missed);
+    if (readingIdx + 1 < examReadings.length) {
+      setReadingIdx(readingIdx + 1);
+      return;
+    }
+    setScores((s) => ({ ...s, reading: { correct: acc.correct, total: acc.total } }));
+    setExamMissed((prev) => [...prev, ...tagSection("Reading", acc.missed)]);
     setStage("reading-strategies");
+  };
+
+  const finishListeningEpisode = (correct: number, total: number, missed: MissedQuestion[]) => {
+    stopSpeaking();
+    const episode = examEpisodes[listeningIdx];
+    if (episode) {
+      const award = completeQuiz(`exam-listening-${episode.id}`, episode.level, correct, total);
+      setSectionPoints((p) => p + award.pointsAwarded);
+    }
+    const acc = listeningAcc.current;
+    acc.correct += correct;
+    acc.total += total;
+    acc.missed.push(...missed);
+    if (listeningIdx + 1 < examEpisodes.length) {
+      setListeningIdx(listeningIdx + 1);
+      return;
+    }
+    setScores((s) => ({ ...s, listening: { correct: acc.correct, total: acc.total } }));
+    setExamMissed((prev) => [...prev, ...tagSection("Listening", acc.missed)]);
+    setStage("grammar");
   };
 
   const finishReadingStrategies = (correct: number, total: number, missed: MissedQuestion[]) => {
@@ -283,14 +343,6 @@ export default function PracticeExamModule() {
     const award = completeQuiz("exam-reading-strategies", "medium", correct, total);
     setSectionPoints((p) => p + award.pointsAwarded);
     setStage("listening");
-  };
-
-  const finishListening = (correct: number, total: number, missed: MissedQuestion[]) => {
-    setScores((s) => ({ ...s, listening: { correct, total } }));
-    setExamMissed((prev) => [...prev, ...tagSection("Listening", missed)]);
-    const award = completeQuiz("exam-listening", "medium", correct, total);
-    setSectionPoints((p) => p + award.pointsAwarded);
-    setStage("grammar");
   };
 
   const finishGrammar = (correct: number, total: number, missed: MissedQuestion[]) => {
@@ -407,15 +459,20 @@ export default function PracticeExamModule() {
           </div>
           <div className="mb-5 grid grid-cols-1 gap-2.5 sm:grid-cols-2">
             {[
-              { icon: "📖", label: "Reading comprehension", detail: "1 passage, 5 questions" },
+              { icon: "📖", label: "Reading comprehension", detail: "3 texts from different themes, about 8 questions each" },
               { icon: "🧩", label: "Reading strategies", detail: "8 heading-matching & gap-fill questions" },
-              { icon: "🎧", label: "Listening comprehension", detail: "8 audio questions" },
+              { icon: "🎧", label: "Listening comprehension", detail: "3 audio episodes, hidden transcript" },
               { icon: "✍️", label: "Grammar", detail: "10 questions across random topics" },
               { icon: "🗂️", label: "Vocabulary", detail: "10 questions across random themes" },
               { icon: "📝", label: "Writing task", detail: "1 Paper 1 style prompt" },
               { icon: "🎙️", label: "Speaking task", detail: "1 Individual Oral simulation" },
-            ].map((section) => (
-              <div key={section.label} className="flex items-center gap-3 rounded-xl border border-slate-200 bg-slate-50 p-3">
+            ].map((section, idx, all) => (
+              <div
+                key={section.label}
+                className={`flex items-center gap-3 rounded-xl border border-slate-200 bg-slate-50 p-3 ${
+                  idx === all.length - 1 && all.length % 2 === 1 ? "sm:col-span-2" : ""
+                }`}
+              >
                 <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white text-base shadow-xs">{section.icon}</span>
                 <div>
                   <p className="text-sm font-semibold text-slate-800">{section.label}</p>
@@ -460,28 +517,34 @@ export default function PracticeExamModule() {
         </div>
       )}
 
-      {stage === "reading" && examReading && (
-        <div key={examReading.id} className="animate-fade-slide-up flex flex-col gap-4">
-          <div className="rounded-xl border border-slate-200 bg-white p-5 shadow-xs">
-            <div className="mb-2 flex flex-wrap items-center justify-between gap-2">
-              <h2 className="text-lg font-bold text-slate-900">{examReading.title}</h2>
-              <span className="pill-badge">{examReading.textType}</span>
+      {stage === "reading" && examReadings[readingIdx] && (() => {
+        const passage = examReadings[readingIdx];
+        return (
+          <div key={passage.id} className="animate-fade-slide-up flex flex-col gap-4">
+            <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
+              Text {readingIdx + 1} of {examReadings.length}
+            </p>
+            <div className="rounded-xl border border-slate-200 bg-white p-5 shadow-xs">
+              <div className="mb-2 flex flex-wrap items-center justify-between gap-2">
+                <h2 className="text-lg font-bold text-slate-900">{passage.title}</h2>
+                <span className="pill-badge">{passage.textType}</span>
+              </div>
+              <div className="flex flex-col gap-3">
+                {passage.bodyEs.split("\n\n").map((para, i) => (
+                  <p key={i} className="whitespace-pre-line text-sm leading-relaxed text-slate-700">
+                    {para}
+                  </p>
+                ))}
+              </div>
             </div>
-            <div className="flex flex-col gap-3">
-              {examReading.bodyEs.split("\n\n").map((para, i) => (
-                <p key={i} className="whitespace-pre-line text-sm leading-relaxed text-slate-700">
-                  {para}
-                </p>
-              ))}
-            </div>
+            <QuestionSetSection
+              items={passage.questions.map((q) => readingToExam(q, passage))}
+              onContinue={finishReading}
+              continueLabel={readingIdx + 1 < examReadings.length ? "Next text →" : "Continue to Reading Strategies →"}
+            />
           </div>
-          <QuestionSetSection
-            items={examReading.questions.map((q) => readingToExam(q, examReading))}
-            onContinue={finishReading}
-            continueLabel="Continue to Reading Strategies →"
-          />
-        </div>
-      )}
+        );
+      })()}
 
       {stage === "reading-strategies" && (
         <div className="animate-fade-slide-up flex flex-col gap-4">
@@ -495,10 +558,14 @@ export default function PracticeExamModule() {
         </div>
       )}
 
-      {stage === "listening" && (
-        <div className="animate-fade-slide-up">
-          <QuestionSetSection items={examListening} onContinue={finishListening} continueLabel="Continue to Grammar →" />
-        </div>
+      {stage === "listening" && examEpisodes[listeningIdx] && (
+        <ListeningEpisode
+          key={examEpisodes[listeningIdx].id}
+          episode={examEpisodes[listeningIdx]}
+          index={listeningIdx}
+          total={examEpisodes.length}
+          onContinue={finishListeningEpisode}
+        />
       )}
 
       {stage === "grammar" && (
@@ -674,6 +741,66 @@ export default function PracticeExamModule() {
  *  at once on "Check answers" — mirroring ReadingModule's check-as-a-set
  *  pattern, which fits an exam section better than one-question-at-a-time —
  *  then hands the score back to the parent via onContinue. */
+/** Listening passage for the practice exam: the student presses play, hears
+ *  the episode, and answers its questions. The transcript is deliberately
+ *  hidden, as it is on the real listening paper. */
+function ListeningEpisode({
+  episode,
+  index,
+  total,
+  onContinue,
+}: {
+  episode: PodcastEpisode;
+  index: number;
+  total: number;
+  onContinue: (correct: number, total: number, missed: MissedQuestion[]) => void;
+}) {
+  const [playing, setPlaying] = useState(false);
+  const [played, setPlayed] = useState(false);
+
+  useEffect(() => () => stopSpeaking(), []);
+
+  const togglePlay = () => {
+    if (playing) {
+      stopSpeaking();
+      setPlaying(false);
+      return;
+    }
+    setPlaying(true);
+    speak(episode.bodyEs, () => {
+      setPlaying(false);
+      setPlayed(true);
+    });
+  };
+
+  const items = episode.questions.map((q) => readingToExam(q, episode));
+
+  return (
+    <div className="animate-fade-slide-up flex flex-col gap-4">
+      <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
+        Listening {index + 1} of {total}
+      </p>
+      <div className="flex flex-col gap-3 rounded-xl border border-slate-200 bg-white p-5 shadow-xs sm:flex-row sm:items-center">
+        <div className="flex-1">
+          <h2 className="text-lg font-bold text-slate-900">{episode.title}</h2>
+          <p className="mt-1 text-sm text-slate-500">{episode.description}</p>
+        </div>
+        <button type="button" onClick={togglePlay} className="btn-primary shrink-0 px-5 py-2.5">
+          {playing ? "■ Stop" : played ? "▶ Listen again" : "▶ Play audio"}
+        </button>
+      </div>
+      <p className="text-xs text-slate-400">
+        Listen to the whole episode before answering. The transcript is hidden, as in the real exam.
+      </p>
+      <QuestionSetSection
+        items={items}
+        onContinue={onContinue}
+        continueLabel={index + 1 < total ? "Next listening →" : "Continue to Grammar →"}
+      />
+    </div>
+  );
+}
+
 function QuestionSetSection({
   items,
   onContinue,

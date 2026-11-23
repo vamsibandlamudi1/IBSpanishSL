@@ -88,6 +88,50 @@ export async function loadExercises(topicId: string): Promise<GrammarExercise[]>
       const m = await import("./grammar-data/por-para");
       return m.POR_PARA_EXERCISES;
     }
+    case "pluperfect": {
+      const m = await import("./grammar-data/gap-pluperfect");
+      return m.PLUPERFECT_EXERCISES;
+    }
+    case "reported-speech": {
+      const m = await import("./grammar-data/gap-reported-speech");
+      return m.REPORTED_EXERCISES;
+    }
+    case "gerund-progressive": {
+      const m = await import("./grammar-data/gap-gerund-progressive");
+      return m.GERUND_EXERCISES;
+    }
+    case "passive-se": {
+      const m = await import("./grammar-data/gap-passive-se");
+      return m.PASSIVE_EXERCISES;
+    }
+    case "subjunctive-past-perfect": {
+      const m = await import("./grammar-data/gap-subjunctive-past-perfect");
+      return m.SUBJ_EXERCISES;
+    }
+    case "gustar": {
+      const m = await import("./grammar-data/gap-gustar");
+      return m.GUSTAR_EXERCISES;
+    }
+    case "haber-tener": {
+      const m = await import("./grammar-data/gap-haber-tener");
+      return m.HABER_EXERCISES;
+    }
+    case "question-words": {
+      const m = await import("./grammar-data/gap-question-words");
+      return m.QWORDS_EXERCISES;
+    }
+    case "exam-connectors": {
+      const m = await import("./grammar-data/exam-connectors");
+      return m.CONNECTORS_EXERCISES;
+    }
+    case "exam-register": {
+      const m = await import("./grammar-data/exam-register");
+      return m.REGISTER_EXERCISES;
+    }
+    case "exam-oral": {
+      const m = await import("./grammar-data/exam-oral");
+      return m.ORAL_PHRASES_EXERCISES;
+    }
     case "saber-conocer": {
       const m = await import("./grammar-data/saber-conocer");
       return m.SABER_CONOCER_EXERCISES;
@@ -406,6 +450,141 @@ export const GRAMMAR_TOPICS: GrammarTopicMeta[] = [
       { es: "Banco: reciclar / contaminación / ahorrar / basura / energía / plástico", en: "Word bank example (Sharing the Planet theme)." },
       { es: "Debemos ___ agua para proteger el medioambiente.", en: "→ correct answer: \"ahorrar\" (to save), not \"reciclar\" — both are plausible topically, but only one fits this sentence's meaning." },
       { es: "Cada frase solo tiene una respuesta correcta del banco de palabras.", en: "Each sentence has exactly one correct answer from the word bank." },
+    ],
+  },
+  {
+    id: "exam-connectors",
+    name: "Exam connectors",
+    level: "intermediate",
+    rule: "Linking words show how your ideas relate. Use 'sin embargo' and 'en cambio' to contrast, 'por lo tanto' and 'por eso' for consequence, 'además' to add, and 'en primer lugar' / 'en conclusión' to organise an essay.",
+    simpleExplanation:
+      "Connectors are the glue of a good essay. They tell the examiner HOW your sentences link: adding another point (además), opposing one (sin embargo), or showing a result (por lo tanto). Example: \"Es barato; sin embargo, no es sano.\" (It's cheap; however, it isn't healthy.)",
+    examples: [
+      { es: "Es caro; sin embargo, vale la pena.", en: "It's expensive; however, it's worth it. (contrast)" },
+      { es: "Estudié mucho; por lo tanto, aprobé.", en: "I studied a lot; therefore, I passed. (consequence)" },
+      { es: "En primer lugar, hay que reciclar.", en: "First of all, we must recycle. (order)" },
+    ],
+  },
+  {
+    id: "exam-register",
+    name: "Text types & register",
+    level: "intermediate",
+    rule: "Each text type has conventions: formal letters use 'Estimado/a' and 'Atentamente' with 'usted'; informal emails use 'Un abrazo' and 'tú'; diaries start with 'Querido diario'; speeches open by addressing the audience. Matching these earns marks for text-type understanding.",
+    simpleExplanation:
+      "Before you write, decide who you're writing to. A letter to a principal sounds different from a message to a friend. Example: \"Estimado director: ... Atentamente,\" (formal) vs \"¡Hola, Ana! ... Un abrazo,\" (informal).",
+    examples: [
+      { es: "Estimado Sr. López: Le escribo para solicitar...", en: "Dear Mr López: I'm writing to request... (formal letter)" },
+      { es: "¡Hola, Ana! ¿Qué tal todo?", en: "Hi, Ana! How's everything? (informal email)" },
+      { es: "Querido diario: hoy ha sido un día largo.", en: "Dear diary: today has been a long day. (diary)" },
+    ],
+  },
+  {
+    id: "exam-oral",
+    name: "Oral discussion phrases",
+    level: "intermediate",
+    rule: "In the Individual Oral discussion, use phrases to give opinions ('En mi opinión'), agree or disagree politely ('Entiendo tu punto, pero'), buy time ('Déjame pensar'), and ask for repetition ('¿Puede repetir, por favor?').",
+    simpleExplanation:
+      "The examiner wants to hear you think out loud in Spanish. These ready-made phrases let you give an opinion, disagree politely, and keep talking even when you need a moment. Example: \"En mi opinión... Entiendo tu punto, pero...\"",
+    examples: [
+      { es: "En mi opinión, los jóvenes deberían reciclar más.", en: "In my opinion, young people should recycle more." },
+      { es: "Entiendo tu punto, pero creo que es más complicado.", en: "I see your point, but I think it's more complicated." },
+      { es: "¿Puede repetir la pregunta, por favor?", en: "Could you repeat the question, please?" },
+    ],
+  },
+  {
+    id: "pluperfect",
+    name: "Pluperfect (Pluscuamperfecto)",
+    level: "advanced",
+    rule: "The pluperfect (había / habías / había... + past participle) describes an action completed before another past action: 'had done'.",
+    simpleExplanation: "Use HABÍA + the past participle for something that was already finished before another moment in the past. Example: \"Cuando llegué, el tren ya había salido.\" (When I arrived, the train had already left.)",
+    examples: [
+      { es: "Cuando llegué, ya había salido el tren.", en: "When I arrived, the train had already left." },
+      { es: "Nunca había sentido tanto calor.", en: "I had never felt so much heat." },
+      { es: "Mis padres habían vivido en Madrid.", en: "My parents had lived in Madrid." },
+    ],
+  },
+  {
+    id: "reported-speech",
+    name: "Reported speech (Estilo indirecto)",
+    level: "advanced",
+    rule: "In reported speech the tense moves back one step after a past reporting verb: presente → imperfecto, futuro → condicional, pretérito → pluscuamperfecto. Imperatives become 'que + subjuntivo'.",
+    simpleExplanation: "When you report what someone said in the past, move the verb one step back in time. Example: \"Estoy cansada\" → \"Dijo que estaba cansada.\" (She said she was tired.)",
+    examples: [
+      { es: "Dijo que estaba cansada.", en: "She said she was tired." },
+      { es: "Me dijo que me llamaría luego.", en: "She told me she would call me later." },
+      { es: "Preguntó dónde estaba.", en: "He asked where I was." },
+    ],
+  },
+  {
+    id: "gerund-progressive",
+    name: "Gerund & progressive (-ndo)",
+    level: "intermediate",
+    rule: "The progressive uses estar (or another verb like seguir or llevar) + gerund (-ando / -iendo). Irregular gerunds include leyendo, durmiendo, pidiendo, yendo.",
+    simpleExplanation: "Use ESTAR + -ando/-iendo for an action happening right now. Example: \"Estoy estudiando.\" (I'm studying.) Note the irregulars: \"leyendo\", \"durmiendo\", \"yendo\".",
+    examples: [
+      { es: "Estoy estudiando para el examen.", en: "I'm studying for the exam." },
+      { es: "Mi hermana está leyendo.", en: "My sister is reading." },
+      { es: "Llevamos dos horas esperando.", en: "We have been waiting for two hours." },
+    ],
+  },
+  {
+    id: "passive-se",
+    name: "Passive & 'se' impersonal",
+    level: "advanced",
+    rule: "Passive voice: ser + past participle (agrees with the subject). Impersonal 'se': se + 3rd-person verb (no subject), e.g. 'se habla', 'se abren'. The verb agrees with the thing being talked about.",
+    simpleExplanation: "Use SE + verb to say what people do or what happens in general, without naming who does it. Example: \"En España se come paella.\" (In Spain, paella is eaten.) For the passive, use ser: \"La casa fue construida en 1950.\"",
+    examples: [
+      { es: "Se habla español en muchos países.", en: "Spanish is spoken in many countries." },
+      { es: "La carta fue escrita por mi abuela.", en: "The letter was written by my grandmother." },
+      { es: "Se abren las puertas a las ocho.", en: "The doors open at eight." },
+    ],
+  },
+  {
+    id: "subjunctive-past-perfect",
+    name: "Imperfect & perfect subjunctive",
+    level: "advanced",
+    rule: "After a past main verb, the subjunctive is imperfect (fuera, tuviera). Perfect subjunctive = haya + participio (hayas hecho) for a completed action with a present main verb; pluperfect subjunctive = hubiera + participio.",
+    simpleExplanation: "Use the imperfect subjunctive after a past trigger: \"Quería que vinieras.\" (I wanted you to come.) Use haya + participio for a completed action: \"Espero que hayas aprobado.\" (I hope you have passed.)",
+    examples: [
+      { es: "Quería que tú estuvieras aquí.", en: "I wanted you to be here." },
+      { es: "Espero que hayas terminado el trabajo.", en: "I hope you have finished the work." },
+      { es: "Si fuera rico, viajaría.", en: "If I were rich, I would travel." },
+    ],
+  },
+  {
+    id: "gustar",
+    name: "Gustar & similar verbs",
+    level: "intermediate",
+    rule: "Gustar and similar verbs (encantar, interesar, faltar) work backwards: the thing liked is the subject. Use indirect pronouns (me, te, le, nos, os, les) and agree the verb with the thing liked.",
+    simpleExplanation: "Think 'it pleases me' rather than 'I like it'. Example: \"Me gusta el fútbol.\" (Football pleases me.) \"Me gustan los perros.\" (Dogs please me.) The verb matches the thing liked, not the person.",
+    examples: [
+      { es: "Me gusta leer.", en: "I like reading." },
+      { es: "A nosotros nos gustan las películas.", en: "We like films." },
+      { es: "¿A ti te encanta bailar?", en: "Do you love dancing?" },
+    ],
+  },
+  {
+    id: "haber-tener",
+    name: "Haber vs. tener",
+    level: "intermediate",
+    rule: "HAY (from haber) means 'there is / there are' and does not change. TENER means 'to have' and changes with the subject. HABER is also the auxiliary in compound tenses (he visto).",
+    simpleExplanation: "Use HAY for 'there is/are' (no matter how many). Use TENER for 'to have' (yo tengo, ellos tienen). Example: \"Hay muchos problemas.\" (There are many problems.) \"Tengo dos hermanos.\" (I have two brothers.)",
+    examples: [
+      { es: "Hay un banco cerca de aquí.", en: "There is a bank near here." },
+      { es: "Tengo dos hermanos.", en: "I have two brothers." },
+      { es: "Hemos visto esa película.", en: "We have seen that film." },
+    ],
+  },
+  {
+    id: "question-words",
+    name: "Question words & por qué",
+    level: "beginner",
+    rule: "Question words carry an accent (¿Qué? ¿Cuándo? ¿Dónde?). 'Por qué' (two words) asks why; 'porque' answers; 'por qué' also appears in indirect questions after 'no sé'.",
+    simpleExplanation: "Every question word has an accent mark in a question. \"¿Dónde vives?\" (Where do you live?) \"Vivo aquí porque me gusta.\" (I live here because I like it.)",
+    examples: [
+      { es: "¿Cuándo llegas?", en: "When are you arriving?" },
+      { es: "¿Por qué estudias español?", en: "Why do you study Spanish?" },
+      { es: "Estudio español porque me gusta.", en: "I study Spanish because I like it." },
     ],
   },
 ];

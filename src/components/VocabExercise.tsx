@@ -4,7 +4,7 @@
 import { useMemo, useState } from "react";
 import { VocabItem } from "@/lib/types";
 import { speak } from "@/lib/speech";
-import { shuffle } from "@/lib/utils";
+import { shuffle, uniqueVocab } from "@/lib/utils";
 import { PARAGRAPH_EXERCISES, ParagraphExercise } from "@/lib/paragraphData";
 
 const stripAccents = (s: string) => s.normalize("NFD").replace(/[̀-ͯ]/g, "");
@@ -18,6 +18,7 @@ export default function VocabExercise({ vocabulary, themeId, subtopic }: { vocab
         <FillInTheBlank vocabulary={vocabulary} />
       </div>
       <ThemeListeningPractice vocabulary={vocabulary} />
+      <ArticleDrill vocabulary={vocabulary} />
       <ParagraphFillInTheBlank themeId={themeId} subtopic={subtopic} />
     </div>
   );
@@ -185,15 +186,20 @@ function FillInTheBlank({ vocabulary }: { vocabulary: VocabItem[] }) {
   );
 }
 
+/** Questions per audio round. A round is a short, finishable session, so the
+ *  drill never runs through the whole theme in one endless loop. */
+const AUDIO_SESSION_SIZE = 10;
+
 function ThemeListeningPractice({ vocabulary }: { vocabulary: VocabItem[] }) {
-  const pool = useMemo(() => shuffle([...vocabulary]), [vocabulary]);
+  const [round, setRound] = useState(0);
+  const pool = useMemo(() => shuffle(uniqueVocab(vocabulary)).slice(0, AUDIO_SESSION_SIZE), [vocabulary, round]);
   const [index, setIndex] = useState(0);
   const [selectedOpt, setSelectedOpt] = useState<string | null>(null);
   const [checked, setChecked] = useState(false);
   const [score, setScore] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
 
-  const currentItem = pool[index % pool.length];
+  const currentItem = pool[index];
 
   const options = useMemo(() => {
     if (!currentItem) return [];
@@ -202,7 +208,29 @@ function ThemeListeningPractice({ vocabulary }: { vocabulary: VocabItem[] }) {
     return shuffle([currentItem.en, ...shuffledWrong]);
   }, [currentItem, vocabulary]);
 
-  if (!currentItem) return null;
+  if (!currentItem) {
+    return (
+      <div className="rounded-xl border border-amber-200 bg-amber-50/40 p-5 text-center shadow-xs">
+        <p className="text-xs font-bold uppercase tracking-wider text-amber-800">Audio round complete</p>
+        <p className="mt-2 text-2xl font-extrabold text-slate-900">
+          {score} / {pool.length} correct
+        </p>
+        <button
+          type="button"
+          onClick={() => {
+            setRound((r) => r + 1);
+            setIndex(0);
+            setScore(0);
+            setChecked(false);
+            setSelectedOpt(null);
+          }}
+          className="btn-primary mt-4 px-4 py-2 text-sm"
+        >
+          Start a new round
+        </button>
+      </div>
+    );
+  }
 
   const playAudio = () => {
     setIsPlaying(true);
@@ -226,7 +254,7 @@ function ThemeListeningPractice({ vocabulary }: { vocabulary: VocabItem[] }) {
   const handleNext = () => {
     setChecked(false);
     setSelectedOpt(null);
-    setIndex((i) => (i + 1) % pool.length);
+    setIndex((i) => i + 1);
   };
 
   const isCorrect = selectedOpt === currentItem.en;
@@ -247,7 +275,7 @@ function ThemeListeningPractice({ vocabulary }: { vocabulary: VocabItem[] }) {
             isPlaying ? "border-amber-400 bg-amber-100 text-amber-900 animate-pulse" : "border-amber-300 bg-white text-amber-700 hover:bg-amber-50"
           }`}
         >
-          🔊 Listen ({currentItem.es})
+          🔊 Listen
         </button>
       </div>
 
@@ -441,6 +469,98 @@ function ParagraphFillInTheBlank({ themeId, subtopic }: { themeId?: string; subt
             Next paragraph →
           </button>
         )}
+      </div>
+    </div>
+  );
+}
+
+/** Article drill: shows a noun without its article and asks el or la. Built
+ *  directly from the theme vocabulary, so it adds practice without new data. */
+function ArticleDrill({ vocabulary }: { vocabulary: VocabItem[] }) {
+  const nouns = useMemo(
+    () =>
+      uniqueVocab(vocabulary)
+        .filter((v) => /^(el|la) /.test(v.es))
+        .map((v) => ({ noun: v.es.replace(/^(el|la) /, ""), article: v.es.startsWith("el ") ? "el" : "la", en: v.en })),
+    [vocabulary]
+  );
+  const [round, setRound] = useState(0);
+  const pool = useMemo(() => shuffle(nouns).slice(0, 10), [nouns, round]);
+  const [index, setIndex] = useState(0);
+  const [picked, setPicked] = useState<string | null>(null);
+  const [score, setScore] = useState(0);
+
+  const item = pool[index];
+  if (!item) {
+    return (
+      <div className="rounded-xl border border-rose-200 bg-rose-50/40 p-5 text-center shadow-xs">
+        <p className="text-xs font-bold uppercase tracking-wider text-rose-800">Article round complete</p>
+        <p className="mt-2 text-2xl font-extrabold text-slate-900">{score} / {pool.length} correct</p>
+        <button
+          type="button"
+          onClick={() => {
+            setRound((r) => r + 1);
+            setIndex(0);
+            setScore(0);
+            setPicked(null);
+          }}
+          className="btn-primary mt-4 px-4 py-2 text-sm"
+        >
+          Start a new round
+        </button>
+      </div>
+    );
+  }
+
+  const choose = (art: string) => {
+    if (picked) return;
+    setPicked(art);
+    if (art === item.article) setScore((s) => s + 1);
+  };
+
+  return (
+    <div className="rounded-xl border border-rose-200 bg-gradient-to-br from-rose-50/40 via-white to-pink-50/20 p-5 shadow-xs">
+      <span className="rounded-full bg-rose-100 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-rose-800">
+        Article drill ({index + 1} / {pool.length})
+      </span>
+      <h3 className="mt-1 text-base font-bold text-slate-900">El or la?</h3>
+      <p className="my-3 text-sm text-slate-600">Choose the correct article for the noun. Hint: <em>{item.en}</em></p>
+      <p className="mb-3 text-center text-2xl font-extrabold text-slate-900">___ {item.noun}</p>
+      <div className="grid grid-cols-2 gap-2.5">
+        {["el", "la"].map((art) => {
+          const isRight = picked !== null && art === item.article;
+          const isWrong = picked === art && art !== item.article;
+          return (
+            <button
+              key={art}
+              type="button"
+              onClick={() => choose(art)}
+              className={`rounded-lg border px-3 py-2.5 text-sm font-semibold transition ${
+                isRight ? "border-green-400 bg-green-100 text-green-800" : isWrong ? "border-red-400 bg-red-100 text-red-800" : "border-slate-200 bg-white text-slate-800 hover:bg-slate-50"
+              }`}
+            >
+              {art}
+            </button>
+          );
+        })}
+      </div>
+      <div className="mt-3 flex items-center justify-between gap-2">
+        {picked ? (
+          <p className="text-xs text-slate-600">{picked === item.article ? "Correct!" : `The answer is "${item.article} ${item.noun}".`}</p>
+        ) : (
+          <span />
+        )}
+        <button
+          type="button"
+          onClick={() => {
+            setIndex((i) => i + 1);
+            setPicked(null);
+          }}
+          disabled={!picked}
+          className="btn-primary px-4 py-1.5 text-xs disabled:opacity-50"
+        >
+          {index + 1 >= pool.length ? "Finish" : "Next →"}
+        </button>
       </div>
     </div>
   );

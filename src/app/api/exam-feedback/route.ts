@@ -12,7 +12,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import Anthropic from "@anthropic-ai/sdk";
 
-const MODEL = process.env.ANTHROPIC_MODEL || "claude-opus-5";
+const MODEL = process.env.ANTHROPIC_MODEL || "claude-haiku-5-5";
 const client = process.env.ANTHROPIC_API_KEY ? new Anthropic() : null;
 
 const SYSTEM_PROMPT = `You are a supportive IB Spanish B examiner reviewing a student's completed full-length practice exam. You receive the student's score (correct/total) in each auto-graded section — Reading comprehension, Reading strategies (heading-matching & word-bank gap-fill), Listening, Grammar, and Vocabulary — plus a list of the specific questions they got wrong, each with the prompt, the student's answer, and the correct answer. Writing and Speaking are assessed separately elsewhere and are NOT part of what you're scoring here.

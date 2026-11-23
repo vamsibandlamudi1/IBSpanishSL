@@ -6,6 +6,7 @@ import { useStore } from "@/lib/store";
 import ThemeSelector from "@/components/ThemeSelector";
 import VocabExercise from "@/components/VocabExercise";
 import VocabList from "@/components/VocabList";
+import { uniqueVocab } from "@/lib/utils";
 
 export default function ThemePracticePage() {
   const { themes } = useStore();
@@ -22,7 +23,9 @@ export default function ThemePracticePage() {
     setSubtopic((prev) => (prev === s ? null : s));
   };
 
-  const displayVocabulary = theme ? (subtopic ? theme.vocabulary.filter((v) => v.subtopic === subtopic) : theme.vocabulary) : [];
+  const displayVocabulary = theme
+    ? uniqueVocab(subtopic ? theme.vocabulary.filter((v) => v.subtopic === subtopic) : theme.vocabulary)
+    : [];
 
   return (
     <div className="flex flex-col gap-6">

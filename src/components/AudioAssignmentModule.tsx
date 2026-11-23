@@ -6,6 +6,7 @@ import { useStore } from "@/lib/store";
 import { speak, stopSpeaking } from "@/lib/speech";
 import { AudioTask, Theme } from "@/lib/types";
 import { ORAL_IMAGE_CREDITS } from "@/lib/oralImageCredits";
+import { DISCUSSION_QUESTIONS } from "@/lib/oralQuestions";
 
 type RecordingState = "idle" | "recording" | "recorded";
 
@@ -19,6 +20,20 @@ type RecordingState = "idle" | "recording" | "recorded";
 /** Turns "audio-sharing-planet-human-rights" (themeId "sharing-planet") into
  *  "Human Rights" — used to distinguish the 5 tasks within the same theme in
  *  the task picker, which previously all showed the same theme name. */
+/** Groups a theme's tasks by subtopic, so the two photos for one subtopic
+ *  (e.g. "lifestyles" and "lifestyles-2") sit on one row as Photo 1 / Photo 2. */
+function groupBySubtopic(tasks: AudioTask[]): { label: string; tasks: AudioTask[] }[] {
+  const groups = new Map<string, AudioTask[]>();
+  for (const t of tasks) {
+    const base = t.id.replace(/-2$/, "");
+    groups.set(base, [...(groups.get(base) ?? []), t]);
+  }
+  return [...groups.entries()].map(([base, list]) => ({
+    label: subtopicLabel({ ...list[0], id: base }),
+    tasks: list,
+  }));
+}
+
 function subtopicLabel(task: AudioTask): string {
   const prefix = `audio-${task.themeId}-`;
   const suffix = task.id.startsWith(prefix) ? task.id.slice(prefix.length) : task.id;
@@ -45,22 +60,27 @@ export default function AudioAssignmentModule() {
             return (
               <div key={th.id}>
                 <p className="mb-1 text-xs font-semibold uppercase tracking-wide text-slate-500">{th.name}</p>
-                <div className="flex flex-wrap gap-2">
-                  {tasksForTheme.map((t) => (
-                    <button
-                      key={t.id}
-                      type="button"
-                      onClick={() => {
-                        setTaskId(t.id);
-                        clearLastAward();
-                      }}
-                      className={`rounded-full border px-3 py-1.5 text-sm font-medium ${taskId === t.id
-                        ? "border-brand-400 bg-brand-100 text-brand-800"
-                        : "border-slate-200 text-slate-600 hover:bg-slate-50"
-                        }`}
-                    >
-                      {subtopicLabel(t)}
-                    </button>
+                <div className="grid grid-cols-1 gap-x-6 gap-y-2 sm:grid-cols-2 xl:grid-cols-3">
+                  {groupBySubtopic(tasksForTheme).map(({ label, tasks }) => (
+                    <div key={label} className="flex flex-wrap items-center gap-2">
+                      <span className="w-40 shrink-0 text-sm font-medium text-slate-700">{label}</span>
+                      {tasks.map((t, i) => (
+                        <button
+                          key={t.id}
+                          type="button"
+                          onClick={() => {
+                            setTaskId(t.id);
+                            clearLastAward();
+                          }}
+                          className={`rounded-full border px-3 py-1 text-xs font-medium ${taskId === t.id
+                            ? "border-brand-400 bg-brand-100 text-brand-800"
+                            : "border-slate-200 text-slate-600 hover:bg-slate-50"
+                            }`}
+                        >
+                          Photo {i + 1}
+                        </button>
+                      ))}
+                    </div>
                   ))}
                 </div>
               </div>
@@ -167,14 +187,39 @@ function TaskCard({
   const mediaRecorderRef = useRef<MediaRecorder | null>(null);
   const chunksRef = useRef<Blob[]>([]);
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
+
+  // 15-minute preparation countdown (IB Individual Oral prep time). Recording
+  // stays available throughout, so students can start early.
+  const PREP_SECONDS = 15 * 60;
+  const [prepLeft, setPrepLeft] = useState<number | null>(null);
+  useEffect(() => {
+    if (prepLeft === null || prepLeft <= 0) return;
+    const t = setTimeout(() => setPrepLeft(prepLeft - 1), 1000);
+    return () => clearTimeout(t);
+  }, [prepLeft]);
+
+  // Discussion questions shown after the presentation: three at a time, rotated.
+  const [discussionPage, setDiscussionPage] = useState(0);
+  // AI follow-up questions generated from the student's own presentation (null = use the bank).
+  const [aiQuestions, setAiQuestions] = useState<{ es: string; en: string }[] | null>(null);
+  const [aiLoading, setAiLoading] = useState(false);
+  const [aiFailed, setAiFailed] = useState(false);
   // SpeechRecognition has no standard TS lib types yet, so this stays loosely typed.
   const recognitionRef = useRef<any>(null);
   const transcriptRef = useRef("");
 
+  // Ref to the stimulus <img>. If the browser already has the photo cached,
+  // onLoad may never fire (it can run before React attaches the handler), so
+  // on every task change we also check img.complete directly.
+  const stimulusImgRef = useRef<HTMLImageElement | null>(null);
   useEffect(() => {
     setImageLoaded(false);
     setImageError(false);
     setIsZoomed(false);
+    setAiQuestions(null);
+    setAiFailed(false);
+    const img = stimulusImgRef.current;
+    if (img && img.complete && img.naturalWidth > 0) setImageLoaded(true);
   }, [task.id]);
 
   useEffect(() => {
@@ -334,6 +379,7 @@ function TaskCard({
               )}
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
+                ref={stimulusImgRef}
                 src={task.imageUrl}
                 alt={task.imageDescription}
                 onLoad={() => setImageLoaded(true)}
@@ -384,13 +430,16 @@ function TaskCard({
         <div className="bg-slate-950/90 border-t border-slate-800 p-3.5 text-slate-200">
           <p className="text-xs font-semibold uppercase tracking-wide text-purple-400 mb-0.5">Stimulus Description</p>
           <p className="text-sm text-slate-200 leading-relaxed">{task.imageDescription}</p>
+          {showRealImage && !imageCredit && (
+            <p className="mt-2 text-[11px] text-slate-400">AI-generated illustration.</p>
+          )}
           {imageCredit && (
             <p className="mt-2 text-[11px] text-slate-400">
               Photo:{" "}
               <a href={imageCredit.page} target="_blank" rel="noopener noreferrer" className="underline hover:text-slate-200">
                 {imageCredit.author}
               </a>
-              , {imageCredit.license}, via Wikimedia Commons
+              , {imageCredit.license}
             </p>
           )}
         </div>
@@ -437,9 +486,26 @@ function TaskCard({
       >
         {isSpeaking ? "⏹ Stop" : "🔊 Play prompt in Spanish"}
       </button>
-      <p className="mb-4 text-xs text-slate-500">
-        You have up to {Math.round(task.maxDurationSeconds / 60)} minutes to speak. Prepare briefly, then record.
-      </p>
+      <div className="mb-4 flex flex-wrap items-center gap-3 rounded-lg border border-slate-200 bg-slate-50 p-3">
+        {prepLeft === null && (
+          <button type="button" onClick={() => setPrepLeft(PREP_SECONDS)} className="btn-outline w-fit px-3 py-1.5 text-sm">
+            ⏱ Start 15-minute prep
+          </button>
+        )}
+        {prepLeft !== null && prepLeft > 0 && (
+          <p className="text-sm text-slate-700">
+            Prep time left:{" "}
+            <strong className="font-mono">
+              {String(Math.floor(prepLeft / 60)).padStart(2, "0")}:{String(prepLeft % 60).padStart(2, "0")}
+            </strong>{" "}
+            <span className="text-slate-500">Make notes: a brief structure, a few key words and one example.</span>
+          </p>
+        )}
+        {prepLeft === 0 && <p className="text-sm font-medium text-green-700">Prep time is over. Start recording when ready.</p>}
+        <p className="text-xs text-slate-500">
+          Presentation: up to {Math.round(task.maxDurationSeconds / 60)} minutes. Prepare briefly, then record.
+        </p>
+      </div>
 
       {!mediaSupported && (
         <p className="rounded-md bg-amber-50 p-3 text-sm text-amber-800">
@@ -516,6 +582,81 @@ function TaskCard({
           )}
         </div>
       )}
+      {(() => {
+        const bank = DISCUSSION_QUESTIONS[task.themeId] ?? [];
+        const pages = Math.max(1, Math.ceil(bank.length / 3));
+        const page = discussionPage % pages;
+        const bankShown = bank.slice(page * 3, page * 3 + 3);
+        const shown = aiQuestions ?? bankShown;
+        const generateWithAi = async () => {
+          setAiLoading(true);
+          setAiFailed(false);
+          try {
+            const res = await fetch("/api/oral-questions", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({
+                theme: theme?.name ?? task.themeId,
+                imageDescription: task.imageDescription,
+                transcript,
+              }),
+            });
+            const data = await res.json();
+            if (data.available && Array.isArray(data.questions) && data.questions.length === 3) {
+              setAiQuestions(data.questions);
+            } else {
+              setAiFailed(true);
+            }
+          } catch {
+            setAiFailed(true);
+          } finally {
+            setAiLoading(false);
+          }
+        };
+        if (bank.length === 0 && !aiQuestions) return null;
+        return (
+          <div className="mt-4 rounded-xl border border-slate-200 bg-white p-5 shadow-xs">
+            <div className="mb-2 flex flex-wrap items-center justify-between gap-2">
+              <p className="text-sm font-semibold text-slate-800">
+                💬 {aiQuestions ? "AI follow-up questions" : "Discussion questions"}
+              </p>
+              <div className="flex items-center gap-3">
+                {!aiQuestions && bank.length > 3 && (
+                  <button type="button" onClick={() => setDiscussionPage((d) => d + 1)} className="text-xs font-semibold text-brand-700 hover:underline">
+                    More questions →
+                  </button>
+                )}
+                <button
+                  type="button"
+                  onClick={generateWithAi}
+                  disabled={aiLoading}
+                  className="rounded-full border border-brand-300 bg-brand-50 px-3 py-1 text-xs font-semibold text-brand-800 hover:bg-brand-100 disabled:cursor-wait disabled:opacity-60"
+                >
+                  {aiLoading ? "Generating…" : aiQuestions ? "✨ Regenerate" : "✨ Generate from my presentation"}
+                </button>
+              </div>
+            </div>
+            <p className="mb-3 text-xs text-slate-500">
+              {aiQuestions
+                ? "Written for your presentation. Answer each one in Spanish with an opinion and an example."
+                : "After your presentation the examiner asks follow-up questions. Answer each one in Spanish with an opinion and an example."}
+            </p>
+            {aiFailed && (
+              <p className="mb-2 text-xs text-amber-700">AI questions aren&apos;t available right now, so the practice bank is shown instead.</p>
+            )}
+            <ol className="flex flex-col gap-2">
+              {shown.map((q, i) => (
+                <li key={q.es} className="rounded-lg bg-slate-50 p-3">
+                  <p className="text-sm text-slate-800">
+                    {aiQuestions ? i + 1 : page * 3 + i + 1}. {q.es}
+                  </p>
+                  <p className="mt-0.5 text-xs text-slate-500">{q.en}</p>
+                </li>
+              ))}
+            </ol>
+          </div>
+        );
+      })()}
     </div>
   );
 }

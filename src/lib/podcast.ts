@@ -7,6 +7,7 @@
 // with the currently-spoken word highlighted and vocabulary words glossed on hover.
 
 import { PodcastEpisode } from "./types";
+import { EXTRA_PODCAST_EPISODES } from "./podcast-extra";
 
 export const PODCAST_EPISODES: PodcastEpisode[] = [
   {
@@ -1531,3 +1532,6 @@ Marina: ¡Hasta pronto!`,
     ],
   },
 ];
+
+// 30 additional AI-generated episodes (see podcast-extra.ts), checked against their scripts.
+PODCAST_EPISODES.push(...EXTRA_PODCAST_EPISODES);

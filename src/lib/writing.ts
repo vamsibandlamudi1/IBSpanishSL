@@ -406,7 +406,7 @@ export const WRITING_PROMPTS: WritingPrompt[] = [
 {
     id: "writing-experiences-4",
     themeId: "experiences",
-    textType: "Formal email",
+    textType: "Formal letter",
     level: "medium",
     instructions:
       "You recently went on a guided tour organized by a travel agency, but several things went wrong (delays, poor accommodation, an unqualified guide). Write a formal email to the agency describing the problems you experienced and requesting a partial refund or compensation.",
@@ -496,7 +496,7 @@ export const WRITING_PROMPTS: WritingPrompt[] = [
   {
     id: "writing-experiences-9",
     themeId: "experiences",
-    textType: "Instructional guide",
+    textType: "Set of instructions",
     level: "easy",
     instructions:
       "Write a step-by-step guide for a friend explaining how to plan and organize a memorable surprise birthday celebration, from choosing a theme to the day of the event.",
@@ -551,7 +551,7 @@ export const WRITING_PROMPTS: WritingPrompt[] = [
   {
     id: "writing-human-ingenuity-5",
     themeId: "human-ingenuity",
-    textType: "Formal email/letter",
+    textType: "Formal letter",
     level: "medium",
     instructions:
       "Write a formal letter to a technology company complaining about a smartphone that stopped working shortly after purchase, requesting a repair or a refund.",
@@ -878,6 +878,42 @@ export const WRITING_PROMPTS: WritingPrompt[] = [
       "Include practical details: date, time, and meeting point",
       "Use a hashtag or call-to-action phrase",
       "Keep sentences short and easy to skim quickly",
+    ],
+    minWords: 250,
+    maxWords: 400,
+  },
+  {
+    id: "writing-experiences-informal-letter",
+    themeId: "experiences",
+    textType: "Informal letter",
+    level: "medium",
+    instructions:
+      "Write a letter to a friend who lives abroad, describing your most recent visit to their city: what you did together and how you felt about it.",
+    instructionsEs:
+      "Escribe una carta a un amigo que vive en el extranjero describiendo tu última visita a su ciudad: qué hicisteis juntos y cómo te sentiste.",
+    formatTips: [
+      "Start with a warm greeting (e.g. '¡Querido Lucas!')",
+      "Use 'tú' and a relaxed, personal tone",
+      "Use time expressions (el año pasado, hace dos semanas, durante la visita)",
+      "Close with a personal sign-off (e.g. 'Un fuerte abrazo,')",
+    ],
+    minWords: 250,
+    maxWords: 400,
+  },
+  {
+    id: "writing-sharing-planet-advertisement",
+    themeId: "sharing-planet",
+    textType: "Advertisement",
+    level: "easy",
+    instructions:
+      "Design an advertisement for a school campaign that encourages students to use less plastic. Include a catchy slogan and three reasons why it matters.",
+    instructionsEs:
+      "Diseña un anuncio para una campaña escolar que anime a los estudiantes a usar menos plástico. Incluye un eslogan atractivo y tres razones por las que es importante.",
+    formatTips: [
+      "Open with a catchy slogan in bold or as a title",
+      "Use short sentences and imperatives (Usa, Reduce, Elige)",
+      "Give three clear reasons in a list or short paragraphs",
+      "End with a call to action",
     ],
     minWords: 250,
     maxWords: 400,

@@ -18,16 +18,19 @@ interface ThemeSelectorProps {
  *  practice, quiz setup, audio task setup). */
 export default function ThemeSelector({ themes, selectedThemeId, onSelect, recommendedThemeId }: ThemeSelectorProps) {
   return (
-    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-      {themes.map((theme) => {
+    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-6">
+      {themes.map((theme, index) => {
         const active = theme.id === selectedThemeId;
         const recommended = theme.id === recommendedThemeId;
+        // Six-column grid: the first three themes span 2 columns each, the last
+        // two span 3, so the five cards fill every row with no gap.
+        const span = index < 3 ? "lg:col-span-2" : "lg:col-span-3";
         return (
           <button
             key={theme.id}
             type="button"
             onClick={() => onSelect(theme.id)}
-            className={`relative rounded-xl border p-4 text-left shadow-xs transition hover:shadow-md ${
+            className={`relative rounded-xl border p-4 text-left shadow-xs transition hover:shadow-md ${span} ${
               active ? "border-brand-500 bg-brand-50 ring-2 ring-brand-500" : "border-slate-200 bg-white"
             }`}
           >

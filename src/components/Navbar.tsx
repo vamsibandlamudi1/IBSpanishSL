@@ -5,7 +5,6 @@ import Link from "next/link";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
 import { useStore } from "@/lib/store";
-import EngagementGamePopup from "./EngagementGamePopup";
 import ThemeToggle from "./ThemeToggle";
 
 const LINKS = [
@@ -25,8 +24,7 @@ const LINKS = [
 
 export default function Navbar() {
   const pathname = usePathname();
-  const { profile, awardMiniGameBonus } = useStore();
-  const [showGame, setShowGame] = useState(false);
+  const { profile } = useStore();
 
   return (
     <header className="border-b border-slate-200 bg-white">
@@ -57,28 +55,11 @@ export default function Navbar() {
         </nav>
         <div className="flex items-center gap-2">
           <ThemeToggle />
-          <button
-            type="button"
-            onClick={() => setShowGame(true)}
-            aria-label="Play a mini-game break"
-            title="Play a mini-game break"
-            className="flex h-8 w-8 items-center justify-center rounded-full border border-slate-200 text-base hover:bg-slate-100"
-          >
-            🎮
-          </button>
           <div className="flex items-center gap-2 rounded-full border border-amber-200 bg-amber-50 px-3 py-1 text-sm font-semibold text-amber-700">
             ⭐ {profile.currentPoints} pts
           </div>
         </div>
       </div>
-      {showGame && (
-        <EngagementGamePopup
-          onClose={(bonus) => {
-            if (bonus > 0) awardMiniGameBonus(bonus);
-            setShowGame(false);
-          }}
-        />
-      )}
     </header>
   );
 }

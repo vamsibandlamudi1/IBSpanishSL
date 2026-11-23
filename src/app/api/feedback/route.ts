@@ -17,7 +17,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import Anthropic from "@anthropic-ai/sdk";
 
-const MODEL = process.env.ANTHROPIC_MODEL || "claude-opus-5";
+const MODEL = process.env.ANTHROPIC_MODEL || "claude-haiku-5-5";
 const client = process.env.ANTHROPIC_API_KEY ? new Anthropic() : null;
 
 const SYSTEM_PROMPT = `You are a supportive IB Spanish B SL examiner giving quick feedback on a student's oral practice recording for the Individual Oral. You receive an auto-transcribed transcript (expect minor transcription errors), the theme, the task instructions, and target vocabulary for the theme.

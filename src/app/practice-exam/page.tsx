@@ -1,5 +1,6 @@
 /// File: src/app/practice-exam/page.tsx
 import PracticeExamModule from "@/components/PracticeExamModule";
+import AiExamModule from "@/components/AiExamModule";
 
 export default function PracticeExamPage() {
   return (
@@ -14,6 +15,7 @@ export default function PracticeExamPage() {
           all in one sitting.
         </p>
       </div>
+      <AiExamModule />
       <PracticeExamModule />
     </div>
   );

@@ -41,7 +41,20 @@ const normalizeAnswer = (s: string) => stripAccents(s.trim().toLowerCase());
  *  PERFORMANCE: Exercises are lazy-loaded per topic via dynamic import()
  *  so the 47 KB ser-estar dataset never blocks the initial Grammar page. */
 export default function GrammarModule() {
-  const { completeQuiz, recordQuestionResult, lastAward, clearLastAward, setActiveSession } = useStore();
+  const { completeQuiz, recordQuestionResult, lastAward, clearLastAward, setActiveSession, quizAttempts } = useStore();
+  // Best attempt per grammar topic, keyed by topic id — drives the check marks in the sidebar.
+  const bestByTopic = useMemo(() => {
+    const map = new Map<string, { score: number; total: number }>();
+    for (const attempt of quizAttempts) {
+      if (!attempt.themeId.startsWith("grammar-")) continue;
+      const id = attempt.themeId.slice("grammar-".length);
+      const existing = map.get(id);
+      if (!existing || attempt.score / attempt.total > existing.score / existing.total) {
+        map.set(id, { score: attempt.score, total: attempt.total });
+      }
+    }
+    return map;
+  }, [quizAttempts]);
 
   const [stage, setStage] = useState<Stage>("detail");
   const [topicId, setTopicId] = useState<string>(GRAMMAR_TOPICS[0].id);
@@ -190,33 +203,89 @@ export default function GrammarModule() {
       </p>
 
       <div className="flex flex-col gap-6 lg:flex-row lg:items-start">
-        {/* Sidebar: persistent topic list, horizontal-scroll pill row on mobile, stacked list on larger screens. */}
-        <nav className="flex gap-2 overflow-x-auto pb-1 lg:w-72 lg:shrink-0 lg:flex-col lg:overflow-visible lg:pb-0">
-          {GRAMMAR_TOPICS.map((t) => {
-            const isListening = t.id === "listening-tenses";
-            const active = t.id === topic.id;
+        {/* Sidebar: topics grouped into exam skills and by level, with overall
+            progress, check marks and scores on completed topics. */}
+        <aside className="lg:sticky lg:top-20 lg:max-h-[calc(100vh-6rem)] lg:w-72 lg:shrink-0 lg:overflow-y-auto lg:pr-1">
+          {(() => {
+            const EXAM_SKILL_IDS = ["exam-connectors", "exam-register", "exam-oral", "heading-matching", "gap-fill"];
+            const isDone = (id: string) => bestByTopic.has(id);
+            const doneTotal = GRAMMAR_TOPICS.filter((t) => isDone(t.id)).length;
+            const groups: { label: string; topics: typeof GRAMMAR_TOPICS }[] = [
+              { label: "Exam skills", topics: GRAMMAR_TOPICS.filter((t) => EXAM_SKILL_IDS.includes(t.id)) },
+              ...(["beginner", "intermediate", "advanced"] as const).map((lvl) => ({
+                label: lvl.charAt(0).toUpperCase() + lvl.slice(1),
+                topics: GRAMMAR_TOPICS.filter((t) => t.level === lvl && !EXAM_SKILL_IDS.includes(t.id)),
+              })),
+            ];
             return (
-              <button
-                key={t.id}
-                type="button"
-                onClick={() => viewTopic(t.id)}
-                className={`shrink-0 rounded-lg border p-3 text-left transition lg:shrink ${
-                  active ? "border-brand-400 bg-brand-50" : "border-slate-200 bg-white hover:border-brand-300 hover:bg-slate-50"
-                }`}
-              >
-                <div className="flex items-center justify-between gap-2">
-                  <p className={`whitespace-nowrap text-sm font-semibold lg:whitespace-normal ${active ? "text-brand-800" : "text-slate-800"}`}>
-                    {t.name}
+              <>
+                <div className="mb-3 rounded-xl border border-slate-200 bg-white p-3">
+                  <p className="text-sm font-semibold text-slate-800">
+                    {doneTotal} of {GRAMMAR_TOPICS.length} topics completed
                   </p>
-                  <span className={`hidden shrink-0 rounded-full px-1.5 py-0.5 text-[9px] font-semibold uppercase tracking-wide lg:inline ${LEVEL_STYLES[t.level]}`}>
-                    {t.level}
-                  </span>
+                  <div className="mt-2 h-1.5 overflow-hidden rounded-full bg-slate-100">
+                    <div className="h-full rounded-full bg-green-500 transition-all" style={{ width: `${(doneTotal / GRAMMAR_TOPICS.length) * 100}%` }} />
+                  </div>
                 </div>
-                {isListening && <span className="mt-1 hidden text-[10px] font-medium text-slate-500 lg:block">🎧 Listening practice</span>}
-              </button>
+                <div className="flex flex-col gap-3">
+                  {groups.filter((g) => g.topics.length > 0).map((g) => {
+                    const groupDone = g.topics.filter((t) => isDone(t.id)).length;
+                    return (
+                      <section key={g.label}>
+                        <div className="mb-1.5 flex items-center justify-between gap-2 px-1">
+                          <span className="text-xs font-bold uppercase tracking-wide text-slate-500">{g.label}</span>
+                          <span className="text-[11px] font-medium text-slate-400">
+                            {groupDone}/{g.topics.length}
+                          </span>
+                        </div>
+                        <div className="flex flex-col gap-1.5">
+                          {g.topics.map((t) => {
+                            const isListening = t.id === "listening-tenses";
+                            const active = t.id === topic.id;
+                            const best = bestByTopic.get(t.id);
+                            return (
+                              <button
+                                key={t.id}
+                                type="button"
+                                onClick={() => viewTopic(t.id)}
+                                className={`w-full rounded-lg border p-2.5 text-left transition ${
+                                  active
+                                    ? "border-brand-400 bg-brand-50"
+                                    : best
+                                    ? "border-green-200 bg-green-50/50 hover:border-green-300"
+                                    : "border-slate-200 bg-white hover:border-brand-300 hover:bg-slate-50"
+                                }`}
+                              >
+                                <div className="flex items-start gap-2">
+                                  <span
+                                    title={best ? `Best score: ${best.score}/${best.total}` : "Not attempted yet"}
+                                    className={`mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full text-[11px] font-bold ${
+                                      best ? "bg-green-500 text-white" : "border border-slate-300 text-transparent"
+                                    }`}
+                                  >
+                                    ✓
+                                  </span>
+                                  <div className="min-w-0 flex-1">
+                                    <p className={`text-sm font-semibold leading-snug ${active ? "text-brand-800" : "text-slate-800"}`}>{t.name}</p>
+                                    <p className="mt-0.5 text-[10px] font-medium uppercase tracking-wide text-slate-400">
+                                      {t.level}
+                                      {best && <span className="ml-1.5 normal-case text-green-700">· {best.score}/{best.total}</span>}
+                                    </p>
+                                    {isListening && <p className="mt-0.5 text-[10px] text-slate-500">🎧 Listening practice</p>}
+                                  </div>
+                                </div>
+                              </button>
+                            );
+                          })}
+                        </div>
+                      </section>
+                    );
+                  })}
+                </div>
+              </>
             );
-          })}
-        </nav>
+          })()}
+        </aside>
 
         {/* Main content pane */}
         <div className="min-w-0 flex-1">

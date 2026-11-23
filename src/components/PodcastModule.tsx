@@ -80,7 +80,7 @@ function parseTurns(bodyEs: string): Turn[] {
  *  reusing ReadingQuestion's type and grading/justification logic verbatim
  *  since the shape is identical to a reading passage's questions. */
 export default function PodcastModule() {
-  const { completeQuiz, recordQuestionResult, lastAward, clearLastAward, setActiveSession, quizAttempts } = useStore();
+  const { completeQuiz, recordQuestionResult, lastAward, clearLastAward, setActiveSession, quizAttempts, themes } = useStore();
 
   const [episodeId, setEpisodeId] = useState(PODCAST_EPISODES[0].id);
   const [answers, setAnswers] = useState<Record<string, string>>({});
@@ -266,38 +266,79 @@ export default function PodcastModule() {
 
   return (
     <div className="flex flex-col gap-6 lg:flex-row lg:items-start">
-      {/* Sidebar: one episode per IB theme, same pattern as ReadingModule's passage list. */}
-      <nav className="flex gap-2 overflow-x-auto pb-1 lg:w-72 lg:shrink-0 lg:flex-col lg:overflow-visible lg:pb-0">
-        {PODCAST_EPISODES.map((e) => {
-          const active = e.id === episode.id;
-          const best = bestAttemptByEpisode.get(e.id);
-          return (
-            <button
-              key={e.id}
-              type="button"
-              onClick={() => selectEpisode(e.id)}
-              className={`shrink-0 rounded-lg border p-3 text-left transition lg:shrink ${
-                active ? "border-brand-400 bg-brand-50" : "border-slate-200 bg-white hover:border-brand-300 hover:bg-slate-50"
-              }`}
-            >
-              <div className="flex items-center gap-1.5">
-                {best && (
-                  <span className="text-xs text-green-600" title={`Best score: ${best.score}/${best.total}`}>
-                    ✓
+      {/* Sidebar: episodes grouped by IB theme, with overall progress and a
+          check + score on completed episodes. Scrolls independently on desktop. */}
+      <aside className="lg:sticky lg:top-20 lg:max-h-[calc(100vh-6rem)] lg:w-72 lg:shrink-0 lg:overflow-y-auto lg:pr-1">
+        <div className="mb-3 rounded-xl border border-slate-200 bg-white p-3">
+          <p className="text-sm font-semibold text-slate-800">
+            {PODCAST_EPISODES.filter((e) => bestAttemptByEpisode.has(e.id)).length} of {PODCAST_EPISODES.length} completed
+          </p>
+          <div className="mt-2 h-1.5 overflow-hidden rounded-full bg-slate-100">
+            <div
+              className="h-full rounded-full bg-green-500 transition-all"
+              style={{
+                width: `${(PODCAST_EPISODES.filter((e) => bestAttemptByEpisode.has(e.id)).length / PODCAST_EPISODES.length) * 100}%`,
+              }}
+            />
+          </div>
+        </div>
+
+        <div className="flex flex-col gap-3">
+          {themes.map((th) => {
+            const themeEpisodes = PODCAST_EPISODES.filter((e) => e.themeId === th.id);
+            if (themeEpisodes.length === 0) return null;
+            const doneInTheme = themeEpisodes.filter((e) => bestAttemptByEpisode.has(e.id)).length;
+            return (
+              <section key={th.id}>
+                <div className="mb-1.5 flex items-center justify-between gap-2 px-1">
+                  <span className="text-xs font-bold uppercase tracking-wide text-slate-500">{th.name}</span>
+                  <span className="text-[11px] font-medium text-slate-400">
+                    {doneInTheme}/{themeEpisodes.length}
                   </span>
-                )}
-                <p className={`whitespace-nowrap text-sm font-semibold lg:whitespace-normal ${active ? "text-brand-800" : "text-slate-800"}`}>
-                  {e.title}
-                </p>
-              </div>
-              <div className="mt-1 flex items-center gap-2">
-                <span className="hidden text-[10px] font-medium uppercase tracking-wide text-slate-400 lg:block">{e.durationLabel}</span>
-                {best && <span className="text-[10px] font-medium text-green-600">{best.score}/{best.total}</span>}
-              </div>
-            </button>
-          );
-        })}
-      </nav>
+                </div>
+                <div className="flex flex-col gap-1.5">
+                  {themeEpisodes.map((e) => {
+                    const active = e.id === episode.id;
+                    const best = bestAttemptByEpisode.get(e.id);
+                    return (
+                      <button
+                        key={e.id}
+                        type="button"
+                        onClick={() => selectEpisode(e.id)}
+                        className={`w-full rounded-lg border p-2.5 text-left transition ${
+                          active
+                            ? "border-brand-400 bg-brand-50"
+                            : best
+                            ? "border-green-200 bg-green-50/50 hover:border-green-300"
+                            : "border-slate-200 bg-white hover:border-brand-300 hover:bg-slate-50"
+                        }`}
+                      >
+                        <div className="flex items-start gap-2">
+                          <span
+                            title={best ? `Best score: ${best.score}/${best.total}` : "Not attempted yet"}
+                            className={`mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full text-[11px] font-bold ${
+                              best ? "bg-green-500 text-white" : "border border-slate-300 text-transparent"
+                            }`}
+                          >
+                            ✓
+                          </span>
+                          <div className="min-w-0">
+                            <p className={`text-sm font-semibold leading-snug ${active ? "text-brand-800" : "text-slate-800"}`}>{e.title}</p>
+                            <p className="mt-0.5 text-[10px] font-medium uppercase tracking-wide text-slate-400">
+                              {e.durationLabel}
+                              {best && <span className="ml-1.5 normal-case text-green-700">· {best.score}/{best.total}</span>}
+                            </p>
+                          </div>
+                        </div>
+                      </button>
+                    );
+                  })}
+                </div>
+              </section>
+            );
+          })}
+        </div>
+      </aside>
 
       {/* Episode + questions */}
       <div key={episode.id} className="animate-fade-slide-up min-w-0 flex-1">

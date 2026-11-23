@@ -13,20 +13,26 @@
 import { NextRequest, NextResponse } from "next/server";
 import Anthropic from "@anthropic-ai/sdk";
 
-const MODEL = process.env.ANTHROPIC_MODEL || "claude-opus-5";
+const MODEL = process.env.ANTHROPIC_MODEL || "claude-haiku-5-5";
 const client = process.env.ANTHROPIC_API_KEY ? new Anthropic() : null;
 
 const SYSTEM_PROMPT = `You are a supportive IB Spanish B examiner giving feedback on a student's Paper 1 writing submission. You receive the required text type (e.g. formal letter, blog post), the task instructions, the target word range, and the student's Spanish text.
 
-Respond with ONLY a JSON object (no markdown code fences, no text outside the JSON) matching exactly this shape:
+Write every feedback field in English (quote the student's Spanish only where useful). Respond with ONLY a JSON object (no markdown code fences, no text outside the JSON) matching exactly this shape:
 {
   "summary": "1-2 sentence warm, encouraging overall assessment",
   "strengths": ["2-3 specific things the student did well — quote or paraphrase their actual words where useful, e.g. \\"Your greeting 'Hola Carlos' correctly matches the informal register.\\""],
   "improvements": ["2-4 specific, actionable suggestions — say exactly what to add, fix, or expand, and where in the text, e.g. \\"After the second paragraph, add a sentence explaining how the change affected your relationships.\\""],
   "languageComment": "1-2 sentences on vocabulary range, grammar accuracy, and register — this maps to IB Criterion A: Language",
   "messageComment": "1-2 sentences on task achievement, organization, and content — this maps to IB Criterion B: Message",
+  "conceptualComment": "1-2 sentences on whether the text follows the conventions of the text type (greeting/sign-off, register, format, audience, purpose) — this maps to IB Criterion C: Conceptual understanding",
+  "marks": { "language": 0, "message": 0, "conceptual": 0 },
   "improvedVersion": "A full rewrite of the student's submission in Spanish, within the target word range, that would score full marks. Keep it recognizably based on the student's own ideas, content, and structure — expand underdeveloped parts, fix grammar/spelling/accents, correct the register and format conventions for the text type, and add richer vocabulary/connectors — rather than writing a completely different, unrelated text. This is the single most important field: never leave it empty."
 }
+
+Marks: give an APPROXIMATE practice mark out of 10 for each criterion (language, message, conceptual), based on the descriptions above. Be honest and calibrated: a short or off-topic submission should score low, a full-length, accurate, well-structured one high. These are practice estimates, not official IB marks, so do not claim otherwise.
+
+Keep the whole JSON compact: the improvedVersion must stay within the target word range, and each list item must be one sentence. Always close every string and bracket so the JSON is complete.
 
 Be warm and encouraging, like a supportive teacher — not a strict grader. Keep quotes from the student's text short. If the submission is very short or off-topic, gently note that in "summary" and focus "improvements" on developing it further rather than harshly criticizing. Still produce a full "improvedVersion" even for a very short or weak submission, built out from whatever ideas the student did include.`;
 
@@ -36,17 +42,29 @@ interface WritingFeedback {
   improvements: string[];
   languageComment: string;
   messageComment: string;
+  conceptualComment: string;
+  marks: { language: number; message: number; conceptual: number } | null;
   improvedVersion: string;
+}
+
+/** Clamp the three 0-10 criterion marks; null if any is missing or invalid. */
+function parseMarks(value: unknown): WritingFeedback["marks"] {
+  if (!value || typeof value !== "object") return null;
+  const v = value as Record<string, unknown>;
+  const clamp = (n: unknown) => (typeof n === "number" && Number.isFinite(n) ? Math.min(10, Math.max(0, Math.round(n))) : null);
+  const language = clamp(v.language), message = clamp(v.message), conceptual = clamp(v.conceptual);
+  if (language === null || message === null || conceptual === null) return null;
+  return { language, message, conceptual };
 }
 
 /** Best-effort parse of the model's JSON response into a WritingFeedback
  *  shape, tolerant of stray markdown fences or missing fields — if parsing
  *  fails entirely, the raw text becomes the summary so nothing is lost. */
 function parseFeedback(raw: string): WritingFeedback {
-  const cleaned = raw
-    .replace(/^```(?:json)?\s*/i, "")
-    .replace(/```\s*$/, "")
-    .trim();
+  // Take the outermost {...} so stray text or code fences around the JSON don't break parsing.
+  const start = raw.indexOf("{");
+  const end = raw.lastIndexOf("}");
+  const cleaned = start >= 0 && end > start ? raw.slice(start, end + 1) : raw;
   try {
     const parsed = JSON.parse(cleaned);
     return {
@@ -55,10 +73,12 @@ function parseFeedback(raw: string): WritingFeedback {
       improvements: Array.isArray(parsed.improvements) ? parsed.improvements.filter((s: unknown) => typeof s === "string") : [],
       languageComment: typeof parsed.languageComment === "string" ? parsed.languageComment : "",
       messageComment: typeof parsed.messageComment === "string" ? parsed.messageComment : "",
+      conceptualComment: typeof parsed.conceptualComment === "string" ? parsed.conceptualComment : "",
+      marks: parseMarks(parsed.marks),
       improvedVersion: typeof parsed.improvedVersion === "string" ? parsed.improvedVersion : "",
     };
   } catch {
-    return { summary: raw, strengths: [], improvements: [], languageComment: "", messageComment: "", improvedVersion: "" };
+    return { summary: raw, strengths: [], improvements: [], languageComment: "", messageComment: "", conceptualComment: "", marks: null, improvedVersion: "" };
   }
 }
 
@@ -81,7 +101,7 @@ export async function POST(request: NextRequest) {
   try {
     const message = await client.messages.create({
       model: MODEL,
-      max_tokens: 1400,
+      max_tokens: 4000,
       system: SYSTEM_PROMPT,
       messages: [
         {

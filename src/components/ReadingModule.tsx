@@ -26,7 +26,9 @@ const normalize = (s: string) => stripAccents(s.trim().toLowerCase());
  *  same as Quiz/Grammar — completing a passage awards points via the
  *  shared gamification system. */
 export default function ReadingModule() {
-  const { completeQuiz, recordQuestionResult, lastAward, clearLastAward, setActiveSession, quizAttempts } = useStore();
+  const { completeQuiz, recordQuestionResult, lastAward, clearLastAward, setActiveSession, quizAttempts, themes } = useStore();
+  const [filter, setFilter] = useState<"all" | "todo" | "done">("all");
+  const [collapsedThemes, setCollapsedThemes] = useState<Record<string, boolean>>({});
 
   const [passageId, setPassageId] = useState(READING_PASSAGES[0].id);
   const [answers, setAnswers] = useState<Record<string, string>>({});
@@ -138,38 +140,105 @@ export default function ReadingModule() {
 
   return (
     <div className="flex flex-col gap-6 lg:flex-row lg:items-start">
-      {/* Sidebar: one passage per theme, same pattern as GrammarModule's topic list. */}
-      <nav className="flex gap-2 overflow-x-auto pb-1 lg:w-72 lg:shrink-0 lg:flex-col lg:overflow-visible lg:pb-0">
-        {READING_PASSAGES.map((p) => {
-          const active = p.id === passage.id;
-          const best = bestAttemptByPassage.get(p.id);
-          return (
-            <button
-              key={p.id}
-              type="button"
-              onClick={() => selectPassage(p.id)}
-              className={`shrink-0 rounded-lg border p-3 text-left transition lg:shrink ${
-                active ? "border-brand-400 bg-brand-50" : "border-slate-200 bg-white hover:border-brand-300 hover:bg-slate-50"
-              }`}
-            >
-              <div className="flex items-center gap-1.5">
-                {best && (
-                  <span className="text-xs text-green-600" title={`Best score: ${best.score}/${best.total}`}>
-                    ✓
+      {/* Sidebar: passages grouped by theme, with overall progress, a
+          to-do/done filter, and a check + score on completed passages. */}
+      <aside className="lg:sticky lg:top-20 lg:max-h-[calc(100vh-6rem)] lg:w-72 lg:shrink-0 lg:overflow-y-auto lg:pr-1">
+        <div className="mb-3 rounded-xl border border-slate-200 bg-white p-3">
+          <div className="flex items-baseline justify-between gap-2">
+            <p className="text-sm font-semibold text-slate-800">
+              {READING_PASSAGES.filter((p) => bestAttemptByPassage.has(p.id)).length} of {READING_PASSAGES.length} completed
+            </p>
+          </div>
+          <div className="mt-2 h-1.5 overflow-hidden rounded-full bg-slate-100">
+            <div
+              className="h-full rounded-full bg-green-500 transition-all"
+              style={{
+                width: `${(READING_PASSAGES.filter((p) => bestAttemptByPassage.has(p.id)).length / READING_PASSAGES.length) * 100}%`,
+              }}
+            />
+          </div>
+          <div className="mt-3 grid grid-cols-3 gap-1 rounded-lg bg-slate-100 p-1 text-xs font-semibold">
+            {(["all", "todo", "done"] as const).map((f) => (
+              <button
+                key={f}
+                type="button"
+                onClick={() => setFilter(f)}
+                className={`rounded-md py-1 transition ${filter === f ? "bg-white text-slate-900 shadow-xs" : "text-slate-500 hover:text-slate-700"}`}
+              >
+                {f === "all" ? "All" : f === "todo" ? "To do" : "Done"}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        <div className="flex flex-col gap-3">
+          {themes.map((th) => {
+            const themePassages = READING_PASSAGES.filter((p) => p.themeId === th.id);
+            const doneInTheme = themePassages.filter((p) => bestAttemptByPassage.has(p.id)).length;
+            const visible = themePassages.filter((p) => {
+              const isDone = bestAttemptByPassage.has(p.id);
+              return filter === "all" || (filter === "done" ? isDone : !isDone);
+            });
+            if (visible.length === 0) return null;
+            const collapsed = !!collapsedThemes[th.id];
+            return (
+              <section key={th.id}>
+                <button
+                  type="button"
+                  onClick={() => setCollapsedThemes((c) => ({ ...c, [th.id]: !c[th.id] }))}
+                  className="mb-1.5 flex w-full items-center justify-between gap-2 px-1 text-left"
+                >
+                  <span className="text-xs font-bold uppercase tracking-wide text-slate-500">{th.name}</span>
+                  <span className="flex items-center gap-1.5 text-[11px] font-medium text-slate-400">
+                    {doneInTheme}/{themePassages.length}
+                    <span className={`transition ${collapsed ? "-rotate-90" : ""}`}>▾</span>
                   </span>
+                </button>
+                {!collapsed && (
+                  <div className="flex flex-col gap-1.5">
+                    {visible.map((p) => {
+                      const active = p.id === passage.id;
+                      const best = bestAttemptByPassage.get(p.id);
+                      return (
+                        <button
+                          key={p.id}
+                          type="button"
+                          onClick={() => selectPassage(p.id)}
+                          className={`w-full rounded-lg border p-2.5 text-left transition ${
+                            active
+                              ? "border-brand-400 bg-brand-50"
+                              : best
+                              ? "border-green-200 bg-green-50/50 hover:border-green-300"
+                              : "border-slate-200 bg-white hover:border-brand-300 hover:bg-slate-50"
+                          }`}
+                        >
+                          <div className="flex items-start gap-2">
+                            <span
+                              title={best ? `Best score: ${best.score}/${best.total}` : "Not attempted yet"}
+                              className={`mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full text-[11px] font-bold ${
+                                best ? "bg-green-500 text-white" : "border border-slate-300 text-transparent"
+                              }`}
+                            >
+                              ✓
+                            </span>
+                            <div className="min-w-0">
+                              <p className={`text-sm font-semibold leading-snug ${active ? "text-brand-800" : "text-slate-800"}`}>{p.title}</p>
+                              <p className="mt-0.5 text-[10px] font-medium uppercase tracking-wide text-slate-400">
+                                {p.textType}
+                                {best && <span className="ml-1.5 normal-case text-green-700">· {best.score}/{best.total}</span>}
+                              </p>
+                            </div>
+                          </div>
+                        </button>
+                      );
+                    })}
+                  </div>
                 )}
-                <p className={`whitespace-nowrap text-sm font-semibold lg:whitespace-normal ${active ? "text-brand-800" : "text-slate-800"}`}>
-                  {p.title}
-                </p>
-              </div>
-              <div className="mt-1 flex items-center gap-2">
-                <span className="hidden text-[10px] font-medium uppercase tracking-wide text-slate-400 lg:block">{p.textType}</span>
-                {best && <span className="text-[10px] font-medium text-green-600">{best.score}/{best.total}</span>}
-              </div>
-            </button>
-          );
-        })}
-      </nav>
+              </section>
+            );
+          })}
+        </div>
+      </aside>
 
       {/* Passage + questions */}
       <div key={passage.id} className="animate-fade-slide-up min-w-0 flex-1">

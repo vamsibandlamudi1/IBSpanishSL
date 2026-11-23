@@ -13,3 +13,16 @@ export function shuffle<T>(arr: T[]): T[] {
   }
   return copy;
 }
+
+/** Removes duplicate vocabulary entries (same Spanish term + English meaning
+ *  within a subtopic). The source data has a few repeats, which caused duplicate
+ *  list keys and repeated quiz items. */
+export function uniqueVocab<T extends { es: string; en: string; subtopic?: string }>(items: T[]): T[] {
+  const seen = new Set<string>();
+  return items.filter((v) => {
+    const key = `${v.es}|${v.en}|${v.subtopic ?? ""}`;
+    if (seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
+}

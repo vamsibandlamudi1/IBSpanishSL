@@ -74,13 +74,20 @@ export default function VocabList({ vocabulary }: { vocabulary: VocabItem[] }) {
           {filtered.length === 0 ? (
             <p className="vocab-no-match">No words match &ldquo;{query}&rdquo;.</p>
           ) : (
-            filtered.map((v) => {
+            filtered.map((v, i) => {
               const isActive = selectedWord?.es === v.es;
               return (
-                <button
-                  key={`${v.es}-${v.subtopic}`}
-                  type="button"
+                <div
+                  key={`${i}-${v.es}`}
+                  role="button"
+                  tabIndex={0}
                   onClick={() => setSelectedWord(isActive ? null : v)}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter" || e.key === " ") {
+                      e.preventDefault();
+                      setSelectedWord(isActive ? null : v);
+                    }
+                  }}
                   className={`vocab-word-row ${isActive ? "vocab-word-row--active" : ""}`}
                 >
                   <div className="vocab-word-row-left">
@@ -95,7 +102,7 @@ export default function VocabList({ vocabulary }: { vocabulary: VocabItem[] }) {
                     <span className="vocab-word-es">{v.es}</span>
                   </div>
                   <span className="vocab-word-en">{v.en}</span>
-                </button>
+                </div>
               );
             })
           )}
