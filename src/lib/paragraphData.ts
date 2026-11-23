@@ -17,7 +17,7 @@ export const PARAGRAPH_EXERCISES: ParagraphExercise[] = [
   {
     id: "par-id-1",
     themeId: "identities",
-    subtopic: "Lifestyles",
+    subtopic: "Estilos de vida",
     title: "El cambio de vida de Carmen",
     textBefore: "Para mejorar su calidad de vida, Carmen decidió evitar el ",
     textAfter: " y comenzó a hacer ejercicio al aire libre cada mañana.",
@@ -28,7 +28,7 @@ export const PARAGRAPH_EXERCISES: ParagraphExercise[] = [
   {
     id: "par-id-2",
     themeId: "identities",
-    subtopic: "Health and well-being",
+    subtopic: "Salud y bienestar",
     title: "El bienestar en la escuela",
     textBefore: "En el instituto, los consejeros prestan especial atención a la ",
     textAfter: " de los estudiantes antes de los exámenes finales.",
@@ -39,7 +39,7 @@ export const PARAGRAPH_EXERCISES: ParagraphExercise[] = [
   {
     id: "par-id-3",
     themeId: "identities",
-    subtopic: "Language and identity",
+    subtopic: "Lengua e identidad",
     title: "La riqueza de hablar dos idiomas",
     textBefore: "El ",
     textAfter: " permite a los jóvenes conectar profundamente con sus raíces culturales y ampliar sus oportunidades laborales.",
@@ -50,7 +50,7 @@ export const PARAGRAPH_EXERCISES: ParagraphExercise[] = [
   {
     id: "par-id-4",
     themeId: "identities",
-    subtopic: "Beliefs and values",
+    subtopic: "Creencias y valores",
     title: "Valores fundamentales en la sociedad",
     textBefore: "Para construir una comunidad pacífica, es imprescindible fomentar la ",
     textAfter: " y el respeto hacia las opiniones de los demás.",
@@ -61,7 +61,7 @@ export const PARAGRAPH_EXERCISES: ParagraphExercise[] = [
   {
     id: "par-id-5",
     themeId: "identities",
-    subtopic: "Childhood and adolescence",
+    subtopic: "Estilos de vida",
     title: "La etapa de cambios",
     textBefore: "Durante la adolescencia, muchos jóvenes buscan su ",
     textAfter: " mientras aprenden a tomar decisiones más independientes.",
@@ -74,7 +74,7 @@ export const PARAGRAPH_EXERCISES: ParagraphExercise[] = [
   {
     id: "par-exp-1",
     themeId: "experiences",
-    subtopic: "Travel",
+    subtopic: "Vacaciones y viajes",
     title: "Viaje responsable a Costa Rica",
     textBefore: "Cada vez más viajeros eligen el ",
     textAfter: " para observar la naturaleza sin dañar los ecosistemas locales.",
@@ -85,7 +85,7 @@ export const PARAGRAPH_EXERCISES: ParagraphExercise[] = [
   {
     id: "par-exp-2",
     themeId: "experiences",
-    subtopic: "Holidays and celebrations",
+    subtopic: "Costumbres y tradiciones",
     title: "Las fiestas del pueblo",
     textBefore: "Durante la fiesta patronal, toda la ciudad se reúne en la plaza para presenciar los espectaculares ",
     textAfter: " a medianoche.",
@@ -96,7 +96,7 @@ export const PARAGRAPH_EXERCISES: ParagraphExercise[] = [
   {
     id: "par-exp-3",
     themeId: "experiences",
-    subtopic: "Rites of passage",
+    subtopic: "Ritos de paso",
     title: "Un logro universitario",
     textBefore: "Tras cuatro años de intenso estudio, el estudiante asistió emocionado a su ceremonia de ",
     textAfter: " acompañado de toda su familia.",
@@ -107,7 +107,7 @@ export const PARAGRAPH_EXERCISES: ParagraphExercise[] = [
   {
     id: "par-exp-4",
     themeId: "experiences",
-    subtopic: "Migration",
+    subtopic: "Migración",
     title: "Nuevos horizontes",
     textBefore: "Al llegar a un nuevo país, uno de los mayores desafíos para los inmigrantes es superar la ",
     textAfter: " para comunicarse con facilidad.",
@@ -118,7 +118,7 @@ export const PARAGRAPH_EXERCISES: ParagraphExercise[] = [
   {
     id: "par-exp-5",
     themeId: "experiences",
-    subtopic: "Personal stories",
+    subtopic: "Historias de vida",
     title: "Superando dificultades",
     textBefore: "Su testimonio sobre la ",
     textAfter: " de problemas de salud inspiró a cientos de jóvenes en el auditorio.",
@@ -131,7 +131,7 @@ export const PARAGRAPH_EXERCISES: ParagraphExercise[] = [
   {
     id: "par-ing-1",
     themeId: "human-ingenuity",
-    subtopic: "Entertainment",
+    subtopic: "Entretenimiento",
     title: "El cine del futuro",
     textBefore: "Los nuevos videojuegos de ",
     textAfter: " permiten a los jugadores sumergirse por completo en mundos tridimensionales hiperrealistas.",
@@ -153,7 +153,7 @@ export const PARAGRAPH_EXERCISES: ParagraphExercise[] = [
   {
     id: "par-ing-3",
     themeId: "human-ingenuity",
-    subtopic: "Communication and media",
+    subtopic: "Comunicación y medios",
     title: "La verificación de datos",
     textBefore: "En la era digital, es fundamental combatir las ",
     textAfter: " verificando la información en fuentes periodísticas fiables.",
@@ -188,7 +188,7 @@ export const PARAGRAPH_EXERCISES: ParagraphExercise[] = [
   {
     id: "par-soc-1",
     themeId: "social-organization",
-    subtopic: "Social relationships",
+    subtopic: "Relaciones sociales",
     title: "La convivencia urbana",
     textBefore: "Promover la ",
     textAfter: " entre vecinos ayuda a reducir los conflictos en los barrios de las grandes ciudades.",
@@ -210,7 +210,7 @@ export const PARAGRAPH_EXERCISES: ParagraphExercise[] = [
   {
     id: "par-soc-3",
     themeId: "social-organization",
-    subtopic: "Education",
+    subtopic: "Educación",
     title: "Oportunidades de estudio",
     textBefore: "El gobierno otorgó una ",
     textAfter: " a los estudiantes con mejores calificaciones para financiar sus estudios universitarios.",
@@ -232,7 +232,7 @@ export const PARAGRAPH_EXERCISES: ParagraphExercise[] = [
   {
     id: "par-soc-5",
     themeId: "social-organization",
-    subtopic: "Law and order",
+    subtopic: "Ley y orden",
     title: "La justicia en el estado de derecho",
     textBefore: "En un juicio justo, la ",
     textAfter: " garantiza que cualquier acusado sea considerado inocente hasta que se demuestre lo contrario.",
@@ -256,7 +256,7 @@ export const PARAGRAPH_EXERCISES: ParagraphExercise[] = [
   {
     id: "par-pla-2",
     themeId: "sharing-planet",
-    subtopic: "Human rights",
+    subtopic: "Derechos humanos",
     title: "La protección universal",
     textBefore: "La ",
     textAfter: " de Derechos Humanos establece los derechos fundamentales que deben respetarse en todos los países del mundo.",
@@ -267,7 +267,7 @@ export const PARAGRAPH_EXERCISES: ParagraphExercise[] = [
   {
     id: "par-pla-3",
     themeId: "sharing-planet",
-    subtopic: "Peace and conflict",
+    subtopic: "Paz y conflicto",
     title: "Avanzando hacia la paz",
     textBefore: "Tras duras semanas de negociación diplomática, los líderes firmaron un ",
     textAfter: " para poner fin a las hostilidades armadas.",
@@ -278,7 +278,7 @@ export const PARAGRAPH_EXERCISES: ParagraphExercise[] = [
   {
     id: "par-pla-4",
     themeId: "sharing-planet",
-    subtopic: "Globalization",
+    subtopic: "Globalización",
     title: "La interconexión comercial",
     textBefore: "El desarrollo del ",
     textAfter: " permite a los países intercambiar bienes y productos con mayor rapidez que nunca.",
@@ -289,7 +289,7 @@ export const PARAGRAPH_EXERCISES: ParagraphExercise[] = [
   {
     id: "par-pla-5",
     themeId: "sharing-planet",
-    subtopic: "Ethical consumption",
+    subtopic: "Ética",
     title: "Hacia una economía limpia",
     textBefore: "Fomentar la ",
     textAfter: " implica reducir el consumo de recursos, reparar los productos y reciclar todos los materiales posibles.",
