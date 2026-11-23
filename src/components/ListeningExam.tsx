@@ -66,6 +66,9 @@ export default function ListeningExam() {
       const parts = Array.isArray(given) ? given : [];
       return item.answers.filter((a, j) => answersMatch(parts[j] ?? "", a)).length;
     }
+    if (item.kind === "sa") {
+      return typeof given === "string" && item.answers.some((a) => answersMatch(given, a)) ? 1 : 0;
+    }
     const parts = Array.isArray(given) ? given : [];
     const used = new Set<number>();
     let count = 0;
@@ -299,6 +302,19 @@ export default function ListeningExam() {
                     ))}
                   </p>
                   {checked && <p className="text-xs text-slate-500">Respuestas: {item.answers.join(" / ")}</p>}
+                </div>
+              )}
+
+              {item.kind === "sa" && (
+                <div className="mt-2">
+                  <input
+                    value={typeof answers[i] === "string" ? (answers[i] as string) : ""}
+                    disabled={checked}
+                    onChange={(e) => !checked && setAnswers((a) => ({ ...a, [i]: e.target.value }))}
+                    placeholder="Escribe tu respuesta…"
+                    className="w-full rounded-md border border-slate-200 px-3 py-1.5 text-sm outline-none focus:border-brand-400"
+                  />
+                  {checked && <p className="mt-1 text-xs text-slate-500">Respuesta: {item.answers.join(" / ")}</p>}
                 </div>
               )}
 

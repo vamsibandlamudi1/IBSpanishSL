@@ -6,7 +6,8 @@
 
 export type ListeningItem =
   | { kind: "mc"; marks: 1; prompt: string; options: string[]; correct: string }
-  | { kind: "ms"; marks: 2; prompt: string; options: string[]; correct: string[] }
+  | { kind: "ms"; marks: number; prompt: string; options: string[]; correct: string[] }
+  | { kind: "sa"; marks: 1; prompt: string; answers: string[] }
   | { kind: "gap"; marks: number; prompt: string; answers: string[] }
   | { kind: "menciona"; marks: number; prompt: string; answers: string[] };
 
