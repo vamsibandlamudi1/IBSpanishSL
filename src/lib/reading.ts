@@ -4733,6 +4733,451 @@ export const READING_PASSAGES: ReadingPassage[] = [
       { es: "priorizando", en: "prioritizing" },
     ],
   },
+  {
+    "id": "reading-identities-creencias",
+    "themeId": "identities",
+    "subtopic": "Creencias y valores",
+    "title": "Creer sin dejar de preguntar",
+    "textType": "Magazine article",
+    "level": "medium",
+    "bodyEs": "Desde pequeña, Marta fue a la iglesia con su abuela cada domingo. Para ella, la fe era una forma de sentirse cerca de su familia y de recordar los valores que le habían enseñado: la honestidad, la paciencia y el respeto a los demás.\n\nSin embargo, cuando entró en la universidad, empezó a hacerse preguntas que nunca había planteado. Compañeros de distintas religiones y de ninguna religión le hablaban de sus creencias, y Marta comprendió que su fe era solo una de muchas maneras de dar sentido a la vida.\n\nAl principio sintió miedo de que la duda la alejara de Dios. Pero con el tiempo entendió que preguntar no significa renunciar. Hoy participa en un grupo de diálogo interreligioso, donde jóvenes de distintas culturas comparten sus convicciones sin intentar convencer a nadie.\n\nMarta dice que lo más valioso de esta experiencia es la tolerancia: escuchar a alguien que piensa diferente sin dejar de defender lo que uno cree.",
+    "questions": [
+      {
+        "id": "creencias-q1",
+        "type": "true-false",
+        "prompt": "Marta iba a la iglesia con su abuela de pequeña.",
+        "correctAnswer": "true",
+        "justification": "Desde pequeña, Marta fue a la iglesia con su abuela cada domingo"
+      },
+      {
+        "id": "creencias-q2",
+        "type": "true-false",
+        "prompt": "Marta nunca tuvo dudas sobre su fe.",
+        "correctAnswer": "false",
+        "justification": "empezó a hacerse preguntas que nunca había planteado"
+      },
+      {
+        "id": "creencias-q3",
+        "type": "mcq",
+        "prompt": "¿Qué le hizo empezar a preguntarse cosas sobre su fe?",
+        "options": [
+          "Un viaje al extranjero",
+          "Sus compañeros de la universidad",
+          "Una enfermedad de su abuela",
+          "Un libro de filosofía"
+        ],
+        "correctAnswer": "Sus compañeros de la universidad"
+      },
+      {
+        "id": "creencias-q4",
+        "type": "mcq",
+        "prompt": "¿Qué es lo más valioso para Marta según el texto?",
+        "options": [
+          "Ganar discusiones religiosas",
+          "La tolerancia",
+          "Cambiar de religión",
+          "La fama"
+        ],
+        "correctAnswer": "La tolerancia"
+      },
+      {
+        "id": "creencias-q5",
+        "type": "short",
+        "prompt": "¿Cómo se llama el grupo en el que participa Marta ahora?",
+        "correctAnswer": "diálogo interreligioso"
+      }
+    ],
+    "vocabulary": [
+      {
+        "es": "la fe",
+        "en": "faith"
+      },
+      {
+        "es": "la honestidad",
+        "en": "honesty"
+      },
+      {
+        "es": "la duda",
+        "en": "doubt"
+      },
+      {
+        "es": "renunciar",
+        "en": "to give up"
+      },
+      {
+        "es": "convencer",
+        "en": "to convince"
+      },
+      {
+        "es": "la tolerancia",
+        "en": "tolerance"
+      },
+      {
+        "es": "dar sentido a la vida",
+        "en": "to give meaning to life"
+      },
+      {
+        "es": "las convicciones",
+        "en": "convictions, beliefs"
+      }
+    ]
+  },
+  {
+    "id": "reading-identities-subculturas",
+    "themeId": "identities",
+    "subtopic": "Subculturas",
+    "title": "Mi tribu en el skate park",
+    "textType": "Blog post",
+    "level": "medium",
+    "bodyEs": "Hola a todos. Hoy quiero hablaros de algo que para mí es muy importante: mi grupo de amigos del skate park. Llevamos cinco años patinando juntos en el parque de la calle Olivo, y en ese tiempo hemos aprendido más de lo que imaginábamos.\n\nNo es solo cuestión de saltar y caer. Tenemos un estilo propio: ropa ancha, música punk y un vocabulario que muchos adultos no entienden. Para algunos vecinos somos un grupo raro, y más de una vez nos han pedido que nos vayamos. Yo al principio me sentía fuera de lugar, pero aquí encontré gente que me aceptó tal como soy.\n\nEl año pasado organizamos un campeonato benéfico para recaudar dinero para una protectora de animales. Ver que los que parecían rebeldes eran los primeros en ayudar me hizo cambiar la forma de juzgar a los demás.\n\nSi alguna vez te sientes diferente, mi consejo es buscar a tu tribu. Puede que no esté donde esperas, pero la encontrarás.",
+    "questions": [
+      {
+        "id": "subc-q1",
+        "type": "true-false",
+        "prompt": "El grupo patina en el parque de la calle Olivo desde hace cinco años.",
+        "correctAnswer": "true",
+        "justification": "Llevamos cinco años patinando juntos en el parque de la calle Olivo"
+      },
+      {
+        "id": "subc-q2",
+        "type": "true-false",
+        "prompt": "A todos los vecinos les gusta el grupo.",
+        "correctAnswer": "false",
+        "justification": "Para algunos vecinos somos un grupo raro"
+      },
+      {
+        "id": "subc-q3",
+        "type": "mcq",
+        "prompt": "¿Qué música escucha el grupo?",
+        "options": [
+          "Jazz",
+          "Punk",
+          "Clásica",
+          "Reguetón"
+        ],
+        "correctAnswer": "Punk"
+      },
+      {
+        "id": "subc-q4",
+        "type": "mcq",
+        "prompt": "¿Para qué fue el campeonato que organizaron?",
+        "options": [
+          "Para ganar un premio",
+          "Para recaudar dinero para una protectora de animales",
+          "Para promocionar una marca de ropa",
+          "Para celebrar el aniversario del parque"
+        ],
+        "correctAnswer": "Para recaudar dinero para una protectora de animales"
+      },
+      {
+        "id": "subc-q5",
+        "type": "short",
+        "prompt": "¿Qué consejo da la autora a quien se sienta diferente?",
+        "correctAnswer": "buscar a tu tribu"
+      }
+    ],
+    "vocabulary": [
+      {
+        "es": "el skate park",
+        "en": "skate park"
+      },
+      {
+        "es": "el estilo propio",
+        "en": "their own style"
+      },
+      {
+        "es": "fuera de lugar",
+        "en": "out of place"
+      },
+      {
+        "es": "aceptar",
+        "en": "to accept"
+      },
+      {
+        "es": "recaudar",
+        "en": "to raise (money)"
+      },
+      {
+        "es": "la protectora de animales",
+        "en": "animal shelter"
+      },
+      {
+        "es": "juzgar",
+        "en": "to judge"
+      },
+      {
+        "es": "rebelde",
+        "en": "rebellious"
+      }
+    ]
+  },
+  {
+    "id": "reading-human-ingenuity-expresiones",
+    "themeId": "human-ingenuity",
+    "subtopic": "Expresiones artísticas",
+    "title": "Reseña: Muros que hablan",
+    "textType": "Review",
+    "level": "easy",
+    "bodyEs": "La exposición de arte urbano Muros que hablan puede visitarse hasta el próximo mes en el barrio de Ruzafa, en Valencia. Durante seis semanas, once artistas locales han pintado grandes murales en las fachadas de la calle principal.\n\nLa obra que más llama la atención es un mural de quince metros que muestra a una abuela y a su nieta cosechando naranjas. Los colores son intensos y los detalles, muy cuidados. Según la autora del mural, la pintura quiere recordar que la historia del barrio la escriben quienes lo habitan.\n\nTambién hay talleres gratuitos los sábados por la mañana, donde niños y adultos aprenden técnicas de grafiti y de pintura al aerosol. La mayoría de los participantes nunca había sostenido un pincel.\n\nEn mi opinión, la exposición es imprescindible para quien quiera ver el arte fuera de los museos. El único inconveniente es que algunas fachadas están en mal estado, pero eso hace que el conjunto sea todavía más interesante. Recomiendo visitarla por la tarde, cuando la luz hace brillar los colores.",
+    "questions": [
+      {
+        "id": "muros-q1",
+        "type": "true-false",
+        "prompt": "Once artistas locales han pintado murales para la exposición.",
+        "correctAnswer": "true",
+        "justification": "once artistas locales han pintado grandes murales"
+      },
+      {
+        "id": "muros-q2",
+        "type": "true-false",
+        "prompt": "Los talleres gratuitos son los sábados por la mañana.",
+        "correctAnswer": "true",
+        "justification": "hay talleres gratuitos los sábados por la mañana"
+      },
+      {
+        "id": "muros-q3",
+        "type": "mcq",
+        "prompt": "¿Qué representa el mural más llamativo?",
+        "options": [
+          "Un partido de fútbol",
+          "Una abuela y su nieta cosechando naranjas",
+          "Un mercado de flores",
+          "Una escena del mar"
+        ],
+        "correctAnswer": "Una abuela y su nieta cosechando naranjas"
+      },
+      {
+        "id": "muros-q4",
+        "type": "mcq",
+        "prompt": "¿Qué consejo da la reseña sobre la visita?",
+        "options": [
+          "Ir por la mañana temprano",
+          "Visitarla por la tarde",
+          "No ir si llueve",
+          "Llevar una cámara profesional"
+        ],
+        "correctAnswer": "Visitarla por la tarde"
+      },
+      {
+        "id": "muros-q5",
+        "type": "short",
+        "prompt": "¿Dónde se encuentra la exposición?",
+        "correctAnswer": "Ruzafa"
+      }
+    ],
+    "vocabulary": [
+      {
+        "es": "el arte urbano",
+        "en": "street art"
+      },
+      {
+        "es": "la fachada",
+        "en": "façade"
+      },
+      {
+        "es": "cosechar",
+        "en": "to harvest"
+      },
+      {
+        "es": "el aerosol",
+        "en": "spray paint"
+      },
+      {
+        "es": "imprescindible",
+        "en": "essential"
+      },
+      {
+        "es": "el inconveniente",
+        "en": "drawback"
+      },
+      {
+        "es": "en mal estado",
+        "en": "in poor condition"
+      },
+      {
+        "es": "el conjunto",
+        "en": "the whole"
+      }
+    ]
+  },
+  {
+    "id": "reading-sharing-planet-igualdad",
+    "themeId": "sharing-planet",
+    "subtopic": "Igualdad",
+    "title": "Discurso: La igualdad no es un favor",
+    "textType": "Speech",
+    "level": "hard",
+    "bodyEs": "Buenos días a todos. Hoy quiero hablar de algo que parece obvio, pero que todavía no lo es: la igualdad de oportunidades. Muchos piensan que basta con que la ley diga que todos somos iguales. Yo creo que no es suficiente.\n\nHace unos meses, una compañera de clase quiso presentarse a un concurso de robótica. Tenía el talento, pero no tenía ordenador en casa ni tiempo libre por las tardes, porque cuidaba a sus hermanos pequeños. No perdió por falta de capacidad, sino por falta de acceso. Esa es la desigualdad que muchas veces no vemos.\n\nPor eso creo que la igualdad no es un favor que se concede a unos pocos. Es un derecho que exige cambios concretos: becas, transporte, horarios flexibles y apoyo a las familias que más lo necesitan.\n\nNo os pido que estéis de acuerdo conmigo en todo. Os pido que, la próxima vez que alguien quede fuera por no tener las mismas condiciones, os preguntéis por qué. Gracias.",
+    "questions": [
+      {
+        "id": "igual-q1",
+        "type": "true-false",
+        "prompt": "La compañera no participó en el concurso porque no tenía talento.",
+        "correctAnswer": "false",
+        "justification": "No perdió por falta de capacidad, sino por falta de acceso"
+      },
+      {
+        "id": "igual-q2",
+        "type": "true-false",
+        "prompt": "La oradora piensa que la ley por sí sola basta para garantizar la igualdad.",
+        "correctAnswer": "false",
+        "justification": "Yo creo que no es suficiente"
+      },
+      {
+        "id": "igual-q3",
+        "type": "mcq",
+        "prompt": "¿Por qué no tenía tiempo libre la compañera?",
+        "options": [
+          "Trabajaba por las tardes",
+          "Cuidaba a sus hermanos pequeños",
+          "Estudiaba idiomas",
+          "Estaba enferma"
+        ],
+        "correctAnswer": "Cuidaba a sus hermanos pequeños"
+      },
+      {
+        "id": "igual-q4",
+        "type": "mcq",
+        "prompt": "¿Qué medida NO aparece en el discurso como ejemplo de cambio concreto?",
+        "options": [
+          "Becas",
+          "Transporte",
+          "Horarios flexibles",
+          "Impuestos más altos"
+        ],
+        "correctAnswer": "Impuestos más altos"
+      },
+      {
+        "id": "igual-q5",
+        "type": "short",
+        "prompt": "¿Qué pide la oradora al público al final del discurso?",
+        "correctAnswer": "preguntarse por qué"
+      }
+    ],
+    "vocabulary": [
+      {
+        "es": "la igualdad de oportunidades",
+        "en": "equal opportunities"
+      },
+      {
+        "es": "obvio",
+        "en": "obvious"
+      },
+      {
+        "es": "el talento",
+        "en": "talent"
+      },
+      {
+        "es": "el acceso",
+        "en": "access"
+      },
+      {
+        "es": "la desigualdad",
+        "en": "inequality"
+      },
+      {
+        "es": "conceder",
+        "en": "to grant"
+      },
+      {
+        "es": "la beca",
+        "en": "scholarship"
+      },
+      {
+        "es": "quedar fuera",
+        "en": "to be left out"
+      }
+    ]
+  },
+  {
+    "id": "reading-sharing-planet-medio-urbano",
+    "themeId": "sharing-planet",
+    "subtopic": "El medio urbano y rural",
+    "title": "Quedarse en el pueblo, un reto para todos",
+    "textType": "Newspaper article",
+    "level": "medium",
+    "bodyEs": "En muchas comarcas de España, los pueblos pequeños pierden habitantes cada año. Los jóvenes se marchan a la ciudad en busca de estudios y de trabajo, y los que se quedan son, con frecuencia, personas mayores. Esta despoblación del campo preocupa a las administraciones, que buscan nuevas fórmulas para frenarla.\n\nUno de los problemas más señalados es el transporte. En algunas zonas, el autobús pasa solo dos veces al día, lo que dificulta ir al médico o al instituto. Los vecinos piden que se mejoren las carreteras y que se creen servicios de transporte a demanda.\n\nSin embargo, no todo son dificultades. Cada vez más personas procedentes de la ciudad se instalan en el medio rural en busca de aire limpio, tranquilidad y una vida más cercana a la naturaleza. Algunos abren pequeños negocios, como panaderías o talleres de reparación.\n\nLos expertos coinciden en que el futuro del medio rural depende de la conexión a internet y de la vivienda asequible. Sin esos dos elementos, advierten, los pueblos seguirán perdiendo población.",
+    "questions": [
+      {
+        "id": "urb-q1",
+        "type": "true-false",
+        "prompt": "Los pueblos pequeños suelen ganar habitantes cada año.",
+        "correctAnswer": "false",
+        "justification": "los pueblos pequeños pierden habitantes cada año"
+      },
+      {
+        "id": "urb-q2",
+        "type": "true-false",
+        "prompt": "En algunas zonas, el autobús pasa solo dos veces al día.",
+        "correctAnswer": "true",
+        "justification": "En algunas zonas, el autobús pasa solo dos veces al día"
+      },
+      {
+        "id": "urb-q3",
+        "type": "mcq",
+        "prompt": "¿Quiénes suelen quedarse en los pueblos según el artículo?",
+        "options": [
+          "Los jóvenes que buscan trabajo",
+          "Las personas mayores",
+          "Los turistas",
+          "Los estudiantes universitarios"
+        ],
+        "correctAnswer": "Las personas mayores"
+      },
+      {
+        "id": "urb-q4",
+        "type": "mcq",
+        "prompt": "¿Qué buscan algunas personas de la ciudad al mudarse al campo?",
+        "options": [
+          "Un trabajo en una fábrica",
+          "Aire limpio y tranquilidad",
+          "Mejor conexión de metro",
+          "Vivir cerca del mar"
+        ],
+        "correctAnswer": "Aire limpio y tranquilidad"
+      },
+      {
+        "id": "urb-q5",
+        "type": "short",
+        "prompt": "Según los expertos, ¿de qué depende el futuro del medio rural además de la vivienda asequible?",
+        "correctAnswer": "la conexión a internet"
+      }
+    ],
+    "vocabulary": [
+      {
+        "es": "la despoblación",
+        "en": "depopulation"
+      },
+      {
+        "es": "la comarca",
+        "en": "region, county"
+      },
+      {
+        "es": "frenar",
+        "en": "to slow down, stop"
+      },
+      {
+        "es": "a demanda",
+        "en": "on demand"
+      },
+      {
+        "es": "la carretera",
+        "en": "road"
+      },
+      {
+        "es": "asequible",
+        "en": "affordable"
+      },
+      {
+        "es": "coincidir",
+        "en": "to agree"
+      },
+      {
+        "es": "advertir",
+        "en": "to warn"
+      }
+    ]
+  }
 ];
 
 // Merge the AI-generated extra questions into each passage (see reading-extra.ts).
